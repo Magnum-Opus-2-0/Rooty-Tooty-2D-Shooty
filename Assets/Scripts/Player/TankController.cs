@@ -7,14 +7,14 @@ public class TankController : MonoBehaviour
 
     /// <summary>
     /// The axis this tank will use to drive left and right. Defaults to player
-    /// one and MacOS.
+    /// one.
     /// </summary>
-    public string xDrive = "x-drive-1-mac";
+    public string xDrive = "x-drive-1";
     /// <summary>
     /// The axis this tank will use to drive up and down. Defaults to player
-    /// one and MacOS.
+    /// one.
     /// </summary>
-    public string zDrive = "z-drive-1-mac";
+    public string zDrive = "z-drive-1";
     /// <summary>
     /// The axis this tank will use to aim left and right. Defaults to player
     /// one and MacOS.
@@ -126,7 +126,7 @@ public class TankController : MonoBehaviour
         // So this is going to interpolate between the world space forward 
         // vector and the input vector at a speed of turnSpeed
         transform.rotation = Quaternion.LookRotation(
-            Vector3.RotateTowards(transform.forward, transform.forward + input.normalized, turnSpeed * Time.deltaTime, 0.0f)
+            Vector3.RotateTowards(transform.forward, transform.forward + dir * input.normalized, turnSpeed * Time.deltaTime, 0.0f)
         );
     }
 }
