@@ -7,28 +7,29 @@ public class TankController : MonoBehaviour
 
     /// <summary>
     /// The axis this tank will use to drive left and right. Defaults to player
-    /// one.
+    /// one and MacOS.
     /// </summary>
-    public string xDrive = "x-drive-1";
+    public string xDrive = "x-drive-1-mac";
     /// <summary>
     /// The axis this tank will use to drive up and down. Defaults to player
-    /// one.
+    /// one and MacOS.
     /// </summary>
-    public string zDrive = "z-drive-1";
+    public string zDrive = "z-drive-1-mac";
     /// <summary>
     /// The axis this tank will use to aim left and right. Defaults to player
-    /// one.
+    /// one and MacOS.
     /// </summary>
-    public string xAim = "x-aim-1";
+    public string xAim = "x-aim-1-mac";
     /// <summary>
-    /// The axis this tank will use to aim up and down. Defaults to player one.
+    /// The axis this tank will use to aim up and down. Defaults to player one
+    /// and MacOS.
     /// </summary>
-    public string zAim = "z-aim-1";
+    public string zAim = "z-aim-1-mac";
     /// <summary>
     /// The button this tank will use to drive backwards. Defaults to player
-    /// one. 
+    /// one and MacOS. 
     /// </summary>
-    public string reverse = "Reverse-1";
+    public string reverse = "reverse-1-mac";
 
     /// <summary>
     /// The turn speed of the tank in radians per second.
@@ -61,9 +62,8 @@ public class TankController : MonoBehaviour
 
         UpdateInput();
 
-        if (Input.GetButtonDown("Reverse-1"))
+        if (Input.GetButton(reverse))
         {
-            Debug.Log("Reverse button pressed.");
             dir = -1;
         } else
         {
@@ -71,7 +71,7 @@ public class TankController : MonoBehaviour
         }
 
         //DEBUG make sure to take this out later
-        if (Input.GetButtonUp("Reset Pos"))
+        if (Input.GetButtonUp("reset-pos"))
         {
             transform.position = new Vector3(0, .3f, 0);
         }
