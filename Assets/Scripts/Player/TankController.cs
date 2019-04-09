@@ -5,6 +5,26 @@ using UnityEngine;
 public class TankController : MonoBehaviour
 {
 
+    /// <summary>
+    /// The axis this tank will use to drive left and right. Defaults to player
+    /// one.
+    /// </summary>
+    public string xDrive = "x-drive-1";
+    /// <summary>
+    /// The axis this tank will use to drive up and down. Defaults to player
+    /// one.
+    /// </summary>
+    public string zDrive = "z-drive-1";
+    /// <summary>
+    /// The axis this tank will use to aim left and right. Defaults to player
+    /// one.
+    /// </summary>
+    public string xAim = "x-aim-1";
+    /// <summary>
+    /// The axis this tank will use to aim up and down. Defaults to player one.
+    /// </summary>
+    public string zAim = "z-aim-1";
+
     //public float speed = 10;
 
     private Vector3 input;
