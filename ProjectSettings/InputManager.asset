@@ -337,7 +337,7 @@ InputManager:
     dead: 0.25
     sensitivity: 3
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
     axis: 1
     joyNum: 1
@@ -353,7 +353,7 @@ InputManager:
     dead: 0.25
     sensitivity: 3
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
     axis: 1
     joyNum: 2
@@ -421,6 +421,22 @@ InputManager:
     type: 2
     axis: 3
     joyNum: 2
+  - serializedVersion: 3
+    m_Name: Reverse-1
+    descriptiveName: 'Player 1: Reverse'
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 4
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
   - serializedVersion: 3
     m_Name: Reset Pos
     descriptiveName: 

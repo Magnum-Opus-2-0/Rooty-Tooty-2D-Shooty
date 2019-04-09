@@ -24,6 +24,11 @@ public class TankController : MonoBehaviour
     /// The axis this tank will use to aim up and down. Defaults to player one.
     /// </summary>
     public string zAim = "z-aim-1";
+    /// <summary>
+    /// The button this tank will use to drive backwards. Defaults to player
+    /// one. 
+    /// </summary>
+    public string reverse = "Reverse-1";
 
     /// <summary>
     /// The turn speed of the tank in radians per second.
@@ -39,6 +44,7 @@ public class TankController : MonoBehaviour
     private Vector3 input;
     private float inputSpeed;
     private Rigidbody rb;
+    private int dir;
 
 
     // Start is called before the first frame update
@@ -46,6 +52,7 @@ public class TankController : MonoBehaviour
     {
         input = new Vector3();
         rb = GetComponent<Rigidbody>();
+        dir = 1;
     }
 
     // Update is called once per frame
@@ -53,6 +60,15 @@ public class TankController : MonoBehaviour
     {
 
         UpdateInput();
+
+        if (Input.GetButtonDown("Reverse-1"))
+        {
+            Debug.Log("Reverse button pressed.");
+            dir = -1;
+        } else
+        {
+            dir = 1;
+        }
 
         //DEBUG make sure to take this out later
         if (Input.GetButtonUp("Reset Pos"))
@@ -65,7 +81,7 @@ public class TankController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MoveTankForward();
+        MoveTankToInput();
     }
 
     /// <summary>
@@ -73,7 +89,7 @@ public class TankController : MonoBehaviour
     /// </summary>
     private void UpdateInput()
     {
-        input.Set(Input.GetAxis(xDrive), 0, -1 * Input.GetAxis(zDrive));
+        input.Set(Input.GetAxis(xDrive), 0, Input.GetAxis(zDrive));
         inputSpeed = Mathf.Max(Mathf.Abs(input.x), Mathf.Abs(input.z));
     }
 
@@ -88,13 +104,23 @@ public class TankController : MonoBehaviour
     }
 
     /// <summary>
-    /// Moves the tank by applying a force in the forward direction and turning
-    /// to the direction the analog stick points.
+    /// Moves the tank by applying a force and turning to the direction the 
+    /// analog stick points.
+    /// The force is applied to the local space's forward or backward direction 
+    /// depending on whether the reverse button is pressed.
     /// </summary>
-    private void MoveTankForward()
+    private void MoveTankToInput()
     {
-        rb.AddForce(transform.forward * inputSpeed, ForceMode.Impulse);
+        rb.AddForce(dir * inputSpeed * transform.forward, ForceMode.Impulse);
+        TurnTowardInput();
+    }
 
+    /// <summary>
+    /// Turns the tank in the direction given by the input vector relative to
+    /// the camSpace.
+    /// </summary>
+    private void TurnTowardInput()
+    {
         // We want to rotate the tank a little at a time until it points in the
         // direction we are pointing with the left analog stick
         // So this is going to interpolate between the world space forward 
