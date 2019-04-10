@@ -5,8 +5,8 @@ using UnityEngine;
 public enum DriveMode
 {
     FREE,
-    POINT_STICK,
-    TURN_STICK,
-    POINT_TRIGGERS,
-    TURN_TRIGGERS
+    STICK,
+    //TURN_STICK,
+    TRIGGERS
+    //TURN_TRIGGERS
 }
