@@ -75,7 +75,8 @@ public class TankController : MonoBehaviour
         if (driveMode == DriveMode.POINT && Input.GetButton(reverse))
         {
             dir = -1;
-        } else
+        } 
+        else if (driveMode == DriveMode.POINT)
         {
             dir = 1;
         }
