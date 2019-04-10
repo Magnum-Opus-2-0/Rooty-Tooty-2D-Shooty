@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class TankController : MonoBehaviour
 {
-
+    /// <summary>
+    /// Determines the steering mode of the tank. <see langword="true"/> is 
+    /// point and <see langword="false"/> is turn.
+    /// </summary>
+    public bool steerWithPoint = true;
     /// <summary>
     /// The axis this tank will use to drive left and right. Defaults to player
     /// one.
@@ -17,14 +21,19 @@ public class TankController : MonoBehaviour
     public string zDrive = "z-drive-1";
     /// <summary>
     /// The button this tank will use to drive backwards. Defaults to player
-    /// one and MacOS. 
+    /// one and MacOS. This is only applicable if the steer mode is point.
     /// </summary>
     public string reverse = "reverse-1-mac";
 
     /// <summary>
     /// The turn speed of the tank in radians per second.
     /// </summary>
-    public float turnSpeed = 5;
+    public float turnSpeed = 5f;
+    /// <summary>
+    /// The drive speed of the tank. This is only applicable if the steer mode
+    /// is turn.
+    /// </summary>
+    public float driveSpeed = 50f;
 
     /// <summary>
     /// The Transform of the Camera that follows this Tank.
@@ -52,7 +61,7 @@ public class TankController : MonoBehaviour
 
         UpdateInput();
 
-        if (Input.GetButton(reverse))
+        if (steerWithPoint && Input.GetButton(reverse))
         {
             dir = -1;
         } else
@@ -71,7 +80,14 @@ public class TankController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MoveTankToInput();
+        if (steerWithPoint)
+        {
+            MoveTankWithPoint();
+        }
+        else
+        { 
+            MoveTankWithTurn();
+        }
     }
 
     /// <summary>
@@ -99,10 +115,22 @@ public class TankController : MonoBehaviour
     /// The force is applied to the local space's forward or backward direction 
     /// depending on whether the reverse button is pressed.
     /// </summary>
-    private void MoveTankToInput()
+    private void MoveTankWithPoint()
     {
         rb.AddForce(dir * inputSpeed * transform.forward, ForceMode.Impulse);
         TurnTowardInput();
+    }
+
+    /// <summary>
+    /// Moves the tank by applying a force and turning left or right according
+    /// to left analog stick input.
+    /// The force is applied in the forward direction if the player pushes up
+    /// on the left analog and vice versa.
+    /// </summary>
+    private void MoveTankWithTurn()
+    {
+        rb.AddForce(input.z * driveSpeed * transform.forward);
+        transform.Rotate(0f, input.x * turnSpeed, 0f);
     }
 
     /// <summary>

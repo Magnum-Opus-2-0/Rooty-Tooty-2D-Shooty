@@ -201,10 +201,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 288a1bc9c8be74aafb2262c94a026bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  steerWithPoint: 1
   xDrive: x-drive-1
   zDrive: z-drive-1
   reverse: reverse-1-mac
   turnSpeed: 1
+  driveSpeed: 50
   camSpace: {fileID: 0}
 --- !u!1 &7384040175891051519
 GameObject:

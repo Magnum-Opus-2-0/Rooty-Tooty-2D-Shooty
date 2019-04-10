@@ -21,6 +21,7 @@ public class TurretController : MonoBehaviour
     public float turnSpeed = 3f;
 
     private Vector3 input;
+    private Vector3 offset;
 
     // Start is called before the first frame update
     void Start()
