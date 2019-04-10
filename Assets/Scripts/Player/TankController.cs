@@ -123,14 +123,17 @@ public class TankController : MonoBehaviour
         if (Input.GetAxis(forwardDrive) != 0)
         {
             triggerInput = Input.GetAxis(forwardDrive);
+            dir = 1;
         }
         else if (Input.GetAxis(backwardDrive) != 0) 
         {
             triggerInput = -1 * Input.GetAxis(backwardDrive);
+            dir = -1;
         }
         else
         {
             triggerInput = 0;
+            dir = 1;
         }
     }
 
