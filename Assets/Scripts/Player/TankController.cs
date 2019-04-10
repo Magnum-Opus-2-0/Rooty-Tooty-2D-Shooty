@@ -7,7 +7,7 @@ public class TankController : MonoBehaviour
     /// <summary>
     /// Determines the driving mode of the tank.
     /// </summary>
-    public DriveMode driveMode = DriveMode.POINT;
+    public DriveMode driveMode = DriveMode.POINT_STICK;
     /// <summary>
     /// The axis this tank will use to drive left and right. Defaults to player
     /// one.
@@ -20,12 +20,12 @@ public class TankController : MonoBehaviour
     public string zDrive = "z-drive-1";
     /// <summary>
     /// The button this tank will use to drive backwards. Defaults to player
-    /// one and MacOS. This is only applicable if the DriveMode is POINT.
+    /// one and MacOS. This is only applicable if the DriveMode <see cref="DriveMode.POINT_STICK"/>.
     /// </summary>
     public string reverse = "reverse-1-mac";
     /// <summary>
     /// The trigger this tank will use to drive forward. Defaults to player one
-    /// and MacOS. This is only applicable if the DriveMode is TRIGGERS.
+    /// and MacOS. This is only applicable if the DriveMode is POINT_TRIGGERS.
     /// </summary>
     public string forwardDrive = "forward-drive-1-mac";
     /// <summary>
@@ -41,7 +41,7 @@ public class TankController : MonoBehaviour
     public float turnSpeed = 5f;
     /// <summary>
     /// The drive speed of the tank. This is only applicable if the DriveMode
-    /// is TURN.
+    /// is TURN, POINT_TRIGGERS or TURN_TRIGGERS.
     /// </summary>
     public float driveSpeed = 50f;
 
@@ -72,11 +72,11 @@ public class TankController : MonoBehaviour
 
         UpdateInput();
 
-        if (driveMode == DriveMode.POINT && Input.GetButton(reverse))
+        if (driveMode == DriveMode.POINT_STICK && Input.GetButton(reverse))
         {
             dir = -1;
         } 
-        else if (driveMode == DriveMode.POINT)
+        else if (driveMode == DriveMode.POINT_STICK)
         {
             dir = 1;
         }
@@ -94,20 +94,24 @@ public class TankController : MonoBehaviour
     {
         switch (driveMode)
         {
-            case DriveMode.POINT:
+            case DriveMode.FREE:
+                MoveTankFree();
+                break;
+
+            case DriveMode.POINT_STICK:
                 MoveTankWithPoint();
                 break;
 
-            case DriveMode.TURN:
+            case DriveMode.TURN_STICK:
                 MoveTankWithTurn();
                 break;
 
-            case DriveMode.TRIGGERS:
+            case DriveMode.POINT_TRIGGERS:
                 MoveTankWithTriggers();
                 break;
 
-            case DriveMode.FREE:
-                MoveTankFree();
+            case DriveMode.TURN_TRIGGERS:
+                MoveTankWithTurnTriggers();
                 break;
         }
     }
@@ -154,7 +158,7 @@ public class TankController : MonoBehaviour
     /// left analog stick points.
     /// The force is applied to the local space's forward or backward direction 
     /// depending on whether the reverse button is pressed.
-    /// <para>Corresponds to: <see cref="DriveMode.POINT"/></para>
+    /// <para>Corresponds to: <see cref="DriveMode.POINT_STICK"/></para>
     /// </summary>
     private void MoveTankWithPoint()
     {
@@ -167,7 +171,7 @@ public class TankController : MonoBehaviour
     /// to left analog stick input.
     /// The force is applied in the forward direction if the player pushes up
     /// on the left analog and vice versa.
-    /// /// <para>Corresponds to: <see cref="DriveMode.TURN"/></para>
+    /// /// <para>Corresponds to: <see cref="DriveMode.TURN_STICK"/></para>
     /// </summary>
     private void MoveTankWithTurn()
     {
@@ -180,12 +184,25 @@ public class TankController : MonoBehaviour
     /// left analog stick points.
     /// The force is applied forward if the right trigger is pulled and backward
     /// if the left trigger is pulled.
-    /// <para>Corresponds to: <see cref="DriveMode.TRIGGERS"/></para>
+    /// <para>Corresponds to: <see cref="DriveMode.POINT_TRIGGERS"/></para>
     /// </summary>
     private void MoveTankWithTriggers()
     {
         rb.AddForce(triggerInput * driveSpeed * transform.forward);
         TurnTowardInput();
+    }
+
+    /// <summary>
+    /// Moves the tank by applying a force and turning left or right according
+    /// to the left analog stick input.
+    /// The force is applied forward if the right trigger is pulled and backward
+    /// if the left trigger is pulled.
+    /// <para>Corresponds to: <see cref="DriveMode.TURN_TRIGGERS"/></para>
+    /// </summary>
+    private void MoveTankWithTurnTriggers()
+    {
+        rb.AddForce(triggerInput * driveSpeed * transform.forward);
+        transform.Rotate(0f, stickInput.x * turnSpeed, 0f);
     }
 
     /// <summary>
