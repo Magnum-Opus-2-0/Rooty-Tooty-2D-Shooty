@@ -5,10 +5,9 @@ using UnityEngine;
 public class TankController : MonoBehaviour
 {
     /// <summary>
-    /// Determines the steering mode of the tank. <see langword="true"/> is 
-    /// point and <see langword="false"/> is turn.
+    /// Determines the driving mode of the tank.
     /// </summary>
-    public bool steerWithPoint = true;
+    public DriveMode driveMode = DriveMode.POINT;
     /// <summary>
     /// The axis this tank will use to drive left and right. Defaults to player
     /// one.
@@ -21,17 +20,28 @@ public class TankController : MonoBehaviour
     public string zDrive = "z-drive-1";
     /// <summary>
     /// The button this tank will use to drive backwards. Defaults to player
-    /// one and MacOS. This is only applicable if the steer mode is point.
+    /// one and MacOS. This is only applicable if the DriveMode is POINT.
     /// </summary>
     public string reverse = "reverse-1-mac";
+    /// <summary>
+    /// The trigger this tank will use to drive forward. Defaults to player one
+    /// and MacOS. This is only applicable if the DriveMode is TRIGGERS.
+    /// </summary>
+    public string forwardDrive = "forward-drive-1-mac";
+    /// <summary>
+    /// The trigger this tank will use to drive backward. Defaults to player one
+    /// and MacOS. This is only applicable if the DriveMode is TRIGGERS.
+    /// </summary>
+    public string backwardDrive = "backward-drive-1-mac";
+
 
     /// <summary>
     /// The turn speed of the tank in radians per second.
     /// </summary>
     public float turnSpeed = 5f;
     /// <summary>
-    /// The drive speed of the tank. This is only applicable if the steer mode
-    /// is turn.
+    /// The drive speed of the tank. This is only applicable if the DriveMode
+    /// is TURN.
     /// </summary>
     public float driveSpeed = 50f;
 
@@ -41,7 +51,8 @@ public class TankController : MonoBehaviour
     public Transform camSpace;
 
 
-    private Vector3 input;
+    private Vector3 stickInput;
+    private float triggerInput;
     private float inputSpeed;
     private Rigidbody rb;
     private int dir;
@@ -50,7 +61,7 @@ public class TankController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        input = new Vector3();
+        stickInput = new Vector3();
         rb = GetComponent<Rigidbody>();
         dir = 1;
     }
@@ -61,7 +72,7 @@ public class TankController : MonoBehaviour
 
         UpdateInput();
 
-        if (steerWithPoint && Input.GetButton(reverse))
+        if (driveMode == DriveMode.POINT && Input.GetButton(reverse))
         {
             dir = -1;
         } else
@@ -80,40 +91,66 @@ public class TankController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (steerWithPoint)
+        switch (driveMode)
         {
-            MoveTankWithPoint();
-        }
-        else
-        { 
-            MoveTankWithTurn();
+            case DriveMode.POINT:
+                MoveTankWithPoint();
+                break;
+
+            case DriveMode.TURN:
+                MoveTankWithTurn();
+                break;
+
+            case DriveMode.TRIGGERS:
+                MoveTankWithTriggers();
+                break;
+
+            case DriveMode.FREE:
+                MoveTankFree();
+                break;
         }
     }
 
     /// <summary>
-    /// Updates the <see cref="input"/> vector.
+    /// Updates the <see cref="stickInput"/> vector.
     /// </summary>
     private void UpdateInput()
     {
-        input.Set(Input.GetAxis(xDrive), 0, Input.GetAxis(zDrive));
-        inputSpeed = Mathf.Max(Mathf.Abs(input.x), Mathf.Abs(input.z));
+        stickInput.Set(Input.GetAxis(xDrive), 0, Input.GetAxis(zDrive));
+        inputSpeed = Mathf.Max(Mathf.Abs(stickInput.x), Mathf.Abs(stickInput.z));
+
+        // If both triggers are pressed, then forward movement takes priority
+        if (Input.GetAxis(forwardDrive) != 0)
+        {
+            triggerInput = Input.GetAxis(forwardDrive);
+        }
+        else if (Input.GetAxis(backwardDrive) != 0) 
+        {
+            triggerInput = -1 * Input.GetAxis(backwardDrive);
+        }
+        else
+        {
+            triggerInput = 0;
+        }
     }
 
     /// <summary>
     /// <para>Debug function.</para>
     /// Moves the tank by adding an impulse in whichever direction the left
     /// analog stick points.
+    /// <para><see cref="DriveMode.FREE"/></para>
     /// </summary>
     private void MoveTankFree()
     {
-        rb.AddForce(input, ForceMode.Impulse);
+        rb.AddForce(stickInput, ForceMode.Impulse);
     }
 
     /// <summary>
     /// Moves the tank by applying a force and turning to the direction the 
-    /// analog stick points.
+    /// left analog stick points.
     /// The force is applied to the local space's forward or backward direction 
     /// depending on whether the reverse button is pressed.
+    /// <para>Corresponds to: <see cref="DriveMode.POINT"/></para>
     /// </summary>
     private void MoveTankWithPoint()
     {
@@ -126,11 +163,25 @@ public class TankController : MonoBehaviour
     /// to left analog stick input.
     /// The force is applied in the forward direction if the player pushes up
     /// on the left analog and vice versa.
+    /// /// <para>Corresponds to: <see cref="DriveMode.TURN"/></para>
     /// </summary>
     private void MoveTankWithTurn()
     {
-        rb.AddForce(input.z * driveSpeed * transform.forward);
-        transform.Rotate(0f, input.x * turnSpeed, 0f);
+        rb.AddForce(stickInput.z * driveSpeed * transform.forward);
+        transform.Rotate(0f, stickInput.x * turnSpeed, 0f);
+    }
+
+    /// <summary>
+    /// Moves the tank by applying a force and turning to the direction the
+    /// left analog stick points.
+    /// The force is applied forward if the right trigger is pulled and backward
+    /// if the left trigger is pulled.
+    /// <para>Corresponds to: <see cref="DriveMode.TRIGGERS"/></para>
+    /// </summary>
+    private void MoveTankWithTriggers()
+    {
+        rb.AddForce(triggerInput * driveSpeed * transform.forward);
+        TurnTowardInput();
     }
 
     /// <summary>
@@ -144,7 +195,7 @@ public class TankController : MonoBehaviour
         // So this is going to interpolate between the world space forward 
         // vector and the input vector at a speed of turnSpeed
         transform.rotation = Quaternion.LookRotation(
-            Vector3.RotateTowards(transform.forward, dir * input.normalized, turnSpeed * Time.deltaTime, 0.0f)
+            Vector3.RotateTowards(transform.forward, dir * stickInput.normalized, turnSpeed * Time.deltaTime, 0.0f)
         );
     }
 }
