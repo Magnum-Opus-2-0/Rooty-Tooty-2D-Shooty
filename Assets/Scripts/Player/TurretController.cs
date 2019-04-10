@@ -21,12 +21,13 @@ public class TurretController : MonoBehaviour
     public float turnSpeed = 3f;
 
     private Vector3 input;
-    private Vector3 offset;
+    private Vector3 lastRot;
 
     // Start is called before the first frame update
     void Start()
     {
         input = new Vector3();
+        lastRot = transform.parent.forward;
     }
 
     // Update is called once per frame
@@ -37,7 +38,14 @@ public class TurretController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        TurnTurret();
+        if (input.magnitude > 0)
+        {
+            TurnTurret();
+        } 
+        else
+        {
+            HoldTurretRotation();
+        }
     }
 
     private void UpdateInput()
@@ -46,17 +54,24 @@ public class TurretController : MonoBehaviour
     }
 
     /// <summary>
-    /// Turns the tank in the direction given by the input vector relative to
+    /// Turns the turret in the direction given by the input vector relative to
     /// the camSpace.
     /// </summary>
     private void TurnTurret()
     {
-        // We want to rotate the tank a little at a time until it points in the
-        // direction we are pointing with the left analog stick
-        // So this is going to interpolate between the world space forward 
-        // vector and the input vector at a speed of turnSpeed
+        // Save the last rotation we set it to so we can hold the turret there
+        // even if the tank turns.
+        lastRot = Vector3.RotateTowards(transform.forward, input.normalized, turnSpeed * Time.deltaTime, 0.0f);
+        transform.rotation = Quaternion.LookRotation(lastRot);
+    }
+
+    /// <summary>
+    /// Holds the turret at the last rotation inputted.
+    /// </summary>
+    private void HoldTurretRotation()
+    {
         transform.rotation = Quaternion.LookRotation(
-            Vector3.RotateTowards(transform.forward, transform.forward + input.normalized, turnSpeed * Time.deltaTime, 0.0f)
+            Vector3.RotateTowards(transform.forward, lastRot, turnSpeed * Time.deltaTime, 0.0f)
         );
     }
 }

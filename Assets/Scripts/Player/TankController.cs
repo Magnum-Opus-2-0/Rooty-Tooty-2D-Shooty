@@ -144,7 +144,7 @@ public class TankController : MonoBehaviour
         // So this is going to interpolate between the world space forward 
         // vector and the input vector at a speed of turnSpeed
         transform.rotation = Quaternion.LookRotation(
-            Vector3.RotateTowards(transform.forward, transform.forward + dir * input.normalized, turnSpeed * Time.deltaTime, 0.0f)
+            Vector3.RotateTowards(transform.forward, dir * input.normalized, turnSpeed * Time.deltaTime, 0.0f)
         );
     }
 }
