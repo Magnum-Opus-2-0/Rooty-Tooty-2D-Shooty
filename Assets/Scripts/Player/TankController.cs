@@ -16,16 +16,6 @@ public class TankController : MonoBehaviour
     /// </summary>
     public string zDrive = "z-drive-1";
     /// <summary>
-    /// The axis this tank will use to aim left and right. Defaults to player
-    /// one and MacOS.
-    /// </summary>
-    public string xAim = "x-aim-1-mac";
-    /// <summary>
-    /// The axis this tank will use to aim up and down. Defaults to player one
-    /// and MacOS.
-    /// </summary>
-    public string zAim = "z-aim-1-mac";
-    /// <summary>
     /// The button this tank will use to drive backwards. Defaults to player
     /// one and MacOS. 
     /// </summary>
