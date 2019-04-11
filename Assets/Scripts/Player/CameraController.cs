@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CameraController : MonoBehaviour
 {
 
@@ -19,6 +20,7 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = target.position + Vector3.up*14;
         offset = transform.position - target.position;
     }
 
