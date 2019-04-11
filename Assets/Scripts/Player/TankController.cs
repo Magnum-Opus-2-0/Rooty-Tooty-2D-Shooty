@@ -51,11 +51,6 @@ public class TankController : MonoBehaviour
     /// </summary>
     public float driveSpeed = 50f;
 
-    /// <summary>
-    /// The Transform of the Camera that follows this Tank.
-    /// </summary>
-    public Transform camSpace;
-
 
     private Vector3 stickInput;
     private float triggerInput;
@@ -159,8 +154,8 @@ public class TankController : MonoBehaviour
     }
 
     /// <summary>
-    /// Turns the tank to point in the direction given by the input vector 
-    /// relative to the camSpace.
+    /// Turns the tank to point in the direction given by the input vector
+    /// relative to world space.
     /// </summary>
     private void PointTank()
     {
