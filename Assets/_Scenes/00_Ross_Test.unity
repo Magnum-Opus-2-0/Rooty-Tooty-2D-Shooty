@@ -124,6 +124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank_1
       objectReference: {fileID: 0}
+    - target: {fileID: 5348189828253354313, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player_1
+      objectReference: {fileID: 0}
     - target: {fileID: 400381040898309034, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -467,6 +472,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tank_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348189828253354313, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player_2
       objectReference: {fileID: 0}
     - target: {fileID: 400381040898309034, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}

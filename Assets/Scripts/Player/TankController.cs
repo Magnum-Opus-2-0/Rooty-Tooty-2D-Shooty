@@ -18,12 +18,12 @@ public class TankController : MonoBehaviour
     /// The axis this tank will use to drive left and right. Defaults to player
     /// one.
     /// </summary>
-    public string xDrive = "x-drive-1";
+    public string xDrive1 = "x-drive-1";
     /// <summary>
     /// The axis this tank will use to drive up and down. Defaults to player
     /// one.
     /// </summary>
-    public string zDrive = "z-drive-1";
+    public string zDrive1 = "z-drive-1";
     /// <summary>
     /// The button this tank will use to drive backwards. Defaults to player
     /// one and MacOS. This is only applicable if the DriveMode <see cref="DriveMode.STICK"/>.
@@ -60,7 +60,8 @@ public class TankController : MonoBehaviour
     private Vector3 stickInput;
     private float triggerInput;
     private float inputSpeed;
-    private Rigidbody rb;
+    private Rigidbody p1_rb;
+    private Rigidbody p2_rb;
     private int dir;
 
 
@@ -68,7 +69,8 @@ public class TankController : MonoBehaviour
     void Start()
     {
         stickInput = new Vector3();
-        rb = GetComponent<Rigidbody>();
+        p1_rb = GameObject.FindGameObjectWithTag("Player_1").GetComponent<Rigidbody>();
+        p2_rb = GameObject.FindGameObjectWithTag("Player_2").GetComponent<Rigidbody>();
         dir = 1;
     }
 
@@ -97,7 +99,7 @@ public class TankController : MonoBehaviour
     /// </summary>
     private void UpdateInput()
     {
-        stickInput.Set(Input.GetAxis(xDrive), 0, Input.GetAxis(zDrive));
+        stickInput.Set(Input.GetAxis(xDrive1), 0, Input.GetAxis(zDrive1));
         inputSpeed = Mathf.Max(Mathf.Abs(stickInput.x), Mathf.Abs(stickInput.z));
 
         // This block determined the outcome of the dir variable depending on
@@ -143,7 +145,7 @@ public class TankController : MonoBehaviour
     /// </summary>
     private void MoveTankFree()
     {
-        rb.AddForce(stickInput, ForceMode.Impulse);
+        p1_rb.AddForce(stickInput, ForceMode.Impulse);
     }
 
     /// <summary>
@@ -153,7 +155,7 @@ public class TankController : MonoBehaviour
     /// force is applied forward or backward.</param>
     public void DriveTank(float speed)
     {
-        rb.AddForce(speed * transform.forward, ForceMode.Impulse);
+        p1_rb.AddForce(speed * transform.forward, ForceMode.Impulse);
     }
 
     /// <summary>
