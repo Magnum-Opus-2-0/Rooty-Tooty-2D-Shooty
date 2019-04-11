@@ -21,6 +21,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         transform.position = target.position + Vector3.up*14;
+        transform.eulerAngles = new Vector3(90, 0, 0); 
         offset = transform.position - target.position;
     }
 
