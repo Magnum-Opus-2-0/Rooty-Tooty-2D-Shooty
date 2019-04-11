@@ -374,6 +374,22 @@ InputManager:
     axis: 2
     joyNum: 1
   - serializedVersion: 3
+    m_Name: x-aim-1-win
+    descriptiveName: 'Player 1: Aim Right'
+    descriptiveNegativeName: 'Player 1: Aim Left'
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.25
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 3
+    joyNum: 1
+  - serializedVersion: 3
     m_Name: x-aim-2-mac
     descriptiveName: 'Player 2: Aim Right'
     descriptiveNegativeName: 'Player 2: Aim Left'
@@ -388,6 +404,22 @@ InputManager:
     invert: 0
     type: 2
     axis: 2
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: x-aim-2-win
+    descriptiveName: 'Player 2: Aim Right'
+    descriptiveNegativeName: 'Player 2: Aim Left'
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.25
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 3
     joyNum: 2
   - serializedVersion: 3
     m_Name: z-aim-1-mac
@@ -406,6 +438,22 @@ InputManager:
     axis: 3
     joyNum: 1
   - serializedVersion: 3
+    m_Name: z-aim-1-win
+    descriptiveName: 'Player 1: Aim Up'
+    descriptiveNegativeName: 'Player 1: Aim Down'
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.25
+    sensitivity: 3
+    snap: 0
+    invert: 1
+    type: 2
+    axis: 4
+    joyNum: 1
+  - serializedVersion: 3
     m_Name: z-aim-2-mac
     descriptiveName: 'Player 2: Aim Up'
     descriptiveNegativeName: 'Player 2: Aim Down'
@@ -420,6 +468,22 @@ InputManager:
     invert: 1
     type: 2
     axis: 3
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: z-aim-2-win
+    descriptiveName: 'Player 2: Aim Up'
+    descriptiveNegativeName: 'Player 2: Aim Down'
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.25
+    sensitivity: 3
+    snap: 0
+    invert: 1
+    type: 2
+    axis: 4
     joyNum: 2
   - serializedVersion: 3
     m_Name: reverse-1-mac
