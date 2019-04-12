@@ -534,6 +534,22 @@ InputManager:
     axis: 4
     joyNum: 1
   - serializedVersion: 3
+    m_Name: forward-drive-1-win
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 8
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 9
+    joyNum: 1
+  - serializedVersion: 3
     m_Name: backward-drive-1-mac
     descriptiveName: 
     descriptiveNegativeName: 
@@ -548,4 +564,20 @@ InputManager:
     invert: 0
     type: 0
     axis: 4
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: backward-drive-1-win
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 7
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 8
     joyNum: 1
