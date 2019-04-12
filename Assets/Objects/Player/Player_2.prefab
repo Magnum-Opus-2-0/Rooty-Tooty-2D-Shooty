@@ -67,8 +67,8 @@ MonoBehaviour:
   xDrive: x-drive-2
   zDrive: z-drive-2
   reverse: reverse-1-mac
-  forwardDrive: forward-drive-1-mac
-  backwardDrive: backward-drive-1-mac
+  forwardDrive: forward-drive-2-win
+  backwardDrive: backward-drive-2-win
   turnSpeed: 3
   driveSpeed: 50
 --- !u!1 &1048435869815950403
