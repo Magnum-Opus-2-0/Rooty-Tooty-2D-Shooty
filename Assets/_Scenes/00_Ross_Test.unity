@@ -184,6 +184,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1514116234941514937, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: forwardDrive
+      value: forward-drive-1-win
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514116234941514937, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: backwardDrive
+      value: backward-drive-1-win
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264002227, guid: f81d2b628259641319bf90c9947d6ccd, type: 3}
+      propertyPath: xAim
+      value: x-aim-1-win
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264002227, guid: f81d2b628259641319bf90c9947d6ccd, type: 3}
+      propertyPath: zAim
+      value: z-aim-1-win
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f81d2b628259641319bf90c9947d6ccd, type: 3}
 --- !u!1 &824598667
@@ -532,6 +550,29 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514116234941514937, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: steerMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514116234941514937, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: xDrive
+      value: x-drive-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514116234941514937, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: zDrive
+      value: z-drive-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264002227, guid: f81d2b628259641319bf90c9947d6ccd, type: 3}
+      propertyPath: xAim
+      value: x-aim-2-win
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264002227, guid: f81d2b628259641319bf90c9947d6ccd, type: 3}
+      propertyPath: zAim
+      value: z-aim-2-win
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f81d2b628259641319bf90c9947d6ccd, type: 3}
