@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class CameraController : MonoBehaviour
 {
+    public int distanceFromTank = 40;
 
     /// <summary>
     /// The Transform of the GameObject that the Camera will follow.
@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = target.position + Vector3.up*14;
+        transform.position = target.position + Vector3.up*distanceFromTank;
         transform.eulerAngles = new Vector3(90, 0, 0); 
         offset = transform.position - target.position;
     }
