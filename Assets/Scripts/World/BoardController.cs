@@ -18,11 +18,11 @@ public class BoardController : MonoBehaviour
     /// <summary>
     /// How many tiles there are in the z direction.
     /// </summary>
-    private readonly int Z_MAX = 100;
+    private readonly int Z_MAX = 50;
     /// <summary>
     /// How many tiles there are in the x direction.
     /// </summary>
-    private readonly int X_MAX = 100;
+    private readonly int X_MAX = 50;
 
     // Start is called before the first frame update
     void Start()
