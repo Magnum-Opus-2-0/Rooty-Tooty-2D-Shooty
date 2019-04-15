@@ -44,19 +44,47 @@ public class TankController : MonoBehaviour
     /// <summary>
     /// The turn speed of the tank in radians per second.
     /// </summary>
-    public float turnSpeed = 5f;
+    public float turnSpeed = 3f;
     /// <summary>
-    /// The drive speed of the tank. This is only applicable if the DriveMode
-    /// is TURN, POINT_TRIGGERS or TURN_TRIGGERS.
+    /// The maximum speed of the tank.
     /// </summary>
-    public float driveSpeed = 50f;
+    public float maxSpeed = 4f;
+    /// <summary>
+    /// The acceleration of the tank. That is, how fast its speed will increase
+    /// to <see cref="maxSpeed"/>.
+    /// </summary>
+    public float accelerate = 2.5f;
 
 
+    /// <summary>
+    /// The input from the left analog stick. Not normalized.
+    /// </summary>
     private Vector3 stickInput;
+    /// <summary>
+    /// The input from the triggers. The range is [-1, 1], where [-1, 0) when
+    /// the left trigger is pushed or (0, 1] when the right trigger is pushed.
+    /// </summary>
     private float triggerInput;
+    /// <summary>
+    /// How much the left analog stick has been pushed.
+    /// Equal to max(x-axis, z-axis).
+    /// </summary>
     private float inputSpeed;
+    /// <summary>
+    /// The <see cref=" Rigidbody"/> attached to this Tank. 
+    /// </summary>
     private Rigidbody rb;
+    /// <summary>
+    /// Controls the direction of driving when driveMode is
+    /// <see cref="DriveMode.STICK"/>.
+    /// Also adjusts steering to make it feel more naturtal when steerMode is
+    /// <see cref="SteerMode.POINT"/>
+    /// </summary>
     private int dir;
+    /// <summary>
+    /// The current speed of the Tank.
+    /// </summary>
+    private float curSpeed;
 
 
     // Start is called before the first frame update
@@ -72,6 +100,15 @@ public class TankController : MonoBehaviour
     {
 
         UpdateInput();
+
+        if (IsDriving())
+        {
+            AccelerateTank();
+        }
+        else
+        {
+            curSpeed = 0;
+        }
 
         //DEBUG make sure to take this out later
         if (Input.GetButtonUp("reset-pos"))
@@ -111,12 +148,16 @@ public class TankController : MonoBehaviour
 
             case DriveMode.TRIGGERS:
                 // If both triggers are pressed, then forward movement takes priority
+                #pragma warning disable RECS0018 // Suppressing floating point comparison warning because Unity promises to return exactly 0 if it receives no input.
                 if (Input.GetAxis(forwardDrive) != 0)
+                #pragma warning restore RECS0018
                 {
                     triggerInput = Input.GetAxis(forwardDrive);
                     dir = 1;
                 }
+                #pragma warning disable RECS0018 // Suppressing floating point comparison warning because Unity promises to return exactly 0 if it receives no input.
                 else if (Input.GetAxis(backwardDrive) != 0)
+                #pragma warning restore RECS0018
                 {
                     triggerInput = -1 * Input.GetAxis(backwardDrive);
                     dir = -1;
@@ -144,11 +185,16 @@ public class TankController : MonoBehaviour
     /// <summary>
     /// Drives the tank forward or backwards by applying an Implulse.
     /// </summary>
-    /// <param name="speed">The speed of the Tank. Also determines whether the
-    /// force is applied forward or backward.</param>
-    public void DriveTank(float speed)
+    /// <param name="inputMod">The input modifier of the Tank. That is, how much
+    /// the player is pushing on the triggers or analog stick. Also determines
+    /// whether the force is applied forward or backward.</param>
+    public void DriveTank(float inputMod)
     {
-        rb.AddForce(speed * transform.forward, ForceMode.Impulse);
+        // Using this temporary variable to make modifications to speed easier
+        // later. In case we want to add powerups that increase the speed by 10
+        // temporarily or whatever.
+        float speed = curSpeed;
+        rb.AddForce(inputMod * speed * transform.forward, ForceMode.VelocityChange);
     }
 
     /// <summary>
@@ -211,5 +257,28 @@ public class TankController : MonoBehaviour
             // some kind of error.
             MoveTankFree();
         }
+    }
+
+    public void AccelerateTank()
+    {
+        curSpeed += accelerate * Time.fixedDeltaTime;
+        curSpeed = Mathf.Clamp(curSpeed, 0f, maxSpeed);
+    }
+
+    public bool IsDriving()
+    {
+        if (driveMode == DriveMode.STICK)
+        {
+            return inputSpeed > 0;
+        }
+
+        if (driveMode == DriveMode.TRIGGERS)
+        {
+            #pragma warning disable RECS0018 // Suppressing floating point comparison warning because triggerInput is set to exactly 0 if we get no input.
+            return triggerInput != 0;
+            #pragma warning restore RECS0018
+        }
+
+        return false;
     }
 }
