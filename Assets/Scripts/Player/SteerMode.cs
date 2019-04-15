@@ -8,10 +8,10 @@ public enum SteerMode
     /// The Tank turns to point toward the angle determined by the left analog
     /// stick.
     /// </summary>
-    POINT,
+    Point,
     /// <summary>
     /// The Tank turns left or right depending on the input from the left analog
     /// stick.
     /// </summary>
-    TURN
+    Turn
 }

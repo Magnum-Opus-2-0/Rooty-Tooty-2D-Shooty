@@ -8,12 +8,12 @@ public class TankController : MonoBehaviour
     /// Determines the driving mode of the tank. Defaults to using the analog
     /// stick.
     /// </summary>
-    public DriveMode driveMode = DriveMode.STICK;
+    public DriveMode driveMode = DriveMode.Stick;
     /// <summary>
     /// Determines which method the tank will be steered with. Defaults to
-    /// <see cref="SteerMode.POINT"/>.
+    /// <see cref="SteerMode.Point"/>.
     /// </summary>
-    public SteerMode steerMode = SteerMode.POINT;
+    public SteerMode steerMode = SteerMode.Point;
     /// <summary>
     /// The axis this tank will use to drive left and right. Defaults to player
     /// one.
@@ -26,17 +26,17 @@ public class TankController : MonoBehaviour
     public string zDrive = "z-drive-1";
     /// <summary>
     /// The button this tank will use to drive backwards. Defaults to player
-    /// one and MacOS. This is only applicable if the DriveMode <see cref="DriveMode.STICK"/>.
+    /// one and MacOS. This is only applicable if the DriveMode <see cref="DriveMode.Stick"/>.
     /// </summary>
     public string reverse = "reverse-1-mac";
     /// <summary>
     /// The trigger this tank will use to drive forward. Defaults to player one
-    /// and MacOS. This is only applicable if the DriveMode is POINT_TRIGGERS.
+    /// and MacOS. This is only applicable if the DriveMode is <see cref="DriveMode.Triggers"/>.
     /// </summary>
     public string forwardDrive = "forward-drive-1-mac";
     /// <summary>
     /// The trigger this tank will use to drive backward. Defaults to player one
-    /// and MacOS. This is only applicable if the DriveMode is TRIGGERS.
+    /// and MacOS. This is only applicable if the DriveMode is <see cref="DriveMode.Triggers"/>.
     /// </summary>
     public string backwardDrive = "backward-drive-1-mac";
 
@@ -76,9 +76,9 @@ public class TankController : MonoBehaviour
     private Rigidbody rb;
     /// <summary>
     /// Controls the direction of driving when driveMode is
-    /// <see cref="DriveMode.STICK"/>.
+    /// <see cref="DriveMode.Stick"/>.
     /// Also adjusts steering to make it feel more naturtal when steerMode is
-    /// <see cref="SteerMode.POINT"/>
+    /// <see cref="SteerMode.Point"/>
     /// </summary>
     private int dir;
     /// <summary>
@@ -135,18 +135,23 @@ public class TankController : MonoBehaviour
         // This block determined the outcome of the dir variable depending on
         // which drive mode is being used.
         switch (driveMode) {
-            case DriveMode.STICK:
-                if (Input.GetButton(reverse))
+            case DriveMode.Stick:
+                // Only allow the player to switch directions while they are not
+                // driving
+                if (!IsDriving())
                 {
-                    dir = -1;
-                }
-                else
-                {
-                    dir = 1;
+                    if (Input.GetButton(reverse))
+                    {
+                        dir = -1;
+                    }
+                    else
+                    {
+                        dir = 1;
+                    }
                 }
                 break;
 
-            case DriveMode.TRIGGERS:
+            case DriveMode.Triggers:
                 // If both triggers are pressed, then forward movement takes priority
                 #pragma warning disable RECS0018 // Suppressing floating point comparison warning because Unity promises to return exactly 0 if it receives no input.
                 if (Input.GetAxis(forwardDrive) != 0)
@@ -175,7 +180,7 @@ public class TankController : MonoBehaviour
     /// <para>WARNING: This debug function does very silly things.</para>
     /// Moves the tank by adding an impulse in whichever direction the left
     /// analog stick points.
-    /// <para><see cref="DriveMode.FREE"/></para>
+    /// <para><see cref="DriveMode.Free"/></para>
     /// </summary>
     private void MoveTankFree()
     {
@@ -229,25 +234,25 @@ public class TankController : MonoBehaviour
         // Determine which mode the user is steering with then angle the tank.
         switch (steerMode)
         {
-            case SteerMode.POINT:
+            case SteerMode.Point:
                 PointTank();
                 break;
 
-            case SteerMode.TURN:
+            case SteerMode.Turn:
                 TurnTank();
                 break;
         }
 
         // Determine which mode the user is driving with then accelerate the tank.
-        if (driveMode == DriveMode.STICK && steerMode == SteerMode.POINT)
+        if (driveMode == DriveMode.Stick && steerMode == SteerMode.Point)
         {
             DriveTank(dir * inputSpeed);
         }
-        else if (driveMode == DriveMode.STICK && steerMode == SteerMode.TURN)
+        else if (driveMode == DriveMode.Stick && steerMode == SteerMode.Turn)
         {
             DriveTank(stickInput.z);
         }
-        else if (driveMode == DriveMode.TRIGGERS)
+        else if (driveMode == DriveMode.Triggers)
         {
             DriveTank(triggerInput);
         }
@@ -267,12 +272,12 @@ public class TankController : MonoBehaviour
 
     public bool IsDriving()
     {
-        if (driveMode == DriveMode.STICK)
+        if (driveMode == DriveMode.Stick)
         {
             return inputSpeed > 0;
         }
 
-        if (driveMode == DriveMode.TRIGGERS)
+        if (driveMode == DriveMode.Triggers)
         {
             #pragma warning disable RECS0018 // Suppressing floating point comparison warning because triggerInput is set to exactly 0 if we get no input.
             return triggerInput != 0;
