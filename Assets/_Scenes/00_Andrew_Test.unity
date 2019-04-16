@@ -134,7 +134,7 @@ MonoBehaviour:
   bullet: {fileID: 173595309}
   barrel: {fileID: 0}
   ballFondler: {fileID: 0}
-  speedOfBullet: 2
+  speedOfBullet: 20
 --- !u!1 &77329473 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 782792303101099971, guid: 3cf045c0ebafa2e468fe89884017d837,
@@ -156,8 +156,8 @@ MonoBehaviour:
   shoot: shoot-1-pc
   bullet: {fileID: 1423641982}
   barrel: {fileID: 818124945}
-  ballFondler: {fileID: 1708920014}
-  speedOfBullet: 2
+  ballFondler: {fileID: 1946019166}
+  speedOfBullet: 25
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,7 +456,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &1595111438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -559,6 +559,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7390178441064325710, guid: 36048713b2a1a2a41a318c138e89eb75,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 41a6fe9ec50604dc9946b2d29f831cf4, type: 2}
+    - target: {fileID: 1589696807577082126, guid: 36048713b2a1a2a41a318c138e89eb75,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1589696807577082126, guid: 36048713b2a1a2a41a318c138e89eb75,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36048713b2a1a2a41a318c138e89eb75, type: 3}
 --- !u!4 &1595111439 stripped
@@ -567,36 +582,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1595111438}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1708920014
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1708920015}
-  m_Layer: 0
-  m_Name: Ball Fondler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1708920015
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1708920014}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1845495162 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400381040898309034, guid: f81d2b628259641319bf90c9947d6ccd,
@@ -695,6 +680,16 @@ PrefabInstance:
       propertyPath: steerMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: forwardDrive
+      value: forward-drive-1-mac
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: backwardDrive
+      value: backward-drive-1-mac
+      objectReference: {fileID: 0}
     - target: {fileID: 5172837263814224749, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: m_Mass
@@ -730,6 +725,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8754308362559414985, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 41a6fe9ec50604dc9946b2d29f831cf4, type: 2}
+    - target: {fileID: 1445095099381107511, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cf045c0ebafa2e468fe89884017d837, type: 3}
 --- !u!4 &1860305741 stripped
@@ -738,6 +743,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1860305740}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1946019166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1946019167}
+  m_Layer: 0
+  m_Name: Ball Fondler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1946019167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946019166}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.000000029802322, y: 2.3, z: 2.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1950840881
 GameObject:
   m_ObjectHideFlags: 0
