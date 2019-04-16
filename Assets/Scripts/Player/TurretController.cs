@@ -26,6 +26,8 @@ public class TurretController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Determine which OS the game is being run on, and set controller
+        // mappings accordingly.
         switch (Application.platform)
         {
             case RuntimePlatform.OSXEditor:

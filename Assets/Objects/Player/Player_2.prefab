@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 3388117602770939857}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 3914587830471629604}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Player_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 7611366547232818313}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

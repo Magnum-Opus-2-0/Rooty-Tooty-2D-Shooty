@@ -5,6 +5,38 @@ using UnityEngine;
 
 public class TankController : MonoBehaviour
 {
+
+    #region MEMBERS_RESOURCES
+    private int fluff;
+    public int Fluff
+    {
+        get
+        {
+            return fluff;
+        }
+
+        set
+        {
+            fluff = value;
+        }
+    }
+
+    private int plastic;
+    public int Plastic
+    {
+        get
+        {
+            return plastic;
+        }
+        set
+        {
+            plastic = value;
+        }
+    }
+    #endregion
+
+
+    #region MEMBERS_MOVEMENT
     /// <summary>
     /// Determines the driving mode of the tank. Defaults to using the analog
     /// stick.
@@ -86,11 +118,14 @@ public class TankController : MonoBehaviour
     /// The current speed of the Tank.
     /// </summary>
     private float curSpeed;
+    #endregion
 
 
     // Start is called before the first frame update
     void Start()
     {
+        // Determine which OS the game is being run on, and set controller
+        // mappings accordingly.
         switch (Application.platform)
         {
             case RuntimePlatform.OSXEditor:
@@ -111,9 +146,14 @@ public class TankController : MonoBehaviour
                 break;
         }
 
+        // Define movement starting values
         stickInput = new Vector3();
         rb = transform.GetComponent<Rigidbody>();
         dir = 1;
+
+        // Define resource starting values
+        Fluff = 0;
+        Plastic = 0;
     }
 
     // Update is called once per frame
