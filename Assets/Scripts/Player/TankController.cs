@@ -107,7 +107,7 @@ public class TankController : MonoBehaviour
         }
         else
         {
-            curSpeed = 0;
+            AccelerateTank(-1);
         }
 
         //DEBUG make sure to take this out later
@@ -264,12 +264,21 @@ public class TankController : MonoBehaviour
         }
     }
 
-    public void AccelerateTank()
+    /// <summary>
+    /// Accelerates the tank in the given direction.
+    /// </summary>
+    /// <param name="direction">Direction.</param>
+    public void AccelerateTank(int direction=1)
     {
-        curSpeed += accelerate * Time.fixedDeltaTime;
+        curSpeed += direction * accelerate * Time.fixedDeltaTime;
         curSpeed = Mathf.Clamp(curSpeed, 0f, maxSpeed);
     }
 
+    /// <summary>
+    /// Determines whether the Tank is driving. That is, whether the controller
+    /// is receiving input corresponding to the current <see cref="DriveMode"/>.
+    /// </summary>
+    /// <returns><c>true</c>, if the tank is driving, <c>false</c> otherwise.</returns>
     public bool IsDriving()
     {
         if (driveMode == DriveMode.Stick)
