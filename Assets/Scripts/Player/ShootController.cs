@@ -19,6 +19,8 @@ public class ShootController : MonoBehaviour
     private Rigidbody rb;
     private int objectPoolCounter = 0;
 
+    private bool buttonPress;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,11 +28,16 @@ public class ShootController : MonoBehaviour
         rb = transform.GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        buttonPress = Input.GetButtonDown(shoot);
+    }
 
-        if (bullets.Count < MAX_BULLETS && Input.GetButtonDown(shoot))
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+
+        if (bullets.Count < MAX_BULLETS && buttonPress)
         {
             bullet.SetActive(true);
 
@@ -48,7 +55,7 @@ public class ShootController : MonoBehaviour
 
             Debug.Log("added bullet");
         }
-        else if (bullets.Count == MAX_BULLETS && Input.GetButtonDown(shoot))
+        else if (bullets.Count == MAX_BULLETS && buttonPress)
         {
             bullets[objectPoolCounter].transform.position = bullet.transform.position;
             //bullets[objectPoolCounter].transform.rotation = this.transform.rotation;
