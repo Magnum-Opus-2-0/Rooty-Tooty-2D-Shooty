@@ -120,7 +120,7 @@ public class TankController : MonoBehaviour
     void Update()
     {
 
-        UpdateInput();
+        UpdateMoveInput();
 
         if (IsDriving())
         {
@@ -146,9 +146,10 @@ public class TankController : MonoBehaviour
     }
 
     /// <summary>
-    /// Updates the <see cref="stickInput"/> vector.
+    /// Updates the different move input fields depending upon the Drive and
+    /// Steer modes.
     /// </summary>
-    private void UpdateInput()
+    private void UpdateMoveInput()
     {
         stickInput.Set(Input.GetAxis(xDrive), 0, Input.GetAxis(zDrive));
         inputSpeed = Mathf.Max(Mathf.Abs(stickInput.x), Mathf.Abs(stickInput.z));
