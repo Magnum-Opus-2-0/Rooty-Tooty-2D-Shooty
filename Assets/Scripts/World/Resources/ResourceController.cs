@@ -21,7 +21,6 @@ public class ResourceController : MonoBehaviour
     void Awake()
     {
         amount = Random.Range(minAmount, maxAmount + 1); //Max is exclusive
-        Debug.Log(Amount);
     }
 
     // Update is called once per frame
@@ -41,7 +40,16 @@ public class ResourceController : MonoBehaviour
     {
         if (IsPlayer(other))
         {
-            AddResource(other.GetComponent<TankController>());
+            // The collider is on the body of the tank, so search the parent for
+            // the TankController
+            TankController tc = other.GetComponentInParent<TankController>();
+            // If the TankController wasn't found, then we hit a turret component,
+            // so search the Turret's parent.
+            if (tc == null)
+            {
+                tc = other.transform.parent.GetComponentInParent<TankController>();
+            }
+            AddResource(tc);
             Destroy(this.gameObject);
         }
     }
@@ -67,11 +75,15 @@ public class ResourceController : MonoBehaviour
         switch (resourceType)
         {
             case ResourceType.Fluff:
+                Debug.Log("Fluff before: " + tc.Fluff);
                 tc.Fluff += amount;
+                Debug.Log("Fluff after: " + tc.Fluff);
                 break;
 
             case ResourceType.Plastic:
+                Debug.Log("Plastic before: " + tc.Plastic);
                 tc.Plastic += amount;
+                Debug.Log("Plastic after: " + tc.Plastic);
                 break;
 
             case ResourceType.None:

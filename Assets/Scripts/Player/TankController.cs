@@ -176,7 +176,6 @@ public class TankController : MonoBehaviour
         {
             transform.position = new Vector3(0, .3f, 0);
         }
-        
 
     }
 
