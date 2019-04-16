@@ -290,7 +290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &495214377
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -426,7 +426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1045672046
 Transform:
   m_ObjectHideFlags: 0
@@ -650,7 +650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1520237137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1022,7 +1022,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2056375347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1083,7 +1083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2117330676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,7 +1147,7 @@ PrefabInstance:
     - target: {fileID: 5348189828253354313, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400381040898309034, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
@@ -1237,10 +1237,20 @@ PrefabInstance:
       propertyPath: zAim
       value: z-aim-1-mac
       objectReference: {fileID: 0}
+    - target: {fileID: 611612002254114429, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player_1
+      objectReference: {fileID: 0}
     - target: {fileID: 8867562778350291764, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
       propertyPath: m_TagString
       value: Player_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8867562778350291764, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7384040175891051519, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
@@ -1251,6 +1261,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6885880537236708290, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f81d2b628259641319bf90c9947d6ccd, type: 3}
