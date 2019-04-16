@@ -77,7 +77,7 @@ public class TankController : MonoBehaviour
     /// <summary>
     /// Controls the direction of driving when driveMode is
     /// <see cref="DriveMode.Stick"/>.
-    /// Also adjusts steering to make it feel more naturtal when steerMode is
+    /// Also adjusts steering to make it feel more natural when steerMode is
     /// <see cref="SteerMode.Point"/>
     /// </summary>
     private int dir;
@@ -188,7 +188,7 @@ public class TankController : MonoBehaviour
     }
 
     /// <summary>
-    /// Drives the tank forward or backwards by applying an Implulse.
+    /// Drives the tank forward or backwards by applying an Impulse.
     /// </summary>
     /// <param name="inputMod">The input modifier of the Tank. That is, how much
     /// the player is pushing on the triggers or analog stick. Also determines
