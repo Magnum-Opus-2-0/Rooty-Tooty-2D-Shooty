@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class TankController : MonoBehaviour
 {
     /// <summary>
@@ -90,6 +91,26 @@ public class TankController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        switch (Application.platform)
+        {
+            case RuntimePlatform.OSXEditor:
+            case RuntimePlatform.OSXPlayer:
+                forwardDrive = (tag == "Player_1" ? "forward-drive-1-mac" : "forward-drive-2-mac");
+                backwardDrive = (tag == "Player_1" ? "backward-drive-1-mac" : "backward-drive-2-mac");
+                reverse = (tag == "Player_1" ? "reverse-1-mac" : "reverse-2-mac");
+                break;
+            case RuntimePlatform.WindowsEditor:
+            case RuntimePlatform.WindowsPlayer:
+                forwardDrive = (tag == "Player_1" ? "forward-drive-1-win" : "forward-drive-2-win");
+                backwardDrive = (tag == "Player_1" ? "backward-drive-1-win" : "backward-drive-2-win");
+                reverse = (tag == "Player_1" ? "reverse-1-win" : "reverse-2-win");
+                break;
+
+            default:
+                Debug.LogError("Mappings not setup for operating systems other than Windows or Mac OS");
+                break;
+        }
+
         stickInput = new Vector3();
         rb = transform.GetComponent<Rigidbody>();
         dir = 1;

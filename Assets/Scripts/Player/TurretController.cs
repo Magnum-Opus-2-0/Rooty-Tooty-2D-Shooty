@@ -26,6 +26,24 @@ public class TurretController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        switch (Application.platform)
+        {
+            case RuntimePlatform.OSXEditor:
+            case RuntimePlatform.OSXPlayer:
+                xAim = (tag == "Player_1" ? "x-aim-1-mac" : "x-aim-2-mac");
+                zAim = (tag == "Player_1" ? "z-aim-1-mac" : "z-aim-2-mac");
+                break;
+            case RuntimePlatform.WindowsEditor:
+            case RuntimePlatform.WindowsPlayer:
+                xAim = (tag == "Player_1" ? "x-aim-1-win" : "x-aim-2-win");
+                zAim = (tag == "Player_1" ? "z-aim-1-win" : "z-aim-2-win");
+                break;
+
+            default:
+                Debug.LogError("Mappings not setup for operating systems other than Windows or Mac OS");
+                break;
+        }
+
         input = new Vector3();
         lastRot = transform.parent.forward;
     }

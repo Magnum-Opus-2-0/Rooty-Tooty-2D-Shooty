@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.49641287, b: 0.5748173, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -112,6 +112,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &530576916 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5336460608398956485, guid: 3cf045c0ebafa2e468fe89884017d837,
+    type: 3}
+  m_PrefabInstance: {fileID: 189688381456844365}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &824598667
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +169,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 110
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -207,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0694eeef92c9845f4b7a8692e3762876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceFromTank: 40
   target: {fileID: 1471660585}
   smoothing: 5
 --- !u!1 &915465509
@@ -304,8 +311,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0694eeef92c9845f4b7a8692e3762876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceFromTank: 40
   target: {fileID: 400381039129578121}
   smoothing: 5
+--- !u!1 &1393555757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8767947511814126218, guid: 3cf045c0ebafa2e468fe89884017d837,
+    type: 3}
+  m_PrefabInstance: {fileID: 189688381456844365}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1471660585 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 517800692760676884, guid: 3cf045c0ebafa2e468fe89884017d837,
@@ -381,6 +395,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1950788814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7266709701483168321, guid: 3cf045c0ebafa2e468fe89884017d837,
+    type: 3}
+  m_PrefabInstance: {fileID: 189688381456844365}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2026812485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5231351822339209463, guid: 3cf045c0ebafa2e468fe89884017d837,
+    type: 3}
+  m_PrefabInstance: {fileID: 189688381456844365}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2026812486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026812485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a794384a98e241e46a3c093186ae91ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doExplosionDemo: 1
+  forceOfExplosion: 10
+  radiusOfExplosion: 10
+  pieces:
+  - {fileID: 1393555757}
+  - {fileID: 530576916}
+  - {fileID: 1950788814}
 --- !u!1 &2046869402
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,10 +585,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5172837263814224749, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: driveMode
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: forwardDrive
+      value: forward-drive-1-win
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: backwardDrive
+      value: backward-drive-1-win
+      objectReference: {fileID: 0}
+    - target: {fileID: 189688380247758093, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: xAim
+      value: x-aim-1-win
+      objectReference: {fileID: 0}
+    - target: {fileID: 189688380247758093, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: zAim
+      value: z-aim-1-win
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cf045c0ebafa2e468fe89884017d837, type: 3}

@@ -14,6 +14,9 @@ public class ExplodeBehavior : MonoBehaviour {
     public float forceOfExplosion;
     public float radiusOfExplosion;
 
+    private Vector3 originalParentPosition;
+    private Quaternion originalParentRotation;
+
     /// <summary>
     /// Pieces of the tank (or whatever!) which need to explode apart.
     /// </summary>
@@ -70,6 +73,8 @@ public class ExplodeBehavior : MonoBehaviour {
             // First, add the temporary Rigidbody
             rigidbodies[i] = pieces[i].AddComponent<Rigidbody>();
 
+            //rigidbodies[i].drag = Mathf.Infinity;
+
             // Then, apply explosion forces
             if (i % 2 == 0) {
                 rigidbodies[i].AddExplosionForce(forceOfExplosion,
@@ -100,18 +105,23 @@ public class ExplodeBehavior : MonoBehaviour {
         // which removes the effects of physics as well
         for (int i = 0; i < NUM_OF_PIECES; i++) {
 
-            rigidbodies[i].transform.rotation = originalRotations[i];
-            rigidbodies[i].transform.position = originalPositions[i];
+            //rigidbodies[i].transform.rotation = originalRotations[i];
+            //rigidbodies[i].transform.position = originalPositions[i];
+
+            rigidbodies[i].AddForce(new Vector3(0f, 0f, 0f), ForceMode.VelocityChange);
 
             // Remove rigidbodies,
             // which removes the effects of physics as well
             Destroy(rigidbodies[i]);
 
             // Then, restore original transforms
-            pieces[i].transform.rotation = originalRotations[i];
-            pieces[i].transform.position = originalPositions[i];
+            pieces[i].transform.localRotation = originalRotations[i];
+            pieces[i].transform.localPosition = originalPositions[i];
             // Transforms also have a scale, but these are unchanged
         }
+
+        transform.position = originalParentPosition;
+        transform.rotation = originalParentRotation;
 
         exploded = false;
     }
@@ -123,10 +133,14 @@ public class ExplodeBehavior : MonoBehaviour {
     /// </summary>
     private void RecordOriginalTransforms() {
 
+        originalParentPosition = transform.position;
+        originalParentRotation = transform.rotation;
+
         for (int i = 0; i < NUM_OF_PIECES; i++) {
 
-            originalPositions[i] = pieces[i].transform.position;
-            originalRotations[i] = pieces[i].transform.rotation;
+            originalPositions[i] = pieces[i].transform.localPosition;
+            originalRotations[i] = pieces[i].transform.localRotation;
+
         }
     }
 
