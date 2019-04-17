@@ -4,80 +4,93 @@ using UnityEngine;
 
 public class ShootController : MonoBehaviour
 {
-    public string shoot = "shoot-1-pc";
+     struct Bullet
+     {
+          public GameObject bullet_GameObject;
+          public bool alreadyFired;
 
-    public GameObject bullet;
-    public GameObject barrel;
-    public GameObject ballFondler;
-    public int speedOfBullet;
+          public Bullet(GameObject bulletGO, bool wasFired)
+          {
+               bullet_GameObject = bulletGO;
+               alreadyFired = wasFired;
+          }
+     }
 
-    private List<GameObject> bullets = new List<GameObject>();
-    private const int MAX_BULLETS = 3;
+     public string shoot;
+     public GameObject templateBullet;
+     public GameObject barrel;
+     public GameObject ballFondler;
+     public int speedOfBullet;
 
-    private float triggerInput;
+     private List<Bullet> bullets;
+     private int objectPoolCounter;
+     private bool buttonPress;
 
-    private Rigidbody rb;
-    private int objectPoolCounter = 0;
+     private const int MAX_BULLETS = 3;
 
-    private bool buttonPress;
+     // Start is called before the first frame update
+     void Start()
+     {
+          buttonPress = false;
+          bullets = new List<Bullet>();
+          objectPoolCounter = 0;
+     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        bullets.Clear();
-        rb = transform.GetComponent<Rigidbody>();
-    }
+     void Update()
+     {
+          Fire(Input.GetButtonDown(shoot));
+     }
 
-    void Update()
-    {
-        buttonPress = Input.GetButtonDown(shoot);
-    }
+     // Update is called once per frame
+     void FixedUpdate()
+     {
+          if (bullets.Count > 0)
+          {
+               for(int i = 0; i < bullets.Count; i++)
+               {
+                    if(!bullets[i].alreadyFired)
+                    {
+                         bullets[i].bullet_GameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
+                         bullets[i].bullet_GameObject.GetComponent<Rigidbody>().AddForce(speedOfBullet * barrel.transform.parent.forward, ForceMode.VelocityChange);
+                         bullets[i] = new Bullet(bullets[i].bullet_GameObject, true);
+                    }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
+                    Physics.IgnoreCollision(bullets[i].bullet_GameObject.GetComponent<SphereCollider>(), barrel.GetComponent<CapsuleCollider>());
+               }
+          }
+     }
 
-        if (bullets.Count < MAX_BULLETS && buttonPress)
-        {
-            bullet.SetActive(true);
+     private void CreateAndAddBullet()
+     {
+          templateBullet.SetActive(true);
+          GameObject newBulletGO = Instantiate(templateBullet, templateBullet.transform.position, this.transform.rotation, this.transform);
+          templateBullet.SetActive(false);
+          newBulletGO.transform.parent = ballFondler.transform;
+          Bullet bullet = new Bullet(newBulletGO, false);
+          bullets.Add(bullet);
+          
+     }
 
-            GameObject newBullet = Instantiate(bullet, bullet.transform.position, this.transform.rotation, this.transform);
-            //newBullet.transform.rotation = newBullet.transform.localRotation;
-            newBullet.transform.parent = ballFondler.transform;
-            //newBullet.transform.position = this.transform.TransformPoint(this.transform.localPosition);
-            newBullet.GetComponent<Rigidbody>().AddForce(speedOfBullet * barrel.transform.parent.forward, ForceMode.VelocityChange);
+     private void RecycleBullets()
+     {
+          bullets[objectPoolCounter] = new Bullet(bullets[objectPoolCounter].bullet_GameObject, false);
+          bullets[objectPoolCounter].bullet_GameObject.transform.position = templateBullet.transform.position;
 
-            Debug.Log(newBullet.GetComponent<Rigidbody>().velocity);
+          if (objectPoolCounter < MAX_BULLETS - 1)
+               objectPoolCounter++;
+          else
+               objectPoolCounter = 0;
+     }
 
-            bullet.SetActive(false);
-
-            bullets.Add(newBullet);
-
-            Debug.Log("added bullet");
-        }
-        else if (bullets.Count == MAX_BULLETS && buttonPress)
-        {
-            bullets[objectPoolCounter].transform.position = bullet.transform.position;
-            //bullets[objectPoolCounter].transform.rotation = this.transform.rotation;
-            bullets[objectPoolCounter].GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
-            //bullets[objectPoolCounter].transform.GetComponent<Rigidbody>().AddForce(new Vector3(0f, 0f, 0f), ForceMode.VelocityChange);
-            bullets[objectPoolCounter].GetComponent<Rigidbody>().AddForce(speedOfBullet * barrel.transform.parent.forward, ForceMode.VelocityChange);
-
-            Debug.Log(bullets[objectPoolCounter].GetComponent<Rigidbody>().velocity);
-
-            if (objectPoolCounter < bullets.Count - 1)
-                objectPoolCounter++;
-            else
-                objectPoolCounter = 0;
-        }
-
-        if (bullets.Count > 0)
-        {
-            foreach (GameObject currentBullet in bullets)
-            {
-                Physics.IgnoreCollision(currentBullet.GetComponent<SphereCollider>(), barrel.GetComponent<CapsuleCollider>());
-                //bullet.transform.GetComponent<Rigidbody>().AddForce(speedOfBullet * bullet.transform.forward, ForceMode.Impulse);
-            }
-        }
-    }
+     private void Fire(bool buttonPressed)
+     {
+          if (bullets.Count < MAX_BULLETS && buttonPressed)
+          {
+               CreateAndAddBullet();
+          }
+          else if (bullets.Count == MAX_BULLETS && buttonPressed)
+          {
+               RecycleBullets();
+          }
+     }
 }
