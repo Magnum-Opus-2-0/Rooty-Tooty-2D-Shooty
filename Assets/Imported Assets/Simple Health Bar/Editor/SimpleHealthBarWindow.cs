@@ -1,6 +1,7 @@
 ﻿/* Written by Kaz Crowe */
 /* SimpleHealthBarWindow.cs */
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEditor;
 using System.Collections.Generic;
 
@@ -54,7 +55,7 @@ public class SimpleHealthBarWindow : EditorWindow
 	bool configuredFontSize = false;
 
 	static Texture2D introThumbnail;
-	static WWW introThumbnailPage;
+	//static UnityWebRequest introThumbnailPage;
 
 	
 	class DocumentationInfo
@@ -794,7 +795,7 @@ public class SimpleHealthBarWindow : EditorWindow
 				// Set the version to current so they won't see these version changes.
 				EditorPrefs.SetInt( "SimpleHealthBarFreeVersion", importantChanges );
 
-				introThumbnailPage = new WWW( "https://www.tankandhealerstudio.com/uploads/7/7/4/9/77490188/shb-free-intro-thumb-small_orig.png" );
+				//introThumbnailPage = new UnityWebRequest( "https://www.tankandhealerstudio.com/uploads/7/7/4/9/77490188/shb-free-intro-thumb-small_orig.png" );
 
 				EditorApplication.update += WaitForIntroThumbnail;
 			}
@@ -822,14 +823,14 @@ public class SimpleHealthBarWindow : EditorWindow
 
 		static void WaitForIntroThumbnail ()
 		{
-			if( !introThumbnailPage.isDone || EditorApplication.isCompiling )
+			if( /*!introThumbnailPage.isDone ||*/ EditorApplication.isCompiling )
 				return;
 
 			EditorApplication.update -= WaitForIntroThumbnail;
 
 			InitializeWindow();
 
-			introThumbnail = introThumbnailPage.texture;
+               //introThumbnail = UnityWebRequest.GetTexture("https://www.tankandhealerstudio.com/uploads/7/7/4/9/77490188/shb-free-intro-thumb-small_orig.png");
 		}
 	}
 }
