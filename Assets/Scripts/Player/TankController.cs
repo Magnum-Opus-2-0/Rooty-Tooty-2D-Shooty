@@ -130,6 +130,7 @@ public class TankController : MonoBehaviour
         {
             case RuntimePlatform.OSXEditor:
             case RuntimePlatform.OSXPlayer:
+
                 forwardDrive = (tag == "Player_1" ? "forward-drive-1-mac" : "forward-drive-2-mac");
                 backwardDrive = (tag == "Player_1" ? "backward-drive-1-mac" : "backward-drive-2-mac");
                 reverse = (tag == "Player_1" ? "reverse-1-mac" : "reverse-2-mac");
@@ -145,6 +146,9 @@ public class TankController : MonoBehaviour
                 Debug.LogError("Mappings not setup for operating systems other than Windows or Mac OS");
                 break;
         }
+        // Left analog stick is the same mapping on Mac OS and Windows
+        xDrive = (tag == "Player_1" ? "x-drive-1" : "x-drive-2");
+        zDrive = (tag == "Player_1" ? "z-drive-1" : "z-drive-2");
 
         // Define movement starting values
         stickInput = new Vector3();

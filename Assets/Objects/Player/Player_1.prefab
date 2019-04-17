@@ -7,11 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6566715632166587962, guid: f81d2b628259641319bf90c9947d6ccd,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player_1
-      objectReference: {fileID: 0}
     - target: {fileID: 5348189828253354313, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
       propertyPath: m_Name
@@ -95,6 +90,11 @@ PrefabInstance:
       propertyPath: zAim
       value: z-aim-1-win
       objectReference: {fileID: 0}
+    - target: {fileID: 611612002254114429, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player_1
+      objectReference: {fileID: 0}
     - target: {fileID: 8867562778350291764, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
       propertyPath: m_TagString
@@ -106,6 +106,11 @@ PrefabInstance:
       value: Player_1
       objectReference: {fileID: 0}
     - target: {fileID: 5237407321138980475, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566715632166587962, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
       propertyPath: m_TagString
       value: Player_1
