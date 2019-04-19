@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0.5
+  m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -416,7 +416,7 @@ PrefabInstance:
     - target: {fileID: 4047948816228040777, guid: d09cc43d6219b42359f4b4fe988dcc97,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.21
+      value: 0.055
       objectReference: {fileID: 0}
     - target: {fileID: 4047948816228040777, guid: d09cc43d6219b42359f4b4fe988dcc97,
         type: 3}
@@ -502,8 +502,8 @@ Transform:
   - {fileID: 1496329877}
   - {fileID: 329496260}
   - {fileID: 1283403259}
-  - {fileID: 968042918}
   - {fileID: 1382601101}
+  - {fileID: 968042918}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -606,7 +606,7 @@ PrefabInstance:
     - target: {fileID: 8618098163074081620, guid: cb3a84c18a428429884a51d760eb6629,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.82
+      value: 0.539
       objectReference: {fileID: 0}
     - target: {fileID: 8618098163074081620, guid: cb3a84c18a428429884a51d760eb6629,
         type: 3}
@@ -636,7 +636,7 @@ PrefabInstance:
     - target: {fileID: 8618098163074081620, guid: cb3a84c18a428429884a51d760eb6629,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8618098163074081620, guid: cb3a84c18a428429884a51d760eb6629,
         type: 3}
@@ -872,17 +872,17 @@ PrefabInstance:
     - target: {fileID: 6471558372579859370, guid: 1e21338dfe15c4089b2b663966e94052,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.263522
+      value: 1.848
       objectReference: {fileID: 0}
     - target: {fileID: 6471558372579859370, guid: 1e21338dfe15c4089b2b663966e94052,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.21
+      value: 0.148
       objectReference: {fileID: 0}
     - target: {fileID: 6471558372579859370, guid: 1e21338dfe15c4089b2b663966e94052,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.939928
+      value: -2.416
       objectReference: {fileID: 0}
     - target: {fileID: 6471558372579859370, guid: 1e21338dfe15c4089b2b663966e94052,
         type: 3}
@@ -941,7 +941,7 @@ PrefabInstance:
     - target: {fileID: 2203651884301793333, guid: e8d164f3a5743424d8e0c15d0b7008ad,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.114
+      value: -3.41
       objectReference: {fileID: 0}
     - target: {fileID: 2203651884301793333, guid: e8d164f3a5743424d8e0c15d0b7008ad,
         type: 3}
@@ -951,7 +951,7 @@ PrefabInstance:
     - target: {fileID: 2203651884301793333, guid: e8d164f3a5743424d8e0c15d0b7008ad,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.859
+      value: 2.83
       objectReference: {fileID: 0}
     - target: {fileID: 2203651884301793333, guid: e8d164f3a5743424d8e0c15d0b7008ad,
         type: 3}
@@ -976,7 +976,7 @@ PrefabInstance:
     - target: {fileID: 2203651884301793333, guid: e8d164f3a5743424d8e0c15d0b7008ad,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2203651884301793333, guid: e8d164f3a5743424d8e0c15d0b7008ad,
         type: 3}
@@ -1261,13 +1261,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1514116234941514937, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
-      propertyPath: maxSpeed
-      value: 4
+      propertyPath: accelerate
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1514116234941514937, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
-      propertyPath: accelerate
-      value: 2.5
+      propertyPath: maxSpeed
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 1264002227, guid: f81d2b628259641319bf90c9947d6ccd, type: 3}
       propertyPath: xAim
@@ -1336,6 +1336,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inWeight
       value: 0.14393948
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718714553813501420, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f81d2b628259641319bf90c9947d6ccd, type: 3}
