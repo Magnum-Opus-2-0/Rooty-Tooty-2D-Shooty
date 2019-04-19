@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7813899893521158937}
   - component: {fileID: 3437430716506558656}
   - component: {fileID: 6133664122727703780}
+  - component: {fileID: 8984708630054653081}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -58,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c29e44986a27a4898906b3608fd63229, type: 2}
+  - {fileID: 2100000, guid: b8725382e3df44c7482ac618036bcef9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -91,6 +92,25 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8984708630054653081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3118497603443932137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60a4caa376342470b8905b5230c7d04a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.46274513, g: 0.48235297, b: 0.54901963, a: 0}
+  - {r: 0.5411765, g: 0.46274513, b: 0.5411765, a: 0}
+  - {r: 0.5019608, g: 0.5529412, b: 0.4666667, a: 0}
+  - {r: 0.5176471, g: 0.25882354, b: 0.227451, a: 0}
+  - {r: 0.2627451, g: 0.4784314, b: 0.63529414, a: 0}
+  - {r: 0.6431373, g: 0.58431375, b: 0.25490198, a: 0}
 --- !u!1 &6231225205078695463
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,6 +215,7 @@ GameObject:
   - component: {fileID: 6471558372875659142}
   - component: {fileID: 6471558372875659144}
   - component: {fileID: 6471558372875659143}
+  - component: {fileID: 7186439557746037863}
   m_Layer: 0
   m_Name: Pellet
   m_TagString: Untagged
@@ -261,3 +282,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &7186439557746037863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6471558372875659141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60a4caa376342470b8905b5230c7d04a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.6, g: 0.21568629, b: 0.20000002, a: 0}
+  - {r: 0.2627451, g: 0.4784314, b: 0.63529414, a: 0}
+  - {r: 0.6431373, g: 0.58431375, b: 0.25490198, a: 0}
+  - {r: 0.5411765, g: 0.46274513, b: 0.5411765, a: 0}
+  - {r: 0.5019608, g: 0.5529412, b: 0.4666667, a: 0}
+  - {r: 0.46274513, g: 0.48235297, b: 0.54901963, a: 0}
