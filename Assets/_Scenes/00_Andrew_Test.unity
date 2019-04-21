@@ -133,7 +133,7 @@ MonoBehaviour:
   shoot: shoot-2-pc
   templateBullet: {fileID: 1928017622}
   barrel: {fileID: 988306217}
-  ballFondler: {fileID: 902448416}
+  bulletFondler: {fileID: 0}
   speedOfBullet: 50
   reloadTime: 0.5
 --- !u!1 &77329473 stripped
@@ -157,9 +157,9 @@ MonoBehaviour:
   shoot: shoot-1-pc
   templateBullet: {fileID: 1423641982}
   barrel: {fileID: 818124945}
-  ballFondler: {fileID: 1946019166}
+  bulletFondler: {fileID: 1946019166}
   speedOfBullet: 50
-  reloadTime: 0.5
+  reloadTime: 0.2
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0

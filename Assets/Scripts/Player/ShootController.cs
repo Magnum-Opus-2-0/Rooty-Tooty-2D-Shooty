@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ShootController : MonoBehaviour
 {
+    /// <summary>
+    /// A bullet struct that holds the GameObject and if it was already fired.
+    /// </summary>
     struct Bullet
     {
         public GameObject bullet_GameObject;
@@ -16,67 +19,118 @@ public class ShootController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// A string that denotes which input to use.
+    /// </summary>
     public string shoot;
+    /// <summary>
+    /// The template bullet to use to generate others.
+    /// </summary>
     public GameObject templateBullet;
+    /// <summary>
+    /// The barrel of the tank, used to determine where the turret is facing
+    /// </summary>
     public GameObject barrel;
-    public GameObject ballFondler;
+    /// <summary>
+    /// A GameObject that holds all bullets instantiated by player.
+    /// After MAX_BULLETS are instantiated, each bullet is recycled.
+    /// </summary>
+    public GameObject bulletFondler;
+    /// <summary>
+    /// The speed of bullet.
+    /// </summary>
     public int speedOfBullet;
+    /// <summary>
+    /// The reload time of the tank between bullets shot.
+    /// </summary>
+    public float reloadTime;
 
-    private List<Bullet> bullets;
-    private int objectPoolCounter;
-
+    /// <summary>
+    /// The max number of bullets of the player at any time during gameplay.
+    /// </summary>
     private const int MAX_BULLETS = 3;
 
-    private enum FIRE_States { WAIT, FIRE, COUNT_ON, COUNT_OFF }
-    FIRE_States state;
+    /// <summary>
+    /// Where all bullets are held and referenced.
+    /// </summary>
+    private List<Bullet> bullets;
+    /// <summary>
+    /// Counter to know which bullet is to be reset and fired next.
+    /// </summary>
+    private int objectPoolCounter;
 
-    public float reloadTime;
-    private float reloadDelta;
+    /// <summary>
+    /// States for the shooting state machine.
+    /// </summary>
+    private enum SHOOT_States { WAIT, FIRE, COUNT_ON, COUNT_OFF }
+    SHOOT_States state;
+
+    /// <summary>
+    /// The timer that starts counting when the player fires a bullet, and 
+    /// stops when it reaches the set reloadTime.
+    /// </summary>
+    private float reloadTimer;
 
     // Start is called before the first frame update
     void Start()
     {
-        reloadDelta = 0f;
+        reloadTimer = 0f;
         bullets = new List<Bullet>();
+        // Start counter at 0, used in RecycleBullets()
         objectPoolCounter = 0;
-        state = FIRE_States.WAIT;
-    }
-
-    void Update()
-    {
-        FireRateStateMachine(Input.GetButton(shoot));
+        // Sets initial state for shooting SM
+        state = SHOOT_States.WAIT;
     }
 
     // Update is called once per frame
+    void Update()
+    {
+        // Every frame, pass the current state of the button into the shooting state machine.
+        FireRateStateMachine(Input.GetButton(shoot));
+    }
+
     void FixedUpdate()
     {
+        // Don't need to run if nothing has been shot yet.
         if (bullets.Count > 0)
         {
             for (int i = 0; i < bullets.Count; i++)
             {
+                // Only add force if bullet hasn't been fired yet.
                 if (!bullets[i].alreadyFired)
                 {
+                    // Reset velocity, just in case
                     bullets[i].bullet_GameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
+                    // Add force to bullet
                     bullets[i].bullet_GameObject.GetComponent<Rigidbody>().AddForce(speedOfBullet * barrel.transform.parent.forward, ForceMode.VelocityChange);
+                    // Updated bullet's alreadyFired bool from false to true
                     bullets[i] = new Bullet(bullets[i].bullet_GameObject, true);
                 }
 
+                // Since bullets are stored at the tip of the barrel, there is a chance they might collide with the barrel itself,
+                // which will cause incorrect trajectories. This should fix it.
                 Physics.IgnoreCollision(bullets[i].bullet_GameObject.GetComponent<SphereCollider>(), barrel.GetComponent<CapsuleCollider>());
             }
         }
     }
 
+    /// <summary>
+    /// Instantiates a bullet and adds it to the list.
+    /// </summary>
     private void CreateAndAddBullet()
     {
         templateBullet.SetActive(true);
         GameObject newBulletGO = Instantiate(templateBullet, templateBullet.transform.position, this.transform.rotation, this.transform);
         templateBullet.SetActive(false);
-        newBulletGO.transform.parent = ballFondler.transform;
+        newBulletGO.transform.parent = bulletFondler.transform;
         Bullet bullet = new Bullet(newBulletGO, false);
         bullets.Add(bullet);
 
     }
 
+    /// <summary>
+    /// Recycles bullets (will be called the most throughout the game)
+    /// </summary>
     private void RecycleBullets()
     {
         bullets[objectPoolCounter] = new Bullet(bullets[objectPoolCounter].bullet_GameObject, false);
@@ -88,6 +142,10 @@ public class ShootController : MonoBehaviour
             objectPoolCounter = 0;
     }
 
+    /// <summary>
+    /// Decides whether to instantiate new bullets or reuse them.
+    /// </summary>
+    /// <param name="buttonPressed">If set to <c>true</c> button pressed.</param>
     private void Fire(bool buttonPressed)
     {
         if (bullets.Count < MAX_BULLETS && buttonPressed)
@@ -100,28 +158,33 @@ public class ShootController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// A state machine that determines how fast and how often to fire a bullet,
+    /// even if the fire button is pressed many times or held down for a while.
+    /// </summary>
+    /// <param name="buttonPressed">If set to <c>true</c> button pressed.</param>
     private void FireRateStateMachine(bool buttonPressed)
     {
         switch (state) // Transitions
         {
-            case FIRE_States.WAIT:
+            case SHOOT_States.WAIT:
                 if (buttonPressed)
-                    state = FIRE_States.FIRE;
+                    state = SHOOT_States.FIRE;
                 break;
-            case FIRE_States.FIRE:
-                state = FIRE_States.COUNT_ON;
+            case SHOOT_States.FIRE:
+                state = SHOOT_States.COUNT_ON;
                 break;
-            case FIRE_States.COUNT_ON:
-                if (reloadDelta >= reloadTime && buttonPressed)
-                    state = FIRE_States.WAIT;
-                if (reloadDelta < reloadTime && !buttonPressed)
-                    state = FIRE_States.COUNT_OFF;
+            case SHOOT_States.COUNT_ON:
+                if (reloadTimer >= reloadTime && buttonPressed)
+                    state = SHOOT_States.WAIT;
+                if (reloadTimer < reloadTime && !buttonPressed)
+                    state = SHOOT_States.COUNT_OFF;
                 break;
-            case FIRE_States.COUNT_OFF:
-                if (reloadDelta >= reloadTime && !buttonPressed)
-                    state = FIRE_States.WAIT;
+            case SHOOT_States.COUNT_OFF:
+                if (reloadTimer >= reloadTime && !buttonPressed)
+                    state = SHOOT_States.WAIT;
                 if (buttonPressed)
-                    state = FIRE_States.COUNT_ON;
+                    state = SHOOT_States.COUNT_ON;
 
                 break;
             default:
@@ -131,18 +194,18 @@ public class ShootController : MonoBehaviour
 
         switch (state) // Actions
         {
-            case FIRE_States.WAIT:
-                reloadDelta = 0f;
+            case SHOOT_States.WAIT:
+                reloadTimer = 0f;
                 break;
-            case FIRE_States.FIRE:
-                reloadDelta = 0f;
+            case SHOOT_States.FIRE:
+                reloadTimer = 0f;
                 Fire(true);
                 break;
-            case FIRE_States.COUNT_ON:
-                reloadDelta += Time.fixedDeltaTime;
+            case SHOOT_States.COUNT_ON:
+                reloadTimer += Time.fixedDeltaTime;
                 break;
-            case FIRE_States.COUNT_OFF:
-                reloadDelta += Time.fixedDeltaTime;
+            case SHOOT_States.COUNT_OFF:
+                reloadTimer += Time.fixedDeltaTime;
                 break;
             default:
                 Debug.Log("Not supposed to be here - action sm");
