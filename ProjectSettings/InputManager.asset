@@ -570,7 +570,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 8
+    positiveButton: joystick 1 button 8
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -579,14 +579,14 @@ InputManager:
     snap: 0
     invert: 0
     type: 0
-    axis: 4
+    axis: 0
     joyNum: 1
   - serializedVersion: 3
     m_Name: forward-drive-2-mac
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 8
+    positiveButton: joystick 2 button 8
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -595,7 +595,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 0
-    axis: 4
+    axis: 0
     joyNum: 2
   - serializedVersion: 3
     m_Name: forward-drive-1-win
@@ -634,7 +634,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 7
+    positiveButton: joystick 1 button 7
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -643,14 +643,14 @@ InputManager:
     snap: 0
     invert: 0
     type: 0
-    axis: 4
+    axis: 0
     joyNum: 1
   - serializedVersion: 3
     m_Name: backward-drive-2-mac
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 7
+    positiveButton: joystick 2 button 7
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -659,14 +659,14 @@ InputManager:
     snap: 0
     invert: 0
     type: 0
-    axis: 4
-    joyNum: 1
+    axis: 0
+    joyNum: 2
   - serializedVersion: 3
     m_Name: backward-drive-1-win
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 7
+    positiveButton: joystick 1 button 7
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -682,7 +682,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 7
+    positiveButton: joystick 2 button 7
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -730,7 +730,7 @@ InputManager:
     descriptiveName: 'Player 1: Shoot'
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 6
+    positiveButton: joystick 1 button 6
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -741,6 +741,22 @@ InputManager:
     type: 2
     axis: 0
     joyNum: 1
+  - serializedVersion: 3
+    m_Name: shoot-2-mac
+    descriptiveName: 'Player 2: Shoot'
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 2 button 6
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 0
+    joyNum: 2
   - serializedVersion: 3
     m_Name: aim-toggle-1-mac
     descriptiveName: 'Player 1: Toggle Aim Assist'

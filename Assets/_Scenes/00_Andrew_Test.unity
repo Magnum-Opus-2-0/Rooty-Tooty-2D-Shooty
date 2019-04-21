@@ -594,6 +594,16 @@ PrefabInstance:
       propertyPath: steerMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5990051774864289409, guid: 36048713b2a1a2a41a318c138e89eb75,
+        type: 3}
+      propertyPath: forwardDrive
+      value: forward-drive-2-mac
+      objectReference: {fileID: 0}
+    - target: {fileID: 5990051774864289409, guid: 36048713b2a1a2a41a318c138e89eb75,
+        type: 3}
+      propertyPath: backwardDrive
+      value: backward-drive-2-mac
+      objectReference: {fileID: 0}
     - target: {fileID: 7390178441064325710, guid: 36048713b2a1a2a41a318c138e89eb75,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
