@@ -135,6 +135,7 @@ MonoBehaviour:
   barrel: {fileID: 988306217}
   ballFondler: {fileID: 902448416}
   speedOfBullet: 50
+  reloadTime: 0.5
 --- !u!1 &77329473 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 782792303101099971, guid: 3cf045c0ebafa2e468fe89884017d837,
@@ -158,6 +159,7 @@ MonoBehaviour:
   barrel: {fileID: 818124945}
   ballFondler: {fileID: 1946019166}
   speedOfBullet: 50
+  reloadTime: 0.5
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
