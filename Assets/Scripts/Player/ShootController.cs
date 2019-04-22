@@ -89,6 +89,8 @@ public class ShootController : MonoBehaviour
         FireRateStateMachine(Input.GetButton(shoot));
     }
 
+    // FixedUpdate is called at a constant rate, independent from framerate.
+    // Used for all physics calculations.
     void FixedUpdate()
     {
         for (int i = 0; i < bullets.Count; i++)
@@ -110,8 +112,10 @@ public class ShootController : MonoBehaviour
         }
     }
 
+    // LateUpdate is called at the end of every frame
     private void LateUpdate()
     {
+        // bullet fondler ignores rotation of tank so bullets don't rotate along with tank.
         bulletFondler.transform.rotation = Quaternion.identity;
     }
 

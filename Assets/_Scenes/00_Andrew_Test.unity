@@ -259,6 +259,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1860305741}
+    - target: {fileID: 7754299540289221280, guid: c57fe802d6187401a86ab1fd716072a2,
+        type: 3}
+      propertyPath: distanceFromTank
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c57fe802d6187401a86ab1fd716072a2, type: 3}
 --- !u!1 &902448416
@@ -461,6 +466,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 63719782}
+    - target: {fileID: 155078499360517604, guid: 24cb056e0db56434ebb64b5f3c0c8f21,
+        type: 3}
+      propertyPath: distanceFromTank
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24cb056e0db56434ebb64b5f3c0c8f21, type: 3}
 --- !u!1 &1669309852 stripped
