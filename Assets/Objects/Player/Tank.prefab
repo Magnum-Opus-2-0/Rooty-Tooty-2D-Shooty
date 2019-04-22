@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2290346752835028178}
   - component: {fileID: 1264002227}
-  - component: {fileID: 8892419077346932634}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -51,24 +50,6 @@ MonoBehaviour:
   xAim: x-aim-1-mac
   zAim: z-aim-1-mac
   turnSpeed: 3.5
---- !u!114 &8892419077346932634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 611612002254114429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64e6b96766e6ff648b1705060342cbea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shoot: shoot-1-pc
-  templateBullet: {fileID: 2514482929071404036}
-  barrel: {fileID: 7384040175891051519}
-  bulletFondler: {fileID: 0}
-  speedOfBullet: 50
-  reloadTime: 0.2
 --- !u!1 &2514482929071404036
 GameObject:
   m_ObjectHideFlags: 0

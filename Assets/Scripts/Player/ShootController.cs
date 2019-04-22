@@ -91,27 +91,28 @@ public class ShootController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Don't need to run if nothing has been shot yet.
-        if (bullets.Count > 0)
+        for (int i = 0; i < bullets.Count; i++)
         {
-            for (int i = 0; i < bullets.Count; i++)
+            // Only add force if bullet hasn't been fired yet.
+            if (!bullets[i].alreadyFired)
             {
-                // Only add force if bullet hasn't been fired yet.
-                if (!bullets[i].alreadyFired)
-                {
-                    // Reset velocity, just in case
-                    bullets[i].bullet_GameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
-                    // Add force to bullet
-                    bullets[i].bullet_GameObject.GetComponent<Rigidbody>().AddForce(speedOfBullet * barrel.transform.parent.forward, ForceMode.VelocityChange);
-                    // Update bullet's alreadyFired bool from false to true
-                    bullets[i] = new Bullet(bullets[i].bullet_GameObject, true);
-                }
-
-                // Since bullets are stored at the tip of the barrel, there is a chance they might collide with the barrel itself,
-                // which will cause incorrect trajectories. This should fix it.
-                Physics.IgnoreCollision(bullets[i].bullet_GameObject.GetComponent<SphereCollider>(), barrel.GetComponent<CapsuleCollider>());
+                // Reset velocity, just in case
+                bullets[i].bullet_GameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
+                // Add force to bullet
+                bullets[i].bullet_GameObject.GetComponent<Rigidbody>().AddForce(speedOfBullet * barrel.transform.parent.forward, ForceMode.VelocityChange);
+                // Update bullet's alreadyFired bool from false to true
+                bullets[i] = new Bullet(bullets[i].bullet_GameObject, true);
             }
+
+            // Since bullets are stored at the tip of the barrel, there is a chance they might collide with the barrel itself,
+            // which will cause incorrect trajectories. This should fix it.
+            Physics.IgnoreCollision(bullets[i].bullet_GameObject.GetComponent<SphereCollider>(), barrel.GetComponent<CapsuleCollider>());
         }
+    }
+
+    private void LateUpdate()
+    {
+        bulletFondler.transform.rotation = Quaternion.identity;
     }
 
     /// <summary>
