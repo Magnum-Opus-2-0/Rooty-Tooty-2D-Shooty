@@ -95,6 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0694eeef92c9845f4b7a8692e3762876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceFromTank: 40
+  distanceFromTank: 20
   target: {fileID: 0}
   smoothing: 5
