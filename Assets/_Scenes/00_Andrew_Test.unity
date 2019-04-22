@@ -136,30 +136,6 @@ MonoBehaviour:
   bulletFondler: {fileID: 0}
   speedOfBullet: 50
   reloadTime: 0.5
---- !u!1 &77329473 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 782792303101099971, guid: 3cf045c0ebafa2e468fe89884017d837,
-    type: 3}
-  m_PrefabInstance: {fileID: 1860305740}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &77329476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77329473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64e6b96766e6ff648b1705060342cbea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shoot: shoot-1-pc
-  templateBullet: {fileID: 1423641982}
-  barrel: {fileID: 818124945}
-  bulletFondler: {fileID: 1946019166}
-  speedOfBullet: 50
-  reloadTime: 0.2
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,12 +205,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1 &818124945 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7266709701483168321, guid: 3cf045c0ebafa2e468fe89884017d837,
-    type: 3}
-  m_PrefabInstance: {fileID: 1860305740}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &847112041
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,6 +652,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8775774711080764964, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: bulletFondler
+      value: 
+      objectReference: {fileID: 1946019166}
     - target: {fileID: 5231351822339209463, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: m_Name

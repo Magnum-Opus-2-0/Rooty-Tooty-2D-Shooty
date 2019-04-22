@@ -103,7 +103,7 @@ public class ShootController : MonoBehaviour
                     bullets[i].bullet_GameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
                     // Add force to bullet
                     bullets[i].bullet_GameObject.GetComponent<Rigidbody>().AddForce(speedOfBullet * barrel.transform.parent.forward, ForceMode.VelocityChange);
-                    // Updated bullet's alreadyFired bool from false to true
+                    // Update bullet's alreadyFired bool from false to true
                     bullets[i] = new Bullet(bullets[i].bullet_GameObject, true);
                 }
 
@@ -188,7 +188,7 @@ public class ShootController : MonoBehaviour
 
                 break;
             default:
-                Debug.Log("Not supposed to be here - transition sm");
+                Debug.LogError("Not supposed to be here - transition sm");
                 break;
         }
 
@@ -208,7 +208,7 @@ public class ShootController : MonoBehaviour
                 reloadTimer += Time.fixedDeltaTime;
                 break;
             default:
-                Debug.Log("Not supposed to be here - action sm");
+                Debug.LogError("Not supposed to be here - action sm");
                 break;
         }
     }
