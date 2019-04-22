@@ -64,7 +64,6 @@ public class HighlightRingController : MonoBehaviour
 
             if (once)
             {
-                Debug.Log(highlight.material.shader);
                 once = false;
             }
         }
