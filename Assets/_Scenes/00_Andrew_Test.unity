@@ -639,6 +639,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1595111438}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1669309852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6717981549852524756, guid: 3cf045c0ebafa2e468fe89884017d837,
+    type: 3}
+  m_PrefabInstance: {fileID: 1860305740}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1845495162 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400381040898309034, guid: f81d2b628259641319bf90c9947d6ccd,
@@ -656,7 +662,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bulletFondler
       value: 
-      objectReference: {fileID: 1946019166}
+      objectReference: {fileID: 1669309852}
     - target: {fileID: 5231351822339209463, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: m_Name
@@ -665,19 +671,9 @@ PrefabInstance:
     - target: {fileID: 5231351822339209463, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 782792303101099971, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2325216907494245818, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2325216907494245818, guid: 3cf045c0ebafa2e468fe89884017d837,
+    - target: {fileID: 782792303101099971, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: m_TagString
       value: Player_1
@@ -841,7 +837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1946019167
 Transform:
   m_ObjectHideFlags: 0
@@ -1273,6 +1269,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8892419077346932634, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: bulletFondler
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5348189828253354313, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
       propertyPath: m_Name
@@ -1281,7 +1282,7 @@ PrefabInstance:
     - target: {fileID: 5348189828253354313, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400381040898309034, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
