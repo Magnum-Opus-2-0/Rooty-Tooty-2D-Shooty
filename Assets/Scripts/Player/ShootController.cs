@@ -33,7 +33,7 @@ public class ShootController : MonoBehaviour
     public GameObject barrel;
     /// <summary>
     /// A GameObject that holds all bullets instantiated by player.
-    /// After MAX_BULLETS are instantiated, each bullet is recycled.
+    /// After maxBullets are instantiated, each bullet is recycled.
     /// </summary>
     public GameObject bulletFondler;
     /// <summary>
@@ -48,7 +48,7 @@ public class ShootController : MonoBehaviour
     /// <summary>
     /// The max number of bullets of the player at any time during gameplay.
     /// </summary>
-    private const int MAX_BULLETS = 3;
+    public int maxBullets;
 
     /// <summary>
     /// Where all bullets are held and referenced.
@@ -136,7 +136,7 @@ public class ShootController : MonoBehaviour
         bullets[objectPoolCounter] = new Bullet(bullets[objectPoolCounter].bullet_GameObject, false);
         bullets[objectPoolCounter].bullet_GameObject.transform.position = templateBullet.transform.position;
 
-        if (objectPoolCounter < MAX_BULLETS - 1)
+        if (objectPoolCounter < maxBullets - 1)
             objectPoolCounter++;
         else
             objectPoolCounter = 0;
@@ -148,11 +148,11 @@ public class ShootController : MonoBehaviour
     /// <param name="buttonPressed">If set to <c>true</c> button pressed.</param>
     private void Fire(bool buttonPressed)
     {
-        if (bullets.Count < MAX_BULLETS && buttonPressed)
+        if (bullets.Count < maxBullets && buttonPressed)
         {
             CreateAndAddBullet();
         }
-        else if (bullets.Count == MAX_BULLETS && buttonPressed)
+        else if (bullets.Count == maxBullets && buttonPressed)
         {
             RecycleBullets();
         }
