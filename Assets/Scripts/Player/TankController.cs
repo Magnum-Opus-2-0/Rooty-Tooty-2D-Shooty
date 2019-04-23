@@ -398,12 +398,10 @@ public class TankController : MonoBehaviour
         if (wasNotDead != hb.isNotDead() && hb.isNotDead())
         {
             state = TankStates.Alive;
-            Debug.Log("IT'S ALIVE");
         }
         else if (wasNotDead != hb.isNotDead() && !hb.isNotDead())
         {
             state = TankStates.Dead;
-            Debug.Log("She's dead, Jim");
         }
 
         wasNotDead = hb.isNotDead();
