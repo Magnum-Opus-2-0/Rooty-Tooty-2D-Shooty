@@ -46,7 +46,7 @@ public class HealthBehavior : MonoBehaviour
         {
             respawnTime -= Time.fixedDeltaTime;
             respawnText.gameObject.SetActive(true);
-            respawnText.text = "You're DEAD! Respawning in " + respawnTime.Math.Ceiling() //ToString();
+            respawnText.text = "You're DEAD! Respawning in " + respawnTime.ToString();
         }
 
         if (respawnTime <= 0)
