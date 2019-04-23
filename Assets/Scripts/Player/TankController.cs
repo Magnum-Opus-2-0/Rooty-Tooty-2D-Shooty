@@ -6,6 +6,14 @@ using UnityEngine;
 public class TankController : MonoBehaviour
 {
 
+    private HealthBehavior hb;
+    private TankStates state;
+    public TankStates State
+    {
+        get { return state; }
+    }
+    private bool wasNotDead;
+
     #region MEMBERS_RESOURCES
     private int fluff;
     public int Fluff
@@ -158,11 +166,18 @@ public class TankController : MonoBehaviour
         // Define resource starting values
         Fluff = 0;
         Plastic = 0;
+
+        // Get the reference to the HealthBehavior script\
+        hb = GetComponent<HealthBehavior>();
+        state = TankStates.Alive;
+        wasNotDead = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        UpdateState();
 
         UpdateMoveInput();
 
@@ -359,5 +374,25 @@ public class TankController : MonoBehaviour
         }
 
         return false;
+    }
+
+    /// <summary>
+    /// Updates the <see cref="state"/> Only modifies the state variable if the
+    /// player has died or respawned since last Update.
+    /// </summary>
+    public void UpdateState()
+    {
+        if (wasNotDead != hb.isNotDead() && hb.isNotDead())
+        {
+            state = TankStates.Alive;
+            Debug.Log("IT'S ALIVE");
+        }
+        else if (wasNotDead != hb.isNotDead() && !hb.isNotDead())
+        {
+            state = TankStates.Dead;
+            Debug.Log("She's dead, Jim");
+        }
+
+        wasNotDead = hb.isNotDead();
     }
 }
