@@ -18,7 +18,7 @@ public class HealthBehavior : MonoBehaviour
     public bool doPoisonDemo;   // this is initialized via the Unity editor
     private const float POISON_PERIOD = 0.25f; // use this value only for testing
     private const int POISON_DAMAGE = 2;
-    private static float currentTimeStep;
+    private float currentTimeStep;
 
     public Text respawnText;
     public float respawnTime;
@@ -46,7 +46,7 @@ public class HealthBehavior : MonoBehaviour
         {
             respawnTime -= Time.fixedDeltaTime;
             respawnText.gameObject.SetActive(true);
-            respawnText.text = "You're DEAD! Respawning in " + respawnTime.ToString();
+            respawnText.text = "You're DEAD! Respawning in " + respawnTime.ToString("0");
         }
 
         if (respawnTime <= 0)

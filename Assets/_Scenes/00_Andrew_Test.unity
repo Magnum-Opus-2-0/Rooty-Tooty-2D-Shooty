@@ -389,10 +389,10 @@ Rigidbody:
   m_Drag: 6
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!114 &800294084 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5580745004281776829, guid: f522e43e80fe542ff98faaee0953c441,
@@ -906,7 +906,7 @@ PrefabInstance:
     - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: reloadTime
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
@@ -1053,6 +1053,11 @@ PrefabInstance:
       propertyPath: respawnText
       value: 
       objectReference: {fileID: 27364175}
+    - target: {fileID: 5261503683175890350, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: doPoisonDemo
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6893645116141561921, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: forceOfExplosion
@@ -1076,6 +1081,10 @@ PrefabInstance:
     - target: {fileID: 109282, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 3}
       propertyPath: m_Name
       value: Simple Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 109282, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22403254, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1243,6 +1252,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11487436, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 3}
       propertyPath: displayText
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456562, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456562, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456562, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456562, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456562, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1644,6 +1673,11 @@ PrefabInstance:
         type: 3}
       propertyPath: respawnTime
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267188069745566198, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: doPoisonDemo
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4591929530670045666, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
