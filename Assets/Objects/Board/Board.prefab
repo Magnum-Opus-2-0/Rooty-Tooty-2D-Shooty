@@ -147,7 +147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7905399bde9a43868ed98412754583e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tile: {fileID: 4975677601253510548}
+  emptyTileTemplate: {fileID: 4975677601253510548}
+  fluffTemplate: {fileID: 0}
+  fiberTemplate: {fileID: 0}
+  objectTemplate: {fileID: 0}
+  tileFondler: {fileID: 0}
 --- !u!1 &6166039005017939880
 GameObject:
   m_ObjectHideFlags: 0
