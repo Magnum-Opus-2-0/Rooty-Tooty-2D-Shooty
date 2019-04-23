@@ -12,14 +12,16 @@ public class HealthBehavior : MonoBehaviour
     public const int MAX_HEALTH = 50;
     public int currentHealth;   // set to public for debugging
 
+    public int bulletDamage = 5;
+
     // Variables for demo poison function
     public bool doPoisonDemo;   // this is initialized via the Unity editor
     private const float POISON_PERIOD = 0.25f; // use this value only for testing
     private const int POISON_DAMAGE = 2;
     private static float currentTimeStep;
 
-
-
+    public Text respawnText;
+    public float respawnTime;
 
 
 
@@ -40,6 +42,24 @@ public class HealthBehavior : MonoBehaviour
         // replace with an actual damage calculation in real usage
         // if (doPoisonDemo) update_PoisonDamage();
 
+        if (currentHealth <= 0 && respawnTime <= 5)
+        {
+            respawnTime -= Time.fixedDeltaTime;
+            respawnText.gameObject.SetActive(true);
+            respawnText.text = "You're DEAD! Respawning in " + respawnTime.Math.Ceiling() //ToString();
+        }
+
+        if (respawnTime <= 0)
+        {
+            explodeScript.Restore();
+            setHealth(MAX_HEALTH);
+            respawnText.gameObject.SetActive(false);
+            respawnTime = 5;
+        }
+    }
+
+    void FixedUpdate()
+    {
         if (currentHealth <= 0) explodeScript.Explode();
     }
 
@@ -48,7 +68,7 @@ public class HealthBehavior : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             shootScript.ResetBullet(collision.gameObject);
-            adjustHealth(-5);
+            adjustHealth(-bulletDamage);
         }
     }
 
