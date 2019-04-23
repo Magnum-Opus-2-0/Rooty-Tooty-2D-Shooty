@@ -40,7 +40,7 @@ public class HealthBehavior : MonoBehaviour
     {
         // This is a demo function;
         // replace with an actual damage calculation in real usage
-        // if (doPoisonDemo) update_PoisonDamage();
+        if (doPoisonDemo) update_PoisonDamage();
 
         if (currentHealth <= 0 && respawnTime <= 5)
         {

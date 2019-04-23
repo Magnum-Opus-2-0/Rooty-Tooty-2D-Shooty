@@ -219,6 +219,16 @@ PrefabInstance:
       propertyPath: respawnTime
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5261503683175890350, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: doPoisonDemo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893645116141561921, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: doExplosionDemo
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cf045c0ebafa2e468fe89884017d837, type: 3}
 --- !u!1 &53669213

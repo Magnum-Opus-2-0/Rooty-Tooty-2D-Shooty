@@ -6,6 +6,7 @@ using UnityEngine;
 public class TankController : MonoBehaviour
 {
 
+    #region MEMBERS_STATES
     private HealthBehavior hb;
     private TankStates state;
     public TankStates State
@@ -13,6 +14,7 @@ public class TankController : MonoBehaviour
         get { return state; }
     }
     private bool wasNotDead;
+    #endregion
 
     #region MEMBERS_RESOURCES
     private int fluff;
@@ -170,7 +172,7 @@ public class TankController : MonoBehaviour
         // Get the reference to the HealthBehavior script\
         hb = GetComponent<HealthBehavior>();
         state = TankStates.Alive;
-        wasNotDead = true;
+        wasNotDead = hb.isNotDead();
     }
 
     // Update is called once per frame
@@ -179,7 +181,14 @@ public class TankController : MonoBehaviour
 
         UpdateState();
 
-        UpdateMoveInput();
+        if (State == TankStates.Alive)
+        {
+            UpdateMoveInput();
+        } 
+        else
+        {
+            ZeroInputs();
+        }
 
         if (IsDriving())
         {
@@ -188,12 +197,6 @@ public class TankController : MonoBehaviour
         else
         {
             AccelerateTank(-1);
-        }
-
-        //DEBUG make sure to take this out later
-        if (Input.GetButtonUp("reset-pos"))
-        {
-            transform.position = new Vector3(0, .3f, 0);
         }
 
     }
@@ -254,6 +257,16 @@ public class TankController : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    /// <summary>
+    /// Sets all possible move inputs to zero.
+    /// </summary>
+    private void ZeroInputs()
+    {
+        stickInput = Vector3.zero;
+        triggerInput = 0;
+        inputSpeed = 0;
     }
 
     /// <summary>
