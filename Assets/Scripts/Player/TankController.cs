@@ -23,6 +23,10 @@ public class TankController : MonoBehaviour
 
     #region MEMBERS_RESOURCES
     private int fluff;
+    /// <summary>
+    /// Gets or sets the fluff directly.
+    /// </summary>
+    /// <value>The fluff.</value>
     public int Fluff
     {
         get
@@ -35,8 +39,34 @@ public class TankController : MonoBehaviour
             fluff = value;
         }
     }
+    /// <summary>
+    /// Gets the value of fluff directly.
+    /// <para>Sets the fluff capped at <see cref="resourceCap"/>. That is, if the
+    /// value of <see cref="fluff"/> exceeds resourceMax then it is set to 
+    /// resourceMax.</para>
+    /// </summary>
+    /// <value>The fluff capped.</value>
+    public int FluffCapped
+    {
+        get
+        {
+            return fluff;
+        }
+        set
+        {
+            fluff = value;
+            if (fluff > resourceCap)
+            {
+                fluff = resourceCap;
+            } 
+        }
+    }
 
     private int plastic;
+    /// <summary>
+    /// Gets or sets the plastic directly.
+    /// </summary>
+    /// <value>The plastic.</value>
     public int Plastic
     {
         get
@@ -46,6 +76,41 @@ public class TankController : MonoBehaviour
         set
         {
             plastic = value;
+        }
+    }
+    /// <summary>
+    /// Gets the value of plastic directly.
+    /// <para>Sets the plastic capped at <see cref="resourceCap"/>. That is, if the
+    /// value of <see cref="plastic"/> exceeds resourceMax then it is set to 
+    /// resourceMax.</para>
+    /// </summary>
+    /// <value>The amount of plastic.</value>
+    public int PlasticCapped
+    {
+        get
+        {
+            return plastic;
+        }
+        set
+        {
+            plastic = value;
+            if (plastic > resourceCap)
+            {
+                plastic = resourceCap;
+            }
+        }
+    }
+
+    [SerializeField]
+    /// <summary>
+    /// The maximum number of resources a player can carry.
+    /// </summary>
+    private int resourceCap = 10;
+    public int ResourceCap
+    {
+        get
+        {
+            return resourceCap;
         }
     }
     #endregion
@@ -410,5 +475,63 @@ public class TankController : MonoBehaviour
         }
 
         wasNotDead = hb.isNotDead();
+    }
+
+    /// <summary>
+    /// Determines whether this Tank can hold any more of the specified
+    /// <see cref="ResourceType"/>.
+    /// </summary>
+    /// <returns><c>true</c>, if this Tank can grab the resource, <c>false</c>
+    /// otherwise.</returns>
+    /// <param name="resourceType">The <see cref="ResourceType"/> of the
+    /// Resource we want to grab.</param>
+    public bool CanGrabResource(ResourceType resourceType)
+    {
+        switch (resourceType)
+        {
+            case ResourceType.Fluff:
+                return Fluff < ResourceCap;
+
+            case ResourceType.Plastic:
+                return Plastic < ResourceCap;
+
+            case ResourceType.None:
+                Debug.LogError("ResourceType has not been assigned.");
+                break;
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Adds the amount to the specified <see cref="ResourceType"/>. If adding
+    /// the amount will put it over the max
+    /// </summary>
+    /// <param name="resourceType">Resource type.</param>
+    /// <param name="amount">Amount.</param>
+    public void AddResource(ResourceType resourceType, int amount)
+    {
+        switch (resourceType)
+        {
+            case ResourceType.Fluff:
+                Fluff += amount;
+                if (Fluff > resourceCap)
+                {
+                    Fluff = resourceCap;
+                }
+                break;
+
+            case ResourceType.Plastic:
+                Plastic += amount;
+                if (Plastic > resourceCap)
+                {
+                    Plastic = resourceCap;
+                }
+                break;
+
+            case ResourceType.None:
+                Debug.LogError("ResourceType has not been assigned.");
+                break;
+        }
     }
 }

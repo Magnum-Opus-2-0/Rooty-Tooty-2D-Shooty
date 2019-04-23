@@ -50,7 +50,7 @@ public class ResourceController : MonoBehaviour
                 tc = other.transform.parent.GetComponentInParent<TankController>();
             }
 
-            if (tc.State == TankStates.Alive)
+            if (tc.State == TankStates.Alive && tc.CanGrabResource(resourceType))
             {
                 AddResource(tc);
                 Destroy(this.gameObject);
@@ -79,11 +79,11 @@ public class ResourceController : MonoBehaviour
         switch (resourceType)
         {
             case ResourceType.Fluff:
-                tc.Fluff += amount;
+                tc.FluffCapped += amount;
                 break;
 
             case ResourceType.Plastic:
-                tc.Plastic += amount;
+                tc.PlasticCapped += amount;
                 break;
 
             case ResourceType.None:
@@ -91,4 +91,6 @@ public class ResourceController : MonoBehaviour
                 break;
         }
     }
+
+
 }
