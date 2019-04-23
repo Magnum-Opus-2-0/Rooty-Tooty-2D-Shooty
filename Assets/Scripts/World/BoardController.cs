@@ -52,6 +52,7 @@ public class BoardController : MonoBehaviour
                     newTile.transform.parent = gameObject.transform;
                }
           }
+
           tile.SetActive(false);
      }
 }

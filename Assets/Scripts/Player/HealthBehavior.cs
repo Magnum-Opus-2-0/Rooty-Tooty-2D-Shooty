@@ -9,7 +9,7 @@ public class HealthBehavior : MonoBehaviour
     public ExplodeBehavior explodeScript;
 
     public const int MAX_HEALTH = 50;
-    private int currentHealth;
+    public int currentHealth;   // set to public for debugging
 
     // Variables for demo poison function
     public bool doPoisonDemo;   // this is initialized via the Unity editor
@@ -37,7 +37,17 @@ public class HealthBehavior : MonoBehaviour
     {
         // This is a demo function;
         // replace with an actual damage calculation in real usage
-        if (doPoisonDemo) update_PoisonDamage();
+        // if (doPoisonDemo) update_PoisonDamage();
+        if (currentHealth <= 0) explodeScript.Explode();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            // reset bullet
+            adjustHealth(-5);
+        }
     }
 
     /// <summary>

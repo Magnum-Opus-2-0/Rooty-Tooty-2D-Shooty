@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 1681195575906486057}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Player_1
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,6 +260,8 @@ GameObject:
   - component: {fileID: 400381040898309034}
   - component: {fileID: 5001375506268166867}
   - component: {fileID: 1514116234941514937}
+  - component: {fileID: 5450891750570937360}
+  - component: {fileID: 6704396560043710975}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -321,6 +323,41 @@ MonoBehaviour:
   turnSpeed: 3
   maxSpeed: 4
   accelerate: 2.5
+--- !u!114 &5450891750570937360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5348189828253354313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad7d67438fb5c84db56e38236a66c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  explodeScript: {fileID: 6704396560043710975}
+  currentHealth: 0
+  doPoisonDemo: 0
+--- !u!114 &6704396560043710975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5348189828253354313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a794384a98e241e46a3c093186ae91ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doExplosionDemo: 0
+  forceOfExplosion: 10
+  radiusOfExplosion: 10
+  pieces:
+  - {fileID: 8867562778350291764}
+  - {fileID: 5237407321138980475}
+  - {fileID: 7384040175891051519}
 --- !u!1 &6566715632166587962
 GameObject:
   m_ObjectHideFlags: 0

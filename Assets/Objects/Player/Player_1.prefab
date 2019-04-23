@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 1487959885961934757}
   m_Layer: 0
   m_Name: P1 Bullet Fondler
-  m_TagString: Untagged
+  m_TagString: Player_1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,12 +144,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player_1
       objectReference: {fileID: 0}
-    - target: {fileID: 8867562778350291764, guid: f81d2b628259641319bf90c9947d6ccd,
+    - target: {fileID: 5450891750570937360, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
-      propertyPath: m_TagString
-      value: Player_1
+      propertyPath: healthBar
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 7384040175891051519, guid: f81d2b628259641319bf90c9947d6ccd,
+    - target: {fileID: 8867562778350291764, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
       propertyPath: m_TagString
       value: Player_1
@@ -165,6 +165,11 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5237407321138980475, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7384040175891051519, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
       propertyPath: m_TagString
       value: Player_1
