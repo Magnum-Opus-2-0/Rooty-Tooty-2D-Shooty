@@ -11,7 +11,12 @@ public class TankController : MonoBehaviour
     private TankStates state;
     public TankStates State
     {
-        get { return state; }
+        get {
+            return state; 
+        }
+        set {
+            state = value; 
+        }
     }
     private bool wasNotDead;
     #endregion
