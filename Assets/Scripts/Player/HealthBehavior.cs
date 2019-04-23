@@ -7,6 +7,7 @@ public class HealthBehavior : MonoBehaviour
 {
     public SimpleHealthBar healthBar;
     public ExplodeBehavior explodeScript;
+    public ShootController shootScript;
 
     public const int MAX_HEALTH = 50;
     public int currentHealth;   // set to public for debugging
@@ -38,6 +39,7 @@ public class HealthBehavior : MonoBehaviour
         // This is a demo function;
         // replace with an actual damage calculation in real usage
         // if (doPoisonDemo) update_PoisonDamage();
+
         if (currentHealth <= 0) explodeScript.Explode();
     }
 
@@ -45,7 +47,7 @@ public class HealthBehavior : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            // reset bullet
+            shootScript.ResetBullet(collision.gameObject);
             adjustHealth(-5);
         }
     }
