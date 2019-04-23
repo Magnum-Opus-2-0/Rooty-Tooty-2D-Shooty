@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a794384a98e241e46a3c093186ae91ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doExplosionDemo: 0
+  doExplosionDemo: 1
   forceOfExplosion: 10
   radiusOfExplosion: 10
   pieces:
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 2128761863}
   explodeScript: {fileID: 304148340}
-  doPoisonDemo: 1
+  doPoisonDemo: 0
 --- !u!1 &435511296 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8767947511814126218, guid: 3cf045c0ebafa2e468fe89884017d837,
@@ -591,6 +591,11 @@ PrefabInstance:
       propertyPath: doPoisonDemo
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5172837263814224749, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: m_Drag
+      value: Infinity
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3cf045c0ebafa2e468fe89884017d837, type: 3}
@@ -794,6 +799,10 @@ PrefabInstance:
     - target: {fileID: 22493990, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 3}
       propertyPath: m_SizeDelta.x
       value: -461.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22493990, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 6.299988
       objectReference: {fileID: 0}
     - target: {fileID: 22493990, guid: 60da1df1f7edb3747bea8f735b2768d1, type: 3}
       propertyPath: m_AnchoredPosition.x
