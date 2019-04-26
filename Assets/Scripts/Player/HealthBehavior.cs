@@ -9,18 +9,21 @@ public class HealthBehavior : MonoBehaviour
     public ExplodeBehavior explodeScript;
     public ShootController shootScript;
 
-    public const int MAX_HEALTH = 50;
+    public const int MAX_HEALTH = 100;
     public int currentHealth;   // set to public for debugging
 
-    public int bulletDamage = 5;
+    public int bulletDamage = 10;
 
     // Variables for demo poison function
     public bool doPoisonDemo;   // this is initialized via the Unity editor
     private const float POISON_PERIOD = 0.25f; // use this value only for testing
-    private const int POISON_DAMAGE = 2;
+    private const int POISON_DAMAGE = 20;
     private float currentTimeStep;
-
+    public Image health_icon;
+    public Image respawn_background;
     public Text respawnText;
+    public Text health_val;
+
     public float respawnTime;
 
 
@@ -33,6 +36,10 @@ public class HealthBehavior : MonoBehaviour
     {
         currentHealth = MAX_HEALTH;
         currentTimeStep = 0;
+        health_icon.fillAmount = 1.0f;
+        health_val.text = currentHealth.ToString();
+        respawnText.gameObject.SetActive(false);
+        respawn_background.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -45,6 +52,7 @@ public class HealthBehavior : MonoBehaviour
         if (currentHealth <= 0 && respawnTime <= 5)
         {
             respawnTime -= Time.fixedDeltaTime;
+            respawn_background.gameObject.SetActive(true);
             respawnText.gameObject.SetActive(true);
             respawnText.text = "You're DEAD! Respawning in " + respawnTime.ToString("0");
         }
@@ -54,6 +62,7 @@ public class HealthBehavior : MonoBehaviour
             explodeScript.Restore();
             setHealth(MAX_HEALTH);
             respawnText.gameObject.SetActive(false);
+            respawn_background.gameObject.SetActive(false);
             respawnTime = 5;
         }
     }
@@ -107,20 +116,11 @@ public class HealthBehavior : MonoBehaviour
 
     /// <summary>
     /// Updates health bar with current health,
-    /// and sets color accordingly.
+    /// and sets fillAmount accordingly.
     /// </summary>
     public void updateHealthBar() {
-
-        // Update the health bar amount
-        healthBar.UpdateBar(currentHealth, MAX_HEALTH);
-
-        // Update the health bar color
-        if (currentHealth >= (0.5 * MAX_HEALTH))
-            healthBar.UpdateColor(Color.green);
-        else if (currentHealth >= (0.2 * MAX_HEALTH))
-            healthBar.UpdateColor(Color.yellow);
-        else
-            healthBar.UpdateColor(Color.red);
+        health_val.text = currentHealth.ToString();
+        health_icon.fillAmount = currentHealth/100.0f;
     }
 
     /// <summary>

@@ -7,6 +7,10 @@ TagManager:
   - Player_1
   - Player_2
   - Bullet
+  - Cam_1
+  - Cam_2
+  - P1canvas
+  - P2canvas
   layers:
   - Default
   - TransparentFX
