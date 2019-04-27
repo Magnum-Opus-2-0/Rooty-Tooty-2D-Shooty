@@ -32,4 +32,9 @@ public class CameraController : MonoBehaviour
         // where the camera should be
         transform.position = Vector3.Lerp(transform.position, target.position + offset, smoothing * Time.deltaTime);
     }
+
+    public void SetTarget(Transform t){
+
+        target = t;
+    }
 }

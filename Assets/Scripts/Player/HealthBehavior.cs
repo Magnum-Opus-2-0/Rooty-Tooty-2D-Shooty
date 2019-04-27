@@ -36,10 +36,10 @@ public class HealthBehavior : MonoBehaviour
     {
         currentHealth = MAX_HEALTH;
         currentTimeStep = 0;
-        health_icon.fillAmount = 1.0f;
-        health_val.text = currentHealth.ToString();
-        respawnText.gameObject.SetActive(false);
-        respawn_background.gameObject.SetActive(false);
+        //health_icon.fillAmount = 1.0f;
+       // health_val.text = currentHealth.ToString();
+       // respawnText.gameObject.SetActive(false);
+       // respawn_background.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

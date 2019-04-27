@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 155078499360517604}
   m_Layer: 0
   m_Name: Cam_P2
-  m_TagString: Untagged
+  m_TagString: Camera2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
