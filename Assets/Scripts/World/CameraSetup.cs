@@ -26,7 +26,6 @@ public class CameraSetup : MonoBehaviour
     public void InitializeSplitScreen(){
         
         //Initialize objects
-        GameObject temp;
         GameObject p1 = GameObject.FindWithTag("Player_1");
         GameObject p2 = GameObject.FindWithTag("Player_2");
         cam1 = Instantiate(cam1, new Vector3(0,0,0), Quaternion.identity);
