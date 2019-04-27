@@ -12,9 +12,6 @@ public class CameraSetup : MonoBehaviour
     public GameObject canvas1;
     public GameObject canvas2;
 
-    //Children
-    public Image heart1;
-    public Image heart2;
     // Start is called before the first frame update
     void Start()
     {
