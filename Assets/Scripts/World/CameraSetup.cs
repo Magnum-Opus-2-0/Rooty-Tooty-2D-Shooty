@@ -46,8 +46,11 @@ public class CameraSetup : MonoBehaviour
 
         canvas1.GetComponent<Canvas>().worldCamera = cam1.GetComponent<Camera>();
         canvas2.GetComponent<Canvas>().worldCamera = cam2.GetComponent<Camera>();
+        canvas1.GetComponent<Canvas>().planeDistance = 1;
+        canvas2.GetComponent<Canvas>().planeDistance = 1;
 
         InitializeHealthBehavior(p1, canvas1);
+        InitializeHealthBehavior(p2, canvas2);
     }
 
     void InitializeHealthBehavior(GameObject player, GameObject cav){

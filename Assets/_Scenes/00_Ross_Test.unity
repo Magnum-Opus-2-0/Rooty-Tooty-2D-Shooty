@@ -188,7 +188,17 @@ PrefabInstance:
     - target: {fileID: 6267188069745566198, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267188069745566198, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: doPoisonDemo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267188069745566198, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: respawnTime
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b416b72df150e488a918a43d9d34a1a1, type: 3}
