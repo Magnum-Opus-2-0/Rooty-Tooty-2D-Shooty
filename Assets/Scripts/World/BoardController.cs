@@ -18,9 +18,9 @@ public class BoardController : MonoBehaviour
     /// Empty GameObject to store all generated tiles in hierarchy
     /// </summary>
     public GameObject tileFondler;
+    public GameObject wallFondler;
 
     private static readonly int TILE_WIDTH = 1;
-
 
     /// <summary>
     /// How many tiles there are in the z direction.
@@ -55,18 +55,20 @@ public class BoardController : MonoBehaviour
     /// </summary>
     private void GenerateGrid()
     {
+        // Builds the walls that encompass the grid.
+        wallPieceTemplate.SetActive(true);
+        BuildAWall(-1, Z_MAX + 1, -1, 'z', wallPieceTemplate);
+        BuildAWall(-1, Z_MAX + 1, X_MAX, 'z', wallPieceTemplate);
+        BuildAWall(-1, X_MAX + 1, -1, 'x', wallPieceTemplate);
+        BuildAWall(-1, X_MAX + 1, Z_MAX, 'x', wallPieceTemplate);
+        wallPieceTemplate.SetActive(false);
+
+        // Builds the actual grid.
         emptyTileTemplate.SetActive(true);
-
-        BuildAWall(-1, X_MAX + 1, -1, 'z', wallPieceTemplate);
-        BuildAWall(-1, X_MAX + 1, Z_MAX, 'z', wallPieceTemplate);
-        BuildAWall(-1, Z_MAX + 1, -1, 'x', wallPieceTemplate);
-        BuildAWall(-1, Z_MAX + 1, X_MAX, 'x', wallPieceTemplate);
-
         for (int x = 0; x < X_MAX; x++)
         {
             for (int z = 0; z < Z_MAX; z++)
             {
-
                 GameObject newTile = Instantiate(emptyTileTemplate, new Vector3(x + TILE_WIDTH - 1, 0, z + TILE_WIDTH - 1), Quaternion.Euler(90f, 0f, 0f));
 
                 // Store a reference to this tile into a "holder" object, tileFondler
@@ -76,13 +78,20 @@ public class BoardController : MonoBehaviour
                 tileArray[x, z] = newTile;
             }
         }
+        emptyTileTemplate.SetActive(false);
 
         // @TODO: Randomly generate resources and obstacles,
         // and populate the tileArray here
-
-        emptyTileTemplate.SetActive(false);
     }
 
+    /// <summary>
+    /// Builds a wall! Keeps out all the illegal fluff.
+    /// </summary>
+    /// <param name="start">starting coordinate</param>
+    /// <param name="end">endpoint of wall</param>
+    /// <param name="constant">the coordinate of the axis that doesn't change</param>
+    /// <param name="axis">what axis to build the wall along (either x, y, or z)</param>
+    /// <param name="wallObject">the object that shall be instantiated</param>
     private void BuildAWall(int start, int end, int constant, char axis, GameObject wallObject)
     {
         for(int i = start; i < end; i++)
@@ -97,6 +106,9 @@ public class BoardController : MonoBehaviour
                     break;
                 case 'z':
                     Instantiate(wallPieceTemplate, new Vector3(constant, 0.5f, i), Quaternion.identity);
+                    break;
+                default:
+                    Debug.LogError("Invalid axis '" + axis + "' given.");
                     break;
             }
         }
