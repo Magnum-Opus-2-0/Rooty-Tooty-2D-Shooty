@@ -36,7 +36,7 @@ public class HealthBehavior : MonoBehaviour
     {
         currentHealth = MAX_HEALTH;
         currentTimeStep = 0;
-        //health_icon.fillAmount = 1.0f;
+       // health_icon.fillAmount = 1.0f;
        // health_val.text = currentHealth.ToString();
        // respawnText.gameObject.SetActive(false);
        // respawn_background.gameObject.SetActive(false);
@@ -48,8 +48,16 @@ public class HealthBehavior : MonoBehaviour
         // This is a demo function;
         // replace with an actual damage calculation in real usage
         if (doPoisonDemo) update_PoisonDamage();
+    }
 
-        if (currentHealth <= 0 && respawnTime <= 5)
+    void FixedUpdate()
+    {
+        if (!isNotDead() && respawnTime == 5)
+        {
+            explodeScript.Explode();
+        }
+
+        if (!isNotDead() && respawnTime <= 5)
         {
             respawnTime -= Time.fixedDeltaTime;
             respawn_background.gameObject.SetActive(true);
@@ -61,15 +69,13 @@ public class HealthBehavior : MonoBehaviour
         {
             explodeScript.Restore();
             setHealth(MAX_HEALTH);
-            respawnText.gameObject.SetActive(false);
+
             respawn_background.gameObject.SetActive(false);
+            respawnText.gameObject.SetActive(false);
+            respawnText.gameObject.SetActive(false);
+
             respawnTime = 5;
         }
-    }
-
-    void FixedUpdate()
-    {
-        if (currentHealth <= 0) explodeScript.Explode();
     }
 
     private void OnCollisionEnter(Collision collision)

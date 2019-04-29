@@ -229,12 +229,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1 &299586502 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3981939942623852580, guid: b4c67ed272150b04bba22abe8c018386,
-    type: 3}
-  m_PrefabInstance: {fileID: 1201324364234132008}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &301844281 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8525754249862050614, guid: 93327249d40b846dd8da7ae463ec1a18,
@@ -880,7 +874,7 @@ PrefabInstance:
     - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: reloadTime
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
@@ -910,7 +904,7 @@ PrefabInstance:
     - target: {fileID: 517800692760676884, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 517800692760676884, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
@@ -992,10 +986,25 @@ PrefabInstance:
       propertyPath: backwardDrive
       value: backward-drive-1-mac
       objectReference: {fileID: 0}
+    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: accelerate
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5172837263814224749, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: m_Mass
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172837263814224749, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1445095099381107511, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
@@ -1011,7 +1020,7 @@ PrefabInstance:
         type: 3}
       propertyPath: shootScript
       value: 
-      objectReference: {fileID: 1701232621}
+      objectReference: {fileID: 828127514}
     - target: {fileID: 5261503683175890350, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: bulletDamage
@@ -1047,6 +1056,11 @@ PrefabInstance:
       propertyPath: respawn_background
       value: 
       objectReference: {fileID: 975489955}
+    - target: {fileID: 5261503683175890350, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6893645116141561921, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: forceOfExplosion
@@ -1197,7 +1211,7 @@ PrefabInstance:
     - target: {fileID: 6705101475199266980, guid: 7983ca1031c0c50429d7c47753b54d7b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6705101475199266980, guid: 7983ca1031c0c50429d7c47753b54d7b,
         type: 3}
@@ -1323,7 +1337,7 @@ PrefabInstance:
     - target: {fileID: 1788636165241837132, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1788636165241837132, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
@@ -1388,7 +1402,7 @@ PrefabInstance:
     - target: {fileID: 2930605930384766066, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: reloadTime
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2930605930384766066, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
@@ -1400,6 +1414,11 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6355854459110127413, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 603424915155331423, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: driveMode
@@ -1409,6 +1428,16 @@ PrefabInstance:
         type: 3}
       propertyPath: steerMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 603424915155331423, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 603424915155331423, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: accelerate
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7364735021997415036, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
@@ -1439,7 +1468,7 @@ PrefabInstance:
         type: 3}
       propertyPath: shootScript
       value: 
-      objectReference: {fileID: 828127514}
+      objectReference: {fileID: 1701232621}
     - target: {fileID: 6267188069745566198, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: bulletDamage
@@ -1504,11 +1533,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Board
       objectReference: {fileID: 0}
-    - target: {fileID: 3709061257022121328, guid: b4c67ed272150b04bba22abe8c018386,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6565609250977220812, guid: b4c67ed272150b04bba22abe8c018386,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1564,49 +1588,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3573426434757915892, guid: b4c67ed272150b04bba22abe8c018386,
-        type: 3}
-      propertyPath: emptyTileTemplate
-      value: 
-      objectReference: {fileID: 5423821928766987748}
-    - target: {fileID: 3573426434757915892, guid: b4c67ed272150b04bba22abe8c018386,
-        type: 3}
-      propertyPath: wallPieceTemplate
-      value: 
-      objectReference: {fileID: 299586502}
-    - target: {fileID: 4930624949507677980, guid: b4c67ed272150b04bba22abe8c018386,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930624949507677980, guid: b4c67ed272150b04bba22abe8c018386,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930624949507677980, guid: b4c67ed272150b04bba22abe8c018386,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7352480309080887168, guid: b4c67ed272150b04bba22abe8c018386,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b41b0569b5cfe43d4883e58028b63018, type: 2}
-    - target: {fileID: 3981939942623852581, guid: b4c67ed272150b04bba22abe8c018386,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4c67ed272150b04bba22abe8c018386, type: 3}
---- !u!1 &5423821928766987748 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5423821928766987748, guid: b4c67ed272150b04bba22abe8c018386,
-    type: 3}
-  m_PrefabInstance: {fileID: 1201324364234132008}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5580745004202140335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1761,7 +1744,7 @@ PrefabInstance:
     - target: {fileID: 6705101475199266980, guid: 7983ca1031c0c50429d7c47753b54d7b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6705101475199266980, guid: 7983ca1031c0c50429d7c47753b54d7b,
         type: 3}

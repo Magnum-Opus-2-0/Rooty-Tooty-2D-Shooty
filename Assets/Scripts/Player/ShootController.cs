@@ -85,14 +85,16 @@ public class ShootController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Every frame, pass the current state of the button into the shooting state machine.
-        FireRateStateMachine(Input.GetButton(shoot));
+
     }
 
     // FixedUpdate is called at a constant rate, independent from framerate.
     // Used for all physics calculations.
     void FixedUpdate()
     {
+        // Pass the current state of the button into the shooting state machine.
+        FireRateStateMachine(Input.GetButton(shoot));
+
         for (int i = 0; i < bullets.Count; i++)
         {
             // Only add force if bullet hasn't been fired yet.
@@ -129,7 +131,6 @@ public class ShootController : MonoBehaviour
         bullet.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
         // put it back in the turret
         bullet.transform.position = templateBullet.transform.position;
-
     }
 
     /// <summary>

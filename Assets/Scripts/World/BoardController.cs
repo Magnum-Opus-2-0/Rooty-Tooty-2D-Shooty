@@ -94,23 +94,29 @@ public class BoardController : MonoBehaviour
     /// <param name="wallObject">the object that shall be instantiated</param>
     private void BuildAWall(int start, int end, int constant, char axis, GameObject wallObject)
     {
+
         for(int i = start; i < end; i++)
         {
+            GameObject tempWall = null;
+
             switch (axis)
             {
                 case 'x':
-                    Instantiate(wallPieceTemplate, new Vector3(i, 0.5f, constant), Quaternion.identity);
+                    tempWall = Instantiate(wallObject, new Vector3(i, 0.5f, constant), Quaternion.identity);
                     break;
                 case 'y':
-                    Instantiate(wallPieceTemplate, new Vector3(0, i, 0), Quaternion.identity);
+                    tempWall = Instantiate(wallObject, new Vector3(0, i, 0), Quaternion.identity);
                     break;
                 case 'z':
-                    Instantiate(wallPieceTemplate, new Vector3(constant, 0.5f, i), Quaternion.identity);
+                    tempWall = Instantiate(wallObject, new Vector3(constant, 0.5f, i), Quaternion.identity);
                     break;
                 default:
                     Debug.LogError("Invalid axis '" + axis + "' given.");
                     break;
             }
+
+            // Store a reference to this wall piece into a "holder" object, wallFondler
+            tempWall.transform.parent = wallFondler.transform;
         }
     }
 }
