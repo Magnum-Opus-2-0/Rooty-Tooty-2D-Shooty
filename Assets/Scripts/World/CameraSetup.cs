@@ -26,10 +26,15 @@ public class CameraSetup : MonoBehaviour
     public void InitializeSplitScreen(){
         
         //Initialize objects
-        GameObject p1 = GameObject.FindWithTag("Player_1");
-        GameObject p2 = GameObject.FindWithTag("Player_2");
+        GameObject p1 = GameObject.FindWithTag("Player1_obj");
+        Debug.Log("Found p1. Transform: " + p1.transform);
+        GameObject p2 = GameObject.FindWithTag("Player2_obj");
+        Debug.Log("Found p2. Transform: " + p2.transform);
+
         cam1 = Instantiate(cam1, new Vector3(0,0,0), Quaternion.identity);
         cam2 = Instantiate(cam2, new Vector3(0,0,0), Quaternion.identity);
+        Debug.Log("Instantiated cameras: " + cam1.transform);
+
         canvas1 = Instantiate(canvas1, new Vector3(0,0,0), Quaternion.identity);
         canvas2 = Instantiate(canvas2, new Vector3(0,0,0), Quaternion.identity);
         //Set camera to tank transforms
