@@ -23,6 +23,8 @@ public class TurretController : MonoBehaviour
     private Vector3 input;
     private Vector3 lastRot;
 
+    private TankController tc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,12 +50,17 @@ public class TurretController : MonoBehaviour
 
         input = new Vector3();
         lastRot = transform.parent.forward;
+
+        tc = GetComponentInParent<TankController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateInput();
+        if (tc.State == TankStates.Alive)
+        {
+            UpdateInput();
+        }
     }
 
     private void FixedUpdate()

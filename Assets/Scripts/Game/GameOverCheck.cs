@@ -19,22 +19,24 @@ public class GameOverCheck : MonoBehaviour
     public Sprite imgPlayer2;
 
     private GameObject winner;
+    private bool once;
 
     // Start is called before the first frame update
     void Start()
     {
         winner = null;
         endCanvas.gameObject.SetActive(false);
+        once = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerOneBase.GetComponent<HealthBehavior>().currentHealth <= 0 || playerTwoBase.GetComponent<HealthBehavior>().currentHealth <= 0)
+        if ((playerOneBase.GetComponent<HealthBehavior>().currentHealth <= 0 || playerTwoBase.GetComponent<HealthBehavior>().currentHealth <= 0) && once)
         {
             SetWinner();
             EndGame();
-
+            once = false;
         }
     }
 
