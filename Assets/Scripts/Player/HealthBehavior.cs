@@ -34,6 +34,7 @@ public class HealthBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        respawnTime = 10;
         currentHealth = MAX_HEALTH;
         currentTimeStep = 0;
        // health_icon.fillAmount = 1.0f;

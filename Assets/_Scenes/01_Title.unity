@@ -1530,7 +1530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   submitButton: submit-win
   sim: {fileID: 486716862}
-  playScene: 01_Title
+  playScene: 02_Play
   tutorialScene: 01_Title
   optionsScene: 01_Title
   creditsScene: 01_Title
