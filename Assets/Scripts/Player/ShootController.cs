@@ -71,6 +71,8 @@ public class ShootController : MonoBehaviour
     /// </summary>
     private float reloadTimer;
 
+    private TankController tc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,6 +82,8 @@ public class ShootController : MonoBehaviour
         objectPoolCounter = 0;
         // Sets initial state for shooting SM
         state = SHOOT_States.WAIT;
+
+        tc = GetComponent<TankController>();
     }
 
     // Update is called once per frame
@@ -93,7 +97,11 @@ public class ShootController : MonoBehaviour
     void FixedUpdate()
     {
         // Pass the current state of the button into the shooting state machine.
-        FireRateStateMachine(Input.GetButton(shoot));
+        // Only if the player is currently alive.
+        if (tc.State == TankStates.Alive)
+        {
+            FireRateStateMachine(Input.GetButton(shoot));
+        }
 
         for (int i = 0; i < bullets.Count; i++)
         {
