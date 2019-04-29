@@ -101,8 +101,6 @@ public class ExplodeBehavior : MonoBehaviour {
 
         if (!exploded) return;
 
-        Debug.Log("should fall through");
-
         // First, remove rigidbodies,
         // which removes the effects of physics as well
         for (int i = 0; i < NUM_OF_PIECES; i++) {

@@ -346,7 +346,7 @@ MonoBehaviour:
   respawn_background: {fileID: 0}
   respawnText: {fileID: 0}
   health_val: {fileID: 0}
-  respawnTime: 0
+  respawnTime: 5
 --- !u!114 &6704396560043710975
 MonoBehaviour:
   m_ObjectHideFlags: 0
