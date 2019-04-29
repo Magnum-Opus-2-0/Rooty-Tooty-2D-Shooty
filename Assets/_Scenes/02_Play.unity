@@ -822,7 +822,7 @@ GameObject:
   - component: {fileID: 842396106}
   m_Layer: 0
   m_Name: P2 Bullet Fondler
-  m_TagString: Untagged
+  m_TagString: Player_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1008,7 +1008,7 @@ GameObject:
   - component: {fileID: 1069144355}
   m_Layer: 0
   m_Name: P1 Bullet Fondler
-  m_TagString: Untagged
+  m_TagString: Player_1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
