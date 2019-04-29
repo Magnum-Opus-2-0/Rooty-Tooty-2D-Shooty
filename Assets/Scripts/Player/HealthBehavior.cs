@@ -24,6 +24,7 @@ public class HealthBehavior : MonoBehaviour
     public Text respawnText;
     public Text health_val;
 
+    public const float TOTAL_REPSAWN_TIME = 5.0f;
     public float respawnTime;
 
 
@@ -34,13 +35,13 @@ public class HealthBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        respawnTime = 10;
+        respawnTime = TOTAL_REPSAWN_TIME;
         currentHealth = MAX_HEALTH;
         currentTimeStep = 0;
-       // health_icon.fillAmount = 1.0f;
-       // health_val.text = currentHealth.ToString();
-       // respawnText.gameObject.SetActive(false);
-       // respawn_background.gameObject.SetActive(false);
+        // health_icon.fillAmount = 1.0f;
+        // health_val.text = currentHealth.ToString();
+        // respawnText.gameObject.SetActive(false);
+        // respawn_background.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -53,12 +54,12 @@ public class HealthBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isNotDead() && respawnTime == 5)
+        if (!isNotDead() && respawnTime == TOTAL_REPSAWN_TIME)
         {
             explodeScript.Explode();
         }
 
-        if (!isNotDead() && respawnTime <= 5)
+        if (!isNotDead() && respawnTime <= TOTAL_REPSAWN_TIME)
         {
             respawnTime -= Time.fixedDeltaTime;
             respawn_background.gameObject.SetActive(true);
@@ -73,7 +74,6 @@ public class HealthBehavior : MonoBehaviour
 
             respawn_background.gameObject.SetActive(false);
             respawnText.gameObject.SetActive(false);
-            respawnText.gameObject.SetActive(false);
 
             respawnTime = 5;
         }
@@ -83,7 +83,8 @@ public class HealthBehavior : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            shootScript.ResetBullet(collision.gameObject);
+            if (this.gameObject.tag == "Player1_obj" || this.gameObject.tag == "Player2_obj")
+                shootScript.ResetBullet(collision.gameObject);
             adjustHealth(-bulletDamage);
         }
     }
@@ -95,11 +96,13 @@ public class HealthBehavior : MonoBehaviour
     /// Once the player's health fully depletes,
     /// they are marked as dead (i.e. isAlive == false).
     /// </summary>
-    private void update_PoisonDamage() {
+    private void update_PoisonDamage()
+    {
 
         currentTimeStep += Time.deltaTime;
 
-        if (currentTimeStep >= POISON_PERIOD) {
+        if (currentTimeStep >= POISON_PERIOD)
+        {
 
             bool wasAlive = isNotDead();
 
@@ -114,7 +117,8 @@ public class HealthBehavior : MonoBehaviour
         }
 
         // Press space to reset
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
 
             Start();
             explodeScript.Restore();
@@ -125,9 +129,27 @@ public class HealthBehavior : MonoBehaviour
     /// Updates health bar with current health,
     /// and sets fillAmount accordingly.
     /// </summary>
-    public void updateHealthBar() {
-        health_val.text = currentHealth.ToString();
-        health_icon.fillAmount = currentHealth/100.0f;
+    public void updateHealthBar()
+    {
+        if (this.gameObject.tag == "Player1_obj" || this.gameObject.tag == "Player2_obj")
+        {
+            health_val.text = currentHealth.ToString();
+            health_icon.fillAmount = currentHealth / 100.0f;
+        }
+
+        if (this.gameObject.tag == "P1_Base" || this.gameObject.tag == "P2_Base")
+        {
+            // Update the health bar amount
+            healthBar.UpdateBar(currentHealth, MAX_HEALTH);
+
+            // Update the health bar color
+            if (currentHealth >= (0.5 * MAX_HEALTH))
+                healthBar.UpdateColor(Color.green);
+            else if (currentHealth >= (0.2 * MAX_HEALTH))
+                healthBar.UpdateColor(Color.yellow);
+            else
+                healthBar.UpdateColor(Color.red);
+        }
     }
 
     /// <summary>
@@ -135,12 +157,12 @@ public class HealthBehavior : MonoBehaviour
     /// </summary>
     /// <param name="value">The desired value for the health</param>
     /// <returns>True if the health successfully changed, false otherwise</returns>
-    public bool setHealth(int value) {
+    public bool setHealth(int value)
+    {
 
         if (value == currentHealth) return false;
 
-        if (value > MAX_HEALTH
-            || value < 0) return false;
+        if (value > MAX_HEALTH || value < 0) return false;
 
 
 
@@ -155,14 +177,17 @@ public class HealthBehavior : MonoBehaviour
     /// </summary>
     /// <param name="delta">Positive for healing, negative for damage</param>
     /// <returns>True if this function call changed the health, false otherwise</returns>
-    public bool adjustHealth(int delta) {
+    public bool adjustHealth(int delta)
+    {
 
         bool changed = false;
 
         // Healing
-        if (delta > 0) {
-            
-            if (currentHealth + delta <= MAX_HEALTH) {
+        if (delta > 0)
+        {
+
+            if (currentHealth + delta <= MAX_HEALTH)
+            {
 
                 currentHealth += delta;
                 changed = true;
@@ -170,9 +195,11 @@ public class HealthBehavior : MonoBehaviour
         }
 
         // Damage
-        else if (delta < 0) {
-            
-            if (currentHealth + delta >= 0) {
+        else if (delta < 0)
+        {
+
+            if (currentHealth + delta >= 0)
+            {
 
                 currentHealth += delta;
                 changed = true;
@@ -193,7 +220,8 @@ public class HealthBehavior : MonoBehaviour
     /// An "alive" object is one whose health is greater than 0.
     /// </summary>
     /// <returns>True if alive, false if dead</returns>
-    public bool isNotDead() {
+    public bool isNotDead()
+    {
         return currentHealth > 0;
     }
 
@@ -202,7 +230,8 @@ public class HealthBehavior : MonoBehaviour
     /// on a scale from 0 to MAX_HEALTH.
     /// </summary>
     /// <returns>This object's current health</returns>
-    public int getCurrentHealth() {
+    public int getCurrentHealth()
+    {
         return currentHealth;
     }
 }
