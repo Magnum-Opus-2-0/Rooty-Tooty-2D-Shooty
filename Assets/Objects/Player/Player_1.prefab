@@ -15,40 +15,10 @@ MonoBehaviour:
   shoot: shoot-1-pc
   templateBullet: {fileID: 2325216907494245818}
   barrel: {fileID: 7266709701483168321}
-  bulletFondler: {fileID: 6717981549852524756}
+  bulletFondler: {fileID: 0}
   speedOfBullet: 50
   reloadTime: 0.2
   maxBullets: 3
---- !u!1 &6717981549852524756
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1487959885961934757}
-  m_Layer: 0
-  m_Name: P1 Bullet Fondler
-  m_TagString: Player_1
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1487959885961934757
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6717981549852524756}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 517800692760676884}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &189688381175296446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,17 +101,27 @@ PrefabInstance:
       propertyPath: backwardDrive
       value: backward-drive-1-win
       objectReference: {fileID: 0}
-    - target: {fileID: 611612002254114429, guid: f81d2b628259641319bf90c9947d6ccd,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player_1
-      objectReference: {fileID: 0}
     - target: {fileID: 5450891750570937360, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5237407321138980475, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7384040175891051519, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player_1
+      objectReference: {fileID: 0}
     - target: {fileID: 8867562778350291764, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 611612002254114429, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
       propertyPath: m_TagString
       value: Player_1
@@ -164,27 +144,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 5237407321138980475, guid: f81d2b628259641319bf90c9947d6ccd,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7384040175891051519, guid: f81d2b628259641319bf90c9947d6ccd,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player_1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f81d2b628259641319bf90c9947d6ccd, type: 3}
 --- !u!1 &5231351822339209463 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5348189828253354313, guid: f81d2b628259641319bf90c9947d6ccd,
-    type: 3}
-  m_PrefabInstance: {fileID: 189688381175296446}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &517800692760676884 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400381040898309034, guid: f81d2b628259641319bf90c9947d6ccd,
     type: 3}
   m_PrefabInstance: {fileID: 189688381175296446}
   m_PrefabAsset: {fileID: 0}
