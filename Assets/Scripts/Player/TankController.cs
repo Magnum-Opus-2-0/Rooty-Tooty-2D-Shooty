@@ -211,15 +211,15 @@ public class TankController : MonoBehaviour
             case RuntimePlatform.OSXEditor:
             case RuntimePlatform.OSXPlayer:
 
-                forwardDrive = (tag == "Player_1" ? "forward-drive-1-mac" : "forward-drive-2-mac");
-                backwardDrive = (tag == "Player_1" ? "backward-drive-1-mac" : "backward-drive-2-mac");
-                reverse = (tag == "Player_1" ? "reverse-1-mac" : "reverse-2-mac");
+                forwardDrive = (tag == "Player1_obj" ? "forward-drive-1-mac" : "forward-drive-2-mac");
+                backwardDrive = (tag == "Player1_obj" ? "backward-drive-1-mac" : "backward-drive-2-mac");
+                reverse = (tag == "Player1_obj" ? "reverse-1-mac" : "reverse-2-mac");
                 break;
             case RuntimePlatform.WindowsEditor:
             case RuntimePlatform.WindowsPlayer:
-                forwardDrive = (tag == "Player_1" ? "forward-drive-1-win" : "forward-drive-2-win");
-                backwardDrive = (tag == "Player_1" ? "backward-drive-1-win" : "backward-drive-2-win");
-                reverse = (tag == "Player_1" ? "reverse-1-win" : "reverse-2-win");
+                forwardDrive = (tag == "Player1_obj" ? "forward-drive-1-win" : "forward-drive-2-win");
+                backwardDrive = (tag == "Player1_obj" ? "backward-drive-1-win" : "backward-drive-2-win");
+                reverse = (tag == "Player1_obj" ? "reverse-1-win" : "reverse-2-win");
                 break;
 
             default:
@@ -227,8 +227,8 @@ public class TankController : MonoBehaviour
                 break;
         }
         // Left analog stick is the same mapping on Mac OS and Windows
-        xDrive = (tag == "Player_1" ? "x-drive-1" : "x-drive-2");
-        zDrive = (tag == "Player_1" ? "z-drive-1" : "z-drive-2");
+        xDrive = (tag == "Player1_obj" ? "x-drive-1" : "x-drive-2");
+        zDrive = (tag == "Player1_obj" ? "z-drive-1" : "z-drive-2");
 
         // Define movement starting values
         stickInput = new Vector3();
