@@ -411,6 +411,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderDistance: 15
+  startWidth: 0.075
+  endWidth: 0
   aimToggle: aim-toggle-1-mac
 --- !u!120 &1718714553813501420
 LineRenderer:

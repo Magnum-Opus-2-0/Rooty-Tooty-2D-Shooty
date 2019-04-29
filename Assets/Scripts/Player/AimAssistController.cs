@@ -6,9 +6,13 @@ public class AimAssistController : MonoBehaviour
 {
 
     public float renderDistance = 50f;
+    public float startWidth = 0.075f;
+    public float endWidth = 0.0f;
     public string aimToggle = "aim-toggle-1-mac";
 
     private LineRenderer lr;
+
+    private RaycastHit aimHit;
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +69,22 @@ public class AimAssistController : MonoBehaviour
     private void UpdateLineRenderer()
     {
         lr.SetPosition(0, transform.localPosition);
-        lr.SetPosition(1, Vector3.forward * renderDistance);
+        if (CastAimRay())
+        {
+            lr.SetPosition(1, Vector3.forward * aimHit.distance);
+            lr.endWidth = Mathf.Lerp(startWidth, endWidth, (aimHit.distance / renderDistance));
+        }
+        else
+        {
+            lr.SetPosition(1, Vector3.forward * renderDistance);
+            lr.endWidth = endWidth;
+        }
+    }
+
+    private bool CastAimRay()
+    {
+        Physics.Raycast(transform.position, transform.forward, out aimHit, renderDistance);
+        return aimHit.transform != null;
     }
 
 }
