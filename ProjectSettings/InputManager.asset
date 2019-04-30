@@ -890,7 +890,7 @@ InputManager:
     descriptiveName: 'Player 1: Toggle build menu'
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 1 button 17
+    positiveButton: joystick 1 button 2
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -906,7 +906,7 @@ InputManager:
     descriptiveName: 'Player 2: Toggle build menu'
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 2 button 17
+    positiveButton: joystick 2 button 2
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000

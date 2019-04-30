@@ -28,7 +28,7 @@ public class BuildMenuController : MonoBehaviour
 
         for(int i = 0; i < buildIcons.Length; i++){
             Color temp = buildIcons[i].color;
-            Debug.Log(temp);
+//            Debug.Log(temp);
             if(i == iconTracker){
                 
                 temp = new Color(255.0f, 255.0f, 255.0f, 1.0f); 
