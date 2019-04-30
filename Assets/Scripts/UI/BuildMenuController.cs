@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuildMenuController : MonoBehaviour
 {
@@ -11,18 +12,39 @@ public class BuildMenuController : MonoBehaviour
     private Vector3 endPos; //Position to travel to
     private bool isActive; //Controls where to set endPos
     private bool isDone;
+    private bool canUse; //Make sure you can't build anything until animation completes
     public float actionTime; //Time to complete travel
     
+    public float iconTracker;
+    public Image[] buildIcons;
+
     void Start(){
         isActive = false;
+        setCanUse(false);
         setIsDone(true);
+    }
+
+    void Update(){
+
+        for(int i = 0; i < buildIcons.Length; i++){
+            Color temp = buildIcons[i].color;
+            Debug.Log(temp);
+            if(i == iconTracker){
+                
+                temp = new Color(255.0f, 255.0f, 255.0f, 1.0f); 
+                buildIcons[i].color = temp;
+            }
+            else{
+                temp = new Color(150.0f, 150.0f, 150.0f, 0.5f);
+                buildIcons[i].color = temp;
+            }
+        }
     }
     
     ///<summary>
     /// Calls the subrputine necessary for the menu to toggle
     ///</summary> 
     public void ToggleMenu(){
-        Debug.Log("Called toggleMenu");
         setIsDone(false);
         StartCoroutine("SwapBuildMode");
     }
@@ -46,8 +68,8 @@ public class BuildMenuController : MonoBehaviour
             isActive = false;
         }
 
-        for(float t = 0.0f; t < actionTime; t += timeStep){
-            
+        setCanUse(!canUse);
+        for(float t = 0.0f; t < actionTime; t += timeStep){           
             fracDone = (actionTime - t)/actionTime;
             rt.anchoredPosition = Vector3.Lerp(endPos, currPos, fracDone);
            
@@ -65,5 +87,27 @@ public class BuildMenuController : MonoBehaviour
 
     public bool getIsDone(){
         return isDone;
+    }
+
+    ///<summary>
+    /// Getter and setter for canUse boolean
+    ///</summary>
+    void setCanUse(bool val){
+        canUse = val;
+    }
+
+    public bool getCanUse(){
+        return canUse;
+    }
+
+    public void ModifyIconTracker(int val){
+        iconTracker += val;
+        if(iconTracker < 0){
+            iconTracker = 3;
+        }
+        Debug.Log(iconTracker);
+        if(iconTracker > 3){
+            iconTracker = 0;
+        }
     }
 }

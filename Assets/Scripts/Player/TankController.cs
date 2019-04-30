@@ -203,6 +203,7 @@ public class TankController : MonoBehaviour
     
     #region MEMBERS_BUTTON_INPUT
     public string buildButton = "build-1-mac"; 
+    public string selectBuildButton = "select-1-mac";
     #endregion
 
 
@@ -224,6 +225,7 @@ public class TankController : MonoBehaviour
                 backwardDrive = (tag == "Player1_obj" ? "backward-drive-1-mac" : "backward-drive-2-mac");
                 reverse = (tag == "Player1_obj" ? "reverse-1-mac" : "reverse-2-mac");
                 buildButton = (tag == "Player1_obj" ? "build-1-mac" : "build-2-mac");
+                selectBuildButton = (tag == "Player1_obj" ? "select-1-mac" : "select-2-mac");
                 break;
             case RuntimePlatform.WindowsEditor:
             case RuntimePlatform.WindowsPlayer:
@@ -231,6 +233,7 @@ public class TankController : MonoBehaviour
                 backwardDrive = (tag == "Player1_obj" ? "backward-drive-1-win" : "backward-drive-2-win");
                 reverse = (tag == "Player1_obj" ? "reverse-1-win" : "reverse-2-win");
                 buildButton = (tag == "Player1_obj" ? "build-1-win" : "build-2-win");
+                selectBuildButton = (tag == "Player1_obj" ? "select-1-win" : "select-2-win");
                 break;
 
             default:
@@ -553,6 +556,13 @@ public class TankController : MonoBehaviour
         if(Input.GetButtonDown(buildButton) && bmc.getIsDone()){
             Debug.Log("Build Button pressed");
             bmc.ToggleMenu();
+        }
+
+        if(bmc.getCanUse()){
+            if(Input.GetButtonDown(selectBuildButton)){
+                Debug.Log("X button pressed");
+                bmc.ModifyIconTracker(1);
+            }
         }
     }
 }
