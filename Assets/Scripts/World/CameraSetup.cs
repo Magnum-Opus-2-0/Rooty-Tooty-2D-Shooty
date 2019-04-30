@@ -27,13 +27,10 @@ public class CameraSetup : MonoBehaviour
         
         //Initialize objects
         GameObject p1 = GameObject.FindWithTag("Player1_obj");
-        Debug.Log("Found p1. Transform: " + p1.transform);
         GameObject p2 = GameObject.FindWithTag("Player2_obj");
-        Debug.Log("Found p2. Transform: " + p2.transform);
 
         cam1 = Instantiate(cam1, new Vector3(0,0,0), Quaternion.identity);
         cam2 = Instantiate(cam2, new Vector3(0,0,0), Quaternion.identity);
-        Debug.Log("Instantiated cameras: " + cam1.transform);
 
         canvas1 = Instantiate(canvas1, new Vector3(0,0,0), Quaternion.identity);
         canvas2 = Instantiate(canvas2, new Vector3(0,0,0), Quaternion.identity);
@@ -52,8 +49,15 @@ public class CameraSetup : MonoBehaviour
 
         InitializeHealthBehavior(p1, canvas1);
         InitializeHealthBehavior(p2, canvas2);
+        InitializeBuildMenuBehavior(p1, canvas1);
+        InitializeBuildMenuBehavior(p2, canvas2);
     }
 
+
+    ///<summary>   
+    /// Places the correct images and text into the fields of HealthBehavior
+    /// for the player.
+    ///</summary> 
     void InitializeHealthBehavior(GameObject player, GameObject cav){
         HealthBehavior hb = player.GetComponent<HealthBehavior>();
         hb.health_icon = cav.transform.Find("Heart_back/Heart_health").gameObject.GetComponent<Image>();
@@ -66,5 +70,14 @@ public class CameraSetup : MonoBehaviour
         hb.respawnText.gameObject.SetActive(false);
         hb.respawn_background.gameObject.SetActive(false);
 
+    }
+
+    ///<summary>   
+    /// Places the correct script in the build menu controller field in
+    /// TankController.cs
+    ///</summary> 
+    void InitializeBuildMenuBehavior(GameObject player, GameObject cav){
+        TankController tc = player.GetComponent<TankController>();
+        tc.bmc = cav.transform.Find("Build_Menu").gameObject.GetComponent<BuildMenuController>();
     }
 }

@@ -7,6 +7,7 @@ public class TankController : MonoBehaviour
 {
 
     #region MEMBERS_STATES
+    public BuildMenuController bmc;
     private HealthBehavior hb;
     private TankStates state;
     public TankStates State
@@ -199,8 +200,16 @@ public class TankController : MonoBehaviour
     /// </summary>
     private float curSpeed;
     #endregion
+    
+    #region MEMBERS_BUTTON_INPUT
+    public string buildButton = "build-1-mac"; 
+    #endregion
 
 
+    #region MEMBERS_OTHER
+    //To be used later maybe when we need to declare other global variables
+    // that don't belong in above categories
+    #endregion
     // Start is called before the first frame update
     void Start()
     {
@@ -214,12 +223,14 @@ public class TankController : MonoBehaviour
                 forwardDrive = (tag == "Player1_obj" ? "forward-drive-1-mac" : "forward-drive-2-mac");
                 backwardDrive = (tag == "Player1_obj" ? "backward-drive-1-mac" : "backward-drive-2-mac");
                 reverse = (tag == "Player1_obj" ? "reverse-1-mac" : "reverse-2-mac");
+                buildButton = (tag == "Player1_obj" ? "build-1-mac" : "build-2-mac");
                 break;
             case RuntimePlatform.WindowsEditor:
             case RuntimePlatform.WindowsPlayer:
                 forwardDrive = (tag == "Player1_obj" ? "forward-drive-1-win" : "forward-drive-2-win");
                 backwardDrive = (tag == "Player1_obj" ? "backward-drive-1-win" : "backward-drive-2-win");
                 reverse = (tag == "Player1_obj" ? "reverse-1-win" : "reverse-2-win");
+                buildButton = (tag == "Player1_obj" ? "build-1-win" : "build-2-win");
                 break;
 
             default:
@@ -243,6 +254,7 @@ public class TankController : MonoBehaviour
         hb = GetComponent<HealthBehavior>();
         state = TankStates.Alive;
         wasNotDead = hb.isNotDead();
+
     }
 
     // Update is called once per frame
@@ -254,6 +266,7 @@ public class TankController : MonoBehaviour
         if (State == TankStates.Alive)
         {
             UpdateMoveInput();
+            UpdateBuildInput();
         } 
         else
         {
@@ -532,6 +545,14 @@ public class TankController : MonoBehaviour
             case ResourceType.None:
                 Debug.LogError("ResourceType has not been assigned.");
                 break;
+        }
+    }
+
+    public void UpdateBuildInput(){
+
+        if(Input.GetButtonDown(buildButton) && bmc.getIsDone()){
+            Debug.Log("Build Button pressed");
+            bmc.ToggleMenu();
         }
     }
 }
