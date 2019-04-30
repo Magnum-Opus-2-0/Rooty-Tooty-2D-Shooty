@@ -255,8 +255,8 @@ RectTransform:
   m_Children:
   - {fileID: 8288666612654084643}
   - {fileID: 8417092838021164887}
-  - {fileID: 5552558345777393293}
   - {fileID: 5755022544287055625}
+  - {fileID: 5552558345777393293}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -434,7 +434,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5580745004073329142}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -662,7 +662,7 @@ RectTransform:
   - {fileID: 3705020128959414984}
   - {fileID: 7289465419105334099}
   m_Father: {fileID: 5580745004073329142}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -741,7 +741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92e3352b190e35542be0459dc29093e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activePos: {x: 900.8, y: 0, z: 0}
+  activePos: {x: 861.6, y: 0, z: 0}
   inactivePos: {x: 159.8, y: 0, z: 0}
   timeStep: 0.01
   actionTime: 0.1
