@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Player_1
   - Player_2
-  - Bullet
   - Cam_1
   - Cam_2
   - P1canvas
@@ -17,6 +16,10 @@ TagManager:
   - P2_Base
   - Player1_obj
   - Player2_obj
+  - Floor
+  - Wall
+  - P1_Bullet
+  - P2_Bullet
   layers:
   - Default
   - TransparentFX

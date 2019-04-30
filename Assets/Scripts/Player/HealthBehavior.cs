@@ -24,7 +24,7 @@ public class HealthBehavior : MonoBehaviour
     public Text respawnText;
     public Text health_val;
 
-    public const float TOTAL_REPSAWN_TIME = 5.0f;
+    public const float TOTAL_RESPAWN_TIME = 5.0f;
     public float respawnTime;
 
 
@@ -35,7 +35,7 @@ public class HealthBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        respawnTime = TOTAL_REPSAWN_TIME;
+        respawnTime = TOTAL_RESPAWN_TIME;
         currentHealth = MAX_HEALTH;
         currentTimeStep = 0;
         // health_icon.fillAmount = 1.0f;
@@ -54,12 +54,12 @@ public class HealthBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isNotDead() && respawnTime == TOTAL_REPSAWN_TIME)
+        if (!isNotDead() && respawnTime == TOTAL_RESPAWN_TIME)
         {
             explodeScript.Explode();
         }
 
-        if (!isNotDead() && respawnTime <= TOTAL_REPSAWN_TIME)
+        if (!isNotDead() && respawnTime <= TOTAL_RESPAWN_TIME)
         {
             respawnTime -= Time.fixedDeltaTime;
             respawn_background.gameObject.SetActive(true);
@@ -79,14 +79,9 @@ public class HealthBehavior : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Bullet")
-        {
-            if (this.gameObject.tag == "Player1_obj" || this.gameObject.tag == "Player2_obj")
-                shootScript.ResetBullet(collision.gameObject);
-            adjustHealth(-bulletDamage);
-        }
+        /// Bullet collision isn't handled here anymore, now handled by <see cref="BulletController.OnCollisionEnter(Collision)"/>.
     }
 
     /// <summary>
