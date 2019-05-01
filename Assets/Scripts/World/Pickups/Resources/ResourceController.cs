@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceController : MonoBehaviour
+public class ResourceController : PickupController
 {
     public ResourceType resourceType = ResourceType.None;
     public int minAmount;
@@ -23,12 +23,6 @@ public class ResourceController : MonoBehaviour
         amount = Random.Range(minAmount, maxAmount + 1); //Max is exclusive
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     /// <summary>
     /// This function is called when any <see cref="Collider"/> enters this
     /// GameObject's trigger.
@@ -36,7 +30,7 @@ public class ResourceController : MonoBehaviour
     /// this GameObject is destroyed.</para>
     /// </summary>
     /// <param name="other">Other.</param>
-    private void OnTriggerEnter(Collider other)
+    override protected void OnTriggerEnter(Collider other)
     {
         if (IsPlayer(other))
         {
@@ -53,7 +47,7 @@ public class ResourceController : MonoBehaviour
             if (tc.State == TankStates.Alive && tc.CanGrabResource(resourceType))
             {
                 AddResource(tc);
-                Destroy(this.gameObject);
+                base.OnTriggerEnter(other);
             }
         }
     }

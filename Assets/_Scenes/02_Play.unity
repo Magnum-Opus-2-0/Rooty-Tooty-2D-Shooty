@@ -1847,12 +1847,12 @@ PrefabInstance:
     - target: {fileID: 603424915155331423, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: driveMode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 603424915155331423, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: steerMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 603424915155331423, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
