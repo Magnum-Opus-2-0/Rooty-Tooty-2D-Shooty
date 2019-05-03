@@ -60,6 +60,36 @@ Transform:
   m_Father: {fileID: 6565609250977220812}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3479319856060367092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7108268831795201350}
+  m_Layer: 0
+  m_Name: Obstacle Fondler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7108268831795201350
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479319856060367092}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6565609250977220812}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3709061257022121328
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,6 +121,7 @@ Transform:
   - {fileID: 4268902911423854133}
   - {fileID: 3184112760295667936}
   - {fileID: 1816034368943216151}
+  - {fileID: 7108268831795201350}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -110,11 +141,15 @@ MonoBehaviour:
     type: 3}
   wallPieceTemplate: {fileID: 6363902435068472401, guid: 0db42b683574e41418f7cfd163f51769,
     type: 3}
+  obstaclePieceTemplate: {fileID: 0}
   fluffTemplate: {fileID: 0}
   fiberTemplate: {fileID: 0}
   objectTemplate: {fileID: 0}
   tileFondler: {fileID: 776686519890861135}
   wallFondler: {fileID: 3239902528913679604}
+  obstacleFondler: {fileID: 3479319856060367092}
+  pathLandmarks: 0
+  pathWidth: 0
 --- !u!1 &6142511023060367099
 GameObject:
   m_ObjectHideFlags: 0

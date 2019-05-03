@@ -90,7 +90,7 @@ public class BoardController : MonoBehaviour
     /// Called at beginning of game.
     /// Generates a X_MAX x Z_MAX tile grid out of the tile gameobject
     /// </summary>
-    private void GenerateGrid()
+    public void GenerateGrid()
     {
         // Builds the walls that encompass the grid.
         wallPieceTemplate.SetActive(true);
