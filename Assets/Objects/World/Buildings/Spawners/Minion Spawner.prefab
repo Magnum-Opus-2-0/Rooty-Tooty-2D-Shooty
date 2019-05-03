@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8882353269095666517}
   - component: {fileID: 1076999814240101828}
+  - component: {fileID: 1646984253063548224}
   m_Layer: 0
   m_Name: Minion Spawner
   m_TagString: Untagged
@@ -47,6 +48,20 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1646984253063548224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379120545345176046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b509c3750d0b146fd9d00ed3aa0c4fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fluffCost: 0
+  plasticCost: 0
 --- !u!1 &589774356390614101
 GameObject:
   m_ObjectHideFlags: 0

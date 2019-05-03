@@ -193,6 +193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6213244026423324408}
   - component: {fileID: 6049310774328623886}
+  - component: {fileID: 8516278839387446303}
   m_Layer: 0
   m_Name: Heals
   m_TagString: Untagged
@@ -223,12 +224,24 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6379957993040260964}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 2
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8516278839387446303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6379957993040260964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5299b267fd8c44cff95b408b644f7dec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6533710292384849663
 GameObject:
   m_ObjectHideFlags: 0
