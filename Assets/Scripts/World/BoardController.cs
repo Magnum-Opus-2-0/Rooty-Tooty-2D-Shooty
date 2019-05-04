@@ -69,6 +69,11 @@ public class BoardController : MonoBehaviour
     private static readonly int X_MAX = 50;
 
     /// <summary>
+    /// How wide each of the square bases should be
+    /// </summary>
+    private static readonly int BASE_WIDTH = 8;
+
+    /// <summary>
     /// A 2D array that holds references to all tiles on this board.
     /// This array is populated within GenerateGrid().
     /// </summary>
@@ -176,7 +181,7 @@ public class BoardController : MonoBehaviour
         obstacleFondler.transform.DetachChildren();
 
         // First, generate new grid
-        GameGrid2DObject tempGrid = new GameGrid2DObject(new Coord2DObject(X_MAX, Z_MAX), pathWidth, pathLandmarks);
+        GameGrid2DObject tempGrid = new GameGrid2DObject(new Coord2DObject(X_MAX, Z_MAX), pathWidth, pathLandmarks, BASE_WIDTH);
 
         // Then, iterate through that grid.
         // Every time you see a Tile whose type is NON_TRAVERSABLE,

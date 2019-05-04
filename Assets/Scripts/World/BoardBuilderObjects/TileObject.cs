@@ -55,7 +55,7 @@ public class TileObject /*: ScriptableObject*/ {
 
         return "Type " + this.getChar() + ", "
             + "distance = " + (distance == System.Int32.MaxValue ? "MAX_VALUE" : distance + "") + ", "
-            + "location " + location.ToString();
+            + "location " + (location == null ? "uninitialized" : location.ToString());
     }
 
     //public override bool Equals(object obj) {
@@ -72,7 +72,13 @@ public class TileObject /*: ScriptableObject*/ {
 
     //public override int GetHashCode() {
 
-    //    return location.GetHashCode() + (distance % 29);
+    //    //if (location != null)
+    //    //    return location.GetHashCode() + (distance % 29);
+
+    //    //else
+    //    //    return type.GetHashCode() + (distance % 17);
+
+    //    return ToString().GetHashCode();
     //}
 
     private void init(TileType t, int dist, TileObject prev, Coord2DObject location) {

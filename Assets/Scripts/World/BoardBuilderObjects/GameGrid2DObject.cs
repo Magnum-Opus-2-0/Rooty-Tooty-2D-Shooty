@@ -5,16 +5,16 @@ using UnityEngine.Assertions;
 
 public class GameGrid2DObject : Grid2DObject {
 
-    public GameGrid2DObject(Coord2DObject dimensions, int thickness, int landmarks)
+    public GameGrid2DObject(Coord2DObject dimensions, int thickness, int landmarks, int baseWidth)
         : base(dimensions) {
 
-        init(thickness, landmarks);
+        init(thickness, landmarks, baseWidth);
     }
 
     public GameGrid2DObject(Grid2DObject other)
         : base(other) {
 
-        init(4, 8);
+        init(4, 8, 8);
     }
 
     /// <summary>
@@ -31,7 +31,10 @@ public class GameGrid2DObject : Grid2DObject {
     /// </summary>
     /// <param name="thickness">Thickness of the thinnest path to be drawn between the two</param>
     /// <param name="numLandmarks">Number of random spots to visit between player 1 and player 2</param>
-    private void init(int thickness, int numLandmarks) {
+    /// <param name="baseWidth">For the square bases, the width in units of tiles</param>
+    private void init(int thickness, int numLandmarks, int baseWidth) {
+
+        BASE_WIDTH = baseWidth;
 
         // Also initializes p1LowLeft and p2UpRight
         drawBases();
@@ -179,7 +182,7 @@ public class GameGrid2DObject : Grid2DObject {
 
 
 
-    private const int BASE_WIDTH = 8;
+    private int BASE_WIDTH;
 
     private Coord2DObject p1UpRight;
     private Coord2DObject p2LowLeft;
