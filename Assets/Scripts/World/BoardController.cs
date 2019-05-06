@@ -22,7 +22,9 @@ public class BoardController : MonoBehaviour
     public GameObject wallFondler;
     public GameObject obstacleFondler;
 
-
+    public Material firstTileColor;
+    public Material secondTileColor;
+    private bool switchColor;
 
     /// I like 20 for pathLandmarks and 2 for pathWidth for a broader battlefield,
     /// or 30 pathLandmarks and 1 pathWidth for more obstacles.
@@ -97,7 +99,7 @@ public class BoardController : MonoBehaviour
     /// </summary>
     public void GenerateGrid()
     {
-        // Builds the walls that encompass the grid.
+        // Builds the walls that encompasses the grid.
         wallPieceTemplate.SetActive(true);
         BuildAWall(-1, Z_MAX + 1, -1, 'z', wallPieceTemplate);
         BuildAWall(-1, Z_MAX + 1, X_MAX, 'z', wallPieceTemplate);
@@ -105,25 +107,9 @@ public class BoardController : MonoBehaviour
         BuildAWall(-1, X_MAX + 1, Z_MAX, 'x', wallPieceTemplate);
         wallPieceTemplate.SetActive(false);
 
-        // Builds the actual grid.
-        emptyTileTemplate.SetActive(true);
-        for (int x = 0; x < X_MAX; x++)
-        {
-            for (int z = 0; z < Z_MAX; z++)
-            {
-                GameObject newTile = Instantiate(emptyTileTemplate, new Vector3(x + TILE_WIDTH - 1, 0, z + TILE_WIDTH - 1), Quaternion.Euler(90f, 0f, 0f));
+        GenerateTiles();
 
-                // Store a reference to this tile into a "holder" object, tileFondler
-                newTile.transform.parent = tileFondler.transform;
-
-                // Also store our own reference to this tile in our own 2D array
-                tileArray[x, z] = newTile;
-            }
-        }
-        emptyTileTemplate.SetActive(false);
-
-
-
+        // Commented out procedural generation while working on tessellation - Andrew
         procedurallyPlaceObstacles(wallPieceTemplate);
     }
 
@@ -161,6 +147,39 @@ public class BoardController : MonoBehaviour
             // Store a reference to this wall piece into a "holder" object, wallFondler
             tempWall.transform.parent = wallFondler.transform;
         }
+    }
+
+    private void GenerateTiles()
+    {
+        switchColor = true;
+
+        // Builds the actual grid.
+        emptyTileTemplate.SetActive(true);
+        for (int x = 0; x < X_MAX; x++)
+        {
+            switchColor = !switchColor;
+
+            for (int z = 0; z < Z_MAX; z++)
+            {
+                GameObject newTile = Instantiate(emptyTileTemplate, new Vector3(x + TILE_WIDTH - 1, 0, z + TILE_WIDTH - 1), Quaternion.Euler(90f, 0f, 0f));
+
+                if (z % 2 == 0 && switchColor)
+                    newTile.GetComponent<Renderer>().material = firstTileColor;
+                else if (z % 2 == 1 && switchColor)
+                    newTile.GetComponent<Renderer>().material = secondTileColor;
+                else if (z % 2 == 0 && !switchColor)
+                    newTile.GetComponent<Renderer>().material = secondTileColor;
+                else if (z % 2 == 1 && !switchColor)
+                    newTile.GetComponent<Renderer>().material = firstTileColor;
+
+                // Store a reference to this tile into a "holder" object, tileFondler
+                newTile.transform.parent = tileFondler.transform;
+
+                // Also store our own reference to this tile in our own 2D array
+                tileArray[x, z] = newTile;
+            }
+        }
+        emptyTileTemplate.SetActive(false);
     }
 
     /// <summary>

@@ -88,7 +88,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6565609250977220812}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3709061257022121328
 GameObject:
@@ -120,8 +120,8 @@ Transform:
   m_Children:
   - {fileID: 4268902911423854133}
   - {fileID: 3184112760295667936}
-  - {fileID: 1816034368943216151}
   - {fileID: 7108268831795201350}
+  - {fileID: 1816034368943216151}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -148,6 +148,8 @@ MonoBehaviour:
   tileFondler: {fileID: 776686519890861135}
   wallFondler: {fileID: 3239902528913679604}
   obstacleFondler: {fileID: 3479319856060367092}
+  firstTileColor: {fileID: 2100000, guid: 9505edc11152892489635ee29a46696a, type: 2}
+  secondTileColor: {fileID: 2100000, guid: 9d1766a21ead48649a854545c798638c, type: 2}
   pathLandmarks: 0
   pathWidth: 0
 --- !u!1 &6142511023060367099
@@ -179,7 +181,7 @@ Transform:
   m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 6565609250977220812}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &2734825141508976210
 MeshCollider:
