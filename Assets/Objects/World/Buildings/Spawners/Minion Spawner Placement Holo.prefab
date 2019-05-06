@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 379120545345176046, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_Name
-      value: Minion Spawner
+      value: Minion Spawner Placement Holo
       objectReference: {fileID: 0}
     - target: {fileID: 8882353269095666517, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
@@ -67,5 +67,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 798149820981973413, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: explodeScript
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6047870381348599506, guid: d57a2be6f26094e869270958fd79719d, type: 3}
+    - {fileID: 798149820981973413, guid: d57a2be6f26094e869270958fd79719d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d57a2be6f26094e869270958fd79719d, type: 3}
