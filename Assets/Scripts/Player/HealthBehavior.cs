@@ -28,6 +28,8 @@ public class HealthBehavior : MonoBehaviour
     public float respawnTime;
 
 
+    public bool doesRespawn = true;
+
 
 
 
@@ -67,7 +69,7 @@ public class HealthBehavior : MonoBehaviour
             respawnText.text = "You're DEAD! Respawning in " + respawnTime.ToString("0");
         }
 
-        if (respawnTime <= 0)
+        if (respawnTime <= 0 && doesRespawn)
         {
             explodeScript.Restore();
             setHealth(MAX_HEALTH);

@@ -387,6 +387,7 @@ MonoBehaviour:
   respawnText: {fileID: 433657225}
   health_val: {fileID: 0}
   respawnTime: 5
+  doesRespawn: 1
 --- !u!54 &162644119
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2485,6 +2486,7 @@ MonoBehaviour:
   respawnText: {fileID: 929361079}
   health_val: {fileID: 929361079}
   respawnTime: 0
+  doesRespawn: 1
 --- !u!114 &2030128576
 MonoBehaviour:
   m_ObjectHideFlags: 0
