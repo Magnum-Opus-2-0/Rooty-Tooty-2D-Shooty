@@ -86,8 +86,9 @@ MonoBehaviour:
   health_icon: {fileID: 640553337629062206}
   respawn_background: {fileID: 640553337629176222}
   respawnText: {fileID: 1031984631813719996}
-  health_val: {fileID: 0}
+  health_val: {fileID: 1031984631813719996}
   respawnTime: 0
+  doesRespawn: 0
 --- !u!114 &6047870381348599506
 MonoBehaviour:
   m_ObjectHideFlags: 0
