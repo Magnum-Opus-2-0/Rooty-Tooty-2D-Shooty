@@ -7,7 +7,13 @@ public class ExplodeBehavior : MonoBehaviour {
 
     public bool doExplosionDemo;
 
+    /// <summary>
+    /// The constant number of pieces. Equal to 3. Use <see cref="pieces"/>.Length
+    /// instead.
+    /// </summary>
+    [Obsolete("NUM_OF_PIECES is a constant. Use pieces.Length instead.")]
     public const int NUM_OF_PIECES = 3;
+
     private bool exploded;  // used to track state
 
     // Variables and references which are configured via Unity Editor
@@ -20,7 +26,7 @@ public class ExplodeBehavior : MonoBehaviour {
     /// <summary>
     /// Pieces of the tank (or whatever!) which need to explode apart.
     /// </summary>
-    public GameObject[] pieces = new GameObject[NUM_OF_PIECES];
+    public GameObject[] pieces;
 
     /// <summary>
     /// The positions that each piece should be restored to.
@@ -29,13 +35,13 @@ public class ExplodeBehavior : MonoBehaviour {
     /// If you need to modify where the tank should be restored to,
     /// modify where you call RecordOriginalTransforms().
     /// </summary>
-    private Vector3[] originalPositions = new Vector3[NUM_OF_PIECES];
+    private Vector3[] originalPositions;
 
     /// <summary>
     /// The rotations that each piece should be restored to.
     /// Modify these the same way you would handle originalPositions.
     /// </summary>
-    private Quaternion[] originalRotations = new Quaternion[NUM_OF_PIECES];
+    private Quaternion[] originalRotations;
 
     /// <summary>
     /// Temporary Rigidbodies, required by the pieces for physics calculations.
@@ -43,7 +49,19 @@ public class ExplodeBehavior : MonoBehaviour {
     /// so they must be added and deleted when the tank explodes and is restored.
     /// Before an explosion, all elements in this array are null.
     /// </summary>
-    private Rigidbody[] rigidbodies = new Rigidbody[NUM_OF_PIECES];
+    private Rigidbody[] rigidbodies;
+
+
+    /// <summary>
+    /// Awake this instance.
+    /// </summary>
+    private void Awake()
+    {
+        originalPositions = new Vector3[pieces.Length];
+        originalRotations = new Quaternion[pieces.Length];
+        rigidbodies = new Rigidbody[pieces.Length];
+    }
+
 
     /// <summary>
     /// Explodes the pieces so they all fall apart.
@@ -68,7 +86,7 @@ public class ExplodeBehavior : MonoBehaviour {
             MapToRange((float)r.NextDouble(), 0f, 1f, -0.7f, 0.7f)     // z
             );
 
-        for (int i = 0; i < NUM_OF_PIECES; i++) {
+        for (int i = 0; i < pieces.Length; i++) {
 
             // First, add the temporary Rigidbody
             rigidbodies[i] = pieces[i].AddComponent<Rigidbody>();
@@ -85,8 +103,6 @@ public class ExplodeBehavior : MonoBehaviour {
                     pieces[i].transform.position + vertExplosionOffset, // Make some pieces spring up higher
                     radiusOfExplosion, 0.0f, ForceMode.Impulse);
             }
-
-
         }
 
         exploded = true;
@@ -103,7 +119,7 @@ public class ExplodeBehavior : MonoBehaviour {
 
         // First, remove rigidbodies,
         // which removes the effects of physics as well
-        for (int i = 0; i < NUM_OF_PIECES; i++) {
+        for (int i = 0; i < pieces.Length; i++) {
 
             //rigidbodies[i].transform.rotation = originalRotations[i];
             //rigidbodies[i].transform.position = originalPositions[i];
@@ -136,7 +152,7 @@ public class ExplodeBehavior : MonoBehaviour {
         originalParentPosition = transform.position;
         originalParentRotation = transform.rotation;
 
-        for (int i = 0; i < NUM_OF_PIECES; i++) {
+        for (int i = 0; i < pieces.Length; i++) {
 
             originalPositions[i] = pieces[i].transform.localPosition;
             originalRotations[i] = pieces[i].transform.localRotation;
