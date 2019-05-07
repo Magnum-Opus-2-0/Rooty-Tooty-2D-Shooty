@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2376236971832306696}
   - component: {fileID: 3109588895020930330}
+  - component: {fileID: 11789504317429060}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -47,5 +48,11 @@ MonoBehaviour:
   cam2: {fileID: 155078499360517605, guid: 24cb056e0db56434ebb64b5f3c0c8f21, type: 3}
   canvas1: {fileID: 8034742080181465814, guid: 93327249d40b846dd8da7ae463ec1a18, type: 3}
   canvas2: {fileID: 5580745004073329146, guid: f522e43e80fe542ff98faaee0953c441, type: 3}
-  heart1: {fileID: 0}
-  heart2: {fileID: 0}
+--- !u!81 &11789504317429060
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3733016696639418813}
+  m_Enabled: 1
