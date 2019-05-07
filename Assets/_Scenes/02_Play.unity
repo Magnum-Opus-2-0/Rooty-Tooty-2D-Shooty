@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.2
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37148863, g: 0.39190024, b: 0.403405, a: 0.2}
+  m_IndirectSpecularColor: {r: 0.37147075, g: 0.39187944, b: 0.40338978, a: 0.2}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -380,7 +380,6 @@ MonoBehaviour:
   explodeScript: {fileID: 162644117}
   shootScript: {fileID: 684628931}
   currentHealth: 200
-  bulletDamage: 5
   doPoisonDemo: 0
   health_icon: {fileID: 433657228}
   respawn_background: {fileID: 433657227}
@@ -1038,41 +1037,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: reloadTime
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: maxBullets
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: speedOfBullet
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: bulletFondler
-      value: 
-      objectReference: {fileID: 1069144354}
-    - target: {fileID: 8775774711080764964, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: bulletFondler
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8775774711080764964, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: maxBullets
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8775774711080764964, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 517800692760676884, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1143,6 +1107,36 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: driveMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: steerMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: forwardDrive
+      value: forward-drive-1-mac
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: backwardDrive
+      value: backward-drive-1-mac
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: accelerate
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5172837263814224749, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: m_Mass
@@ -1208,40 +1202,45 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: reloadTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: maxBullets
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: speedOfBullet
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: bulletFondler
+      value: 
+      objectReference: {fileID: 1069144354}
     - target: {fileID: 6893645116141561921, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: forceOfExplosion
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
+    - target: {fileID: 8775774711080764964, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
-      propertyPath: driveMode
-      value: 1
+      propertyPath: bulletFondler
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
+    - target: {fileID: 8775774711080764964, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
-      propertyPath: steerMode
+      propertyPath: maxBullets
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8775774711080764964, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: forwardDrive
-      value: forward-drive-1-mac
-      objectReference: {fileID: 0}
-    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: backwardDrive
-      value: backward-drive-1-mac
-      objectReference: {fileID: 0}
-    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: accelerate
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1445095099381107511, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
@@ -1450,16 +1449,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_2
       objectReference: {fileID: 0}
-    - target: {fileID: 2930605930384766066, guid: b416b72df150e488a918a43d9d34a1a1,
-        type: 3}
-      propertyPath: bulletFondler
-      value: 
-      objectReference: {fileID: 842396105}
-    - target: {fileID: 2930605930384766066, guid: b416b72df150e488a918a43d9d34a1a1,
-        type: 3}
-      propertyPath: speedOfBullet
-      value: 45
-      objectReference: {fileID: 0}
     - target: {fileID: 1788636165241837132, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1530,31 +1519,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7364735021997415036, guid: b416b72df150e488a918a43d9d34a1a1,
-        type: 3}
-      propertyPath: bulletFondler
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7364735021997415036, guid: b416b72df150e488a918a43d9d34a1a1,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7364735021997415036, guid: b416b72df150e488a918a43d9d34a1a1,
-        type: 3}
-      propertyPath: maxBullets
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7364735021997415036, guid: b416b72df150e488a918a43d9d34a1a1,
-        type: 3}
-      propertyPath: shoot
-      value: shoot-2-pc
-      objectReference: {fileID: 0}
     - target: {fileID: 6267188069745566198, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: shootScript
       value: 
       objectReference: {fileID: 684628931}
+    - target: {fileID: 2930605930384766066, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: bulletFondler
+      value: 
+      objectReference: {fileID: 842396105}
+    - target: {fileID: 2930605930384766066, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: speedOfBullet
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 6355854459110127413, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: m_Mass
@@ -1584,6 +1563,26 @@ PrefabInstance:
         type: 3}
       propertyPath: accelerate
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364735021997415036, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: bulletFondler
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364735021997415036, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364735021997415036, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: maxBullets
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364735021997415036, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: shoot
+      value: shoot-2-pc
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b416b72df150e488a918a43d9d34a1a1, type: 3}
@@ -2421,7 +2420,6 @@ MonoBehaviour:
   explodeScript: {fileID: 2030128576}
   shootScript: {fileID: 867802805}
   currentHealth: 200
-  bulletDamage: 5
   doPoisonDemo: 0
   health_icon: {fileID: 1098519604}
   respawn_background: {fileID: 2104559656}

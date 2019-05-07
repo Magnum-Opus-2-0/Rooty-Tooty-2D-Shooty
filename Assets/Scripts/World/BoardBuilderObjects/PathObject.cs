@@ -153,14 +153,16 @@ public class PathObject /*: ScriptableObject*/ {
             if (t.type != TileObject.TileType.NON_TRAVERSABLE)
                 setQ.Add(t);
         }
+        List<TileObject> listQ = new List<TileObject>(setQ);
+        shuffleList<TileObject>(listQ);
 
         TileObject uTile = null;
 
-        while (setQ.Count > 0) {
+        while (listQ.Count > 0) {
 
             // Get tile with minimum distance from setQ
             int runningMin = System.Int32.MaxValue;
-            foreach (TileObject t in setQ) {
+            foreach (TileObject t in listQ) {
 
                 if (t.distance < runningMin) {
 
@@ -172,8 +174,8 @@ public class PathObject /*: ScriptableObject*/ {
             // Make sure uTile is properly set,
             // then remove it from setQ
             Assert.IsTrue(uTile != null, "Minimum distance tile uTile not properly set");
-            Assert.IsTrue(setQ.Contains(uTile), "setQ doesn't contain uTile " + uTile.ToString());
-            setQ.Remove(uTile);
+            Assert.IsTrue(listQ.Contains(uTile), "setQ doesn't contain uTile " + uTile.ToString());
+            listQ.Remove(uTile);
 
             // Break out if we've reached the destination,
             // we now need to construct the path via reverse iteration
@@ -219,6 +221,19 @@ public class PathObject /*: ScriptableObject*/ {
         }
     }
 
+    private void shuffleList<T>(List<T> list)
+    {
+
+        for (int i = 0; i < list.Count; i++)
+        {
+
+            int swapHere = Random.Range(0, list.Count);
+
+            T temp = list[swapHere];
+            list[swapHere] = list[i];
+            list[i] = temp;
+        }
+    }
 
 
     private Grid2DObject grid;
