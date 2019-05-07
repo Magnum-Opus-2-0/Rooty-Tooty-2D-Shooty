@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    public const int BULLET_DAMAGE = 10;
+    [SerializeField]
+    public const int BULLET_DAMAGE = 5;
     public GameObject templateBullet;
 
     // Start is called before the first frame update

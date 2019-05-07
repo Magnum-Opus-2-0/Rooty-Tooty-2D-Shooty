@@ -12,8 +12,6 @@ public class HealthBehavior : MonoBehaviour
     public const int MAX_HEALTH = 100;
     public int currentHealth;   // set to public for debugging
 
-    public int bulletDamage = 10;
-
     // Variables for demo poison function
     public bool doPoisonDemo;   // this is initialized via the Unity editor
     private const float POISON_PERIOD = 0.25f; // use this value only for testing
