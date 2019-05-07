@@ -1281,6 +1281,11 @@ PrefabInstance:
       propertyPath: shootScript
       value: 
       objectReference: {fileID: 1701232621}
+    - target: {fileID: 722894857177017039, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b416b72df150e488a918a43d9d34a1a1, type: 3}
 --- !u!1001 &1201324364234132008

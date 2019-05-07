@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.2
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37148863, g: 0.39190024, b: 0.403405, a: 0.2}
+  m_IndirectSpecularColor: {r: 0.37145963, g: 0.3919365, b: 0.40339306, a: 0.2}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1248,16 +1248,6 @@ PrefabInstance:
       propertyPath: forceOfExplosion
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 1582213638778107543, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2325216907494245818, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: m_TagString
-      value: P1_Bullet
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cf045c0ebafa2e468fe89884017d837, type: 3}
 --- !u!114 &684628931 stripped
@@ -1272,25 +1262,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64e6b96766e6ff648b1705060342cbea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &684628932 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2325216907494245818, guid: 3cf045c0ebafa2e468fe89884017d837,
-    type: 3}
-  m_PrefabInstance: {fileID: 684628930}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &684628933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 684628932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c9143c94f281384d9ea5e0e83f13a7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  templateBullet: {fileID: 684628932}
 --- !u!1001 &684706387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1614,16 +1585,6 @@ PrefabInstance:
       propertyPath: shootScript
       value: 
       objectReference: {fileID: 684628931}
-    - target: {fileID: 4591929530670045666, guid: b416b72df150e488a918a43d9d34a1a1,
-        type: 3}
-      propertyPath: m_TagString
-      value: P2_Bullet
-      objectReference: {fileID: 0}
-    - target: {fileID: 722894857177017039, guid: b416b72df150e488a918a43d9d34a1a1,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b416b72df150e488a918a43d9d34a1a1, type: 3}
 --- !u!114 &867802805 stripped
@@ -1638,25 +1599,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64e6b96766e6ff648b1705060342cbea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &867802806 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4591929530670045666, guid: b416b72df150e488a918a43d9d34a1a1,
-    type: 3}
-  m_PrefabInstance: {fileID: 867802804}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &867802807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867802806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c9143c94f281384d9ea5e0e83f13a7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  templateBullet: {fileID: 867802806}
 --- !u!114 &929361079 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 482425380936246800, guid: 60da1df1f7edb3747bea8f735b2768d1,
