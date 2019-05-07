@@ -56,7 +56,9 @@ public class BulletController : MonoBehaviour
             case "Wall":
                 ResetBullet();
                 break;
-            
+            default:
+                ResetBullet();
+                break;
         }
     }
 
