@@ -72,6 +72,7 @@ public class ShootController : MonoBehaviour
     private float reloadTimer;
 
     private TankController tc;
+    AudioSource shootSound;
 
     // Start is called before the first frame update
     void Start()
@@ -84,6 +85,7 @@ public class ShootController : MonoBehaviour
         state = SHOOT_States.WAIT;
 
         tc = GetComponent<TankController>();
+        shootSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -228,6 +230,7 @@ public class ShootController : MonoBehaviour
             case SHOOT_States.FIRE:
                 reloadTimer = 0f;
                 Fire(true);
+                shootSound.Play();
                 break;
             case SHOOT_States.COUNT_ON:
                 reloadTimer += Time.fixedDeltaTime;
