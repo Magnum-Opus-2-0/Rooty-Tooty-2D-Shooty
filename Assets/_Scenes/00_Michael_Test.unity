@@ -1162,7 +1162,7 @@ PrefabInstance:
     - target: {fileID: 4123859192217236762, guid: 2290859b9662a4ff7b7ced53ba54f284,
         type: 3}
       propertyPath: doPoisonDemo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4123859192217236762, guid: 2290859b9662a4ff7b7ced53ba54f284,
         type: 3}
@@ -1483,7 +1483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &995739547
 Transform:
   m_ObjectHideFlags: 0
@@ -3363,7 +3363,7 @@ PrefabInstance:
     - target: {fileID: 1134925257993573424, guid: 67bf7f42230144239a0812bcbf8aae12,
         type: 3}
       propertyPath: doPoisonDemo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7852392767681544340, guid: 67bf7f42230144239a0812bcbf8aae12,
         type: 3}

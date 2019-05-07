@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 8516278839387446303}
   - component: {fileID: 1132171775346573832}
   - component: {fileID: 2544167615539716860}
+  - component: {fileID: 2196837265310208195}
   m_Layer: 0
   m_Name: Heals
   m_TagString: Untagged
@@ -390,6 +391,22 @@ MonoBehaviour:
   - {fileID: 1293845522800348620}
   - {fileID: 6533710292384849663}
   - {fileID: 5182105155054476383}
+--- !u!54 &2196837265310208195
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6379957993040260964}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6533710292384849663
 GameObject:
   m_ObjectHideFlags: 0
