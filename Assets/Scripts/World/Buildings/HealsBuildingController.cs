@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class HealsBuildingController : BuildingController
 {
-    // Start is called before the first frame update
-    void Awake()
+
+    protected override void Awake()
     {
-        
+        base.Awake();
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        
+        base.Update();
     }
 
     private void OnTriggerStay(Collider other)
