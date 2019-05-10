@@ -132,7 +132,7 @@ PrefabInstance:
     - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: maxBullets
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
@@ -1705,7 +1705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1216555753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2938,7 +2938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1848984235
 MonoBehaviour:
   m_ObjectHideFlags: 0

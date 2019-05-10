@@ -8,10 +8,12 @@ public class BulletController : MonoBehaviour
     public const int BULLET_DAMAGE = 5;
     public GameObject templateBullet;
 
+    private TrailRenderer trail;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        trail = GetComponent<TrailRenderer>();
     }
 
     // Update is called once per frame
@@ -69,6 +71,6 @@ public class BulletController : MonoBehaviour
         // Reset velocity
         this.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
         // put it back in the turret
-        this.transform.position = templateBullet.transform.position;
+        // this.transform.position = templateBullet.transform.position;
     }
 }
