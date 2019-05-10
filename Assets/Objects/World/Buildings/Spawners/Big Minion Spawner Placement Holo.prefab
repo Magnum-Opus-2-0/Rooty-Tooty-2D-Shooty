@@ -72,6 +72,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8992694247891310930, guid: 15d76df85826a4313820404bea8bb3b0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481775251360453818, guid: 15d76df85826a4313820404bea8bb3b0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
+    - target: {fileID: 2126683883855537045, guid: 15d76df85826a4313820404bea8bb3b0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
+    - target: {fileID: 8642303043694044937, guid: 15d76df85826a4313820404bea8bb3b0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
     m_RemovedComponents:
     - {fileID: 3357265257113526514, guid: 15d76df85826a4313820404bea8bb3b0, type: 3}
     - {fileID: 4894607221957959833, guid: 15d76df85826a4313820404bea8bb3b0, type: 3}

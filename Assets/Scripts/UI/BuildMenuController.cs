@@ -15,13 +15,17 @@ public class BuildMenuController : MonoBehaviour
     private bool canUse; //Make sure you can't build anything until animation completes
     public float actionTime; //Time to complete travel
     
-    public float iconTracker;
+    public int iconTracker;
     public Image[] buildIcons;
+    public GameObject[] buildGhosts; //A collection of hologram prefabs to instatiate from
+    public GameObject buildHolo; //Used to assign the current hologram
+    public GameObject turret; // used to get the direction the turret is facing.
 
     void Start(){
         isActive = false;
         setCanUse(false);
         setIsDone(true);
+        setBuildHolo();
     }
 
     void Update(){
@@ -39,10 +43,13 @@ public class BuildMenuController : MonoBehaviour
                 buildIcons[i].color = temp;
             }
         }
+
+        displayBuildHolo();
+        
     }
     
     ///<summary>
-    /// Calls the subrputine necessary for the menu to toggle
+    /// Calls the subroutine necessary for the menu to toggle
     ///</summary> 
     public void ToggleMenu(){
         setIsDone(false);
@@ -100,14 +107,39 @@ public class BuildMenuController : MonoBehaviour
         return canUse;
     }
 
+    ///<summary>
+    ///Takes in a value and adjusts what building the player is currently selecting.
+    ///</summary>
     public void ModifyIconTracker(int val){
         iconTracker += val;
         if(iconTracker < 0){
             iconTracker = 3;
         }
-        Debug.Log(iconTracker);
         if(iconTracker > 3){
             iconTracker = 0;
         }
+
+        setBuildHolo();
+    }
+
+    void setBuildHolo(){
+        
+        if(buildHolo != null){
+            Destroy(buildHolo);
+        }
+        buildHolo = Instantiate(buildGhosts[iconTracker], turret.transform.position, Quaternion.identity);  
+    }
+
+    void displayBuildHolo(){
+
+        if(getCanUse()){
+            buildHolo.gameObject.SetActive(true);
+        }
+        else{
+            buildHolo.gameObject.SetActive(false);
+        }
+
+        buildHolo.transform.position = turret.transform.position + turret.transform.forward*2.0f; 
+        buildHolo.transform.localRotation = Quaternion.identity;
     }
 }

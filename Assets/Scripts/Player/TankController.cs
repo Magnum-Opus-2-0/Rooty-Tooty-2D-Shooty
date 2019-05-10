@@ -554,13 +554,12 @@ public class TankController : MonoBehaviour
     public void UpdateBuildInput(){
 
         if(Input.GetButtonDown(buildButton) && bmc.getIsDone()){
-            Debug.Log("Build Button pressed");
+        
             bmc.ToggleMenu();
         }
 
         if(bmc.getCanUse()){
             if(Input.GetButtonDown(selectBuildButton)){
-                Debug.Log("X button pressed");
                 bmc.ModifyIconTracker(1);
             }
         }

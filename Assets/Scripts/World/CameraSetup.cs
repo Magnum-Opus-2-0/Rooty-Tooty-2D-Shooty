@@ -79,5 +79,6 @@ public class CameraSetup : MonoBehaviour
     void InitializeBuildMenuBehavior(GameObject player, GameObject cav){
         TankController tc = player.GetComponent<TankController>();
         tc.bmc = cav.transform.Find("Build_Menu").gameObject.GetComponent<BuildMenuController>();
+        tc.bmc.turret = player.transform.Find("Turret").gameObject;
     }
 }
