@@ -5,7 +5,10 @@ using UnityEngine;
 public class CreateBuilding : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject prefab;
+    public GameObject p1_prefab;
+    public GameObject p2_prefab;
+
+    public bool isP1Obj;
 
     // Update is called once per frame
     void Update()
@@ -13,9 +16,14 @@ public class CreateBuilding : MonoBehaviour
         
     }
 
-    void BuildBuilding(){
+    public void BuildBuilding(){
 
         GameObject temp;
-        temp = Instantiate(prefab, this.transform.position, Quaternion.identity);
+        if(isP1Obj){
+            temp = Instantiate(p1_prefab, this.transform.position, Quaternion.identity);
+        }
+        else{
+            temp = Instantiate(p2_prefab, this.transform.position, Quaternion.identity);
+        }   
     }
 }

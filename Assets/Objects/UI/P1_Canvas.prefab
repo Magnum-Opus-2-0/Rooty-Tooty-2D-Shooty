@@ -1023,6 +1023,7 @@ MonoBehaviour:
   inactivePos: {x: 685, y: 0, z: 0}
   timeStep: 0.01
   actionTime: 0.1
+  prefabContoller: 1
   iconTracker: 0
   buildIcons:
   - {fileID: 5948544925301195058}
@@ -1034,6 +1035,8 @@ MonoBehaviour:
   - {fileID: 7506654021070295519, guid: 15fa1f318d994415fab87ced5509b607, type: 3}
   - {fileID: 5154257548663843446, guid: cd14f9989422345a09c0f99d72ad22e9, type: 3}
   - {fileID: 3414432349742665053, guid: 146f0304fd48046daa8c871f84f468c9, type: 3}
+  buildHolo: {fileID: 0}
+  turret: {fileID: 0}
 --- !u!1 &7839431496864369900
 GameObject:
   m_ObjectHideFlags: 0

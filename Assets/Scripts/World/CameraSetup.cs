@@ -12,8 +12,8 @@ public class CameraSetup : MonoBehaviour
     public GameObject canvas1;
     public GameObject canvas2;
 
-    // Start is called before the first frame update
-    void Start()
+    // Awake is called before Start()
+    void Awake()
     {
         InitializeSplitScreen();
     }
@@ -80,5 +80,6 @@ public class CameraSetup : MonoBehaviour
         TankController tc = player.GetComponent<TankController>();
         tc.bmc = cav.transform.Find("Build_Menu").gameObject.GetComponent<BuildMenuController>();
         tc.bmc.turret = player.transform.Find("Turret").gameObject;
+       
     }
 }

@@ -14,7 +14,7 @@ public class BuildMenuController : MonoBehaviour
     private bool isDone;
     private bool canUse; //Make sure you can't build anything until animation completes
     public float actionTime; //Time to complete travel
-    
+    public bool prefabContoller; //Used to set which player a created building belongs to. True = p1, false = p2
     public int iconTracker;
     public Image[] buildIcons;
     public GameObject[] buildGhosts; //A collection of hologram prefabs to instatiate from
@@ -25,7 +25,8 @@ public class BuildMenuController : MonoBehaviour
         isActive = false;
         setCanUse(false);
         setIsDone(true);
-        setBuildHolo();
+        SetBuildHolo();
+    
     }
 
     void Update(){
@@ -44,7 +45,7 @@ public class BuildMenuController : MonoBehaviour
             }
         }
 
-        displayBuildHolo();
+        DisplayBuildHolo();
         
     }
     
@@ -119,18 +120,20 @@ public class BuildMenuController : MonoBehaviour
             iconTracker = 0;
         }
 
-        setBuildHolo();
+        SetBuildHolo();
     }
 
-    void setBuildHolo(){
-        
+    void SetBuildHolo(){
+        CreateBuilding cb;
         if(buildHolo != null){
             Destroy(buildHolo);
         }
-        buildHolo = Instantiate(buildGhosts[iconTracker], turret.transform.position, Quaternion.identity);  
+        buildHolo = Instantiate(buildGhosts[iconTracker], turret.transform.position, Quaternion.identity);
+        cb = buildHolo.gameObject.GetComponent<CreateBuilding>();
+        cb.isP1Obj = prefabContoller;  
     }
 
-    void displayBuildHolo(){
+    void DisplayBuildHolo(){
 
         if(getCanUse()){
             buildHolo.gameObject.SetActive(true);
@@ -141,5 +144,10 @@ public class BuildMenuController : MonoBehaviour
 
         buildHolo.transform.position = turret.transform.position + turret.transform.forward*2.0f; 
         buildHolo.transform.localRotation = Quaternion.identity;
+    }
+
+    public void PlaceBuilding(){
+        CreateBuilding cb = buildHolo.gameObject.GetComponent<CreateBuilding>();
+        cb.BuildBuilding();
     }
 }
