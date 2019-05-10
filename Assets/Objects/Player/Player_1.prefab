@@ -18,7 +18,7 @@ MonoBehaviour:
   bulletFondler: {fileID: 0}
   speedOfBullet: 50
   reloadTime: 0.2
-  maxBullets: 3
+  maxBullets: 10
 --- !u!1001 &189688381175296446
 PrefabInstance:
   m_ObjectHideFlags: 0
