@@ -128,7 +128,7 @@ public class BuildMenuController : MonoBehaviour
         if(buildHolo != null){
             Destroy(buildHolo);
         }
-        buildHolo = Instantiate(buildGhosts[iconTracker], turret.transform.position, Quaternion.identity);
+        buildHolo = Instantiate(buildGhosts[iconTracker],  turret.transform.position + turret.transform.forward*2.0f, Quaternion.identity);
         cb = buildHolo.gameObject.GetComponent<CreateBuilding>();
         cb.isP1Obj = prefabContoller;  
     }
