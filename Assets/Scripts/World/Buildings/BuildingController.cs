@@ -23,7 +23,7 @@ public class BuildingController : MonoBehaviour
     {
         if (!IsNotDead() && !diedOnce)
         {
-            StartCoroutine(WaitForDeath(timeToDeath));
+            Destroy(this.gameObject, timeToDeath);
             diedOnce = true;
         }
     }
@@ -41,16 +41,5 @@ public class BuildingController : MonoBehaviour
     public bool IsNotDead()
     {
         return health.isNotDead();
-    }
-
-    /// <summary>
-    /// Coroutine that waits a specified amount of time before destroying the
-    /// GameObject it is attached to.
-    /// </summary>
-    /// <param name="time">The amount of time to wait in seconds.</param>
-    protected IEnumerator WaitForDeath(float time)
-    {
-        yield return new WaitForSeconds(time);
-        Destroy(this.gameObject);
     }
 }
