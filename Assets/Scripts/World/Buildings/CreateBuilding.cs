@@ -48,7 +48,9 @@ public class CreateBuilding : MonoBehaviour
             }
             else{
                 temp = Instantiate(p2_prefab, this.transform.position, Quaternion.identity);
-            }   
+            }
+            tc.Plastic -= plasticCost;
+            tc.Fluff -= fluffCost;
         }
     }
 
