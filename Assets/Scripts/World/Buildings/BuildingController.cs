@@ -4,25 +4,6 @@ using UnityEngine;
 
 public class BuildingController : MonoBehaviour
 {
-    [SerializeField]
-    private int fluffCost = 0;
-    public int FluffCost
-    {
-        get
-        {
-            return FluffCost;
-        }
-    }
-
-    [SerializeField]
-    private int plasticCost = 0;
-    public int PlasticCost
-    {
-        get
-        {
-            return plasticCost;
-        }
-    }
 
     protected HealthBehavior health;
     [SerializeField]
