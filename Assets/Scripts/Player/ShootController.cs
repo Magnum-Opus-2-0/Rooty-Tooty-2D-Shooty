@@ -141,15 +141,15 @@ public class ShootController : MonoBehaviour
 
     // Resets the bullet (gameobject, not struct)
     // Called by HealthBehavior script when colliding with damagable obect.
-    public void ResetBullet(GameObject bullet)
-    {
-        // make it invisible
-        bullet.SetActive(false);
-        // Reset velocity
-        bullet.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
-        // put it back in the turret
-        bullet.transform.position = templateBullet.transform.position;
-    }
+    //public void ResetBullet(GameObject bullet)
+    //{
+    //    // make it invisible
+    //    bullet.SetActive(false);
+    //    // Reset velocity
+    //    bullet.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
+    //    // put it back in the turret
+    //    bullet.transform.position = templateBullet.transform.position;
+    //}
 
     /// <summary>
     /// Instantiates a bullet and adds it to the list.
@@ -173,7 +173,7 @@ public class ShootController : MonoBehaviour
         bullets[objectPoolCounter].bullet_GameObject.SetActive(false);
         bullets[objectPoolCounter].bullet_GameObject.SetActive(true);
         bullets[objectPoolCounter] = new Bullet(bullets[objectPoolCounter].bullet_GameObject, false);
-        //bullets[objectPoolCounter].bullet_GameObject.transform.position = templateBullet.transform.position;
+        bullets[objectPoolCounter].bullet_GameObject.transform.position = templateBullet.transform.position;
         bullets[objectPoolCounter].bullet_GameObject.GetComponent<TrailRenderer>().SetPosition(0, templateBullet.transform.localPosition);
 
         if (objectPoolCounter < maxBullets - 1)

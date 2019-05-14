@@ -7,7 +7,6 @@ public class HealthBehavior : MonoBehaviour
 {
     public SimpleHealthBar healthBar;
     public ExplodeBehavior explodeScript;
-    public ShootController shootScript;
 
     public const int MAX_HEALTH = 100;
     public int currentHealth;   // set to public for debugging
