@@ -17,6 +17,18 @@ public class CreateBuilding : MonoBehaviour
     public int fluffCost;
     public int plasticCost;
 
+    public bool IsValid{
+        get
+        {
+            return isValid;
+        }
+
+        set
+        {
+            isValid = value;
+        }
+    }
+
     void Start(){
         isValid = true;
         hasEnough = false;    
