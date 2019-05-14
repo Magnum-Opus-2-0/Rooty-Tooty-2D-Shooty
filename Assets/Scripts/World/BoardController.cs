@@ -109,7 +109,6 @@ public class BoardController : MonoBehaviour
 
         GenerateTiles();
 
-        // Commented out procedural generation while working on tessellation - Andrew
         procedurallyPlaceObstacles(wallPieceTemplate);
     }
 
@@ -151,7 +150,6 @@ public class BoardController : MonoBehaviour
 
     private void GenerateTiles()
     {
-        switchColor = true;
 
         // Builds the actual grid.
         emptyTileTemplate.SetActive(true);
@@ -163,14 +161,8 @@ public class BoardController : MonoBehaviour
             {
                 GameObject newTile = Instantiate(emptyTileTemplate, new Vector3(x + TILE_WIDTH - 1, 0, z + TILE_WIDTH - 1), Quaternion.Euler(90f, 0f, 0f));
 
-                if (z % 2 == 0 && switchColor)
-                    newTile.GetComponent<Renderer>().material = firstTileColor;
-                else if (z % 2 == 1 && switchColor)
-                    newTile.GetComponent<Renderer>().material = secondTileColor;
-                else if (z % 2 == 0 && !switchColor)
-                    newTile.GetComponent<Renderer>().material = secondTileColor;
-                else if (z % 2 == 1 && !switchColor)
-                    newTile.GetComponent<Renderer>().material = firstTileColor;
+                newTile.GetComponent<Renderer>().material =
+                    (x % 2 == z % 2 ? firstTileColor : secondTileColor);
 
                 // Store a reference to this tile into a "holder" object, tileFondler
                 newTile.transform.parent = tileFondler.transform;

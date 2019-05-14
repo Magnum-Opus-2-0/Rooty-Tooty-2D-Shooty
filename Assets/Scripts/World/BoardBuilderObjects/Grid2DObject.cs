@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class Grid2DObject : /*ScriptableObject,*/ IEnumerable<TileObject> {
+public class Grid2DObject : IEnumerable<TileObject> {
 
 
 
