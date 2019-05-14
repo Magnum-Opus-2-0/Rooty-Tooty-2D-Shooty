@@ -14,12 +14,13 @@ public class BuildMenuController : MonoBehaviour
     private bool isDone;
     private bool canUse; //Make sure you can't build anything until animation completes
     public float actionTime; //Time to complete travel
-    public bool prefabContoller; //Used to set which player a created building belongs to. True = p1, false = p2
+    public bool prefabController; //Used to set which player a created building belongs to. True = p1, false = p2
     public int iconTracker;
     public Image[] buildIcons;
     public GameObject[] buildGhosts; //A collection of hologram prefabs to instatiate from
     public GameObject buildHolo; //Used to assign the current hologram
     public GameObject turret; // used to get the direction the turret is facing.
+    public TankController tankController; //Used to pass reference to appropriate TankController.cs to CreateBuilding.cs
 
     void Start(){
         isActive = false;
@@ -123,6 +124,9 @@ public class BuildMenuController : MonoBehaviour
         SetBuildHolo();
     }
 
+    /// <summary>
+    /// changes out the build holgram for the purposes of displayBuildHolo and PlaceBuilding functions.
+    /// </summary>
     void SetBuildHolo(){
         CreateBuilding cb;
         if(buildHolo != null){
@@ -130,9 +134,14 @@ public class BuildMenuController : MonoBehaviour
         }
         buildHolo = Instantiate(buildGhosts[iconTracker],  turret.transform.position + turret.transform.forward*2.0f, Quaternion.identity);
         cb = buildHolo.gameObject.GetComponent<CreateBuilding>();
-        cb.isP1Obj = prefabContoller;  
+        cb.isP1Obj = prefabController;
+        cb.tc = tankController;
     }
 
+    /// <summary>
+    /// Adjusts the position of the buildHolo object and activates and deactivates object based on 
+    /// whether or not the build menu is active.
+    /// </summary>
     void DisplayBuildHolo(){
 
         if(getCanUse()){
@@ -146,6 +155,10 @@ public class BuildMenuController : MonoBehaviour
         buildHolo.transform.localRotation = Quaternion.identity;
     }
 
+    /// <summary>
+    /// Calls the BuildBuilding function on the createBuilding script of the buildHolo object. This function
+    /// is called from the TankController script.
+    /// </summary>
     public void PlaceBuilding(){
         CreateBuilding cb = buildHolo.gameObject.GetComponent<CreateBuilding>();
         cb.BuildBuilding();

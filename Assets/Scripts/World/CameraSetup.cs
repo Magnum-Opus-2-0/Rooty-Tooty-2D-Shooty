@@ -80,6 +80,6 @@ public class CameraSetup : MonoBehaviour
         TankController tc = player.GetComponent<TankController>();
         tc.bmc = cav.transform.Find("Build_Menu").gameObject.GetComponent<BuildMenuController>();
         tc.bmc.turret = player.transform.Find("Turret").gameObject;
-       
+        tc.bmc.tankController = tc;
     }
 }
