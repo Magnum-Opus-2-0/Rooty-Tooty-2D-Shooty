@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BoardController : MonoBehaviour
 {
@@ -24,7 +25,8 @@ public class BoardController : MonoBehaviour
 
     public Material firstTileColor;
     public Material secondTileColor;
-    private bool switchColor;
+
+    //public NavMesh navmesh; 
 
     /// I like 20 for pathLandmarks and 2 for pathWidth for a broader battlefield,
     /// or 30 pathLandmarks and 1 pathWidth for more obstacles.
@@ -110,6 +112,8 @@ public class BoardController : MonoBehaviour
         GenerateTiles();
 
         procedurallyPlaceObstacles(wallPieceTemplate);
+
+
     }
 
     /// <summary>
@@ -155,7 +159,6 @@ public class BoardController : MonoBehaviour
         emptyTileTemplate.SetActive(true);
         for (int x = 0; x < X_MAX; x++)
         {
-            switchColor = !switchColor;
 
             for (int z = 0; z < Z_MAX; z++)
             {
