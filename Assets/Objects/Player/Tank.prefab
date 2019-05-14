@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c9143c94f281384d9ea5e0e83f13a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootControlReference: {fileID: 0}
+  shootControlReference: {fileID: 7135073087979164315}
 --- !u!1 &5237407321138980475
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +373,7 @@ GameObject:
   - component: {fileID: 5450891750570937360}
   - component: {fileID: 6704396560043710975}
   - component: {fileID: 1716045844344825395}
+  - component: {fileID: 7135073087979164315}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -577,6 +578,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7135073087979164315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5348189828253354313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e6b96766e6ff648b1705060342cbea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shoot: shoot-1-pc
+  templateBullet: {fileID: 2514482929071404036}
+  barrel: {fileID: 7384040175891051519}
+  bulletFondler: {fileID: 0}
+  speedOfBullet: 50
+  reloadTime: 0.2
+  maxBullets: 10
 --- !u!1 &6566715632166587962
 GameObject:
   m_ObjectHideFlags: 0
