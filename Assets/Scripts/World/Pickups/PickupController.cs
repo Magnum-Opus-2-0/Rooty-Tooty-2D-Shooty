@@ -18,9 +18,6 @@ public class PickupController : MonoBehaviour
 
     virtual protected void OnTriggerEnter(Collider other)
     {
-        TankController tc;
-        tc = other.GetComponent<TankController>();
-        tc.bmc.buildHolo.GetComponent<CreateBuilding>().IsValid = true;
         
         Destroy(this.gameObject);
     }

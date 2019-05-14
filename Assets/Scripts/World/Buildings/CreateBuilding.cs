@@ -39,7 +39,7 @@ public class CreateBuilding : MonoBehaviour
         hasEnough = checkResources();
         for (int i = 0; i < parts.Length; i++){
             Color temp;
-            
+            Debug.Log(isValid);
             if(isValid && hasEnough){
                 temp = new Color(185.0f, 185.0f, 185.0f, .40f); 
                 parts[i].GetComponent<Renderer>().material.color = temp;
@@ -77,11 +77,11 @@ public class CreateBuilding : MonoBehaviour
                 
     }    
 
-    void OnTriggerExit(Collider other){
+    public void OnTriggerExit(Collider other){
        
         isValid = true;
                 
-        Debug.Log(other.tag);
+        //Debug.Log(other.tag);
     }
 
     bool checkResources()

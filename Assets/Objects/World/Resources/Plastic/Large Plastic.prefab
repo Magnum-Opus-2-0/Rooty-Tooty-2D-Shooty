@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2203651884301793335}
   m_Layer: 0
   m_Name: Large Plastic
-  m_TagString: Untagged
+  m_TagString: Resource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

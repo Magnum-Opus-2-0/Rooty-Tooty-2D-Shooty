@@ -22,6 +22,7 @@ TagManager:
   - P2_Bullet
   - P1_Minion
   - P2_Minion
+  - Resource
   layers:
   - Default
   - TransparentFX

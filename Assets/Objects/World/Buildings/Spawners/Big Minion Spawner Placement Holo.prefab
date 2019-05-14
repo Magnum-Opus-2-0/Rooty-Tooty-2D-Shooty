@@ -21,6 +21,9 @@ MonoBehaviour:
   - {fileID: 3223243052884235794}
   - {fileID: 3416523592400868385}
   isP1Obj: 0
+  tc: {fileID: 0}
+  fluffCost: 1
+  plasticCost: 0
 --- !u!1001 &7885264392751484977
 PrefabInstance:
   m_ObjectHideFlags: 0

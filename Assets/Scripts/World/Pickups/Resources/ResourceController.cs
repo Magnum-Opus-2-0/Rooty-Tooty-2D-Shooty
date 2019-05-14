@@ -47,6 +47,10 @@ public class ResourceController : PickupController
             if (tc.State == TankStates.Alive && tc.CanGrabResource(resourceType))
             {
                 AddResource(tc);
+                BuildMenuController bmc = tc.bmc;
+                GameObject buildHolo = bmc.buildHolo;
+                CreateBuilding cb = buildHolo.GetComponent<CreateBuilding>();
+                cb.OnTriggerExit(other);
                 base.OnTriggerEnter(other);
             }
         }
