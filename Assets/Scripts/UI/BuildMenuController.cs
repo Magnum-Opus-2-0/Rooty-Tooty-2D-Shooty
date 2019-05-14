@@ -151,7 +151,7 @@ public class BuildMenuController : MonoBehaviour
             buildHolo.gameObject.SetActive(false);
         }
 
-        buildHolo.transform.position = turret.transform.position + turret.transform.forward*2.0f; 
+        buildHolo.transform.position = turret.transform.position + turret.transform.forward*2.15f; 
         buildHolo.transform.localRotation = Quaternion.identity;
     }
 
