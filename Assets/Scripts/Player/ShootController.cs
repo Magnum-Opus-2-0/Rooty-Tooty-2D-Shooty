@@ -100,9 +100,17 @@ public class ShootController : MonoBehaviour
     {
         // Pass the current state of the button into the shooting state machine.
         // Only if the player is currently alive.
-        if (tc.State == TankStates.Alive)
+        if (this.gameObject.tag != "P1_Minion" && this.gameObject.tag != "P2_Minion")
         {
-            FireRateStateMachine(Input.GetButton(shoot));
+            if (tc.State == TankStates.Alive)
+            {
+                FireRateStateMachine(Input.GetButton(shoot));
+            }
+        }
+
+        if (this.gameObject.tag == "P1_Minion" || this.gameObject.tag == "P2_Minion")
+        {
+            FireRateStateMachine(true);
         }
 
         for (int i = 0; i < bullets.Count; i++)
@@ -231,7 +239,8 @@ public class ShootController : MonoBehaviour
             case SHOOT_States.FIRE:
                 reloadTimer = 0f;
                 Fire(true);
-                shootSound.Play();
+                if (this.gameObject.tag != "P1_Minion" && this.gameObject.tag != "P2_Minion")
+                    shootSound.Play();
                 break;
             case SHOOT_States.COUNT_ON:
                 reloadTimer += Time.fixedDeltaTime;
