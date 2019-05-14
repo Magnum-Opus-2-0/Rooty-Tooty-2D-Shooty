@@ -14,6 +14,7 @@ public class CreateBuilding : MonoBehaviour
     public TankController tc;
     private bool isValid;
     private bool hasEnough;
+    private Collider col;
     public int fluffCost;
     public int plasticCost;
 
@@ -36,6 +37,9 @@ public class CreateBuilding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!isValid && col == null){
+            isValid = true;
+        }
         hasEnough = checkResources();
         for (int i = 0; i < parts.Length; i++){
             Color temp;
@@ -74,6 +78,8 @@ public class CreateBuilding : MonoBehaviour
     void OnTriggerStay(Collider other){
        
         isValid = false;
+        col = other;
+        //Debug.Log("Called onStay");
                 
     }    
 
@@ -81,7 +87,7 @@ public class CreateBuilding : MonoBehaviour
        
         isValid = true;
                 
-        //Debug.Log(other.tag);
+       // Debug.Log("Called onExit");
     }
 
     bool checkResources()

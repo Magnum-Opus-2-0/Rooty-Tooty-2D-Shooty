@@ -77,6 +77,22 @@ public class ShootController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        switch (Application.platform)
+        {
+            case RuntimePlatform.OSXEditor:
+            case RuntimePlatform.OSXPlayer:
+                shoot = (tag == "Player1_obj" ? "shoot-1-mac" : "shoot-2-mac");
+                break;
+            case RuntimePlatform.WindowsEditor:
+            case RuntimePlatform.WindowsPlayer:
+                shoot = (tag == "Player1_obj" ? "shoot-1-pc" : "shoot-2-pc");
+                break;
+
+            default:
+                Debug.LogError("Mappings not setup for operating systems other than Windows or Mac OS");
+                break;
+        }
         reloadTimer = 0f;
         bullets = new List<Bullet>();
         // Start counter at 0, used in RecycleBullets()

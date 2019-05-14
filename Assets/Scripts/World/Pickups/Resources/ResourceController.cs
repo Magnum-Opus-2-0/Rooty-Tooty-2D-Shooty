@@ -50,8 +50,8 @@ public class ResourceController : PickupController
                 BuildMenuController bmc = tc.bmc;
                 GameObject buildHolo = bmc.buildHolo;
                 CreateBuilding cb = buildHolo.GetComponent<CreateBuilding>();
-                cb.OnTriggerExit(other);
                 base.OnTriggerEnter(other);
+                cb.OnTriggerExit(other);
             }
         }
     }
