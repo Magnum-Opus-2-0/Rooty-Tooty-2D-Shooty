@@ -6,7 +6,8 @@ public class BulletController : MonoBehaviour
 {
     [SerializeField]
     public const int BULLET_DAMAGE = 5;
-    public GameObject templateBullet;
+    public ShootController shootControlReference;
+    //public GameObject templateBullet;
 
     private TrailRenderer trail;
 
@@ -19,7 +20,7 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        ShootController sc = GetComponentInParent<ShootController>();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -71,6 +72,6 @@ public class BulletController : MonoBehaviour
         // Reset velocity
         this.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
         // put it back in the turret
-        // this.transform.position = templateBullet.transform.position;
+        this.transform.position = shootControlReference.templateBullet.transform.position;
     }
 }

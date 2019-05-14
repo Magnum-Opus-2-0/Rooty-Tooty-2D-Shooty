@@ -170,9 +170,10 @@ public class ShootController : MonoBehaviour
     /// </summary>
     private void RecycleBullets()
     {
+        bullets[objectPoolCounter].bullet_GameObject.SetActive(false);
         bullets[objectPoolCounter].bullet_GameObject.SetActive(true);
         bullets[objectPoolCounter] = new Bullet(bullets[objectPoolCounter].bullet_GameObject, false);
-        bullets[objectPoolCounter].bullet_GameObject.transform.position = templateBullet.transform.position;
+        //bullets[objectPoolCounter].bullet_GameObject.transform.position = templateBullet.transform.position;
         bullets[objectPoolCounter].bullet_GameObject.GetComponent<TrailRenderer>().SetPosition(0, templateBullet.transform.localPosition);
 
         if (objectPoolCounter < maxBullets - 1)

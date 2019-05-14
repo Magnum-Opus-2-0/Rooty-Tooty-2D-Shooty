@@ -66,7 +66,7 @@ GameObject:
   - component: {fileID: 4161326673133240561}
   - component: {fileID: 2938408489200667651}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Template Bullet
   m_TagString: P2_Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c9143c94f281384d9ea5e0e83f13a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  templateBullet: {fileID: 2514482929071404036}
+  shootControlReference: {fileID: 0}
 --- !u!1 &5237407321138980475
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +438,7 @@ MonoBehaviour:
   accelerate: 2.5
   buildButton: build-1-mac
   selectBuildButton: select-1-mac
+  submitButton: submit-1-mac
 --- !u!114 &5450891750570937360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,7 +455,6 @@ MonoBehaviour:
   explodeScript: {fileID: 6704396560043710975}
   shootScript: {fileID: 0}
   currentHealth: 0
-  bulletDamage: 5
   doPoisonDemo: 0
   health_icon: {fileID: 0}
   respawn_background: {fileID: 0}

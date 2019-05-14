@@ -101,6 +101,21 @@ PrefabInstance:
       propertyPath: backwardDrive
       value: backward-drive-1-win
       objectReference: {fileID: 0}
+    - target: {fileID: 5450891750570937360, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450891750570937360, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: shootScript
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2514482929071404036, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: m_TagString
+      value: P1_Bullet
+      objectReference: {fileID: 0}
     - target: {fileID: 5237407321138980475, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
       propertyPath: m_TagString
@@ -121,6 +136,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player_1
       objectReference: {fileID: 0}
+    - target: {fileID: 2938408489200667651, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: shootControlReference
+      value: 
+      objectReference: {fileID: 7375665069151570844}
     - target: {fileID: 1264002227, guid: f81d2b628259641319bf90c9947d6ccd, type: 3}
       propertyPath: xAim
       value: x-aim-1-win
@@ -138,16 +158,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5450891750570937360, guid: f81d2b628259641319bf90c9947d6ccd,
-        type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2514482929071404036, guid: f81d2b628259641319bf90c9947d6ccd,
-        type: 3}
-      propertyPath: m_TagString
-      value: P1_Bullet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f81d2b628259641319bf90c9947d6ccd, type: 3}
