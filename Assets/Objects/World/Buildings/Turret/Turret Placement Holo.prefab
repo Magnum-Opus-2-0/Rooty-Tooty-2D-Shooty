@@ -22,6 +22,9 @@ MonoBehaviour:
   - {fileID: 3602726506365719943}
   - {fileID: 2767293927927314350}
   isP1Obj: 0
+  tc: {fileID: 0}
+  fluffCost: 0
+  plasticCost: 0
 --- !u!1001 &6416739522979529108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97,7 +100,7 @@ PrefabInstance:
     - target: {fileID: 288635745235838983, guid: 566154ed5b7fe475390cf7fde65408f4,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.35
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 55065477000661355, guid: 566154ed5b7fe475390cf7fde65408f4,
         type: 3}

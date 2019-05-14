@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370191687411535565}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1906922330528040384}
@@ -80,10 +80,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 2
+  m_Radius: 1.25
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.35, z: 0}
 --- !u!114 &1634013807900827573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,8 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b509c3750d0b146fd9d00ed3aa0c4fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fluffCost: 0
-  plasticCost: 0
   timeToDeath: 3.5
 --- !u!114 &3357265257113526514
 MonoBehaviour:
@@ -113,7 +111,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 7642721939116508533}
   explodeScript: {fileID: 4894607221957959833}
-  shootScript: {fileID: 0}
   currentHealth: 50
   doPoisonDemo: 0
   health_icon: {fileID: 7642721939116496939}

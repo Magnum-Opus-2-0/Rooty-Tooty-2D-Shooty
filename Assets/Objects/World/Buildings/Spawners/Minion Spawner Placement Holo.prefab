@@ -20,6 +20,9 @@ MonoBehaviour:
   - {fileID: 3139374702870222470}
   - {fileID: 7091854787661350128}
   isP1Obj: 0
+  tc: {fileID: 0}
+  fluffCost: 0
+  plasticCost: 0
 --- !u!1001 &2575496104533639891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31,16 +34,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Minion Spawner Placement Holo
-      objectReference: {fileID: 0}
-    - target: {fileID: 1076999814240101828, guid: d57a2be6f26094e869270958fd79719d,
-        type: 3}
-      propertyPath: m_Radius
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1076999814240101828, guid: d57a2be6f26094e869270958fd79719d,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 8882353269095666517, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
@@ -107,26 +100,31 @@ PrefabInstance:
       propertyPath: explodeScript
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1076999814240101828, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2481775251360453818, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
-    - target: {fileID: 2126683883855537045, guid: d57a2be6f26094e869270958fd79719d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
-    - target: {fileID: 1265826106708506851, guid: d57a2be6f26094e869270958fd79719d,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1299949534822560153, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1265826106708506851, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126683883855537045, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
     m_RemovedComponents:
     - {fileID: 6047870381348599506, guid: d57a2be6f26094e869270958fd79719d, type: 3}
     - {fileID: 798149820981973413, guid: d57a2be6f26094e869270958fd79719d, type: 3}

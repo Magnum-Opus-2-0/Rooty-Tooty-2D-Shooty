@@ -132,7 +132,7 @@ public class BuildMenuController : MonoBehaviour
         if(buildHolo != null){
             Destroy(buildHolo);
         }
-        buildHolo = Instantiate(buildGhosts[iconTracker],  turret.transform.position + turret.transform.forward*2.0f, Quaternion.identity);
+        buildHolo = Instantiate(buildGhosts[iconTracker],  turret.transform.position + turret.transform.forward* 2.0f, Quaternion.identity);
         cb = buildHolo.gameObject.GetComponent<CreateBuilding>();
         cb.isP1Obj = prefabController;
         cb.tc = tankController;
@@ -151,7 +151,7 @@ public class BuildMenuController : MonoBehaviour
             buildHolo.gameObject.SetActive(false);
         }
 
-        buildHolo.transform.position = turret.transform.position + turret.transform.forward*2.15f; 
+        buildHolo.transform.position = turret.transform.position + turret.transform.forward*2.15f - (turret.transform.up * turret.transform.position.y); 
         buildHolo.transform.localRotation = Quaternion.identity;
     }
 

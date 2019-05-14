@@ -23,6 +23,7 @@ TagManager:
   - P1_Minion
   - P2_Minion
   - Resource
+  - Spawnpoint
   layers:
   - Default
   - TransparentFX

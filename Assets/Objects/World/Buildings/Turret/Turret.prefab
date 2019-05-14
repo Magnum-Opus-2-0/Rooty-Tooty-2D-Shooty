@@ -286,8 +286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c884df78fd3484cc4a8f5227720f9a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fluffCost: 0
-  plasticCost: 0
   timeToDeath: 3.5
 --- !u!114 &7076109674377876574
 MonoBehaviour:
@@ -303,7 +301,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 74935419943719040}
   explodeScript: {fileID: 2836931344023929401}
-  shootScript: {fileID: 0}
   currentHealth: 50
   doPoisonDemo: 0
   health_icon: {fileID: 74935419943734750}
@@ -496,7 +493,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6984639934084232162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5446009218827550769}

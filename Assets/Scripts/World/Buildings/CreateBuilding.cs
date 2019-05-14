@@ -39,7 +39,7 @@ public class CreateBuilding : MonoBehaviour
         hasEnough = checkResources();
         for (int i = 0; i < parts.Length; i++){
             Color temp;
-            Debug.Log(isValid);
+//            Debug.Log(isValid);
             if(isValid && hasEnough){
                 temp = new Color(185.0f, 185.0f, 185.0f, .40f); 
                 parts[i].GetComponent<Renderer>().material.color = temp;

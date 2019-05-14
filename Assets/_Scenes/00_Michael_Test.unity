@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 0.2
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 9653b93fbb76348cd8faa7d2b13f2d7d, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.49641287, b: 0.5748173, a: 1}
+  m_IndirectSpecularColor: {r: 0.7789595, g: 0.8188726, b: 0.8413691, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 53669215}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -600,7 +600,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1011169593}
   explodeScript: {fileID: 84889068}
-  shootScript: {fileID: 0}
   currentHealth: 200
   doPoisonDemo: 0
   health_icon: {fileID: 1011169592}
@@ -664,7 +663,7 @@ PrefabInstance:
     - target: {fileID: 5041507301740641492, guid: 559238b19cd5f41e0aa1b051b9a5ece1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.37
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5041507301740641492, guid: 559238b19cd5f41e0aa1b051b9a5ece1,
         type: 3}
@@ -808,7 +807,7 @@ PrefabInstance:
     - target: {fileID: 5041507301740641492, guid: c7154f5ba00fc4dc790d1ca0537a5da1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5041507301740641492, guid: c7154f5ba00fc4dc790d1ca0537a5da1,
         type: 3}
@@ -883,7 +882,7 @@ PrefabInstance:
     - target: {fileID: 5665897795659145754, guid: 4efba8b1eb0904253984562c3b64bb78,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5665897795659145754, guid: 4efba8b1eb0904253984562c3b64bb78,
         type: 3}
@@ -938,87 +937,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 308025287}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &459396423
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 459396424}
-  - component: {fileID: 459396426}
-  - component: {fileID: 459396425}
-  m_Layer: 5
-  m_Name: Test Bullet
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &459396424
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 459396423}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1216555756}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32, y: -27.350006}
-  m_SizeDelta: {x: 312, y: 379.3}
-  m_Pivot: {x: 0, y: 1}
---- !u!114 &459396425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 459396423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 28
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Bullet Trail Positions:
-
-'
---- !u!222 &459396426
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 459396423}
-  m_CullTransparentMesh: 0
 --- !u!1001 &483442290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1207,7 +1125,7 @@ PrefabInstance:
     - target: {fileID: 5290894080677541866, guid: 2290859b9662a4ff7b7ced53ba54f284,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5290894080677541866, guid: 2290859b9662a4ff7b7ced53ba54f284,
         type: 3}
@@ -1720,7 +1638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1045672046
 Transform:
   m_ObjectHideFlags: 0
@@ -1789,7 +1707,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1216555753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1862,7 +1780,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2048238832}
-  - {fileID: 459396424}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2529,7 +2446,7 @@ PrefabInstance:
     - target: {fileID: 5665897795659145754, guid: d2bb9056aac904cceb344f182b6cd578,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5665897795659145754, guid: d2bb9056aac904cceb344f182b6cd578,
         type: 3}
@@ -2859,7 +2776,7 @@ PrefabInstance:
     - target: {fileID: 117088057140773144, guid: abab744cd6c3746f58e4b73f09c3b14e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 117088057140773144, guid: abab744cd6c3746f58e4b73f09c3b14e,
         type: 3}
@@ -3097,7 +3014,7 @@ PrefabInstance:
     - target: {fileID: 3709061257022121328, guid: b4c67ed272150b04bba22abe8c018386,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6565609250977220812, guid: b4c67ed272150b04bba22abe8c018386,
         type: 3}
@@ -3168,6 +3085,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7108268831795201350, guid: b4c67ed272150b04bba22abe8c018386,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4c67ed272150b04bba22abe8c018386, type: 3}
@@ -3361,7 +3283,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1519731995}
   explodeScript: {fileID: 2003153273}
-  shootScript: {fileID: 1835020769}
   currentHealth: 200
   doPoisonDemo: 0
   health_icon: {fileID: 1519731994}
@@ -3406,7 +3327,7 @@ PrefabInstance:
     - target: {fileID: 117088057140773144, guid: 67bf7f42230144239a0812bcbf8aae12,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.37
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 117088057140773144, guid: 67bf7f42230144239a0812bcbf8aae12,
         type: 3}
@@ -3489,7 +3410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2048238832
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3658,7 +3579,7 @@ PrefabInstance:
     - target: {fileID: 2528093329945725661, guid: cb8fb8cc03aa64c119f2e8a20a8ee054,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.37
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2528093329945725661, guid: cb8fb8cc03aa64c119f2e8a20a8ee054,
         type: 3}

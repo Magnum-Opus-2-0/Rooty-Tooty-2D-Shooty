@@ -91,31 +91,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5788530405426210461, guid: 15d76df85826a4313820404bea8bb3b0,
+    - target: {fileID: 8992694247891310930, guid: 15d76df85826a4313820404bea8bb3b0,
         type: 3}
-      propertyPath: m_Radius
-      value: 1.25
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992694247891310930, guid: 15d76df85826a4313820404bea8bb3b0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5788530405426210461, guid: 15d76df85826a4313820404bea8bb3b0,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.35
+      value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8992694247891310930, guid: 15d76df85826a4313820404bea8bb3b0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992694247891310930, guid: 15d76df85826a4313820404bea8bb3b0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8642303043694044937, guid: 15d76df85826a4313820404bea8bb3b0,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
     - target: {fileID: 2481775251360453818, guid: 15d76df85826a4313820404bea8bb3b0,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -136,6 +126,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8642303043694044937, guid: 15d76df85826a4313820404bea8bb3b0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
     - target: {fileID: 6249887824853074590, guid: 15d76df85826a4313820404bea8bb3b0,
         type: 3}
       propertyPath: m_IsTrigger
