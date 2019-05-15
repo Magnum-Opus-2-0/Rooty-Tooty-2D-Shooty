@@ -8,6 +8,7 @@ public class MinionBuildingController : BuildingController
     /// The minion to be spawned.
     /// </summary>
     public GameObject minionToSpawn;
+    public Transform minionFondler;
     
     /// <summary>
     /// An array of <see cref="SpawnpointBehavior"/> scripts in the order of
@@ -25,13 +26,13 @@ public class MinionBuildingController : BuildingController
     public int minonsPerBatch = 3;
     private int minionsThisBatch;
 
-    private MinionObjectPooler minionPool;
+    private RestrictedObjectPooler<MinionController> minionPool;
 
     protected override void Awake()
     {
         base.Awake();
         minionsThisBatch = 0;
-        minionPool = GetComponent<MinionObjectPooler>();
+        minionPool = new RestrictedObjectPooler<MinionController>(minionToSpawn, minionFondler, maxMinions);
         StartCoroutine(SpawnRoutine());
     }
 

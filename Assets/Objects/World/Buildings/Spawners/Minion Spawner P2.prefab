@@ -72,6 +72,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3477318382218700517, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: minionPrefab
+      value: 
+      objectReference: {fileID: 8224035339907225557, guid: fc93e9f89634fce429d0d8bd9d823793,
+        type: 3}
+    - target: {fileID: 1646984253063548224, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: minionToSpawn
+      value: 
+      objectReference: {fileID: 8224035339907225557, guid: fc93e9f89634fce429d0d8bd9d823793,
+        type: 3}
     - target: {fileID: 3538510982326883634, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -102,6 +114,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2ed196bb3d57da8468f67124b29a9708, type: 2}
+    - target: {fileID: 4543360576506452140, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6496117687222769320, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_TagString
@@ -128,17 +145,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: a04a301b4cc5f4e8bbe142014be5bfee, type: 2}
     - target: {fileID: 7972818803777575072, guid: d57a2be6f26094e869270958fd79719d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3477318382218700517, guid: d57a2be6f26094e869270958fd79719d,
-        type: 3}
-      propertyPath: minionPrefab
-      value: 
-      objectReference: {fileID: 8224035339907225557, guid: fc93e9f89634fce429d0d8bd9d823793,
-        type: 3}
-    - target: {fileID: 4543360576506452140, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_Enabled
       value: 0

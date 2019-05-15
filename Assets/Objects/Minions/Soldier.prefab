@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1abb06745efe48fba0aa3ea74cdf840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 20
 --- !u!114 &8173937852234914443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 8414202997290635780}
   explodeScript: {fileID: 2070589742068855113}
-  currentHealth: 0
+  currentHealth: 20
   doPoisonDemo: 0
   health_icon: {fileID: 8414202997290651482}
   respawn_background: {fileID: 8414202997290601210}

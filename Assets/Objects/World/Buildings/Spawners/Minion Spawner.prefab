@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8882353269095666517}
   - component: {fileID: 4543360576506452140}
   - component: {fileID: 1646984253063548224}
-  - component: {fileID: 3477318382218700517}
   - component: {fileID: 798149820981973413}
   - component: {fileID: 6047870381348599506}
   - component: {fileID: 3191076397655106680}
@@ -68,6 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToDeath: 3.5
   minionToSpawn: {fileID: 0}
+  minionFondler: {fileID: 3568006466618647337}
   spawns:
   - {fileID: 801371435654863856}
   - {fileID: 6725050551803951171}
@@ -75,23 +75,8 @@ MonoBehaviour:
   - {fileID: 8742251730407731191}
   timeBetweenBatches: 7.5
   timeBetweenMinions: 1
-  maxMinions: 10
+  maxMinions: 12
   minonsPerBatch: 3
---- !u!114 &3477318382218700517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 379120545345176046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4d63e303ef2b4f65a1e5b96be2bd309, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minionPrefab: {fileID: 0}
-  minionFondler: {fileID: 3568006466618647337}
-  maxAllowedMinions: 12
 --- !u!114 &798149820981973413
 MonoBehaviour:
   m_ObjectHideFlags: 0

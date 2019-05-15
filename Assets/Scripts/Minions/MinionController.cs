@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinionController : MonoBehaviour
+public class MinionController : MonoBehaviour, IRecyclable
 {
-    private HealthBehavior hb;
+    public int maxHealth;
+    private HealthBehavior health;
 
     // Start is called before the first frame update
     void Start()
     {
-        hb = GetComponent<HealthBehavior>();
+        health = GetComponent<HealthBehavior>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!hb.isNotDead())
+        if (!health.isNotDead())
         {
             Die();
         }
@@ -28,11 +29,17 @@ public class MinionController : MonoBehaviour
     /// </summary>
     public void Die()
     {
+        Debug.Log("Minion dying");
         gameObject.SetActive(false);
     }
 
     private void DebugMovement()
     {
         transform.Translate(0, 0, 5.0f * Time.deltaTime);
+    }
+
+    public void Recycle()
+    {
+        health.setHealth(maxHealth);
     }
 }
