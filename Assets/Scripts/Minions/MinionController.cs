@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class MinionController : MonoBehaviour
 {
+    private HealthBehavior hb;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        hb = GetComponent<HealthBehavior>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (!hb.isNotDead())
+        {
+            Die();
+        }
+    }
+
+    /// <summary>
+    /// Performs any necessary routines before murdering this minion.
+    /// </summary>
+    public void Die()
+    {
+        gameObject.SetActive(false);
     }
 }

@@ -44,14 +44,14 @@ public class CreateBuilding : MonoBehaviour
         }
         hasEnough = checkResources();
         for (int i = 0; i < parts.Length; i++){
-            Color temp;
-//            Debug.Log(isValid);
-            if(isValid && hasEnough){
-                parts[i].GetComponent<MeshRenderer>().materials[0].color = validColor;
+            //            Debug.Log(isValid);
+            MeshRenderer temp = parts[i].GetComponent<MeshRenderer>();
+            if (isValid && hasEnough){
+                temp.materials[0].SetColor("_Color", validColor);
             }
             else
             {
-                parts[i].GetComponent<MeshRenderer>().materials[0].color = invalidColor;
+                temp.materials[0].SetColor("_Color", invalidColor);
             }
         }
     }
