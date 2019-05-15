@@ -45,12 +45,12 @@ public class CreateBuilding : MonoBehaviour
             Color temp;
 //            Debug.Log(isValid);
             if(isValid && hasEnough){
-                temp = new Color(185.0f, 185.0f, 185.0f, .40f); 
-                parts[i].GetComponent<Renderer>().material.color = temp;
+                temp = new Color(165.0f, 165.0f, 165.0f, .10f); 
+                parts[i].GetComponent<Renderer>().materials[0].color = temp;
             }else
             {
-                temp = new Color(255.0f, 0.0f, 0.0f, .40f); 
-                parts[i].GetComponent<Renderer>().material.color = temp;
+                temp = new Color(255.0f, 0.0f, 0.0f, .10f); 
+                parts[i].GetComponent<Renderer>().materials[0].color = temp;
             }
         }
     }
