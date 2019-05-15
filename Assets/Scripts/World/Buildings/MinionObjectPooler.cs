@@ -5,6 +5,7 @@ using UnityEngine;
 public class MinionObjectPooler : MonoBehaviour
 {
     public GameObject minionPrefab;
+    public Transform minionFondler;
 
     public int maxAllowedMinions;
 
@@ -28,7 +29,7 @@ public class MinionObjectPooler : MonoBehaviour
     {
         if (GetNumInstantiated() < maxAllowedMinions)
         {
-            GameObject temp = Instantiate(minionPrefab, at, dir, transform) as GameObject;
+            GameObject temp = Instantiate(minionPrefab, at, dir, minionFondler) as GameObject;
             minions.Add(temp.GetComponent<MinionController>());
             return true;
         } 
@@ -62,6 +63,7 @@ public class MinionObjectPooler : MonoBehaviour
     {
         GameObject minion = GetFirstNotActive();
         minion.transform.SetPositionAndRotation(at, dir);
+        // Don't forget to reset Minion's health here too!
         minion.SetActive(true);
     }
 
