@@ -1638,7 +1638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1045672046
 Transform:
   m_ObjectHideFlags: 0
@@ -1889,7 +1889,7 @@ PrefabInstance:
         type: 3}
       propertyPath: shootScript
       value: 
-      objectReference: {fileID: 1835020769}
+      objectReference: {fileID: 0}
     - target: {fileID: 6267188069745566198, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: respawnTime
@@ -2921,18 +2921,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1289196234}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1835020769 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2930605930384766066, guid: b416b72df150e488a918a43d9d34a1a1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1247843169}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64e6b96766e6ff648b1705060342cbea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1848984234
 GameObject:
   m_ObjectHideFlags: 0

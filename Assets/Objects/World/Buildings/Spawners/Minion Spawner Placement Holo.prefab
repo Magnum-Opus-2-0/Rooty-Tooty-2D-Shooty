@@ -35,11 +35,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Minion Spawner Placement Holo
       objectReference: {fileID: 0}
-    - target: {fileID: 1076999814240101828, guid: d57a2be6f26094e869270958fd79719d,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.6
-      objectReference: {fileID: 0}
     - target: {fileID: 8882353269095666517, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -95,35 +90,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2481775251360453818, guid: d57a2be6f26094e869270958fd79719d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
     - target: {fileID: 2297311701557987714, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2126683883855537045, guid: d57a2be6f26094e869270958fd79719d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
     - target: {fileID: 798149820981973413, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: explodeScript
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076999814240101828, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481775251360453818, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
+    - target: {fileID: 1299949534822560153, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1265826106708506851, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1299949534822560153, guid: d57a2be6f26094e869270958fd79719d,
+    - target: {fileID: 2126683883855537045, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
+    - target: {fileID: 4069446647258226623, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6047870381348599506, guid: d57a2be6f26094e869270958fd79719d, type: 3}
