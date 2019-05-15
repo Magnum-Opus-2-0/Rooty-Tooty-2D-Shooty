@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2064430218682849679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6706715683689011302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d63e303ef2b4f65a1e5b96be2bd309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minionPrefab: {fileID: 0}
+  maxAllowedMinions: 0
 --- !u!1001 &6364116521404930440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72,6 +86,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1646984253063548224, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: minionToSpawn
+      value: 
+      objectReference: {fileID: 6805768931389548571, guid: 6b3aa50e2dda5df48abc2035c0b4c89a,
+        type: 3}
     - target: {fileID: 6496117687222769320, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_TagString
@@ -97,5 +117,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 58ac3dd87b2e948899e3b3a6b797365d, type: 2}
+    - target: {fileID: 7972818803777575072, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d57a2be6f26094e869270958fd79719d, type: 3}
+--- !u!1 &6706715683689011302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 379120545345176046, guid: d57a2be6f26094e869270958fd79719d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6364116521404930440}
+  m_PrefabAsset: {fileID: 0}

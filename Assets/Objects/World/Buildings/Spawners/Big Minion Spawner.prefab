@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 8882353269095666517}
   - component: {fileID: 5788530405426210461}
   - component: {fileID: 1634013807900827573}
+  - component: {fileID: 5486079204674157412}
   - component: {fileID: 3357265257113526514}
   - component: {fileID: 4894607221957959833}
   - component: {fileID: 2922293717462436875}
@@ -99,10 +100,24 @@ MonoBehaviour:
   timeToDeath: 3.5
   minionToSpawn: {fileID: 0}
   spawns: []
-  timeBetweenBatches: 7.5
+  timeBetweenBatches: 30
   timeBetweenMinions: 1
-  maxMinions: 10
-  minonsPerBatch: 3
+  maxMinions: 3
+  minonsPerBatch: 1
+--- !u!114 &5486079204674157412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379120545345176046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d63e303ef2b4f65a1e5b96be2bd309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minionPrefab: {fileID: 0}
+  maxAllowedMinions: 4
 --- !u!114 &3357265257113526514
 MonoBehaviour:
   m_ObjectHideFlags: 0

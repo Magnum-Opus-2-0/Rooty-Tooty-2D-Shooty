@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8882353269095666517}
   - component: {fileID: 7972818803777575072}
   - component: {fileID: 1646984253063548224}
+  - component: {fileID: 3477318382218700517}
   - component: {fileID: 798149820981973413}
   - component: {fileID: 6047870381348599506}
   - component: {fileID: 3191076397655106680}
@@ -49,8 +50,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5.25, y: 2.75, z: 5.25}
+  m_Center: {x: 0.1, y: 1.45, z: 0}
 --- !u!114 &1646984253063548224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +71,20 @@ MonoBehaviour:
   timeBetweenMinions: 1
   maxMinions: 10
   minonsPerBatch: 3
+--- !u!114 &3477318382218700517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379120545345176046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d63e303ef2b4f65a1e5b96be2bd309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minionPrefab: {fileID: 0}
+  maxAllowedMinions: 12
 --- !u!114 &798149820981973413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,7 +513,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4069446647258226623}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8987219331429747656}
@@ -1034,7 +1049,7 @@ PrefabInstance:
     - target: {fileID: 3915570349684206029, guid: e0454866bb03c44a8a80a0e0b471e522,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.1
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 3915570349684206029, guid: e0454866bb03c44a8a80a0e0b471e522,
         type: 3}
@@ -1114,7 +1129,7 @@ PrefabInstance:
     - target: {fileID: 3915570349684206029, guid: e0454866bb03c44a8a80a0e0b471e522,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.1
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 3915570349684206029, guid: e0454866bb03c44a8a80a0e0b471e522,
         type: 3}
