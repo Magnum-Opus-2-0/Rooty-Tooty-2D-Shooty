@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class MinionBuildingController : BuildingController
 {
-    // I'm thinking we'll have a List of GameObjects each with a trigger on them
-    // used as spawnpoints. Then we can either randomly assign a spawnpoint to
-    // each minion or use the same one and have backups in case something is in
-    // the way.
-
-    // This should be good to use on both the big and regular minion spawner. We
-    // just have to have a reference to the type of minion we want to spawn.
-
     /// <summary>
     /// The minion to be spawned.
     /// </summary>
@@ -33,11 +25,14 @@ public class MinionBuildingController : BuildingController
     public int minonsPerBatch = 3;
     private int minionsThisBatch;
 
+    private MinionObjectPooler minionPool;
+
     protected override void Awake()
     {
         base.Awake();
         minionsThisBatch = 0;
-
+        minionPool = GetComponent<MinionObjectPooler>();
+        StartCoroutine(SpawnRoutine());
     }
 
     // Update is called once per frame
@@ -78,11 +73,28 @@ public class MinionBuildingController : BuildingController
         minionsThisBatch = 0;
     }
 
+    private IEnumerator SpawnRoutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(timeBetweenBatches);
+            StartCoroutine(SpawnMinionBatch());
+        }
+    }
+
     public void SpawnMinion()
     {
-        //GameObject nextMinion = object pooling code to determine which minion should be spawned
-        //Instantiate(nextMinion, GetOpenSpawn().position, Quaternion.identity, transform);
-        // or
-        //curMinion.SetActive = true ?
+        Transform spawnpoint = GetOpenSpawn();
+        if (spawnpoint != null)
+        {
+            if (!minionPool.Request(spawnpoint))
+            {
+                Debug.Log("Maximum allowed minions reached. Skipping Minion spawn.");
+            }
+        } 
+        else
+        {
+            Debug.Log("No open spawnpoints. Skipping Minion spawn.");
+        }
     }
 }

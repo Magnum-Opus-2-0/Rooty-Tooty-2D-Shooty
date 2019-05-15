@@ -43,6 +43,16 @@ public class MinionObjectPooler : MonoBehaviour
     }
 
     /// <summary>
+    /// Convenience method that enables the requesting of a Minion with a <see cref="Transform"/>.
+    /// </summary>
+    /// <returns><c>true</c>, if a minion is available, <c>false</c> otherwise.</returns>
+    /// <param name="transform">A Transform representing the position and rotation of the request.</param>
+    public bool Request(Transform transform)
+    {
+        return Request(transform.position, transform.rotation);
+    }
+
+    /// <summary>
     /// Recycles the first minion that is not active in the Hierarchy. That is,
     /// this function sets the Minion's position and rotation and then sets it active.
     /// </summary>

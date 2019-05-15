@@ -1120,7 +1120,7 @@ PrefabInstance:
     - target: {fileID: 5290894080677541866, guid: 2290859b9662a4ff7b7ced53ba54f284,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.31
+      value: -21.77
       objectReference: {fileID: 0}
     - target: {fileID: 5290894080677541866, guid: 2290859b9662a4ff7b7ced53ba54f284,
         type: 3}
@@ -1130,7 +1130,7 @@ PrefabInstance:
     - target: {fileID: 5290894080677541866, guid: 2290859b9662a4ff7b7ced53ba54f284,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.36
+      value: 23.05
       objectReference: {fileID: 0}
     - target: {fileID: 5290894080677541866, guid: 2290859b9662a4ff7b7ced53ba54f284,
         type: 3}
@@ -1638,7 +1638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1045672046
 Transform:
   m_ObjectHideFlags: 0
@@ -3002,7 +3002,7 @@ PrefabInstance:
     - target: {fileID: 3709061257022121328, guid: b4c67ed272150b04bba22abe8c018386,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6565609250977220812, guid: b4c67ed272150b04bba22abe8c018386,
         type: 3}
@@ -3562,7 +3562,7 @@ PrefabInstance:
     - target: {fileID: 2528093329945725661, guid: cb8fb8cc03aa64c119f2e8a20a8ee054,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.08
+      value: -34.15
       objectReference: {fileID: 0}
     - target: {fileID: 2528093329945725661, guid: cb8fb8cc03aa64c119f2e8a20a8ee054,
         type: 3}
@@ -3572,7 +3572,7 @@ PrefabInstance:
     - target: {fileID: 2528093329945725661, guid: cb8fb8cc03aa64c119f2e8a20a8ee054,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.32
+      value: 23.2
       objectReference: {fileID: 0}
     - target: {fileID: 2528093329945725661, guid: cb8fb8cc03aa64c119f2e8a20a8ee054,
         type: 3}
@@ -3614,7 +3614,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7448003937000964388, guid: cb8fb8cc03aa64c119f2e8a20a8ee054,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7448003937000964388, guid: cb8fb8cc03aa64c119f2e8a20a8ee054, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cb8fb8cc03aa64c119f2e8a20a8ee054, type: 3}
 --- !u!4 &2131714907 stripped
 Transform:
