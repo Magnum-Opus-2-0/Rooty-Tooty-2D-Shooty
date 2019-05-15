@@ -64,6 +64,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDeath: 3.5
+  minionToSpawn: {fileID: 0}
+  spawns: []
+  timeBetweenBatches: 7.5
+  timeBetweenMinions: 1
+  maxMinions: 10
 --- !u!114 &798149820981973413
 MonoBehaviour:
   m_ObjectHideFlags: 0
