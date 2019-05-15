@@ -64,7 +64,7 @@ public class MinionBuildingController : BuildingController
 
     private IEnumerator SpawnMinionBatch()
     {
-        while (minionsThisBatch < minonsPerBatch)
+        while (minionsThisBatch < minonsPerBatch && IsNotDead())
         {
             SpawnMinion();
             minionsThisBatch++;

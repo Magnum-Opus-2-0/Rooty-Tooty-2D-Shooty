@@ -730,7 +730,7 @@ InputManager:
     descriptiveName: 'Player 1: Shoot'
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 1 button 6
+    positiveButton: joystick 1 button 5
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -746,7 +746,7 @@ InputManager:
     descriptiveName: 'Player 2: Shoot'
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick 2 button 6
+    positiveButton: joystick 2 button 5
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
