@@ -21,6 +21,7 @@ public class BuildMenuController : MonoBehaviour
     public GameObject buildHolo; //Used to assign the current hologram
     public GameObject turret; // used to get the direction the turret is facing.
     public TankController tankController; //Used to pass reference to appropriate TankController.cs to CreateBuilding.cs
+    public float buildDistance = 2.65f; // Used to set the distance of the hologram away from the turret
 
     void Start(){
         isActive = false;
@@ -151,7 +152,7 @@ public class BuildMenuController : MonoBehaviour
             buildHolo.gameObject.SetActive(false);
         }
 
-        buildHolo.transform.position = turret.transform.position + turret.transform.forward*2.15f - (turret.transform.up * turret.transform.position.y); 
+        buildHolo.transform.position = turret.transform.position + turret.transform.forward*buildDistance - (turret.transform.up * turret.transform.position.y); 
         buildHolo.transform.localRotation = Quaternion.identity;
     }
 
