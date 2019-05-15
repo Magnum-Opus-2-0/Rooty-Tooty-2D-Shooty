@@ -19,6 +19,8 @@ public class MinionController : MonoBehaviour
         {
             Die();
         }
+
+        DebugMovement();
     }
 
     /// <summary>
@@ -27,5 +29,10 @@ public class MinionController : MonoBehaviour
     public void Die()
     {
         gameObject.SetActive(false);
+    }
+
+    private void DebugMovement()
+    {
+        transform.Translate(0, 0, 5.0f * Time.deltaTime);
     }
 }
