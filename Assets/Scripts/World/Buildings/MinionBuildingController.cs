@@ -32,6 +32,7 @@ public class MinionBuildingController : BuildingController
     {
         base.Awake();
         minionsThisBatch = 0;
+
         minionPool = new RestrictedObjectPooler<MinionController>(minionToSpawn, minionFondler, maxMinions);
         StartCoroutine(SpawnRoutine());
     }
@@ -40,6 +41,11 @@ public class MinionBuildingController : BuildingController
     protected override void Update()
     {
         base.Update();
+
+        if (!health.isNotDead())
+        {
+            minionFondler.DetachChildren();
+        }
     }
 
     /// <summary>

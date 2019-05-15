@@ -40,6 +40,11 @@ public abstract class ObjectPooler<T> where T : MonoBehaviour
     /// The maximum number of GameObjects allowed to be instantiated.
     /// </summary>
     protected int maxAllowed;
+    /// <summary>
+    /// Gets and sets the maximum number of allowed objects. If set to a
+    /// negative value, then <see cref="maxAllowed"/> is set to <c>int.MaxValue</c>.
+    /// </summary>
+    /// <value>The maximum number of allowed objects.</value>
     public int MaxAllowed
     {
         get
@@ -49,7 +54,14 @@ public abstract class ObjectPooler<T> where T : MonoBehaviour
 
         set
         {
-            maxAllowed = value;
+            if (value < 0)
+            {
+                maxAllowed = int.MaxValue;
+            } 
+            else
+            {
+                maxAllowed = value;
+            }
         }
     }
 
@@ -57,10 +69,10 @@ public abstract class ObjectPooler<T> where T : MonoBehaviour
 
     protected ObjectPooler(GameObject prefab, Transform parent, int max)
     {
-        objects = new List<T>(maxAllowed);
+        objects = new List<T>(max > 0 ? max : 0);   // If this is negative we get an exception, but a negative max is a perfectly valid value for our own purposes.
         requestPrefab = prefab;
         fondler = parent;
-        maxAllowed = max;
+        MaxAllowed = max;
     }
 
     abstract public bool Request(Vector3 at, Quaternion dir);

@@ -21,18 +21,18 @@ public class SpawnpointBehavior : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         open = false;
-        Debug.Log("Enter spawnpoint: " + other.name);
+        //Debug.Log("Enter spawnpoint: " + other.name);
     }
 
     private void OnTriggerStay(Collider other)
     {   
         open = false;
-        Debug.Log("Stay spawnpoint: " + other.name);
+        //Debug.Log("Stay spawnpoint: " + other.name);
     }
 
     private void OnTriggerExit(Collider other)
     {
         open = true;
-        Debug.Log("Exit spawnpoint: " + other.name);
+        //Debug.Log("Exit spawnpoint: " + other.name);
     }
 }

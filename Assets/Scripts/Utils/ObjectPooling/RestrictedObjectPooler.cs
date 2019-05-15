@@ -55,8 +55,8 @@ public class RestrictedObjectPooler<T> : ObjectPooler<T> where T : MonoBehaviour
     protected override void Recycle(Vector3 at, Quaternion dir)
     {
         T t = GetFirstNotActive();
-        t.transform.SetPositionAndRotation(at, dir);
         t.Recycle();
+        t.transform.SetPositionAndRotation(at, dir);
         t.gameObject.SetActive(true);
     }
 

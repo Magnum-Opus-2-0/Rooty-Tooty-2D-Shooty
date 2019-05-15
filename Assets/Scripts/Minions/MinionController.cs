@@ -11,6 +11,7 @@ public class MinionController : MonoBehaviour, IRecyclable
     void Start()
     {
         health = GetComponent<HealthBehavior>();
+        health.setHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -30,7 +31,20 @@ public class MinionController : MonoBehaviour, IRecyclable
     public void Die()
     {
         Debug.Log("Minion dying");
-        gameObject.SetActive(false);
+        // Maybe a happy little death animation would be fun here
+
+        // If the Minion is not a child of its fondler then it is an orphan.
+        // Orphaned Minions must be destroyed.
+        // What I'm saying is orphaned Minions have had their spawner destroyed
+        // and therefore to not respawn.
+        if (transform.parent)
+        {
+            gameObject.SetActive(false);
+        } 
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void DebugMovement()
