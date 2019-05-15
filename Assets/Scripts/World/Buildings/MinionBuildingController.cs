@@ -30,12 +30,13 @@ public class MinionBuildingController : BuildingController
     /// The maximum number of minions that can be spawned at one time.
     /// </summary>
     public int maxMinions = 10;
-    private int curMinions;
+    public int minonsPerBatch = 3;
+    private int minionsThisBatch;
 
     protected override void Awake()
     {
         base.Awake();
-        curMinions = 0;
+        minionsThisBatch = 0;
 
     }
 
@@ -68,8 +69,13 @@ public class MinionBuildingController : BuildingController
 
     private IEnumerator SpawnMinionBatch()
     {
-        SpawnMinion();
-        yield return new WaitForSeconds(timeBetweenMinions);
+        while (minionsThisBatch < minonsPerBatch)
+        {
+            SpawnMinion();
+            minionsThisBatch++;
+            yield return new WaitForSeconds(timeBetweenMinions);
+        }
+        minionsThisBatch = 0;
     }
 
     public void SpawnMinion()

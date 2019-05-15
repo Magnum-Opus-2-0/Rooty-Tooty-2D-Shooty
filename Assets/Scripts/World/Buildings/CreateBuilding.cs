@@ -17,6 +17,8 @@ public class CreateBuilding : MonoBehaviour
     private Collider col;
     public int fluffCost;
     public int plasticCost;
+    public Color validColor = new Color(165.0f, 165.0f, 165.0f, .10f);
+    public Color invalidColor = new Color(255.0f, 0.0f, 0.0f, .10f);
 
     public bool IsValid{
         get
@@ -45,12 +47,11 @@ public class CreateBuilding : MonoBehaviour
             Color temp;
 //            Debug.Log(isValid);
             if(isValid && hasEnough){
-                temp = new Color(165.0f, 165.0f, 165.0f, .10f); 
-                parts[i].GetComponent<Renderer>().materials[0].color = temp;
-            }else
+                parts[i].GetComponent<MeshRenderer>().materials[0].color = validColor;
+            }
+            else
             {
-                temp = new Color(255.0f, 0.0f, 0.0f, .10f); 
-                parts[i].GetComponent<Renderer>().materials[0].color = temp;
+                parts[i].GetComponent<MeshRenderer>().materials[0].color = invalidColor;
             }
         }
     }
