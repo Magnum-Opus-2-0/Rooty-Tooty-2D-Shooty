@@ -4,9 +4,27 @@ using UnityEngine;
 
 public class CreateBuilding : MonoBehaviour
 {
+    public const string NAME_MIN_SPAWN = "Minion Spawner";
+    public const string NAME_BIG_SPAWN = "Big Minion Spawner";
+    public const string NAME_HEALS = "Heals";
+    public const string NAME_TURRET = "Turret";
+    public const string SUFFIX_P1 = " P1";
+    public const string SUFFIX_P2 = " P2";
+
+
     // Start is called before the first frame update
     public GameObject p1_prefab;
     public GameObject p2_prefab;
+
+    /// <summary>
+    /// A prefab for the minion fondler that will be instantiated for every minion
+    /// spawner built.
+    /// </summary>
+    public GameObject minion_fondler_prefab;
+    public static Transform master_minion_fondler;
+
+    private static bool findFondlerOnce = true;
+
 
 
     public GameObject[] parts;
@@ -17,7 +35,7 @@ public class CreateBuilding : MonoBehaviour
     private Collider col;
     public int fluffCost;
     public int plasticCost;
-    public Color validColor = new Color(165.0f, 165.0f, 165.0f, .10f);
+    public Color validColor = new Color(2.0f, 2.0f, 2.0f, .10f);
     public Color invalidColor = new Color(255.0f, 0.0f, 0.0f, .10f);
 
     public bool IsValid{
@@ -34,7 +52,16 @@ public class CreateBuilding : MonoBehaviour
 
     void Start(){
         isValid = true;
-        hasEnough = false;    
+        hasEnough = false;
+
+        // This might be bad practice, but it saves us passing the fondler down
+        // all the way through the instantiations of objects. Starting with the
+        // SceneManager and going down to every instantiation of spawners.
+        if (findFondlerOnce)
+        {
+            master_minion_fondler = FindMasterMinionFondler();
+            findFondlerOnce = false;
+        }
     }
     // Update is called once per frame
     void Update()
@@ -62,9 +89,17 @@ public class CreateBuilding : MonoBehaviour
         if(isValid && hasEnough){
             if(isP1Obj){
                 temp = Instantiate(p1_prefab, this.transform.position, Quaternion.identity);
+                if (temp.name == NAME_MIN_SPAWN + SUFFIX_P1 || temp.name == NAME_BIG_SPAWN + SUFFIX_P1)
+                {
+                    InstantiateMinionFondler(temp, "P1");
+                }
             }
             else{
                 temp = Instantiate(p2_prefab, this.transform.position, Quaternion.identity);
+                if (temp.name == NAME_MIN_SPAWN + SUFFIX_P2 || temp.name == NAME_BIG_SPAWN + SUFFIX_P2)
+                {
+                    InstantiateMinionFondler(temp, "P2");
+                }
             }
             tc.Plastic -= plasticCost;
             tc.Fluff -= fluffCost;
@@ -99,5 +134,29 @@ public class CreateBuilding : MonoBehaviour
             result = true; 
         }
         return result;
+    }
+
+    private void InstantiateMinionFondler(GameObject spawner, string player)
+    {
+        GameObject temp = Instantiate(minion_fondler_prefab, master_minion_fondler) as GameObject;
+        spawner.GetComponent<MinionBuildingController>().minionFondler = temp.transform;
+    }
+
+    /// <summary>
+    /// Finds the master minion fondler GameObject. This only needs to be called
+    /// one time to set the <see cref=""/> field so we have something
+    /// to spawn minions into.
+    /// </summary>
+    /// <returns>The master minion fondler.</returns>
+    private static Transform FindMasterMinionFondler()
+    {
+        Transform ret = GameObject.FindWithTag("Master Minion Fondler").transform;
+        if (ret == null)
+        {
+            Debug.LogError("Could not find Minion Fondler. Was it added to the " +
+                "Hierarchy? If it was and you are still seeing this error, " +
+                "make sure it is tagged with the \"Master Minion Fondler\"");
+        }
+        return ret;
     }
 }

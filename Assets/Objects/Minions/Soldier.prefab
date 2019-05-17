@@ -101,8 +101,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 585992476308061620}
-  - component: {fileID: 8525206572277334082}
   - component: {fileID: 2230038257238726131}
+  - component: {fileID: 5254058538041624450}
   - component: {fileID: 8173937852234914443}
   - component: {fileID: 2070589742068855113}
   m_Layer: 0
@@ -129,25 +129,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8525206572277334082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 585992476307956116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64e6b96766e6ff648b1705060342cbea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shoot: shoot-1-pc
-  templateBullet: {fileID: 2145212322124245605}
-  barrel: {fileID: 4021463525086155128}
-  bulletFondler: {fileID: 7477043906619495923}
-  speedOfBullet: 10
-  reloadTime: 0.5
-  maxBullets: 10
 --- !u!114 &2230038257238726131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +142,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
+  reloadTime: 5
+--- !u!114 &5254058538041624450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585992476307956116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ae99b91c4aa4a97afeac7fd1a3dc63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrel: {fileID: 7605035420620294921}
+  bullet: {fileID: 0}
+  bulletFondler: {fileID: 8087609134817526711}
+  rateOfFire: 0.3
+  bulletSpeed: 10
+  maxBullets: 6
+  burstSize: 3
 --- !u!114 &8173937852234914443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +217,7 @@ GameObject:
   - component: {fileID: 3673259584166747379}
   - component: {fileID: 9030140828152684359}
   - component: {fileID: 3387691932210091914}
-  - component: {fileID: 7097642934968004427}
+  - component: {fileID: 3539915237437062726}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -407,7 +408,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &7097642934968004427
+--- !u!114 &3539915237437062726
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -416,7 +417,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2145212322124245605}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c9143c94f281384d9ea5e0e83f13a7e, type: 3}
+  m_Script: {fileID: 11500000, guid: b00057dfb19794165891f43025f0fae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2588986623074323162
@@ -606,7 +607,6 @@ GameObject:
   - component: {fileID: 7605035420620294921}
   - component: {fileID: 3569171133495497188}
   - component: {fileID: 8052314116435460539}
-  - component: {fileID: 5906033744244278605}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -673,19 +673,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &5906033744244278605
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4021463525086155128}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7477043906619495923
 GameObject:
   m_ObjectHideFlags: 0

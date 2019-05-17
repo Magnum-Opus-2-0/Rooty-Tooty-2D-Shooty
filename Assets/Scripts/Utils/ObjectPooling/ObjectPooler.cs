@@ -75,11 +75,11 @@ public abstract class ObjectPooler<T> where T : MonoBehaviour
         MaxAllowed = max;
     }
 
-    abstract public bool Request(Vector3 at, Quaternion dir);
+    abstract public T Request(Vector3 at, Quaternion dir);
 
-    abstract public bool Request(Transform transform);
+    abstract public T Request(Transform transform);
 
-    abstract protected void Recycle(Vector3 at, Quaternion dir);
+    abstract protected T Recycle(Vector3 at, Quaternion dir);
 
     abstract public bool CanRequest();
 

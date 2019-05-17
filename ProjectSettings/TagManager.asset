@@ -24,6 +24,7 @@ TagManager:
   - P2_Minion
   - Resource
   - Spawnpoint
+  - Master Minion Fondler
   layers:
   - Default
   - TransparentFX

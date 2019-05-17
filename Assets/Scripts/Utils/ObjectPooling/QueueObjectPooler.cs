@@ -37,39 +37,57 @@ public class QueueObjectPooler<T> : ObjectPooler<T> where T : MonoBehaviour, IRe
     /// Places the next object in the queue at the specified position and rotation and
     /// active in the Hierarchy. 
     /// </summary>
-    /// <returns><c>true</c>.</returns>
+    /// <returns>A reference to the requested object.</returns>
     /// <param name="at">At.</param>
     /// <param name="dir">Dir.</param>
-    public override bool Request(Vector3 at, Quaternion dir)
+    public override T Request(Vector3 at, Quaternion dir)
     {
+        T ret;
         if (GetNumInstantiated() < maxAllowed)
         {
             GameObject temp = Object.Instantiate(requestPrefab, at, dir, fondler) as GameObject;
-            objects.Add(temp.GetComponent<T>());
+            temp.SetActive(true);
+            ret = temp.GetComponent<T>();
+            objects.Add(ret);
         }
         else
         {
-            Recycle(at, dir);
+            ret = Recycle(at, dir);
         }
 
-        return true;
+        return ret;
     }
 
-    public override bool Request(Transform transform)
+    /// <summary>
+    /// Convenience method that enables the requesting of an object with a <see cref="Transform"/>.
+    /// Equivalent to <c>Request(<paramref name="transform"/>.position, <paramref name="transform"/>.rotation)</c>
+    /// </summary>
+    /// <returns>A reference to the requested object.</returns>
+    /// <param name="transform">A Transform representing the position and rotation of the request.</param>
+    public override T Request(Transform transform)
     {
         return Request(transform.position, transform.rotation);
     }
 
-    protected override void Recycle(Vector3 at, Quaternion dir)
+    /// <summary>
+    /// Recycle the next object in the queue by calling its recycle method,
+    /// setting its position and rotation, and setting it active.
+    /// </summary>
+    /// <returns>The recycle.</returns>
+    /// <param name="at">At.</param>
+    /// <param name="dir">Dir.</param>
+    protected override T Recycle(Vector3 at, Quaternion dir)
     {
         T t = GetNext();
         t.Recycle();
         t.transform.SetPositionAndRotation(at, dir);
         t.gameObject.SetActive(true);
+        return t;
     }
 
     private T GetNext()
     {
-        return objects[nextObject % maxAllowed];
+        T t = objects[nextObject++ % maxAllowed];
+        return t;
     }
 }

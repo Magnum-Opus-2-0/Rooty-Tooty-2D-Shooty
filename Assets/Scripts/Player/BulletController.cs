@@ -9,7 +9,7 @@ public class BulletController : MonoBehaviour
     //public ShootController shootControlReference;
     //public GameObject templateBullet;
 
-    private TrailRenderer trail;
+    protected TrailRenderer trail;
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +65,7 @@ public class BulletController : MonoBehaviour
         }
     }
 
-    private void ResetBullet()
+    protected virtual void ResetBullet()
     {
         // make it invisible
         this.gameObject.SetActive(false);

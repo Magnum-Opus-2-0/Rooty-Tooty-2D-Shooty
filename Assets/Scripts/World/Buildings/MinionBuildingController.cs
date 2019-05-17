@@ -8,8 +8,9 @@ public class MinionBuildingController : BuildingController
     /// The minion to be spawned.
     /// </summary>
     public GameObject minionToSpawn;
+
     public Transform minionFondler;
-    
+
     /// <summary>
     /// An array of <see cref="SpawnpointBehavior"/> scripts in the order of
     /// spawn priority with element 0 being highest priority.
@@ -23,7 +24,7 @@ public class MinionBuildingController : BuildingController
     /// The maximum number of minions that can be spawned at one time.
     /// </summary>
     public int maxMinions = 10;
-    public int minonsPerBatch = 3;
+    public int minionsPerBatch = 3;
     private int minionsThisBatch;
 
     private RestrictedObjectPooler<MinionController> minionPool;
@@ -31,6 +32,9 @@ public class MinionBuildingController : BuildingController
     protected override void Awake()
     {
         base.Awake();
+
+
+
         minionsThisBatch = 0;
 
         minionPool = new RestrictedObjectPooler<MinionController>(minionToSpawn, minionFondler, maxMinions);
@@ -45,6 +49,7 @@ public class MinionBuildingController : BuildingController
         if (!health.isNotDead())
         {
             minionFondler.DetachChildren();
+            Destroy(minionFondler.gameObject);
         }
     }
 
@@ -69,9 +74,16 @@ public class MinionBuildingController : BuildingController
         return null;
     }
 
+    /// <summary>
+    /// A coroutine that spawns a batch of minions. <see cref="minionsPerBatch"/>
+    /// Minions are spawned one at a time every <see cref="timeBetweenMinions"/>
+    /// seconds. Minions will only be spawned as long as the health of the base
+    /// is not zero.
+    /// </summary>
+    /// <returns>An IEnumerator so that this method can function as a Coroutine.</returns>
     private IEnumerator SpawnMinionBatch()
     {
-        while (minionsThisBatch < minonsPerBatch && IsNotDead())
+        while (minionsThisBatch < minionsPerBatch && IsNotDead())
         {
             SpawnMinion();
             minionsThisBatch++;
@@ -80,6 +92,11 @@ public class MinionBuildingController : BuildingController
         minionsThisBatch = 0;
     }
 
+    /// <summary>
+    /// A coroutine that calls the Minion batch coroutine every <see cref="timeBetweenBatches"/>
+    /// seconds.
+    /// </summary>
+    /// <returns>The routine.</returns>
     private IEnumerator SpawnRoutine()
     {
         while (true)
@@ -89,10 +106,15 @@ public class MinionBuildingController : BuildingController
         }
     }
 
+    /// <summary>
+    /// Spawns a Minion at the first available spawnpoint if one is available from
+    /// the object pool. Minions will not spawn if there are no open spawnpoints, or
+    /// there are no available minions. I.e. the object pool request fails.
+    /// </summary>
     public void SpawnMinion()
     {
         Transform spawnpoint = GetOpenSpawn();
-        if (spawnpoint != null)
+        if (spawnpoint)
         {
             if (!minionPool.Request(spawnpoint))
             {

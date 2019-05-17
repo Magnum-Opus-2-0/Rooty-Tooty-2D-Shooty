@@ -7,11 +7,18 @@ public class MinionController : MonoBehaviour, IRecyclable
     public int maxHealth;
     private HealthBehavior health;
 
+    public float reloadTime;
+    private MinionShootController shooter;
+
     // Start is called before the first frame update
     void Start()
     {
         health = GetComponent<HealthBehavior>();
         health.setHealth(maxHealth);
+
+        shooter = GetComponent<MinionShootController>();
+
+        StartCoroutine(DebugShoot());
     }
 
     // Update is called once per frame
@@ -47,13 +54,24 @@ public class MinionController : MonoBehaviour, IRecyclable
         }
     }
 
+    public void Recycle()
+    {
+        health.setHealth(maxHealth);
+    }
+
+    #region DEBUG_METHODS
     private void DebugMovement()
     {
         transform.Translate(0, 0, 5.0f * Time.deltaTime);
     }
 
-    public void Recycle()
+    private IEnumerator DebugShoot()
     {
-        health.setHealth(maxHealth);
+        while (health.isNotDead())
+        {
+            yield return new WaitForSeconds(reloadTime);
+            shooter.Shoot();
+        }
     }
+    #endregion
 }

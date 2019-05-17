@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!136 &5606808191363819322
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5606808191363819321}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1001 &8791160187576579649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31,6 +17,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: P2_Minion
       objectReference: {fileID: 0}
+    - target: {fileID: 5254058538041624450, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 7477429628572752932}
     - target: {fileID: 585992476308061620, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -86,11 +77,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 585992476305768276, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2ed196bb3d57da8468f67124b29a9708, type: 2}
     - target: {fileID: 2145212322124245605, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b,
         type: 3}
       propertyPath: m_Name
@@ -106,17 +92,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8052314116435460539, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2ed196bb3d57da8468f67124b29a9708, type: 2}
     - target: {fileID: 7477043906619495923, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b,
         type: 3}
       propertyPath: m_TagString
       value: Player_2
       objectReference: {fileID: 0}
-    - target: {fileID: 7097642934968004427, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b,
-        type: 3}
-      propertyPath: shootControlReference
-      value: 
-      objectReference: {fileID: 887182366553175555}
-    - target: {fileID: 8052314116435460539, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b,
+    - target: {fileID: 6510081838959952427, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -125,7 +111,12 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2ed196bb3d57da8468f67124b29a9708, type: 2}
-    - target: {fileID: 6510081838959952427, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b,
+    - target: {fileID: 7097642934968004427, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b,
+        type: 3}
+      propertyPath: shootControlReference
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 585992476305768276, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -133,21 +124,9 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5906033744244278605, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b, type: 3}
---- !u!114 &887182366553175555 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8525206572277334082, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b,
-    type: 3}
-  m_PrefabInstance: {fileID: 8791160187576579649}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64e6b96766e6ff648b1705060342cbea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &5606808191363819321 stripped
+--- !u!1 &7477429628572752932 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4021463525086155128, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b,
+  m_CorrespondingSourceObject: {fileID: 2145212322124245605, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b,
     type: 3}
   m_PrefabInstance: {fileID: 8791160187576579649}
   m_PrefabAsset: {fileID: 0}

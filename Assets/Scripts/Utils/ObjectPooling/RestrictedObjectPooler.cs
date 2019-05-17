@@ -13,34 +13,34 @@ public class RestrictedObjectPooler<T> : ObjectPooler<T> where T : MonoBehaviour
     /// Requests an object from the pool. If one is available an active
     /// clone of the <see cref="base.requestPrefab"/> is placed there.
     /// </summary>
-    /// <returns><c>true</c>, if an object is available, <c>false</c> otherwise.</returns>
+    /// <returns>A reference to the object if one is available, <c>null</c> otherwise.</returns>
     /// <param name="at">The position at which to place the object.</param>
     /// <param name="dir">The direction at which to point the object.</param>
-    override public bool Request(Vector3 at, Quaternion dir)
+    override public T Request(Vector3 at, Quaternion dir)
     {
+        T ret = null;
         if (GetNumInstantiated() < maxAllowed)
         {
             GameObject temp = Object.Instantiate(requestPrefab, at, dir, fondler) as GameObject;
-            objects.Add(temp.GetComponent<T>());
-            return true;
+            temp.SetActive(true);
+            ret = temp.GetComponent<T>();
+            objects.Add(ret);
         }
-
-        if (CanRequest())
+        else if (CanRequest())
         {
-            Recycle(at, dir);
-            return true;
+            ret = Recycle(at, dir);
         }
 
-        return false;
+        return ret;
     }
 
     /// <summary>
     /// Convenience method that enables the requesting of an object with a <see cref="Transform"/>.
     /// Equivalent to <c>Request(<paramref name="transform"/>.position, <paramref name="transform"/>.rotation)</c>
     /// </summary>
-    /// <returns><c>true</c>, if an object is available, <c>false</c> otherwise.</returns>
+    /// <returns>A reference to the object if one is available, <c>null</c> otherwise.</returns>
     /// <param name="transform">A Transform representing the position and rotation of the request.</param>
-    public override bool Request(Transform transform)
+    public override T Request(Transform transform)
     {
         return Request(transform.position, transform.rotation);
     }
@@ -50,14 +50,19 @@ public class RestrictedObjectPooler<T> : ObjectPooler<T> where T : MonoBehaviour
     /// this function sets the objects's position and rotation, calls its Recycle method
     /// and then sets it active.
     /// </summary>
+    /// <returns>A reference to the object if one is available, <c>null</c> otherwise.</returns>
     /// <param name="at">The position at which to set the object.</param>
     /// <param name="dir">The rotation in which to point the object.</param>
-    protected override void Recycle(Vector3 at, Quaternion dir)
+    protected override T Recycle(Vector3 at, Quaternion dir)
     {
         T t = GetFirstNotActive();
-        t.Recycle();
-        t.transform.SetPositionAndRotation(at, dir);
-        t.gameObject.SetActive(true);
+        if (t)
+        {
+            t.Recycle();
+            t.transform.SetPositionAndRotation(at, dir);
+            t.gameObject.SetActive(true);
+        }
+        return t;
     }
 
     /// <summary>
