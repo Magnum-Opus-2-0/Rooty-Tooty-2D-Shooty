@@ -22,7 +22,15 @@ public class BuildMenuController : MonoBehaviour
     public GameObject turret; // used to get the direction the turret is facing.
     public TankController tankController; //Used to pass reference to appropriate TankController.cs to CreateBuilding.cs
     public float buildDistance = 2.65f; // Used to set the distance of the hologram away from the turret
-
+    [SerializeField]
+    private Text build_name;
+    [SerializeField]
+    private Text plastic_cost;
+    [SerializeField]
+    private Text fluff_cost;
+    [SerializeField]
+    private Image tool_tip;
+    
     void Start(){
         isActive = false;
         setCanUse(false);
@@ -137,6 +145,7 @@ public class BuildMenuController : MonoBehaviour
         cb = buildHolo.gameObject.GetComponent<CreateBuilding>();
         cb.isP1Obj = prefabController;
         cb.tc = tankController;
+        UpdateToolTip();
     }
 
     /// <summary>
@@ -147,9 +156,11 @@ public class BuildMenuController : MonoBehaviour
 
         if(getCanUse()){
             buildHolo.gameObject.SetActive(true);
+            tool_tip.gameObject.SetActive(true);
         }
         else{
             buildHolo.gameObject.SetActive(false);
+            tool_tip.gameObject.SetActive(false);
         }
 
         buildHolo.transform.position = turret.transform.position + turret.transform.forward*buildDistance - (turret.transform.up * turret.transform.position.y); 
@@ -163,5 +174,33 @@ public class BuildMenuController : MonoBehaviour
     public void PlaceBuilding(){
         CreateBuilding cb = buildHolo.gameObject.GetComponent<CreateBuilding>();
         cb.BuildBuilding();
+    }
+
+    ///<summary>
+    /// Updates the tool tip to display the correct amount of information on screen.
+    ///</summary>
+    void UpdateToolTip(){
+        CreateBuilding cb = buildHolo.gameObject.GetComponent<CreateBuilding>();
+        switch(iconTracker){
+            case 0:
+                build_name.text = "Army Men Bucket";
+                break;
+            case 1:
+                build_name.text = "Teddy Bear Chest";
+                break;
+            case 2:
+                build_name.text = "Guard Turret";
+                break;
+            case 3:
+                build_name.text = "Repair Station";
+                break;
+            default:
+                break;
+            
+        }
+
+        plastic_cost.text = cb.plasticCost.ToString() + " Plastic" ;
+        fluff_cost.text = cb.fluffCost.ToString() + " Fluff";
+
     }
 }
