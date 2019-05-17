@@ -20,7 +20,7 @@ public class BuildMenuController : MonoBehaviour
     public GameObject[] buildGhosts; //A collection of hologram prefabs to instatiate from
     public GameObject buildHolo; //Used to assign the current hologram
     public GameObject turret; // used to get the direction the turret is facing.
-    public TankController tankController; //Used to pass reference to appropriate TankController.cs to CreateBuilding.cs
+    public TankController tankController; //Used to pass reference to appropriate TankController.cs to CreateBuilding.cs and to get the player's resource count
     public float buildDistance = 2.65f; // Used to set the distance of the hologram away from the turret
     [SerializeField]
     private Text build_name;
@@ -30,6 +30,10 @@ public class BuildMenuController : MonoBehaviour
     private Text fluff_cost;
     [SerializeField]
     private Image tool_tip;
+    [SerializeField]
+    private Text fluff_count;
+    [SerializeField]
+    private Text plastic_count;
     
     void Start(){
         isActive = false;
@@ -55,6 +59,8 @@ public class BuildMenuController : MonoBehaviour
             }
         }
 
+        plastic_count.text = tankController.Plastic.ToString();
+        fluff_count.text = tankController.Fluff.ToString();
         DisplayBuildHolo();
         
     }
