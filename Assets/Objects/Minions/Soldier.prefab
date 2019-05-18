@@ -42,7 +42,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.025
-  m_Height: 0.3
+  m_Height: 0.2
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &585992476307956116
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 5254058538041624450}
   - component: {fileID: 8173937852234914443}
   - component: {fileID: 2070589742068855113}
-  - component: {fileID: 1684207008348737798}
+  - component: {fileID: 440504366989260581}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Untagged
@@ -116,6 +116,7 @@ MonoBehaviour:
   bulletSpeed: 10
   maxBullets: 6
   burstSize: 3
+  rifle: {fileID: 4569244109384366654}
 --- !u!114 &8173937852234914443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +157,7 @@ MonoBehaviour:
   pieces:
   - {fileID: 1805403514783361488}
   - {fileID: 4021463525086155128}
---- !u!54 &1684207008348737798
+--- !u!54 &440504366989260581
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

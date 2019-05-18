@@ -7,6 +7,8 @@ public class MinionShootController : NPCShootController
 
     public int burstSize;
 
+    public Collider rifle;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -32,10 +34,7 @@ public class MinionShootController : NPCShootController
     {
         for (int i = 0; i < burstSize; i++)
         {
-            //Rigidbody rb = bulletPool.Request(barrel).gameObject.GetComponent<Rigidbody>();
-            RecyclableBullet b = bulletPool.Request(barrel);
-            GameObject go = b.gameObject;
-            Rigidbody rb = go.GetComponent<Rigidbody>();
+            Rigidbody rb = bulletPool.Request(barrel).gameObject.GetComponent<Rigidbody>();
             rb.AddForce(bulletSpeed * barrel.parent.forward, ForceMode.VelocityChange);
             yield return new WaitForSeconds(rateOfFire);
         }
