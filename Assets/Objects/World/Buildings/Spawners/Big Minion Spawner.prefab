@@ -98,6 +98,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToDeath: 3.5
   minionToSpawn: {fileID: 0}
+  minionFondler: {fileID: 0}
+  minionBulletFondler: {fileID: 2778271281630058824, guid: a487210c189404e3db1b5933812739cb,
+    type: 3}
   spawns: []
   timeBetweenBatches: 30
   timeBetweenMinions: 1
