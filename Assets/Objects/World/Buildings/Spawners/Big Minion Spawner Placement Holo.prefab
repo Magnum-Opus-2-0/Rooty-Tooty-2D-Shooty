@@ -16,6 +16,8 @@ MonoBehaviour:
     type: 3}
   p2_prefab: {fileID: 4319397561106034287, guid: c7154f5ba00fc4dc790d1ca0537a5da1,
     type: 3}
+  minion_fondler_prefab: {fileID: 547741582400397761, guid: a9024ffc2f8b5413ab03ba1371534982,
+    type: 3}
   parts:
   - {fileID: 7296212415567430756}
   - {fileID: 3223243052884235794}
@@ -24,6 +26,8 @@ MonoBehaviour:
   tc: {fileID: 0}
   fluffCost: 1
   plasticCost: 0
+  validColor: {r: 2, g: 2, b: 2, a: 0.1}
+  invalidColor: {r: 255, g: 0, b: 0, a: 0.1}
 --- !u!1001 &7885264392751484977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91,26 +95,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8992694247891310930, guid: 15d76df85826a4313820404bea8bb3b0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992694247891310930, guid: 15d76df85826a4313820404bea8bb3b0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5788530405426210461, guid: 15d76df85826a4313820404bea8bb3b0,
         type: 3}
       propertyPath: m_Center.y
       value: 0.6
       objectReference: {fileID: 0}
-    - target: {fileID: 8992694247891310930, guid: 15d76df85826a4313820404bea8bb3b0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992694247891310930, guid: 15d76df85826a4313820404bea8bb3b0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8642303043694044937, guid: 15d76df85826a4313820404bea8bb3b0,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
     - target: {fileID: 2481775251360453818, guid: 15d76df85826a4313820404bea8bb3b0,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -131,6 +130,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8642303043694044937, guid: 15d76df85826a4313820404bea8bb3b0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
     - target: {fileID: 6249887824853074590, guid: 15d76df85826a4313820404bea8bb3b0,
         type: 3}
       propertyPath: m_IsTrigger
