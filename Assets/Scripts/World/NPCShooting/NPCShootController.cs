@@ -67,11 +67,22 @@ public abstract class NPCShootController : MonoBehaviour
         }
     }
 
+    private HealthBehavior health;
+
     protected QueueObjectPooler<RecyclableBullet> bulletPool;
 
     protected virtual void Start()
     {
         bulletPool = new QueueObjectPooler<RecyclableBullet>(bullet, bulletFondler, maxBullets);
+        health = GetComponent<HealthBehavior>();
+    }
+
+    private void Update()
+    {
+        if (!health.isNotDead())
+        {
+            bulletPool.Destroy();
+        }
     }
 
     public abstract void Shoot();

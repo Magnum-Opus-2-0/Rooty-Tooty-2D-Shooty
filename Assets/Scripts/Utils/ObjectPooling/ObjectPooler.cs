@@ -129,4 +129,12 @@ public abstract class ObjectPooler<T> where T : MonoBehaviour
 
         return null;
     }
+
+    /// <summary>
+    /// Performs any necessary functions before this object pool is destroyed.
+    /// </summary>
+    public void Destroy()
+    {
+        fondler.DetachChildren();
+    }
 }

@@ -48,7 +48,7 @@ public class MinionBuildingController : BuildingController
 
         if (!health.isNotDead())
         {
-            minionFondler.DetachChildren();
+            minionPool.Destroy();
             Destroy(minionFondler.gameObject);
         }
     }
