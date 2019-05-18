@@ -11,6 +11,7 @@ public class BoardController : MonoBehaviour
     public GameObject emptyTileTemplate;
     public GameObject wallPieceTemplate;
     public GameObject obstaclePieceTemplate;
+    public GameObject[] wallPieceTemplates = new GameObject[5];
 
     public GameObject fluffTemplate;
     public GameObject fiberTemplate;
@@ -103,15 +104,15 @@ public class BoardController : MonoBehaviour
     {
         // Builds the walls that encompasses the grid.
         wallPieceTemplate.SetActive(true);
-        BuildAWall(-1, Z_MAX + 1, -1, 'z', wallPieceTemplate);
-        BuildAWall(-1, Z_MAX + 1, X_MAX, 'z', wallPieceTemplate);
-        BuildAWall(-1, X_MAX + 1, -1, 'x', wallPieceTemplate);
-        BuildAWall(-1, X_MAX + 1, Z_MAX, 'x', wallPieceTemplate);
+        BuildAWall(-1, Z_MAX + 1, -1, 'z', wallPieceTemplates);
+        BuildAWall(-1, Z_MAX + 1, X_MAX, 'z', wallPieceTemplates);
+        BuildAWall(-1, X_MAX + 1, -1, 'x', wallPieceTemplates);
+        BuildAWall(-1, X_MAX + 1, Z_MAX, 'x', wallPieceTemplates);
         wallPieceTemplate.SetActive(false);
 
         GenerateTiles();
 
-        procedurallyPlaceObstacles(wallPieceTemplate);
+        procedurallyPlaceObstacles(wallPieceTemplates);
 
 
     }
@@ -124,23 +125,25 @@ public class BoardController : MonoBehaviour
     /// <param name="constant">the coordinate of the axis that doesn't change</param>
     /// <param name="axis">what axis to build the wall along (either x, y, or z)</param>
     /// <param name="wallObject">the object that shall be instantiated</param>
-    private void BuildAWall(int start, int end, int constant, char axis, GameObject wallObject)
+    private void BuildAWall(int start, int end, int constant, char axis, GameObject[] wallObject)
     {
 
         for(int i = start; i < end; i++)
         {
             GameObject tempWall = null;
 
+            int randNum= Random.Range(0, 4);
+
             switch (axis)
             {
                 case 'x':
-                    tempWall = Instantiate(wallObject, new Vector3(i, 0.5f, constant), Quaternion.identity);
+                    tempWall = Instantiate(wallObject[randNum], new Vector3(i, 0.5f, constant), Quaternion.identity);
                     break;
                 case 'y':
-                    tempWall = Instantiate(wallObject, new Vector3(0, i, 0), Quaternion.identity);
+                    tempWall = Instantiate(wallObject[randNum], new Vector3(0, i, 0), Quaternion.identity);
                     break;
                 case 'z':
-                    tempWall = Instantiate(wallObject, new Vector3(constant, 0.5f, i), Quaternion.identity);
+                    tempWall = Instantiate(wallObject[randNum], new Vector3(constant, 0.5f, i), Quaternion.identity);
                     break;
                 default:
                     Debug.LogError("Invalid axis '" + axis + "' given.");
@@ -186,10 +189,10 @@ public class BoardController : MonoBehaviour
     /// and the lag really gets noticable around pathLandmarks = 50.
     /// </summary>
     /// <param name="obstacleTemplate">GameObject which should be instantiated as objects</param>
-    private void procedurallyPlaceObstacles(GameObject obstacleTemplate) {
+    private void procedurallyPlaceObstacles(GameObject[] obstacleTemplate) {
 
         // Before anything else, make sure our template is active
-        obstacleTemplate.SetActive(true);
+        // obstacleTemplate.SetActive(true);
 
         // Also, tear down any leftover tiles hanging out in obstacleFondler from previous runs
         obstacleFondler.transform.DetachChildren();
@@ -205,7 +208,9 @@ public class BoardController : MonoBehaviour
 
             if (t.type != TileObject.TileType.NON_TRAVERSABLE) continue;
 
-            GameObject tempObstacle = Instantiate(obstacleTemplate,
+            int randNum = Random.Range(0, 4);
+
+            GameObject tempObstacle = Instantiate(obstacleTemplate[randNum],
                 new Vector3(t.location.x, 0.5f, t.location.y),
                 Quaternion.identity);
 
@@ -213,6 +218,6 @@ public class BoardController : MonoBehaviour
         }
 
         // Housekeeping - set our template to false again
-        obstacleTemplate.SetActive(false);
+        // obstacleTemplate.SetActive(false);
     }
 }
