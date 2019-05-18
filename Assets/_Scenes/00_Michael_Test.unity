@@ -3030,6 +3030,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret P2
       objectReference: {fileID: 0}
+    - target: {fileID: 8320465971050490764, guid: abab744cd6c3746f58e4b73f09c3b14e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 117088057140773144, guid: abab744cd6c3746f58e4b73f09c3b14e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3637,6 +3642,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Turret P1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8320465971050490764, guid: 67bf7f42230144239a0812bcbf8aae12,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 117088057140773144, guid: 67bf7f42230144239a0812bcbf8aae12,
         type: 3}
