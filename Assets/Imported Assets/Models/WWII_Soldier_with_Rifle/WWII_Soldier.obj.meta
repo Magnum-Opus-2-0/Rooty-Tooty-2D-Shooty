@@ -1,16 +1,17 @@
 fileFormatVersion: 2
-guid: 7e46215b1dc3de344b5e003f88869ce4
+guid: 07302978cfcc3432c85c71fd12d5faa3
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: soldier
-    100002: //RootNode
-    400000: soldier
-    400002: //RootNode
-    2100000: soldierMat
-    2300000: soldier
-    3300000: soldier
-    4300000: soldier
+    100000: //RootNode
+    100002: 14070_WWII_Soldier_with_Rifle
+    400000: //RootNode
+    400002: 14070_WWII_Soldier_with_Rifle
+    2100000: 14070_WWII_Soldier_with_Rifle
+    2100002: 14070_WWII_Soldier_with_RifleMat
+    2300000: 14070_WWII_Soldier_with_Rifle
+    3300000: 14070_WWII_Soldier_with_Rifle
+    4300000: 14070_WWII_Soldier_with_Rifle
   externalObjects: {}
   materials:
     importMaterials: 1

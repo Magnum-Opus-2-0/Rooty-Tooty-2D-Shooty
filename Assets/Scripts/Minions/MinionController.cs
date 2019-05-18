@@ -37,7 +37,6 @@ public class MinionController : MonoBehaviour, IRecyclable
     /// </summary>
     public void Die()
     {
-        Debug.Log("Minion dying");
         // Maybe a happy little death animation would be fun here
 
         // If the Minion is not a child of its fondler then it is an orphan.

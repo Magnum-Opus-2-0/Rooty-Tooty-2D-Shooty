@@ -116,14 +116,19 @@ public class MinionBuildingController : BuildingController
         Transform spawnpoint = GetOpenSpawn();
         if (spawnpoint)
         {
-            if (!minionPool.Request(spawnpoint))
+            MinionController minion = minionPool.Request(spawnpoint);
+            if (minion)
             {
-                Debug.Log("Maximum allowed minions reached. Skipping Minion spawn.");
+
+            }
+            else
+            {
+                //Debug.Log("Maximum allowed minions reached. Skipping Minion spawn.");
             }
         } 
         else
         {
-            Debug.Log("No open spawnpoints. Skipping Minion spawn.");
+            //Debug.Log("No open spawnpoints. Skipping Minion spawn.");
         }
     }
 }
