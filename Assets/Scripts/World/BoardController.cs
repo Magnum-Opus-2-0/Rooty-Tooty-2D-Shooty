@@ -109,17 +109,17 @@ public class BoardController : MonoBehaviour
     /// </summary>
     public void GenerateGrid()
     {
-        // Builds the walls that encompasses the grid.
-        BuildAWall(-1, Z_MAX + 1, -1, 'z', wallPieceTemplates);
-        BuildAWall(-1, Z_MAX + 1, X_MAX, 'z', wallPieceTemplates);
-        BuildAWall(-1, X_MAX + 1, -1, 'x', wallPieceTemplates);
-        BuildAWall(-1, X_MAX + 1, Z_MAX, 'x', wallPieceTemplates);
+        // Builds walls that encompass the playmat.
+        BuildAWall(-1, Z_MAX, -1, 'z', wallPieceTemplates);       // West wall
+        BuildAWall(-1, Z_MAX, X_MAX, 'z', wallPieceTemplates);    // East wall
+        BuildAWall(0, X_MAX, -1, 'x', wallPieceTemplates);       // South wall
+        BuildAWall(-1, X_MAX + 1, Z_MAX, 'x', wallPieceTemplates);    // North wall
 
         GenerateTiles();
 
         procedurallyPlaceObstacles(wallPieceTemplates);
 
-        minionNavMeshSurface.BuildNavMesh();  // only bake after obstacles have been placed
+        // minionNavMeshSurface.BuildNavMesh();  // only bake after obstacles have been placed
     }
 
     /// <summary>
