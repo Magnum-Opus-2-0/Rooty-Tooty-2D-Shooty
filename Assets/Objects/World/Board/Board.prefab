@@ -100,6 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6565609250977220812}
   - component: {fileID: 3573426434757915892}
+  - component: {fileID: 3481847181959456942}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -139,9 +140,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emptyTileTemplate: {fileID: 1132203590997511082, guid: 9e21b1d4a87b35b4ab22cc7a84e6f296,
     type: 3}
-  wallPieceTemplate: {fileID: 6363902435068472401, guid: 0db42b683574e41418f7cfd163f51769,
-    type: 3}
   obstaclePieceTemplate: {fileID: 0}
+  wallPieceTemplates:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   fluffTemplate: {fileID: 0}
   fiberTemplate: {fileID: 0}
   objectTemplate: {fileID: 0}
@@ -150,8 +155,38 @@ MonoBehaviour:
   obstacleFondler: {fileID: 3479319856060367092}
   firstTileColor: {fileID: 2100000, guid: 9505edc11152892489635ee29a46696a, type: 2}
   secondTileColor: {fileID: 2100000, guid: 9d1766a21ead48649a854545c798638c, type: 2}
+  minionNavMeshSurface: {fileID: 3481847181959456942}
   pathLandmarks: 0
   pathWidth: 0
+--- !u!114 &3481847181959456942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3709061257022121328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.06666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &6142511023060367099
 GameObject:
   m_ObjectHideFlags: 0

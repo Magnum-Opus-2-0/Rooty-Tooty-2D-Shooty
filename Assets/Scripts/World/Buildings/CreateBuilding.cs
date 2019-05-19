@@ -152,15 +152,13 @@ public class CreateBuilding : MonoBehaviour
     private static Transform FindMasterMinionFondler()
     {
         GameObject mmf = GameObject.FindWithTag("Master Minion Fondler");
-        if (mmf == null)
-        {
-            Debug.LogError("Could not find Minion Fondler. Was it added to the " +
-                "Hierarchy? If it was and you are still seeing this error, " +
-                "make sure it is tagged with the \"Master Minion Fondler\"");
-        }
+        Assert.IsTrue(mmf != null, 
+            "Could not find Minion Fondler. Was it added to the Hierarchy?\n" +
+            "If it was and you are still seeing this error,\n" +
+            "make sure it is tagged with the \"Master Minion Fondler\"");
 
         Transform ret = mmf.transform;
-        Assert.IsTrue(ret != null, "Somehow, Master Minion Fondler doesn't have a Transform");
+        Assert.IsTrue(ret != null, "ok somehow, Master Minion Fondler doesn't have a Transform");
         return ret;
     }
 }

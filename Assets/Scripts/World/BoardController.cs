@@ -119,7 +119,7 @@ public class BoardController : MonoBehaviour
 
         procedurallyPlaceObstacles(wallPieceTemplates);
 
-        // minionNavMeshSurface.BuildNavMesh();  // only bake after obstacles have been placed
+        minionNavMeshSurface.BuildNavMesh();  // only bake after obstacles have been placed
     }
 
     /// <summary>
