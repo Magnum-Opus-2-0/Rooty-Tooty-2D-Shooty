@@ -12,7 +12,7 @@ public class MinionController : MonoBehaviour, IRecyclable
     public float reloadTime;
     private MinionShootController shooter;
 
-    private NavMeshAgent nv_agent = new NavMeshAgent();
+    public NavMeshAgent nv_agent;
     private static GameObject P1_Base;
     private static GameObject P2_Base;
 
@@ -27,8 +27,6 @@ public class MinionController : MonoBehaviour, IRecyclable
         health.setHealth(maxHealth);
 
         shooter = GetComponent<MinionShootController>();
-
-        //nv_agent = new NavMeshAgent();
 
 
 
