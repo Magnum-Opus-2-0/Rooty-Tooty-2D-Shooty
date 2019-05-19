@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   reloadTime: 5
+  doNavMeshDemo: 1
 --- !u!114 &5254058538041624450
 MonoBehaviour:
   m_ObjectHideFlags: 0

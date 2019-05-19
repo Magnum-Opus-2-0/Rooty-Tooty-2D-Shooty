@@ -12,9 +12,12 @@ public class MinionController : MonoBehaviour, IRecyclable
     public float reloadTime;
     private MinionShootController shooter;
 
-    public NavMeshAgent nv_agent;
-    public Transform homeBase;
-    public Transform enemyBase;
+    private NavMeshAgent nv_agent;
+    private static GameObject P1_Base;
+    private static GameObject P2_Base;
+
+    private Transform homeBase;
+    private Transform enemyBase;
     public bool doNavMeshDemo;
 
     // Start is called before the first frame update
@@ -24,6 +27,25 @@ public class MinionController : MonoBehaviour, IRecyclable
         health.setHealth(maxHealth);
 
         shooter = GetComponent<MinionShootController>();
+
+        nv_agent = new NavMeshAgent();
+
+
+
+
+        // Set base information
+        if (P1_Base == null)
+            P1_Base = GameObject.Find("P1_Base");
+        if (P2_Base == null)
+            P2_Base = GameObject.Find("P2_Base");
+
+        Assert.IsTrue(tag.Equals("P1_Minion") || tag.Equals("P2_Minion"),
+            "Minion tag " + tag.ToString() + " improperly set");
+
+        homeBase  = (tag.Equals("P1_Minion") ? P1_Base.transform : P2_Base.transform);
+        enemyBase = (tag.Equals("P1_Minion") ? P2_Base.transform : P1_Base.transform);
+
+
 
         StartCoroutine(DebugShoot());
     }
@@ -98,10 +120,11 @@ public class MinionController : MonoBehaviour, IRecyclable
 
         Vector3 dest = enemyBase.position;
         //Vector3 dest = enemyBase.localPosition;
-
-        Assert.IsTrue(nv_agent.SetDestination(dest),
-            "NavMeshAgent failed to set destination to enemy base.\n"
-            + "Target destination: " + dest.ToString());
+        
+        if (!nv_agent.pathPending)
+            Assert.IsTrue(nv_agent.SetDestination(dest),
+                "NavMeshAgent failed to set destination to enemy base.\n"
+                + "Target destination: " + dest.ToString());
     }
 
     public void SetDefend() {
@@ -111,9 +134,10 @@ public class MinionController : MonoBehaviour, IRecyclable
         Vector3 dest = homeBase.position;
         //Vector3 dest = homeBase.localPosition;
 
-        Assert.IsTrue(nv_agent.SetDestination(dest),
-            "NavMeshAgent failed to set destination to home base.\n"
-            + "Target destination: " + dest.ToString());
+        if (!nv_agent.pathPending)
+            Assert.IsTrue(nv_agent.SetDestination(dest),
+                "NavMeshAgent failed to set destination to home base.\n"
+                + "Target destination: " + dest.ToString());
     }
 
     public void SetHalt() {
