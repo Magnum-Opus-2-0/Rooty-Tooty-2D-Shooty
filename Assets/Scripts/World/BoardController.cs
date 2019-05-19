@@ -137,7 +137,7 @@ public class BoardController : MonoBehaviour
         {
             GameObject tempWall = null;
 
-            int randNum= Random.Range(0, 4);
+            int randNum = Random.Range(0, wallObject.Length);
 
             switch (axis)
             {
