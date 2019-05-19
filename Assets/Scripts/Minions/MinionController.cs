@@ -12,7 +12,7 @@ public class MinionController : MonoBehaviour, IRecyclable
     public float reloadTime;
     private MinionShootController shooter;
 
-    private NavMeshAgent nv_agent;
+    private NavMeshAgent nv_agent = new NavMeshAgent();
     private static GameObject P1_Base;
     private static GameObject P2_Base;
 
@@ -28,7 +28,7 @@ public class MinionController : MonoBehaviour, IRecyclable
 
         shooter = GetComponent<MinionShootController>();
 
-        nv_agent = new NavMeshAgent();
+        //nv_agent = new NavMeshAgent();
 
 
 
@@ -129,6 +129,8 @@ public class MinionController : MonoBehaviour, IRecyclable
 
     public void SetDefend() {
 
+        Assert.IsTrue(nv_agent != null, "Somehow, nv_agent hasn't been initialized by this line\n"
+            + "This minion: " + this.ToString());
         nv_agent.isStopped = false;
 
         Vector3 dest = homeBase.position;

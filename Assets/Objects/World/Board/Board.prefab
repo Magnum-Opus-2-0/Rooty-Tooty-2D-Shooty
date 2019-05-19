@@ -140,16 +140,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emptyTileTemplate: {fileID: 1132203590997511082, guid: 9e21b1d4a87b35b4ab22cc7a84e6f296,
     type: 3}
-  obstaclePieceTemplate: {fileID: 0}
-  wallPieceTemplates:
+  toyBlocks:
   - {fileID: 8467170200599267576, guid: 5df1981d0100b494abf657353d0fe3cc, type: 3}
   - {fileID: 6120115826347913087, guid: 504f3acdbbac84c989b8cde1b7b910b0, type: 3}
   - {fileID: 2012674808129302606, guid: 8edfd006060974605b6c5b44ab7bd1e9, type: 3}
   - {fileID: 465368281482399110, guid: f04e699fe307e48cfaf4a927120aaa97, type: 3}
   - {fileID: 1833966636221389831, guid: 6236a2afa8c41432f9f202a7b84ae708, type: 3}
   fluffTemplate: {fileID: 0}
-  fiberTemplate: {fileID: 0}
-  objectTemplate: {fileID: 0}
+  plasticTemplate: {fileID: 0}
   tileFondler: {fileID: 776686519890861135}
   wallFondler: {fileID: 3239902528913679604}
   obstacleFondler: {fileID: 3479319856060367092}

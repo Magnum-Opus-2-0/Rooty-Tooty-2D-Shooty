@@ -10,12 +10,12 @@ public class BoardController : MonoBehaviour
     /// default game tile used for copying and instantiating new tiles
     /// </summary>
     public GameObject emptyTileTemplate;
-    public GameObject obstaclePieceTemplate;
-    public GameObject[] wallPieceTemplates = new GameObject[5];
+    //public GameObject obstaclePieceTemplate;
+    public GameObject[] toyBlock = new GameObject[5];
 
-    public GameObject fluffTemplate;
-    public GameObject fiberTemplate;
-    public GameObject objectTemplate;
+    public GameObject[] fluff = new GameObject[4];
+    public GameObject[] plastic = new GameObject[5];
+    //public GameObject objectTemplate;
 
     /// <summary>
     /// Empty GameObject to store all generated tiles in hierarchy
@@ -110,14 +110,14 @@ public class BoardController : MonoBehaviour
     public void GenerateGrid()
     {
         // Builds walls that encompass the playmat.
-        BuildAWall(-1, Z_MAX, -1, 'z', wallPieceTemplates);       // West wall
-        BuildAWall(-1, Z_MAX, X_MAX, 'z', wallPieceTemplates);    // East wall
-        BuildAWall(0, X_MAX, -1, 'x', wallPieceTemplates);       // South wall
-        BuildAWall(-1, X_MAX + 1, Z_MAX, 'x', wallPieceTemplates);    // North wall
+        BuildAWall(-1, Z_MAX, -1, 'z', toyBlock);       // West wall
+        BuildAWall(-1, Z_MAX, X_MAX, 'z', toyBlock);    // East wall
+        BuildAWall(0, X_MAX, -1, 'x', toyBlock);       // South wall
+        BuildAWall(-1, X_MAX + 1, Z_MAX, 'x', toyBlock);    // North wall
 
         GenerateTiles();
 
-        procedurallyPlaceObstacles(wallPieceTemplates);
+        GameGrid2DObject grid = procedurallyPlaceObstacles(toyBlock);
 
         minionNavMeshSurface.BuildNavMesh();  // only bake after obstacles have been placed
     }
@@ -194,7 +194,7 @@ public class BoardController : MonoBehaviour
     /// and the lag really gets noticable around pathLandmarks = 50.
     /// </summary>
     /// <param name="obstacleTemplate">GameObject which should be instantiated as objects</param>
-    private void procedurallyPlaceObstacles(GameObject[] obstacleTemplate) {
+    private GameGrid2DObject procedurallyPlaceObstacles(GameObject[] obstacleTemplate) {
 
 
         // Tear down any leftover tiles hanging out in obstacleFondler from previous runs
@@ -222,5 +222,7 @@ public class BoardController : MonoBehaviour
             tempObstacle.transform.parent = obstacleFondler.transform;
 
         }
+
+        return tempGrid;
     }
 }
