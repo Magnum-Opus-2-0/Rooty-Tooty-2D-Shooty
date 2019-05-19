@@ -1595,18 +1595,6 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &955875800 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3481847181959456942, guid: b4c67ed272150b04bba22abe8c018386,
-    type: 3}
-  m_PrefabInstance: {fileID: 1106950163}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &979304306 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6395623155632281459, guid: 1caeb09e47caf4af083e7a10e1dc3e9e,
@@ -1771,7 +1759,7 @@ PrefabInstance:
         type: 3}
       propertyPath: minionNavMeshSurface
       value: 
-      objectReference: {fileID: 955875800}
+      objectReference: {fileID: 1106950164}
     - target: {fileID: 6142511023060367099, guid: b4c67ed272150b04bba22abe8c018386,
         type: 3}
       propertyPath: m_TagString
@@ -1779,6 +1767,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4c67ed272150b04bba22abe8c018386, type: 3}
+--- !u!114 &1106950164 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2614859904533919858, guid: b4c67ed272150b04bba22abe8c018386,
+    type: 3}
+  m_PrefabInstance: {fileID: 1106950163}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1220968247
 GameObject:
   m_ObjectHideFlags: 0
