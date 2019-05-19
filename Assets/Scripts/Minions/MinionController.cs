@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.Assertions;
 
 public class MinionController : MonoBehaviour, IRecyclable
 {
@@ -9,6 +11,11 @@ public class MinionController : MonoBehaviour, IRecyclable
 
     public float reloadTime;
     private MinionShootController shooter;
+
+    public NavMeshAgent nv_agent;
+    public Transform homeBase;
+    public Transform enemyBase;
+    public bool doNavMeshDemo;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +36,34 @@ public class MinionController : MonoBehaviour, IRecyclable
             Die();
         }
 
-        DebugMovement();
+
+
+        if (doNavMeshDemo) {
+
+            // Both mouse buttons = stay
+            if (Input.GetKey(KeyCode.Mouse0) && Input.GetKey(KeyCode.Mouse1)) {
+
+                SetHalt();
+            }
+
+            // Right mouse button = attack
+            else if (Input.GetKeyDown(KeyCode.Mouse1)) {
+
+                SetAttack();
+            }
+
+            // Left mouse button = defend
+            else if (Input.GetKeyDown(KeyCode.Mouse0)) {
+
+                SetDefend();
+            }
+        }
+        
+        
+        
+        else {
+            DebugMovement();
+        }
     }
 
     /// <summary>
@@ -58,10 +92,44 @@ public class MinionController : MonoBehaviour, IRecyclable
         health.setHealth(maxHealth);
     }
 
+    public void SetAttack() {
+
+        nv_agent.isStopped = false;
+
+        Vector3 dest = enemyBase.position;
+        //Vector3 dest = enemyBase.localPosition;
+
+        Assert.IsTrue(nv_agent.SetDestination(dest),
+            "NavMeshAgent failed to set destination to enemy base.\n"
+            + "Target destination: " + dest.ToString());
+    }
+
+    public void SetDefend() {
+
+        nv_agent.isStopped = false;
+
+        Vector3 dest = homeBase.position;
+        //Vector3 dest = homeBase.localPosition;
+
+        Assert.IsTrue(nv_agent.SetDestination(dest),
+            "NavMeshAgent failed to set destination to home base.\n"
+            + "Target destination: " + dest.ToString());
+    }
+
+    public void SetHalt() {
+
+        nv_agent.isStopped = true;
+    }
+
     #region DEBUG_METHODS
     private void DebugMovement()
     {
         transform.Translate(0, 0, 5.0f * Time.deltaTime);
+    }
+
+    private void DebugAutoMovement(Vector3 dest) {
+
+
     }
 
     private IEnumerator DebugShoot()
