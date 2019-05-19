@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Assertions;
 
 public class BoardController : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class BoardController : MonoBehaviour
     /// default game tile used for copying and instantiating new tiles
     /// </summary>
     public GameObject emptyTileTemplate;
-    public GameObject wallPieceTemplate;
     public GameObject obstaclePieceTemplate;
     public GameObject[] wallPieceTemplates = new GameObject[5];
 
@@ -27,7 +27,13 @@ public class BoardController : MonoBehaviour
     public Material firstTileColor;
     public Material secondTileColor;
 
-    //public NavMesh navmesh; 
+    /// <summary>
+    /// NavMeshSurface for this board, thin enough for minions to pass through.
+    /// Cannot be pre-baked because of procedural generation,
+    /// so must be baked once procedural generation has finished.
+    /// Bake is invoked at the end of BoardController.GenerateGrid().
+    /// </summary>
+    public NavMeshSurface minionNavMeshSurface;
 
     /// I like 20 for pathLandmarks and 2 for pathWidth for a broader battlefield,
     /// or 30 pathLandmarks and 1 pathWidth for more obstacles.
@@ -88,6 +94,7 @@ public class BoardController : MonoBehaviour
     void Start()
     {
         GenerateGrid();
+
     }
 
     // Update is called once per frame
@@ -103,18 +110,16 @@ public class BoardController : MonoBehaviour
     public void GenerateGrid()
     {
         // Builds the walls that encompasses the grid.
-        wallPieceTemplate.SetActive(true);
         BuildAWall(-1, Z_MAX + 1, -1, 'z', wallPieceTemplates);
         BuildAWall(-1, Z_MAX + 1, X_MAX, 'z', wallPieceTemplates);
         BuildAWall(-1, X_MAX + 1, -1, 'x', wallPieceTemplates);
         BuildAWall(-1, X_MAX + 1, Z_MAX, 'x', wallPieceTemplates);
-        wallPieceTemplate.SetActive(false);
 
         GenerateTiles();
 
         procedurallyPlaceObstacles(wallPieceTemplates);
 
-
+        minionNavMeshSurface.BuildNavMesh();  // only bake after obstacles have been placed
     }
 
     /// <summary>
@@ -191,10 +196,8 @@ public class BoardController : MonoBehaviour
     /// <param name="obstacleTemplate">GameObject which should be instantiated as objects</param>
     private void procedurallyPlaceObstacles(GameObject[] obstacleTemplate) {
 
-        // Before anything else, make sure our template is active
-        // obstacleTemplate.SetActive(true);
 
-        // Also, tear down any leftover tiles hanging out in obstacleFondler from previous runs
+        // Tear down any leftover tiles hanging out in obstacleFondler from previous runs
         obstacleFondler.transform.DetachChildren();
 
         // First, generate new grid
@@ -206,18 +209,18 @@ public class BoardController : MonoBehaviour
         // and add it to ObstacleFondler
         foreach (TileObject t in tempGrid) {
 
+            // Skip empty or traversable tiles
             if (t.type != TileObject.TileType.NON_TRAVERSABLE) continue;
 
-            int randNum = Random.Range(0, 4);
-
-            GameObject tempObstacle = Instantiate(obstacleTemplate[randNum],
+            // Create new obstacle
+            GameObject tempObstacle = Instantiate(
+                obstacleTemplate[Random.Range(0, obstacleTemplate.Length)],  // use random template
                 new Vector3(t.location.x, 0.5f, t.location.y),
                 Quaternion.identity);
 
+            // Set as child of obstacleFondler
             tempObstacle.transform.parent = obstacleFondler.transform;
-        }
 
-        // Housekeeping - set our template to false again
-        // obstacleTemplate.SetActive(false);
+        }
     }
 }

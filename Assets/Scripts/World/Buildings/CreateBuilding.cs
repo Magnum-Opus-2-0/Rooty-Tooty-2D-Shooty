@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class CreateBuilding : MonoBehaviour
 {
@@ -150,13 +151,16 @@ public class CreateBuilding : MonoBehaviour
     /// <returns>The master minion fondler.</returns>
     private static Transform FindMasterMinionFondler()
     {
-        Transform ret = GameObject.FindWithTag("Master Minion Fondler").transform;
-        if (ret == null)
+        GameObject mmf = GameObject.FindWithTag("Master Minion Fondler");
+        if (mmf == null)
         {
             Debug.LogError("Could not find Minion Fondler. Was it added to the " +
                 "Hierarchy? If it was and you are still seeing this error, " +
                 "make sure it is tagged with the \"Master Minion Fondler\"");
         }
+
+        Transform ret = mmf.transform;
+        Assert.IsTrue(ret != null, "Somehow, Master Minion Fondler doesn't have a Transform");
         return ret;
     }
 }
