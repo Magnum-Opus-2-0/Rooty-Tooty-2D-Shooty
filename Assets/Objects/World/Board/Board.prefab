@@ -30,6 +30,36 @@ Transform:
   m_Father: {fileID: 6565609250977220812}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2848778113762147748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4213003569299044760}
+  m_Layer: 0
+  m_Name: Resource Fondler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4213003569299044760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2848778113762147748}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6565609250977220812}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3239902528913679604
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +152,7 @@ Transform:
   - {fileID: 4268902911423854133}
   - {fileID: 3184112760295667936}
   - {fileID: 7108268831795201350}
+  - {fileID: 4213003569299044760}
   - {fileID: 1816034368943216151}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -140,22 +171,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emptyTileTemplate: {fileID: 1132203590997511082, guid: 9e21b1d4a87b35b4ab22cc7a84e6f296,
     type: 3}
-  toyBlocks:
+  toyBlock:
   - {fileID: 8467170200599267576, guid: 5df1981d0100b494abf657353d0fe3cc, type: 3}
   - {fileID: 6120115826347913087, guid: 504f3acdbbac84c989b8cde1b7b910b0, type: 3}
   - {fileID: 2012674808129302606, guid: 8edfd006060974605b6c5b44ab7bd1e9, type: 3}
   - {fileID: 465368281482399110, guid: f04e699fe307e48cfaf4a927120aaa97, type: 3}
   - {fileID: 1833966636221389831, guid: 6236a2afa8c41432f9f202a7b84ae708, type: 3}
-  fluffTemplate: {fileID: 0}
-  plasticTemplate: {fileID: 0}
+  fluff:
+  - {fileID: 5379203601261965017, guid: 97fa5779070aa46fd9697de8de5b8fba, type: 3}
+  - {fileID: 9140265644713396310, guid: c71004c1ad759483e934c09caee9ed6f, type: 3}
+  - {fileID: 1027915150948817678, guid: 9c14c0ad6720149e0ba541522b323cfc, type: 3}
+  - {fileID: 8090947328815732461, guid: a0f7250490db74c64b31474aedab8c2f, type: 3}
+  plastic:
+  - {fileID: 3844902403540613962, guid: bcf9592c6be6f4904830980cdd6ad1ee, type: 3}
+  - {fileID: 8759658087128272469, guid: 52814aa6d4102444b82f8d16777a79a0, type: 3}
+  - {fileID: 2365052988772019901, guid: 395422e6a62084b8c9cf3e4bfb4f5576, type: 3}
+  - {fileID: 7876720370246562494, guid: f1d0243c367724fc586be016ad8e2dd2, type: 3}
   tileFondler: {fileID: 776686519890861135}
   wallFondler: {fileID: 3239902528913679604}
   obstacleFondler: {fileID: 3479319856060367092}
+  resourceFondler: {fileID: 2848778113762147748}
   firstTileColor: {fileID: 2100000, guid: 9505edc11152892489635ee29a46696a, type: 2}
   secondTileColor: {fileID: 2100000, guid: 9d1766a21ead48649a854545c798638c, type: 2}
   minionNavMeshSurface: {fileID: 2614859904533919858}
-  pathLandmarks: 15
-  pathWidth: 2
+  pathLandmarks: 30
+  pathWidth: 1
 --- !u!114 &2614859904533919858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +254,7 @@ Transform:
   m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 6565609250977220812}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &2734825141508976210
 MeshCollider:

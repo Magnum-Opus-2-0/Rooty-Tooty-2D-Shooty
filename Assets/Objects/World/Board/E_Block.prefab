@@ -133,8 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1833966636221389830}
   m_Layer: 0
-  m_Name: E_Block 1
-  m_TagString: Untagged
+  m_Name: E_Block
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

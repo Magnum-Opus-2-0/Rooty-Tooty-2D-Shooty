@@ -10,12 +10,12 @@ public class BoardController : MonoBehaviour
     /// default game tile used for copying and instantiating new tiles
     /// </summary>
     public GameObject emptyTileTemplate;
-    //public GameObject obstaclePieceTemplate;
     public GameObject[] toyBlock = new GameObject[5];
 
     public GameObject[] fluff = new GameObject[4];
-    public GameObject[] plastic = new GameObject[5];
-    //public GameObject objectTemplate;
+    public GameObject[] plastic = new GameObject[4];
+    public int maxFluff = 10;
+    public int maxPlastic = 10;
 
     /// <summary>
     /// Empty GameObject to store all generated tiles in hierarchy
@@ -23,6 +23,7 @@ public class BoardController : MonoBehaviour
     public GameObject tileFondler;
     public GameObject wallFondler;
     public GameObject obstacleFondler;
+    public GameObject resourceFondler;
 
     public Material firstTileColor;
     public Material secondTileColor;
@@ -110,14 +111,16 @@ public class BoardController : MonoBehaviour
     public void GenerateGrid()
     {
         // Builds walls that encompass the playmat.
-        BuildAWall(-1, Z_MAX, -1, 'z', toyBlock);       // West wall
-        BuildAWall(-1, Z_MAX, X_MAX, 'z', toyBlock);    // East wall
-        BuildAWall(0, X_MAX, -1, 'x', toyBlock);       // South wall
+        BuildAWall(-1, Z_MAX, -1, 'z', toyBlock);           // West wall
+        BuildAWall(-1, Z_MAX, X_MAX, 'z', toyBlock);        // East wall
+        BuildAWall(0, X_MAX, -1, 'x', toyBlock);            // South wall
         BuildAWall(-1, X_MAX + 1, Z_MAX, 'x', toyBlock);    // North wall
 
         GenerateTiles();
 
-        GameGrid2DObject grid = procedurallyPlaceObstacles(toyBlock);
+        GameGrid2DObject grid = ProcedurallyPlaceObstacles(toyBlock);
+
+        // PlaceResources(grid, fluff, plastic);
 
         minionNavMeshSurface.BuildNavMesh();  // only bake after obstacles have been placed
     }
@@ -194,7 +197,7 @@ public class BoardController : MonoBehaviour
     /// and the lag really gets noticable around pathLandmarks = 50.
     /// </summary>
     /// <param name="obstacleTemplate">GameObject which should be instantiated as objects</param>
-    private GameGrid2DObject procedurallyPlaceObstacles(GameObject[] obstacleTemplate) {
+    private GameGrid2DObject ProcedurallyPlaceObstacles(GameObject[] obstacleTemplate) {
 
 
         // Tear down any leftover tiles hanging out in obstacleFondler from previous runs
@@ -224,5 +227,95 @@ public class BoardController : MonoBehaviour
         }
 
         return tempGrid;
+    }
+
+    private void PlaceResources(GameGrid2DObject grid, GameObject[] fluff, GameObject[] plastic)
+    {
+        resourceFondler.transform.DetachChildren();
+
+        int fluffCounter = 0;
+        int plasticCounter = 0;
+        int spreadCounter = 0;
+        int placeChance = 0;
+
+        foreach (TileObject t in grid)
+        {
+            placeChance = Random.Range(0, 100);
+
+            if (t.type == TileObject.TileType.TRAVERSABLE && placeChance < 2 && spreadCounter == 50)
+            {
+                int chance = Random.Range(0, 10);
+
+                GameObject resource;
+
+                if (chance % 2 == 0 && fluffCounter < maxFluff)
+                {
+                    resource = Instantiate(
+                        fluff[Random.Range(0, 4)],
+                        new Vector3(t.location.x, 0.5f, t.location.y),
+                        Quaternion.identity);
+                    fluffCounter++;
+
+                    // Set as child of resourceFondler
+                    resource.transform.parent = resourceFondler.transform;
+                }
+                else if (chance % 2 == 1 && plasticCounter < maxPlastic)
+                {
+                    resource = Instantiate(
+                        plastic[Random.Range(0, 4)],
+                        new Vector3(t.location.x, 0.5f, t.location.y),
+                        Quaternion.identity);
+                    plasticCounter++;
+
+                    // Set as child of resourceFondler
+                    resource.transform.parent = resourceFondler.transform;
+                }
+
+                if (fluffCounter == maxFluff && plasticCounter == maxPlastic) return;
+            }
+        }
+
+        //foreach (TileObject t in grid)
+        //{
+        //    placeChance = Random.Range(0, 100);
+        //    if (t.type != TileObject.TileType.TRAVERSABLE || spreadCounter < 100)
+        //    {
+        //        spreadCounter++;
+        //        continue;
+        //    }
+
+        //    spreadCounter = 0;
+
+        //    int chance = Random.Range(0, 10);
+
+        //    GameObject resource;
+
+        //    if (chance % 2 == 0 && fluffCounter < maxFluff)
+        //    {
+        //        resource = Instantiate(
+        //            fluff[Random.Range(0, 4)],
+        //            new Vector3(t.location.x, 0.5f, t.location.y),
+        //            Quaternion.identity);
+        //        fluffCounter++;
+
+        //        // Set as child of resourceFondler
+        //        resource.transform.parent = resourceFondler.transform;
+        //    }
+        //    else if (chance % 2 == 1 && plasticCounter < maxPlastic)
+        //    {
+        //        resource = Instantiate(
+        //            plastic[Random.Range(0, 4)],
+        //            new Vector3(t.location.x, 0.5f, t.location.y),
+        //            Quaternion.identity);
+        //        plasticCounter++;
+
+        //        // Set as child of resourceFondler
+        //        resource.transform.parent = resourceFondler.transform;
+        //    }
+
+        //    //if (resource.gameObject.GetComponent<Collider>.)
+
+        //    if (fluffCounter == maxFluff && plasticCounter == maxPlastic) return;
+        //}
     }
 }

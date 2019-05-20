@@ -68,6 +68,28 @@ public class ResourceController : PickupController
     }
 
     /// <summary>
+    /// Determines whether the given collider is attached to a GameObject with
+    /// a base tag. That is "P1_Base" or "P2_Base".
+    /// </summary>
+    /// <returns><c>true</c>, if GameObject was a base, <c>false</c> otherwise.</returns>
+    /// <param name="c">C.</param>
+    public static bool IsBase(Collider c)
+    {
+        return c.tag == "P1_Base" || c.tag == "P2_Base";
+    }
+
+    /// <summary>
+    /// Determines whether the given collider is attached to a GameObject with
+    /// a base tag. That is "P1_Base" or "P2_Base".
+    /// </summary>
+    /// <returns><c>true</c>, if GameObject was a base, <c>false</c> otherwise.</returns>
+    /// <param name="c">C.</param>
+    public static bool IsWall(Collider c)
+    {
+        return c.tag == "Wall";
+    }
+
+    /// <summary>
     /// Adds the resource to the <see cref="TankController"/> depending on the
     /// <see cref="ResourceType"/>.
     /// </summary>
