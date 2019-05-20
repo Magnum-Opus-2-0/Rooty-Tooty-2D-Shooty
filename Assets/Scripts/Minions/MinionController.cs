@@ -20,6 +20,8 @@ public class MinionController : MonoBehaviour, IRecyclable
     private Transform enemyBase;
     public bool doNavMeshDemo;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
