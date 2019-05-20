@@ -24,6 +24,8 @@ public class MinionBuildingController : BuildingController
         }
     }
 
+    private bool diedOnce;
+
     /// <summary>
     /// An array of <see cref="SpawnpointBehavior"/> scripts in the order of
     /// spawn priority with element 0 being highest priority.
@@ -46,7 +48,7 @@ public class MinionBuildingController : BuildingController
     {
         base.Awake();
 
-
+        diedOnce = true;
 
         minionsThisBatch = 0;
 
@@ -59,10 +61,11 @@ public class MinionBuildingController : BuildingController
     {
         base.Update();
 
-        if (!health.isNotDead())
+        if (!health.isNotDead() && diedOnce)
         {
             minionPool.Destroy();
             Destroy(minionFondler.gameObject);
+            diedOnce = false;
         }
     }
 
