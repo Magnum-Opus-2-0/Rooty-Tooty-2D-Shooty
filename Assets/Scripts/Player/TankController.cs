@@ -258,7 +258,7 @@ public class TankController : MonoBehaviour
         Fluff = 0;
         Plastic = 0;
 
-        // Get the reference to the HealthBehavior script\
+        // Get the reference to the HealthBehavior script
         hb = GetComponent<HealthBehavior>();
         state = TankStates.Alive;
         wasNotDead = hb.isNotDead();

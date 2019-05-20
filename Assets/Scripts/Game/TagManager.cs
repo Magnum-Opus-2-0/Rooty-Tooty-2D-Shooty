@@ -72,7 +72,7 @@ public class TagManager : MonoBehaviour
         foreach (string str in p1Tags) {
 
             string copy = new string(str.ToCharArray());
-            copy.Replace('1', '2');
+            copy = copy.Replace('1', '2');
 
             Assert.IsTrue(!copy.Contains("1"), "String.Replace() didn't work as intended");
 

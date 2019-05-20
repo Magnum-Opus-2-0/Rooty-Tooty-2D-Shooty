@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.2
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37147075, g: 0.39187944, b: 0.40338978, a: 0.2}
+  m_IndirectSpecularColor: {r: 0.37145963, g: 0.3919365, b: 0.40339306, a: 0.2}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1050,6 +1050,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: reloadTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: maxBullets
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: speedOfBullet
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: bulletFondler
+      value: 
+      objectReference: {fileID: 1069144354}
     - target: {fileID: 517800692760676884, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1215,26 +1235,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: reloadTime
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: maxBullets
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: speedOfBullet
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 7375665069151570844, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: bulletFondler
-      value: 
-      objectReference: {fileID: 1069144354}
     - target: {fileID: 6893645116141561921, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: forceOfExplosion
@@ -1265,6 +1265,41 @@ PrefabInstance:
       propertyPath: bulletFondler
       value: 
       objectReference: {fileID: 1069144354}
+    - target: {fileID: 1545145930801321869, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 21bb3934105b5084b96ce265e630f186, type: 3}
+    - target: {fileID: 1545145930801321869, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545145930801321869, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545145930801321869, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: BypassReverbZones
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545145930801321869, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: BypassListenerEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545145930801321869, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: Mute
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545145930801321869, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: BypassEffects
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cf045c0ebafa2e468fe89884017d837, type: 3}
 --- !u!1001 &684706387
@@ -1450,6 +1485,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_2
       objectReference: {fileID: 0}
+    - target: {fileID: 2930605930384766066, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: bulletFondler
+      value: 
+      objectReference: {fileID: 842396105}
+    - target: {fileID: 2930605930384766066, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: speedOfBullet
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 1788636165241837132, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1525,16 +1570,6 @@ PrefabInstance:
       propertyPath: shootScript
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 2930605930384766066, guid: b416b72df150e488a918a43d9d34a1a1,
-        type: 3}
-      propertyPath: bulletFondler
-      value: 
-      objectReference: {fileID: 842396105}
-    - target: {fileID: 2930605930384766066, guid: b416b72df150e488a918a43d9d34a1a1,
-        type: 3}
-      propertyPath: speedOfBullet
-      value: 45
-      objectReference: {fileID: 0}
     - target: {fileID: 6355854459110127413, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: m_Mass
@@ -1590,6 +1625,11 @@ PrefabInstance:
       propertyPath: bulletFondler
       value: 
       objectReference: {fileID: 842396105}
+    - target: {fileID: 760103282773724117, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 21bb3934105b5084b96ce265e630f186, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b416b72df150e488a918a43d9d34a1a1, type: 3}
 --- !u!114 &929361079 stripped

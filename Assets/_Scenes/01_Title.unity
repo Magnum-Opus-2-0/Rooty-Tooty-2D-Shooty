@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.2
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2092556218}
-  m_IndirectSpecularColor: {r: 0.37148863, g: 0.39190024, b: 0.403405, a: 0.2}
+  m_IndirectSpecularColor: {r: 0.37145963, g: 0.3919365, b: 0.40339306, a: 0.2}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2020,15 +2020,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1831370482}
   explodeScript: {fileID: 755816311}
-  shootScript: {fileID: 0}
+  maxHealth: 100
   currentHealth: 200
-  bulletDamage: 5
   doPoisonDemo: 0
   health_icon: {fileID: 1831370481}
   respawn_background: {fileID: 1831370480}
   respawnText: {fileID: 1831370478}
   health_val: {fileID: 0}
   respawnTime: 5
+  doesRespawn: 1
 --- !u!114 &755816311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2986,15 +2986,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1222567271}
   explodeScript: {fileID: 1241693025}
-  shootScript: {fileID: 0}
+  maxHealth: 100
   currentHealth: 200
-  bulletDamage: 5
   doPoisonDemo: 0
   health_icon: {fileID: 1222567270}
   respawn_background: {fileID: 1222567269}
   respawnText: {fileID: 1222567267}
   health_val: {fileID: 1222567267}
   respawnTime: 0
+  doesRespawn: 1
 --- !u!54 &1241693027
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3989,11 +3989,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6142511023060367099, guid: b4c67ed272150b04bba22abe8c018386,
-        type: 3}
-      propertyPath: m_TagString
-      value: Floor
-      objectReference: {fileID: 0}
     - target: {fileID: 3573426434757915892, guid: b4c67ed272150b04bba22abe8c018386,
         type: 3}
       propertyPath: pathLandmarks
@@ -4003,6 +3998,11 @@ PrefabInstance:
         type: 3}
       propertyPath: pathWidth
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142511023060367099, guid: b4c67ed272150b04bba22abe8c018386,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4c67ed272150b04bba22abe8c018386, type: 3}
@@ -4466,6 +4466,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pivot Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6395623155632281453, guid: 1caeb09e47caf4af083e7a10e1dc3e9e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6395623155632281459, guid: 1caeb09e47caf4af083e7a10e1dc3e9e,
         type: 3}
