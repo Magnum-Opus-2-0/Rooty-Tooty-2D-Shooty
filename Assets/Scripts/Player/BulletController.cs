@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     [SerializeField]
-    public const int BULLET_DAMAGE = 5;
+    public int bulletDamage = 5;
     //public ShootController shootControlReference;
     //public GameObject templateBullet;
 
@@ -30,14 +30,14 @@ public class BulletController : MonoBehaviour
             case "Player1_obj":
                 if (this.gameObject.tag != "P1_Bullet")
                 {
-                    collision.gameObject.GetComponent<HealthBehavior>().adjustHealth(-BULLET_DAMAGE);
+                    collision.gameObject.GetComponent<HealthBehavior>().adjustHealth(-bulletDamage);
                 }
                 ResetBullet();
                 break;
             case "Player2_obj":
                 if (this.gameObject.tag != "P2_Bullet")
                 {
-                    collision.gameObject.GetComponent<HealthBehavior>().adjustHealth(-BULLET_DAMAGE);
+                    collision.gameObject.GetComponent<HealthBehavior>().adjustHealth(-bulletDamage);
                 }
                 ResetBullet();
                 break;
@@ -48,7 +48,7 @@ public class BulletController : MonoBehaviour
             case "P1_Minion":
                 if (this.gameObject.tag != "P1_Bullet")
                 {
-                    collision.gameObject.GetComponent<HealthBehavior>().adjustHealth(-BULLET_DAMAGE);
+                    collision.gameObject.GetComponent<HealthBehavior>().adjustHealth(-bulletDamage);
                 }
                 ResetBullet();
                 break;
@@ -59,7 +59,7 @@ public class BulletController : MonoBehaviour
             case "P2_Minion":
                 if (this.gameObject.tag != "P2_Bullet")
                 {
-                    collision.gameObject.GetComponent<HealthBehavior>().adjustHealth(-BULLET_DAMAGE);
+                    collision.gameObject.GetComponent<HealthBehavior>().adjustHealth(-bulletDamage);
                 }
                 ResetBullet();
                 break;

@@ -8,7 +8,7 @@ public class HealthBehavior : MonoBehaviour
     public SimpleHealthBar healthBar;
     public ExplodeBehavior explodeScript;
 
-    public const int MAX_HEALTH = 100;
+    public int maxHealth = 100;
     public int currentHealth;   // set to public for debugging
 
     // Variables for demo poison function
@@ -35,7 +35,7 @@ public class HealthBehavior : MonoBehaviour
     void Start()
     {
         respawnTime = TOTAL_RESPAWN_TIME;
-        currentHealth = MAX_HEALTH;
+        currentHealth = maxHealth;
         currentTimeStep = 0;
         // health_icon.fillAmount = 1.0f;
         // health_val.text = currentHealth.ToString();
@@ -69,7 +69,7 @@ public class HealthBehavior : MonoBehaviour
         if (respawnTime <= 0 && doesRespawn)
         {
             explodeScript.Restore();
-            setHealth(MAX_HEALTH);
+            setHealth(maxHealth);
 
             respawn_background.gameObject.SetActive(false);
             respawnText.gameObject.SetActive(false);
@@ -134,12 +134,12 @@ public class HealthBehavior : MonoBehaviour
         if (this.gameObject.tag == "P1_Base" || this.gameObject.tag == "P2_Base")
         {
             // Update the health bar amount
-            healthBar.UpdateBar(currentHealth, MAX_HEALTH);
+            healthBar.UpdateBar(currentHealth, maxHealth);
 
             // Update the health bar color
-            if (currentHealth >= (0.5 * MAX_HEALTH))
+            if (currentHealth >= (0.5 * maxHealth))
                 healthBar.UpdateColor(Color.green);
-            else if (currentHealth >= (0.2 * MAX_HEALTH))
+            else if (currentHealth >= (0.2 * maxHealth))
                 healthBar.UpdateColor(Color.yellow);
             else
                 healthBar.UpdateColor(Color.red);
@@ -156,7 +156,7 @@ public class HealthBehavior : MonoBehaviour
 
         if (value == currentHealth) return false;
 
-        if (value > MAX_HEALTH || value < 0) return false;
+        if (value > maxHealth || value < 0) return false;
 
 
 
@@ -180,7 +180,7 @@ public class HealthBehavior : MonoBehaviour
         if (delta > 0)
         {
 
-            if (currentHealth + delta <= MAX_HEALTH)
+            if (currentHealth + delta <= maxHealth)
             {
 
                 currentHealth += delta;

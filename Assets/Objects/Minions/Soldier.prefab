@@ -134,7 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 8414202997290635780}
   explodeScript: {fileID: 2070589742068855113}
-  currentHealth: 20
+  maxHealth: 15
+  currentHealth: 15
   doPoisonDemo: 0
   health_icon: {fileID: 8414202997290651482}
   respawn_background: {fileID: 8414202997290601210}
@@ -492,6 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00057dfb19794165891f43025f0fae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletDamage: 3
 --- !u!1 &2374392371256021764
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +535,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.2
+  m_Radius: 0.3
   m_Height: 0.8
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

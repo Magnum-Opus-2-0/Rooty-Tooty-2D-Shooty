@@ -66,7 +66,7 @@ public class CameraSetup : MonoBehaviour
         hb.respawnText = cav.transform.Find("Respawn_back/Respawn_Text").gameObject.GetComponent<Text>();
 
         hb.health_icon.fillAmount = 1.0f;
-        hb.health_val.text = HealthBehavior.MAX_HEALTH.ToString();
+        hb.health_val.text = hb.maxHealth.ToString();
         hb.respawnText.gameObject.SetActive(false);
         hb.respawn_background.gameObject.SetActive(false);
 

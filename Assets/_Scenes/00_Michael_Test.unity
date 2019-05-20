@@ -600,6 +600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1011169593}
   explodeScript: {fileID: 84889068}
+  maxHealth: 100
   currentHealth: 200
   doPoisonDemo: 0
   health_icon: {fileID: 1011169592}
@@ -1011,6 +1012,81 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 308025287}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &329816303
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1086647037}
+    m_Modifications:
+    - target: {fileID: 547741582400397761, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_Name
+      value: Sub Minion Fondler (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a9024ffc2f8b5413ab03ba1371534982, type: 3}
+--- !u!4 &415223838 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+    type: 3}
+  m_PrefabInstance: {fileID: 1956298023}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &416424421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1082,7 +1158,7 @@ PrefabInstance:
         type: 3}
       propertyPath: minionFondler
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 415223838}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2290859b9662a4ff7b7ced53ba54f284, type: 3}
 --- !u!1001 &483442290
@@ -1330,7 +1406,7 @@ PrefabInstance:
         type: 3}
       propertyPath: minionFondler
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 652817057}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb8fb8cc03aa64c119f2e8a20a8ee054, type: 3}
 --- !u!1 &645252953
@@ -1363,6 +1439,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &652817057 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+    type: 3}
+  m_PrefabInstance: {fileID: 329816303}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &849468483 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9140265644713396305, guid: c71004c1ad759483e934c09caee9ed6f,
@@ -1781,7 +1863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1045672046
 Transform:
   m_ObjectHideFlags: 0
@@ -1832,6 +1914,12 @@ Transform:
   m_Father: {fileID: 1045672046}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1086647037 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4018337562853634469, guid: 6507d1a313fac4871a7fc86804b3878a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4018337563931253592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1216555752
 GameObject:
   m_ObjectHideFlags: 0
@@ -3156,7 +3244,7 @@ PrefabInstance:
     - target: {fileID: 3709061257022121328, guid: b4c67ed272150b04bba22abe8c018386,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6565609250977220812, guid: b4c67ed272150b04bba22abe8c018386,
         type: 3}
@@ -3258,6 +3346,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 483442290}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1956298023
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1086647037}
+    m_Modifications:
+    - target: {fileID: 547741582400397761, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_Name
+      value: Sub Minion Fondler (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734641478632099537, guid: a9024ffc2f8b5413ab03ba1371534982,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a9024ffc2f8b5413ab03ba1371534982, type: 3}
 --- !u!1001 &2003153267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3430,6 +3587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1519731995}
   explodeScript: {fileID: 2003153273}
+  maxHealth: 100
   currentHealth: 200
   doPoisonDemo: 0
   health_icon: {fileID: 1519731994}
@@ -3469,7 +3627,7 @@ PrefabInstance:
     - target: {fileID: 8320465971050490764, guid: 67bf7f42230144239a0812bcbf8aae12,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 117088057140773144, guid: 67bf7f42230144239a0812bcbf8aae12,
         type: 3}
