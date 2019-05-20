@@ -8,7 +8,7 @@ public class CreateBuilding : MonoBehaviour
 
     public const string PREFIX_P1 = "P1_";
     public const string PREFIX_P2 = "P2_";
-    public const string TAG_SPAWNER = "SPAWNER";
+    public const string TAG_SPAWNER = "Spawner";
 
 
     // Start is called before the first frame update
