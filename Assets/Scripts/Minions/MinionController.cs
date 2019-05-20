@@ -33,7 +33,8 @@ public class MinionController : MonoBehaviour, IRecyclable
 
         shooter = GetComponent<MinionShootController>();
 
-
+        leftRight = getAxisString(true);
+        upDown = getAxisString(false);
 
 
         // Set base information
@@ -91,9 +92,6 @@ public class MinionController : MonoBehaviour, IRecyclable
             else {
 
                 #region Pad Controls
-                string leftRight = getAxisString(true);
-                string upDown = getAxisString(false);
-
                 // If left, defend
                 if (Input.GetAxisRaw(leftRight) < 0) {
 
