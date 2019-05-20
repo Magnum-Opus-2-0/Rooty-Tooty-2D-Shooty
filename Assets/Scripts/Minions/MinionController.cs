@@ -10,6 +10,8 @@ public class MinionController : MonoBehaviour, IRecyclable
     private HealthBehavior health;
 
     public float reloadTime;
+    public string upDown;
+    public string leftRight;
     private MinionShootController shooter;
 
     public NavMeshAgent nv_agent;
@@ -19,6 +21,7 @@ public class MinionController : MonoBehaviour, IRecyclable
     private Transform homeBase;
     private Transform enemyBase;
     public bool doNavMeshDemo;
+    public bool useMouseControls;
 
 
 
@@ -58,32 +61,60 @@ public class MinionController : MonoBehaviour, IRecyclable
             Die();
         }
 
-
-
         if (doNavMeshDemo) {
 
-            // Both mouse buttons = stay
-            if (Input.GetKey(KeyCode.Mouse0) && Input.GetKey(KeyCode.Mouse1)) {
+            // NavMeshDemo with mouse controls
+            if (useMouseControls) {
 
-                SetHalt();
-            }
+                #region Mouse Controls
+                // Both mouse buttons = stay
+                if (Input.GetKey(KeyCode.Mouse0) && Input.GetKey(KeyCode.Mouse1)) {
+
+                    SetHalt();
+                }
 
             // Right mouse button = attack
             else if (Input.GetKeyDown(KeyCode.Mouse1)) {
 
-                SetAttack();
-            }
+                    SetAttack();
+                }
 
             // Left mouse button = defend
             else if (Input.GetKeyDown(KeyCode.Mouse0)) {
 
-                SetDefend();
+                    SetDefend();
+                }
+                #endregion
             }
-        }
-        
-        
-        
-        else {
+
+            // NavMeshDemo with pad controls
+            else {
+
+                #region Pad Controls
+                string leftRight = getAxisString(true);
+                string upDown = getAxisString(false);
+
+                // If left, defend
+                if (Input.GetAxisRaw(leftRight) < 0) {
+
+                    SetDefend();
+                }
+
+                // Else if right, attack
+                else if (Input.GetAxisRaw(leftRight) > 0) {
+
+                    SetAttack();
+                }
+
+                // Else if down, halt
+                else if (Input.GetAxisRaw(upDown) < 0) {
+
+                    SetHalt();
+                }
+                #endregion
+            }
+
+        } else {
             DebugMovement();
         }
     }
@@ -145,6 +176,32 @@ public class MinionController : MonoBehaviour, IRecyclable
     public void SetHalt() {
 
         nv_agent.isStopped = true;
+    }
+
+    private string getAxisString(bool leftRight) {
+
+        switch (Application.platform) {
+            case RuntimePlatform.OSXEditor:
+            case RuntimePlatform.OSXPlayer:
+
+                if (leftRight)
+                    return (tag == "P1_Minion" ? "dpad-1-leftright-mac" : "dpad-2-leftright-mac");
+                else
+                    return (tag == "P1_Minion" ? "dpad-1-updown-mac" : "dpad-2-updown-mac");
+
+            case RuntimePlatform.WindowsEditor:
+            case RuntimePlatform.WindowsPlayer:
+
+                if (leftRight)
+                    return (tag == "P1_Minion" ? "dpad-1-leftright-win" : "dpad-2-leftright-win");
+                else
+                    return (tag == "P1_Minion" ? "dpad-1-updown-win" : "dpad-2-updown-win");
+
+            default:
+                Debug.LogError("Mappings not setup for operating systems other than Windows or Mac OS");
+                return "";
+        }
+
     }
 
     #region DEBUG_METHODS
