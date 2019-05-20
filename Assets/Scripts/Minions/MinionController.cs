@@ -152,7 +152,7 @@ public class MinionController : MonoBehaviour, IRecyclable
         Vector3 dest = enemyBase.position;
         //Vector3 dest = enemyBase.localPosition;
         
-        if (!nv_agent.pathPending)
+        if (nv_agent.isActiveAndEnabled && !nv_agent.pathPending)
             Assert.IsTrue(nv_agent.SetDestination(dest),
                 "NavMeshAgent failed to set destination to enemy base.\n"
                 + "Target destination: " + dest.ToString());

@@ -91,7 +91,6 @@ public class CreateBuilding : MonoBehaviour
                 if (temp.tag ==  PREFIX_P1 + TAG_SPAWNER)
                 {
                     InstantiateMinionFondler(temp, "P1");
-                    GetComponent<AudioSource>().Play();
                 }
             }
             else{
@@ -99,7 +98,6 @@ public class CreateBuilding : MonoBehaviour
                 if (temp.tag == PREFIX_P2 + TAG_SPAWNER)
                 {
                     InstantiateMinionFondler(temp, "P2");
-                    GetComponent<AudioSource>().Play();
                 }
             }
             tc.Plastic -= plasticCost;
