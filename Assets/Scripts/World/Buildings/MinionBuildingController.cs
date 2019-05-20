@@ -10,6 +10,19 @@ public class MinionBuildingController : BuildingController
     public GameObject minionToSpawn;
 
     public Transform minionFondler;
+    public Transform MinionFondler
+    {
+        get
+        {
+            return minionFondler;
+        }
+
+        set
+        {
+            minionFondler = value;
+            minionPool.Fondler = minionFondler;
+        }
+    }
 
     /// <summary>
     /// An array of <see cref="SpawnpointBehavior"/> scripts in the order of

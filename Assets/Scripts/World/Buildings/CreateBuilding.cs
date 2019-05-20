@@ -138,8 +138,9 @@ public class CreateBuilding : MonoBehaviour
     private void InstantiateMinionFondler(GameObject spawner, string player)
     {
         GameObject temp = Instantiate(minion_fondler_prefab, master_minion_fondler) as GameObject;
-        spawner.GetComponent<MinionBuildingController>().minionFondler = temp.transform;
-        Debug.Log("We instantiated a spawner.");
+        Debug.Log(temp.name);
+        spawner.GetComponent<MinionBuildingController>().MinionFondler = temp.transform;
+        Debug.Log(spawner.GetComponent<MinionBuildingController>().minionFondler);
     }
 
     /// <summary>
