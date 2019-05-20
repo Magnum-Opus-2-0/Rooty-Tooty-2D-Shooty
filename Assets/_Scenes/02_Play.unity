@@ -1752,12 +1752,12 @@ PrefabInstance:
     - target: {fileID: 3573426434757915892, guid: b4c67ed272150b04bba22abe8c018386,
         type: 3}
       propertyPath: pathLandmarks
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3573426434757915892, guid: b4c67ed272150b04bba22abe8c018386,
         type: 3}
       propertyPath: pathWidth
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3573426434757915892, guid: b4c67ed272150b04bba22abe8c018386,
         type: 3}
@@ -1799,15 +1799,15 @@ PrefabInstance:
       propertyPath: minionNavMeshSurface
       value: 
       objectReference: {fileID: 1106950164}
-    - target: {fileID: 6142511023060367099, guid: b4c67ed272150b04bba22abe8c018386,
-        type: 3}
-      propertyPath: m_TagString
-      value: Floor
-      objectReference: {fileID: 0}
     - target: {fileID: 2614859904533919858, guid: b4c67ed272150b04bba22abe8c018386,
         type: 3}
       propertyPath: m_CollectObjects
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142511023060367099, guid: b4c67ed272150b04bba22abe8c018386,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4c67ed272150b04bba22abe8c018386, type: 3}

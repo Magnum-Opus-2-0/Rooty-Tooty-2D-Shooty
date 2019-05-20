@@ -40,6 +40,8 @@ public class TankController : MonoBehaviour
             fluff = value;
         }
     }
+
+    private bool shouldDivide;
     /// <summary>
     /// Gets the value of fluff directly.
     /// <para>Sets the fluff capped at <see cref="resourceCap"/>. That is, if the
@@ -260,7 +262,7 @@ public class TankController : MonoBehaviour
         hb = GetComponent<HealthBehavior>();
         state = TankStates.Alive;
         wasNotDead = hb.isNotDead();
-
+       
     }
 
     // Update is called once per frame
@@ -271,12 +273,18 @@ public class TankController : MonoBehaviour
 
         if (State == TankStates.Alive)
         {
+            shouldDivide = true;
             UpdateMoveInput();
             UpdateBuildInput();
         } 
         else
         {
             ZeroInputs();
+            if (shouldDivide)
+            {
+                LoseResources();
+                shouldDivide = false;
+            }
         }
 
         if (IsDriving())
@@ -570,5 +578,14 @@ public class TankController : MonoBehaviour
                 bmc.PlaceBuilding();
             }
         }
+    }
+
+    /// <summary>
+    /// Divides player resources by 2 upon their untimely demise...
+    /// </summary>
+    void LoseResources()
+    {
+        Plastic /= 2;
+        Fluff /= 2;
     }
 }

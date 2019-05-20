@@ -196,12 +196,14 @@ public class HealthBehavior : MonoBehaviour
         else if (delta < 0)
         {
 
-            if (currentHealth + delta >= 0)
-            {
+            currentHealth += delta;
+            changed = true;
 
-                currentHealth += delta;
-                changed = true;
+            if (currentHealth < 0)
+            {
+                currentHealth = 0;
             }
+
         }
 
         // Avoid doing anything if possible
