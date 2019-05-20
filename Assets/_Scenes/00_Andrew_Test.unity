@@ -522,15 +522,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 6705101475711779545, guid: 7983ca1031c0c50429d7c47753b54d7b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player_2
+      objectReference: {fileID: 0}
     - target: {fileID: 6705101475101975156, guid: 7983ca1031c0c50429d7c47753b54d7b,
         type: 3}
       propertyPath: m_Name
       value: Crystal Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 6705101475101975156, guid: 7983ca1031c0c50429d7c47753b54d7b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player_2
+      objectReference: {fileID: 0}
     - target: {fileID: 6705101474341351276, guid: 7983ca1031c0c50429d7c47753b54d7b,
         type: 3}
       propertyPath: m_Name
       value: First Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705101474341351276, guid: 7983ca1031c0c50429d7c47753b54d7b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player_2
       objectReference: {fileID: 0}
     - target: {fileID: 6705101475101975163, guid: 7983ca1031c0c50429d7c47753b54d7b,
         type: 3}
@@ -917,15 +932,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 6705101475711779545, guid: 7983ca1031c0c50429d7c47753b54d7b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player_1
+      objectReference: {fileID: 0}
     - target: {fileID: 6705101475101975156, guid: 7983ca1031c0c50429d7c47753b54d7b,
         type: 3}
       propertyPath: m_Name
       value: Crystal Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 6705101475101975156, guid: 7983ca1031c0c50429d7c47753b54d7b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player_1
+      objectReference: {fileID: 0}
     - target: {fileID: 6705101474341351276, guid: 7983ca1031c0c50429d7c47753b54d7b,
         type: 3}
       propertyPath: m_Name
       value: First Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705101474341351276, guid: 7983ca1031c0c50429d7c47753b54d7b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7983ca1031c0c50429d7c47753b54d7b, type: 3}

@@ -56,6 +56,15 @@ public class ResourceController : PickupController
         }
     }
 
+    void OnCollisionEnter(Collision other)
+    {
+        if (IsWall(other) || IsBase(other) || IsResource(other))
+        {
+            Debug.Log("Destroyed");
+            Destroy(this);
+        }
+    }
+
     /// <summary>
     /// Determines whether the given collider is attached to a GameObject with
     /// a player tag. That is "Player_1" or "Player_2".
@@ -73,20 +82,31 @@ public class ResourceController : PickupController
     /// </summary>
     /// <returns><c>true</c>, if GameObject was a base, <c>false</c> otherwise.</returns>
     /// <param name="c">C.</param>
-    public static bool IsBase(Collider c)
+    public static bool IsBase(Collision c)
     {
-        return c.tag == "P1_Base" || c.tag == "P2_Base";
+        return c.gameObject.tag == "P1_Base" || c.gameObject.tag == "P2_Base";
     }
 
     /// <summary>
     /// Determines whether the given collider is attached to a GameObject with
-    /// a base tag. That is "P1_Base" or "P2_Base".
+    /// a wall tag. That is "Wall".
     /// </summary>
-    /// <returns><c>true</c>, if GameObject was a base, <c>false</c> otherwise.</returns>
+    /// <returns><c>true</c>, if GameObject was a wall, <c>false</c> otherwise.</returns>
     /// <param name="c">C.</param>
-    public static bool IsWall(Collider c)
+    public static bool IsWall(Collision c)
     {
-        return c.tag == "Wall";
+        return c.gameObject.tag == "Wall";
+    }
+
+    /// <summary>
+    /// Determines whether the given collider is attached to a GameObject with
+    /// a resource tag. That is "Resource".
+    /// </summary>
+    /// <returns><c>true</c>, if GameObject was a resource, <c>false</c> otherwise.</returns>
+    /// <param name="c">C.</param>
+    public static bool IsResource(Collision c)
+    {
+        return c.gameObject.tag == "Resource";
     }
 
     /// <summary>

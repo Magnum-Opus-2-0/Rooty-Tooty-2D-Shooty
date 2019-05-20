@@ -25,6 +25,12 @@ TagManager:
   - Resource
   - Spawnpoint
   - Master Minion Fondler
+  - P1_Spawner
+  - P2_Spawner
+  - P1_Turret
+  - P2_Turret
+  - P1_Healer
+  - P2_Healer
   layers:
   - Default
   - TransparentFX

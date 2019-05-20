@@ -120,7 +120,7 @@ public class BoardController : MonoBehaviour
 
         GameGrid2DObject grid = ProcedurallyPlaceObstacles(toyBlock);
 
-        // PlaceResources(grid, fluff, plastic);
+        PlaceResources(grid, fluff, plastic);
 
         minionNavMeshSurface.BuildNavMesh();  // only bake after obstacles have been placed
     }
@@ -233,6 +233,8 @@ public class BoardController : MonoBehaviour
     {
         resourceFondler.transform.DetachChildren();
 
+        List<GameObject> fluffs = new List<GameObject>();
+        List<GameObject> plastics = new List<GameObject>();
         int fluffCounter = 0;
         int plasticCounter = 0;
         int spreadCounter = 0;
@@ -242,80 +244,44 @@ public class BoardController : MonoBehaviour
         {
             placeChance = Random.Range(0, 100);
 
-            if (t.type == TileObject.TileType.TRAVERSABLE && placeChance < 2 && spreadCounter == 50)
+            spreadCounter++;
+
+            if (t.type == TileObject.TileType.TRAVERSABLE && placeChance < 2 && spreadCounter >= 25)
             {
+                spreadCounter = 0;
                 int chance = Random.Range(0, 10);
 
                 GameObject resource;
 
-                if (chance % 2 == 0 && fluffCounter < maxFluff)
+                if (chance % 2 == 0 && fluffs.Capacity < maxFluff)
                 {
                     resource = Instantiate(
                         fluff[Random.Range(0, 4)],
                         new Vector3(t.location.x, 0.5f, t.location.y),
                         Quaternion.identity);
-                    fluffCounter++;
+                    //fluffCounter++;
+                    fluffs.Add(resource);
 
                     // Set as child of resourceFondler
                     resource.transform.parent = resourceFondler.transform;
                 }
-                else if (chance % 2 == 1 && plasticCounter < maxPlastic)
+                else if (chance % 2 == 1 && plastics.Capacity < maxPlastic)
                 {
                     resource = Instantiate(
                         plastic[Random.Range(0, 4)],
                         new Vector3(t.location.x, 0.5f, t.location.y),
                         Quaternion.identity);
-                    plasticCounter++;
+                    //plasticCounter++;
+                    plastics.Add(resource);
 
                     // Set as child of resourceFondler
                     resource.transform.parent = resourceFondler.transform;
                 }
 
-                if (fluffCounter == maxFluff && plasticCounter == maxPlastic) return;
             }
+
+            // if (fluffCounter == maxFluff && plasticCounter == maxPlastic) return;
+            if (fluffs.Capacity == maxFluff && plastics.Capacity == maxPlastic) return;
         }
-
-        //foreach (TileObject t in grid)
-        //{
-        //    placeChance = Random.Range(0, 100);
-        //    if (t.type != TileObject.TileType.TRAVERSABLE || spreadCounter < 100)
-        //    {
-        //        spreadCounter++;
-        //        continue;
-        //    }
-
-        //    spreadCounter = 0;
-
-        //    int chance = Random.Range(0, 10);
-
-        //    GameObject resource;
-
-        //    if (chance % 2 == 0 && fluffCounter < maxFluff)
-        //    {
-        //        resource = Instantiate(
-        //            fluff[Random.Range(0, 4)],
-        //            new Vector3(t.location.x, 0.5f, t.location.y),
-        //            Quaternion.identity);
-        //        fluffCounter++;
-
-        //        // Set as child of resourceFondler
-        //        resource.transform.parent = resourceFondler.transform;
-        //    }
-        //    else if (chance % 2 == 1 && plasticCounter < maxPlastic)
-        //    {
-        //        resource = Instantiate(
-        //            plastic[Random.Range(0, 4)],
-        //            new Vector3(t.location.x, 0.5f, t.location.y),
-        //            Quaternion.identity);
-        //        plasticCounter++;
-
-        //        // Set as child of resourceFondler
-        //        resource.transform.parent = resourceFondler.transform;
-        //    }
-
-        //    //if (resource.gameObject.GetComponent<Collider>.)
-
-        //    if (fluffCounter == maxFluff && plasticCounter == maxPlastic) return;
-        //}
     }
 }

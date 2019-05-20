@@ -42,6 +42,9 @@ public class BulletController : MonoBehaviour
                 ResetBullet();
                 break;
             case "P1_Base":
+            case "P1_Spawner":
+            case "P1_Turret":
+            case "P1_Healer":
                 if (this.gameObject.tag != "P1_Bullet")
                 {
                     collision.gameObject.GetComponent<HealthBehavior>().adjustHealth(-BULLET_DAMAGE);
@@ -49,6 +52,9 @@ public class BulletController : MonoBehaviour
                 ResetBullet();
                 break;
             case "P2_Base":
+            case "P2_Spawner":
+            case "P2_Turret":
+            case "P2_Healer":
                 if (this.gameObject.tag != "P2_Bullet")
                 {
                     collision.gameObject.GetComponent<HealthBehavior>().adjustHealth(-BULLET_DAMAGE);
