@@ -30,7 +30,6 @@ public class BulletController : MonoBehaviour
             case "Player1_obj":
                 if (this.gameObject.tag != "P1_Bullet")
                 {
-                    GetComponent<AudioSource>().Play();
                     collision.gameObject.GetComponent<HealthBehavior>().adjustHealth(-bulletDamage);
                 }
                 ResetBullet();
@@ -38,7 +37,6 @@ public class BulletController : MonoBehaviour
             case "Player2_obj":
                 if (this.gameObject.tag != "P2_Bullet")
                 {
-                    GetComponent<AudioSource>().Play();
                     collision.gameObject.GetComponent<HealthBehavior>().adjustHealth(-bulletDamage);
                 }
                 ResetBullet();

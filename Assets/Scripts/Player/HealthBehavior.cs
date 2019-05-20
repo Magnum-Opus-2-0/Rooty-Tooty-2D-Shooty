@@ -177,7 +177,6 @@ public class HealthBehavior : MonoBehaviour
     /// <returns>True if this function call changed the health, false otherwise</returns>
     public bool adjustHealth(int delta)
     {
-
         bool changed = false;
 
         // Healing
