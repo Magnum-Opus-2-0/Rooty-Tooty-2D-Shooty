@@ -1046,7 +1046,7 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: dpad-1-updown
+    m_Name: dpad-1-updown-win
     descriptiveName: 'Player 1: D-pad Up & Down'
     descriptiveNegativeName: 
     negativeButton: 
@@ -1062,7 +1062,23 @@ InputManager:
     axis: 6
     joyNum: 1
   - serializedVersion: 3
-    m_Name: dpad-2-updown
+    m_Name: dpad-1-updown-mac
+    descriptiveName: 'Player 1: D-pad Up & Down'
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 4
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: dpad-2-updown-win
     descriptiveName: 'Player 2: D-pad Up & Down'
     descriptiveNegativeName: 
     negativeButton: 
@@ -1078,7 +1094,23 @@ InputManager:
     axis: 6
     joyNum: 2
   - serializedVersion: 3
-    m_Name: dpad-1-leftright
+    m_Name: dpad-2-updown-mac
+    descriptiveName: 'Player 2: D-pad Up & Down'
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 4
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: dpad-1-leftright-win
     descriptiveName: 'Player 1: D-pad Left & Right'
     descriptiveNegativeName: 
     negativeButton: 
@@ -1094,7 +1126,39 @@ InputManager:
     axis: 5
     joyNum: 1
   - serializedVersion: 3
-    m_Name: dpad-2-leftright
+    m_Name: dpad-1-leftright-mac
+    descriptiveName: 'Player 1: D-pad Left & Right'
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 5
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: dpad-2-leftright-win
+    descriptiveName: 'Player 1: D-pad Left & Right'
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 5
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: dpad-2-leftright-mac
     descriptiveName: 'Player 1: D-pad Left & Right'
     descriptiveNegativeName: 
     negativeButton: 
