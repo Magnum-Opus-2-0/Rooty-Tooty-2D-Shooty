@@ -8,7 +8,7 @@ public class BuildingController : MonoBehaviour
     protected HealthBehavior health;
     [SerializeField]
     protected float timeToDeath = 3.5f;
-    private bool diedOnce;
+    protected bool diedOnce;
 
 
     // Start is called before the first frame update
