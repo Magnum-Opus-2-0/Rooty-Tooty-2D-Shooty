@@ -5,12 +5,10 @@ using UnityEngine.Assertions;
 
 public class CreateBuilding : MonoBehaviour
 {
-    public const string NAME_MIN_SPAWN = "Minion Spawner";
-    public const string NAME_BIG_SPAWN = "Big Minion Spawner";
-    public const string NAME_HEALS = "Heals";
-    public const string NAME_TURRET = "Turret";
-    public const string SUFFIX_P1 = " P1";
-    public const string SUFFIX_P2 = " P2";
+
+    public const string PREFIX_P1 = "P1_";
+    public const string PREFIX_P2 = "P2_";
+    public const string TAG_SPAWNER = "SPAWNER";
 
 
     // Start is called before the first frame update
@@ -90,14 +88,14 @@ public class CreateBuilding : MonoBehaviour
         if(isValid && hasEnough){
             if(isP1Obj){
                 temp = Instantiate(p1_prefab, this.transform.position, Quaternion.identity);
-                if (temp.name == NAME_MIN_SPAWN + SUFFIX_P1 || temp.name == NAME_BIG_SPAWN + SUFFIX_P1)
+                if (temp.tag ==  PREFIX_P1 + TAG_SPAWNER)
                 {
                     InstantiateMinionFondler(temp, "P1");
                 }
             }
             else{
                 temp = Instantiate(p2_prefab, this.transform.position, Quaternion.identity);
-                if (temp.name == NAME_MIN_SPAWN + SUFFIX_P2 || temp.name == NAME_BIG_SPAWN + SUFFIX_P2)
+                if (temp.tag == PREFIX_P2 + TAG_SPAWNER)
                 {
                     InstantiateMinionFondler(temp, "P2");
                 }
@@ -141,6 +139,7 @@ public class CreateBuilding : MonoBehaviour
     {
         GameObject temp = Instantiate(minion_fondler_prefab, master_minion_fondler) as GameObject;
         spawner.GetComponent<MinionBuildingController>().minionFondler = temp.transform;
+        Debug.Log("We instantiated a spawner.");
     }
 
     /// <summary>

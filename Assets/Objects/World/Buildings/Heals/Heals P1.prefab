@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 6379957993040260964, guid: ee59f7b8781b943999eb030faaf72f97,
         type: 3}
       propertyPath: m_TagString
-      value: P1_Base
+      value: P1_Healer
       objectReference: {fileID: 0}
     - target: {fileID: 6213244026423324408, guid: ee59f7b8781b943999eb030faaf72f97,
         type: 3}
