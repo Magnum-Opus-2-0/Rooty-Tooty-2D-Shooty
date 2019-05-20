@@ -1265,11 +1265,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pivot Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 6395623155632281453, guid: 1caeb09e47caf4af083e7a10e1dc3e9e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6395623155632281459, guid: 1caeb09e47caf4af083e7a10e1dc3e9e,
         type: 3}
       propertyPath: m_LocalPosition.x

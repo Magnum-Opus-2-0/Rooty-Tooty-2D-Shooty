@@ -15,7 +15,12 @@ PrefabInstance:
     - target: {fileID: 379120545345176046, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_TagString
-      value: P1_Base
+      value: P1_Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543360576506452140, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8882353269095666517, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
@@ -78,22 +83,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6805768931389548571, guid: 6b3aa50e2dda5df48abc2035c0b4c89a,
         type: 3}
-    - target: {fileID: 4543360576506452140, guid: d57a2be6f26094e869270958fd79719d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3477318382218700517, guid: d57a2be6f26094e869270958fd79719d,
-        type: 3}
-      propertyPath: minionPrefab
-      value: 
-      objectReference: {fileID: 6805768931389548571, guid: 6b3aa50e2dda5df48abc2035c0b4c89a,
-        type: 3}
-    - target: {fileID: 6496117687222769320, guid: d57a2be6f26094e869270958fd79719d,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 589774356390614101, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_TagString
@@ -114,6 +103,17 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 58ac3dd87b2e948899e3b3a6b797365d, type: 2}
+    - target: {fileID: 6496117687222769320, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477318382218700517, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: minionPrefab
+      value: 
+      objectReference: {fileID: 6805768931389548571, guid: 6b3aa50e2dda5df48abc2035c0b4c89a,
+        type: 3}
     - target: {fileID: 7972818803777575072, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_Enabled
