@@ -57,6 +57,8 @@ public class MinionController : MonoBehaviour, IRecyclable
     // Update is called once per frame
     void Update()
     {
+
+
         if (!health.isNotDead())
         {
             Die();
@@ -90,6 +92,8 @@ public class MinionController : MonoBehaviour, IRecyclable
 
             // NavMeshDemo with pad controls
             else {
+
+                Debug.Log(Input.GetAxis(leftRight));
 
                 #region Pad Controls
                 // If left, defend

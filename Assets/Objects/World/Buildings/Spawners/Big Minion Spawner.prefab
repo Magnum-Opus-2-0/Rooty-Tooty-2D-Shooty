@@ -83,7 +83,7 @@ CapsuleCollider:
   m_Radius: 1.25
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0.35, z: 0}
+  m_Center: {x: 0, y: 1.25, z: 0}
 --- !u!114 &1634013807900827573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,8 +99,6 @@ MonoBehaviour:
   timeToDeath: 3.5
   minionToSpawn: {fileID: 0}
   minionFondler: {fileID: 0}
-  minionBulletFondler: {fileID: 2778271281630058824, guid: a487210c189404e3db1b5933812739cb,
-    type: 3}
   spawns: []
   timeBetweenBatches: 30
   timeBetweenMinions: 1
@@ -120,6 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 7642721939116508533}
   explodeScript: {fileID: 4894607221957959833}
+  maxHealth: 100
   currentHealth: 50
   doPoisonDemo: 0
   health_icon: {fileID: 7642721939116496939}

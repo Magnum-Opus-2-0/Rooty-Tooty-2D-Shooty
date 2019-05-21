@@ -32,6 +32,7 @@ MonoBehaviour:
     type: 3}
   p2_prefab: {fileID: 4616921332225745798, guid: d2bb9056aac904cceb344f182b6cd578,
     type: 3}
+  minion_fondler_prefab: {fileID: 0}
   parts:
   - {fileID: 7357756416975253493}
   - {fileID: 3261959884177816774}
@@ -40,6 +41,8 @@ MonoBehaviour:
   tc: {fileID: 0}
   fluffCost: 0
   plasticCost: 0
+  validColor: {r: 2, g: 2, b: 2, a: 0.1}
+  invalidColor: {r: 255, g: 0, b: 0, a: 0.1}
 --- !u!1001 &8640342663391322681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -107,42 +110,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6049310774328623886, guid: ee59f7b8781b943999eb030faaf72f97,
+    - target: {fileID: 4077994614230006117, guid: ee59f7b8781b943999eb030faaf72f97,
         type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6049310774328623886, guid: ee59f7b8781b943999eb030faaf72f97,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6049310774328623886, guid: ee59f7b8781b943999eb030faaf72f97,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 6049310774328623886, guid: ee59f7b8781b943999eb030faaf72f97,
-        type: 3}
-      propertyPath: m_Height
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6049310774328623886, guid: ee59f7b8781b943999eb030faaf72f97,
-        type: 3}
-      propertyPath: m_Center.x
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6049310774328623886, guid: ee59f7b8781b943999eb030faaf72f97,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6049310774328623886, guid: ee59f7b8781b943999eb030faaf72f97,
-        type: 3}
-      propertyPath: m_Direction
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7989423248096362331, guid: ee59f7b8781b943999eb030faaf72f97,
+    - target: {fileID: 3647854945144431979, guid: ee59f7b8781b943999eb030faaf72f97,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -152,36 +125,31 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
-    - target: {fileID: 3647854945144431979, guid: ee59f7b8781b943999eb030faaf72f97,
+    - target: {fileID: 2549144355843819913, guid: ee59f7b8781b943999eb030faaf72f97,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549144355843819913, guid: ee59f7b8781b943999eb030faaf72f97,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717655226195069454, guid: ee59f7b8781b943999eb030faaf72f97,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717655226195069454, guid: ee59f7b8781b943999eb030faaf72f97,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989423248096362331, guid: ee59f7b8781b943999eb030faaf72f97,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
-    - target: {fileID: 4077994614230006117, guid: ee59f7b8781b943999eb030faaf72f97,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2549144355843819913, guid: ee59f7b8781b943999eb030faaf72f97,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2549144355843819913, guid: ee59f7b8781b943999eb030faaf72f97,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4717655226195069454, guid: ee59f7b8781b943999eb030faaf72f97,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4717655226195069454, guid: ee59f7b8781b943999eb030faaf72f97,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7991329072517405441, guid: ee59f7b8781b943999eb030faaf72f97,
         type: 3}
       propertyPath: m_IsTrigger
