@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class TitleManager : MonoBehaviour
 {
     public string playScene;
+    public string loadingScene;
     public string tutorialScene;
     public string optionsScene;
     public string creditsScene;
@@ -38,6 +39,11 @@ public class TitleManager : MonoBehaviour
     public void SwitchToPlay()
     {
         SceneManager.LoadSceneAsync(playScene);
+    }
+
+    public void SwitchToLoading()
+    {
+        SceneManager.LoadSceneAsync(loadingScene);
     }
 
     /// <summary>
