@@ -19,9 +19,11 @@ MonoBehaviour:
   minion_fondler_prefab: {fileID: 547741582400397761, guid: a9024ffc2f8b5413ab03ba1371534982,
     type: 3}
   parts:
-  - {fileID: 7296212415567430756}
-  - {fileID: 3223243052884235794}
-  - {fileID: 3416523592400868385}
+  - {fileID: 2326995723877048201}
+  - {fileID: 2326995723877048207}
+  - {fileID: 2326995723877048205}
+  - {fileID: 2326995723877048199}
+  - {fileID: 2326995723877048197}
   isP1Obj: 0
   tc: {fileID: 0}
   fluffCost: 1
@@ -135,6 +137,41 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5558902537661501814, guid: 15d76df85826a4313820404bea8bb3b0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
+    - target: {fileID: 5558902537661501808, guid: 15d76df85826a4313820404bea8bb3b0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
+    - target: {fileID: 5558902537661501818, guid: 15d76df85826a4313820404bea8bb3b0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
+    - target: {fileID: 5558902537661501822, guid: 15d76df85826a4313820404bea8bb3b0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
+    - target: {fileID: 5558902537661501816, guid: 15d76df85826a4313820404bea8bb3b0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
+    - target: {fileID: 7818146533575683260, guid: 15d76df85826a4313820404bea8bb3b0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589716139341009962, guid: 15d76df85826a4313820404bea8bb3b0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3357265257113526514, guid: 15d76df85826a4313820404bea8bb3b0, type: 3}
     - {fileID: 4894607221957959833, guid: 15d76df85826a4313820404bea8bb3b0, type: 3}
@@ -149,21 +186,33 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7885264392751484977}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7296212415567430756 stripped
+--- !u!1 &2326995723877048201 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 589774356390614101, guid: 15d76df85826a4313820404bea8bb3b0,
+  m_CorrespondingSourceObject: {fileID: 5558902537663696824, guid: 15d76df85826a4313820404bea8bb3b0,
     type: 3}
   m_PrefabInstance: {fileID: 7885264392751484977}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3223243052884235794 stripped
+--- !u!1 &2326995723877048207 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4743790507997791779, guid: 15d76df85826a4313820404bea8bb3b0,
+  m_CorrespondingSourceObject: {fileID: 5558902537663696830, guid: 15d76df85826a4313820404bea8bb3b0,
     type: 3}
   m_PrefabInstance: {fileID: 7885264392751484977}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3416523592400868385 stripped
+--- !u!1 &2326995723877048205 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4758044437357429776, guid: 15d76df85826a4313820404bea8bb3b0,
+  m_CorrespondingSourceObject: {fileID: 5558902537663696828, guid: 15d76df85826a4313820404bea8bb3b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 7885264392751484977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2326995723877048199 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5558902537663696822, guid: 15d76df85826a4313820404bea8bb3b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 7885264392751484977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2326995723877048197 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5558902537663696820, guid: 15d76df85826a4313820404bea8bb3b0,
     type: 3}
   m_PrefabInstance: {fileID: 7885264392751484977}
   m_PrefabAsset: {fileID: 0}
