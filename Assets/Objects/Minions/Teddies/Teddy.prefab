@@ -776,7 +776,7 @@ MonoBehaviour:
   upDown: 
   leftRight: 
   nv_agent: {fileID: 0}
-  doNavMeshDemo: 0
+  doNavMeshDemo: 1
   useMouseControls: 0
 --- !u!114 &3268949098096064958
 MonoBehaviour:
