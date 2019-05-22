@@ -28,16 +28,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Large Fluff (Spool)
       objectReference: {fileID: 0}
-    - target: {fileID: 8618098163074081621, guid: cb3a84c18a428429884a51d760eb6629,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8618098163074081621, guid: cb3a84c18a428429884a51d760eb6629,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.725
-      objectReference: {fileID: 0}
     - target: {fileID: 8618098163074081620, guid: cb3a84c18a428429884a51d760eb6629,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -101,7 +91,17 @@ PrefabInstance:
     - target: {fileID: 5115936400269251719, guid: cb3a84c18a428429884a51d760eb6629,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.17
+      value: 0.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 8618098163074081621, guid: cb3a84c18a428429884a51d760eb6629,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8618098163074081621, guid: cb3a84c18a428429884a51d760eb6629,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.725
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb3a84c18a428429884a51d760eb6629, type: 3}
