@@ -93,7 +93,7 @@ public class MinionController : MonoBehaviour, IRecyclable
             // NavMeshDemo with pad controls
             else {
 
-                Debug.Log(Input.GetAxis(leftRight));
+                //Debug.Log(Input.GetAxis(leftRight));
 
                 #region Pad Controls
                 // If left, defend

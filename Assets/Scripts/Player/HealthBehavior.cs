@@ -58,12 +58,17 @@ public class HealthBehavior : MonoBehaviour
             explodeScript.Explode();
         }
 
-        if (!isNotDead() && respawnTime <= TOTAL_RESPAWN_TIME)
+        if (!isNotDead() && respawnTime <= TOTAL_RESPAWN_TIME && doesRespawn)
         {
             respawnTime -= Time.fixedDeltaTime;
             respawn_background.gameObject.SetActive(true);
             respawnText.gameObject.SetActive(true);
             respawnText.text = "You're DEAD! Respawning in " + respawnTime.ToString("0");
+        }
+
+        if (!isNotDead() && respawnTime <= TOTAL_RESPAWN_TIME && !doesRespawn)
+        {
+            respawn_background.gameObject.SetActive(false);
         }
 
         if (respawnTime <= 0 && doesRespawn)
