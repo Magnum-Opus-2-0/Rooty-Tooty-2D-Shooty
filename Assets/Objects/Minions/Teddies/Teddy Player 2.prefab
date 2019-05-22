@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teddy Player 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4243053607138502583, guid: d0622fda0ce7f4a619b3f13878228383,
+        type: 3}
+      propertyPath: m_TagString
+      value: P2_Minion
+      objectReference: {fileID: 0}
     - target: {fileID: 4243053607138212759, guid: d0622fda0ce7f4a619b3f13878228383,
         type: 3}
       propertyPath: m_LocalPosition.x

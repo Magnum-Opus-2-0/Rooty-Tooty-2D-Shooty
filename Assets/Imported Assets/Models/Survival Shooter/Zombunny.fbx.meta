@@ -91,12 +91,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: EyesMaterial
-    second: {fileID: 2100000, guid: 51d14e0fd3936be48bf8d5031d3e24c7, type: 2}
+    second: {fileID: 2100000, guid: 21d99ab0856ab452a99cab8eaddd897f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ZombunnyMaterial
-    second: {fileID: 2100000, guid: 90309a9ae07af7a4baf27031c594f369, type: 2}
+    second: {fileID: 2100000, guid: d51ff9be9b4e843ba97f06bed1b22f7c, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -120,7 +120,7 @@ ModelImporter:
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
-    animationWrapMode: 0
+    animationWrapMode: 2
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations:

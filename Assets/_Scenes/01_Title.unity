@@ -1635,7 +1635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playScene: 02_Play
-  loadingScene: 04_Loading
+  loadingScene: 04_LoadingPlay
   tutorialScene: 01_Title
   optionsScene: 01_Title
   creditsScene: 01_Title

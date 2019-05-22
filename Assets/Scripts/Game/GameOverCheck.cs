@@ -79,6 +79,6 @@ public class GameOverCheck : MonoBehaviour
 
     public void BackToTitle()
     {
-        SceneManager.LoadSceneAsync("01_Title");
+        SceneManager.LoadSceneAsync("05_LoadingTitle");
     }
 }

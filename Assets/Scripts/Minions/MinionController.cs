@@ -50,8 +50,10 @@ public class MinionController : MonoBehaviour, IRecyclable
         enemyBase = (tag.Equals("P1_Minion") ? P2_Base.transform : P1_Base.transform);
 
 
-
-        StartCoroutine(DebugShoot());
+        if (shooter)
+        {
+            StartCoroutine(DebugShoot());
+        }
     }
 
     // Update is called once per frame

@@ -771,11 +771,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1abb06745efe48fba0aa3ea74cdf840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 30
   reloadTime: 0
   upDown: 
   leftRight: 
-  nv_agent: {fileID: 0}
+  nv_agent: {fileID: 8008131314690178117}
   doNavMeshDemo: 1
   useMouseControls: 0
 --- !u!114 &3268949098096064958
@@ -842,7 +842,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4243053607138502583}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.75
+  m_Radius: 1
   m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
