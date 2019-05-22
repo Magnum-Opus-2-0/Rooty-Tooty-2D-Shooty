@@ -58,17 +58,23 @@ public class HealthBehavior : MonoBehaviour
             explodeScript.Explode();
         }
 
-        if (!isNotDead() && respawnTime <= TOTAL_RESPAWN_TIME && doesRespawn)
+        if (!isNotDead() && respawnTime <= TOTAL_RESPAWN_TIME)
         {
-            respawnTime -= Time.fixedDeltaTime;
-            respawn_background.gameObject.SetActive(true);
-            respawnText.gameObject.SetActive(true);
-            respawnText.text = "You're DEAD! Respawning in " + respawnTime.ToString("0");
-        }
-
-        if (!isNotDead() && respawnTime <= TOTAL_RESPAWN_TIME && !doesRespawn)
-        {
-            respawn_background.gameObject.SetActive(false);
+            if (doesRespawn)
+            {
+                // If the GameObject this is attached to does respawn then we want to
+                // show the black bar and how long they have to wait.
+                respawnTime -= Time.fixedDeltaTime;
+                respawn_background.gameObject.SetActive(true);
+                respawnText.gameObject.SetActive(true);
+                respawnText.text = "You're DEAD! Respawning in " + respawnTime.ToString("0");
+            }
+            else
+            {
+                // If the GameObject this is attached to does not respawn we don't want
+                // to keep the black bar visible.
+                respawn_background.gameObject.SetActive(false);
+            }
         }
 
         if (respawnTime <= 0 && doesRespawn)
@@ -80,6 +86,20 @@ public class HealthBehavior : MonoBehaviour
             respawnText.gameObject.SetActive(false);
 
             respawnTime = 5;
+        }
+
+        // We only want to show the health bar if the GameObjec this is attached
+        // to has taken some damage.
+        if (currentHealth < maxHealth)
+        {
+            respawn_background.transform.parent.gameObject.SetActive(true);
+        }
+        // Player canvases always need to be on whether they've taken damage or not
+        // I should have used the TagManager here, but I'm not quite sure the
+        // best way to reference it.
+        else if (tag != "Player1_obj" && tag != "Player2_obj")
+        {
+            respawn_background.transform.parent.gameObject.SetActive(false);
         }
     }
 

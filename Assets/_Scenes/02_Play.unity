@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.2
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37145963, g: 0.3919365, b: 0.40339306, a: 0.2}
+  m_IndirectSpecularColor: {r: 0.37148863, g: 0.39190024, b: 0.403405, a: 0.2}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 433657229}
   explodeScript: {fileID: 162644117}
-  maxHealth: 100
+  maxHealth: 200
   currentHealth: 200
   doPoisonDemo: 0
   health_icon: {fileID: 433657228}
@@ -1285,11 +1285,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1445095099381107511, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7036091258238559013, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: bulletFondler
@@ -1328,6 +1323,11 @@ PrefabInstance:
     - target: {fileID: 1545145930801321869, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: BypassEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445095099381107511, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1600,16 +1600,6 @@ PrefabInstance:
       propertyPath: shootScript
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6355854459110127413, guid: b416b72df150e488a918a43d9d34a1a1,
-        type: 3}
-      propertyPath: m_Mass
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6355854459110127413, guid: b416b72df150e488a918a43d9d34a1a1,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 603424915155331423, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: driveMode
@@ -1655,6 +1645,16 @@ PrefabInstance:
       propertyPath: bulletFondler
       value: 
       objectReference: {fileID: 842396105}
+    - target: {fileID: 6355854459110127413, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6355854459110127413, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 760103282773724117, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: m_audioClip
@@ -2569,7 +2569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 42711835}
   explodeScript: {fileID: 2030128576}
-  maxHealth: 100
+  maxHealth: 200
   currentHealth: 200
   doPoisonDemo: 0
   health_icon: {fileID: 1098519604}
