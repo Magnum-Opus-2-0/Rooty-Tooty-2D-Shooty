@@ -1666,6 +1666,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1331501193}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &881560893
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3445041534280741803, guid: 84a38aca084184344964f7f2748fd314,
+        type: 3}
+      propertyPath: m_Name
+      value: Teddy Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445041534280576907, guid: 84a38aca084184344964f7f2748fd314,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445041534280576907, guid: 84a38aca084184344964f7f2748fd314,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445041534280576907, guid: 84a38aca084184344964f7f2748fd314,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445041534280576907, guid: 84a38aca084184344964f7f2748fd314,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445041534280576907, guid: 84a38aca084184344964f7f2748fd314,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445041534280576907, guid: 84a38aca084184344964f7f2748fd314,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445041534280576907, guid: 84a38aca084184344964f7f2748fd314,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445041534280576907, guid: 84a38aca084184344964f7f2748fd314,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445041534280576907, guid: 84a38aca084184344964f7f2748fd314,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445041534280576907, guid: 84a38aca084184344964f7f2748fd314,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445041534280576907, guid: 84a38aca084184344964f7f2748fd314,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 84a38aca084184344964f7f2748fd314, type: 3}
 --- !u!1 &904337220
 GameObject:
   m_ObjectHideFlags: 0
@@ -3091,6 +3160,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 395422e6a62084b8c9cf3e4bfb4f5576, type: 3}
+--- !u!1001 &1774400417
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6437489148964920028, guid: bbb13a33159b5402cbcd26ce33859fa8,
+        type: 3}
+      propertyPath: m_Name
+      value: Teddy Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437489148964882172, guid: bbb13a33159b5402cbcd26ce33859fa8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.468
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437489148964882172, guid: bbb13a33159b5402cbcd26ce33859fa8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437489148964882172, guid: bbb13a33159b5402cbcd26ce33859fa8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.311
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437489148964882172, guid: bbb13a33159b5402cbcd26ce33859fa8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437489148964882172, guid: bbb13a33159b5402cbcd26ce33859fa8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437489148964882172, guid: bbb13a33159b5402cbcd26ce33859fa8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437489148964882172, guid: bbb13a33159b5402cbcd26ce33859fa8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437489148964882172, guid: bbb13a33159b5402cbcd26ce33859fa8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437489148964882172, guid: bbb13a33159b5402cbcd26ce33859fa8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437489148964882172, guid: bbb13a33159b5402cbcd26ce33859fa8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437489148964882172, guid: bbb13a33159b5402cbcd26ce33859fa8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bbb13a33159b5402cbcd26ce33859fa8, type: 3}
 --- !u!4 &1786516560 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2365052988772019896, guid: 395422e6a62084b8c9cf3e4bfb4f5576,
