@@ -41,8 +41,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - Player_1_Aim
-  - Player_2_Aim
+  - Player_1_Target
+  - Player_2_Target
   - 
   - 
   - 

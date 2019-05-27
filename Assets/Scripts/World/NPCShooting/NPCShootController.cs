@@ -39,6 +39,20 @@ public abstract class NPCShootController : MonoBehaviour
     }
 
     [SerializeField]
+    protected float range;
+    public float Range
+    {
+        get
+        {
+            return range;
+        }
+        set
+        {
+            range = value;
+        }
+    }
+
+    [SerializeField]
     protected float bulletSpeed;
     public float BulletSpeed
     {
@@ -77,7 +91,7 @@ public abstract class NPCShootController : MonoBehaviour
         health = GetComponent<HealthBehavior>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (!health.isNotDead())
         {
@@ -86,4 +100,62 @@ public abstract class NPCShootController : MonoBehaviour
     }
 
     public abstract void Shoot();
+
+    /// <summary>
+    /// Acquires the targets. That is, gets all GameObjects with the specified 
+    /// tags in range. This method guarantees that no duplicate GameObjects will
+    /// be returned.
+    /// </summary>
+    /// <returns>A List of GameObjects representing the targets in range.</returns>
+    /// <param name="layer">The layer of the targets to be acquired.</param>
+    protected List<GameObject> AcquireTargets(int layer)
+    {
+        List<GameObject> inRange;
+        Collider[] colliders = Physics.OverlapSphere(transform.position, range, layer);
+
+        inRange = new List<GameObject>();
+
+        foreach (Collider c in colliders)
+        {
+            GameObject target = c.transform.root.gameObject;
+            // Make sure we don't add duplicate references to the same GameObject
+            if (!inRange.Contains(target))
+            {
+                inRange.Add(target);
+            }
+        }
+
+        return inRange;
+    }
+
+    /// <summary>
+    /// Acquires the highest priority target from a list of GameObjects.
+    /// Priority is determined by the implementing class.
+    /// </summary>
+    /// <returns>The highest priority target.</returns>
+    /// <param name="targets">A list of GameObjects from which to acquire the
+    /// target.</param>
+    public abstract GameObject AcquireTarget(List<GameObject> targets);
+
+    /// <summary>
+    /// Determines the target layer. By comparing its own layer and returning
+    /// the other.
+    /// <para>E.g. if this GameObject has the "Player_2_Target" layer then it returns 
+    /// the "Player_1_Target" layer and vice versa.</para>
+    /// </summary>
+    /// <returns>The targets' layer, or -1 if this GameObject's layer is invalid.</returns>
+    public int DetermineTargetLayer()
+    {
+        if (gameObject.layer == LayerMask.NameToLayer("Player_1_Target"))
+        {
+            return LayerMask.NameToLayer("Player_2_Target");
+        } 
+
+        if (gameObject.layer == LayerMask.NameToLayer("Player_2_Target"))
+        {
+            return LayerMask.NameToLayer("Player_1_Target");
+        }
+
+        return -1;
+    }
 }

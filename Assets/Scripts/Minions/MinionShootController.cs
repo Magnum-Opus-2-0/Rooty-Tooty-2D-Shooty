@@ -16,9 +16,9 @@ public class MinionShootController : NPCShootController
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-
+        base.Update();
     }
 
     /// <summary>
@@ -30,6 +30,12 @@ public class MinionShootController : NPCShootController
         StartCoroutine(Burst());
     }
 
+    /// <summary>
+    /// The Coroutine that makes Minions fire in bursts. The burst size and speed
+    /// is determined by <see cref="burstSize"/> and <see cref="NPCShootController.rateOfFire"/>
+    /// respectively.
+    /// </summary>
+    /// <returns>The IEnumerator necessary for .</returns>
     private IEnumerator Burst()
     {
         for (int i = 0; i < burstSize; i++)
@@ -38,6 +44,18 @@ public class MinionShootController : NPCShootController
             rb.AddForce(bulletSpeed * barrel.parent.forward, ForceMode.VelocityChange);
             yield return new WaitForSeconds(rateOfFire);
         }
+    }
+
+    /// <summary>
+    /// Acquires the highest priority target.
+    /// <para>Priority (in descending order): Player, Other Minions, Buildings</para>
+    /// </summary>
+    /// <returns>The target.</returns>
+    /// <param name="targets">Targets.</param>
+    public override GameObject AcquireTarget(List<GameObject> targets)
+    {
+
+        return null;
     }
 
 }
