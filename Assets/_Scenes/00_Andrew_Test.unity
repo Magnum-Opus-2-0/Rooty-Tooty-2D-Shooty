@@ -608,6 +608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1275108704}
   explodeScript: {fileID: 763204284}
+  maxHealth: 100
   currentHealth: 200
   doPoisonDemo: 0
   health_icon: {fileID: 1275108703}
@@ -1022,6 +1023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 429477652}
   explodeScript: {fileID: 1356377667}
+  maxHealth: 100
   currentHealth: 200
   doPoisonDemo: 0
   health_icon: {fileID: 429477651}
@@ -1641,6 +1643,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3573426434757915892, guid: b4c67ed272150b04bba22abe8c018386,
+        type: 3}
+      propertyPath: maxPlastic
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4c67ed272150b04bba22abe8c018386, type: 3}

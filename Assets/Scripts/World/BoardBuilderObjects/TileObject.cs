@@ -8,7 +8,8 @@ public class TileObject /*: ScriptableObject*/ {
 
         EMPTY,
         TRAVERSABLE,
-        NON_TRAVERSABLE
+        NON_TRAVERSABLE,
+        RESOURCE
     }
 
     public TileObject() {

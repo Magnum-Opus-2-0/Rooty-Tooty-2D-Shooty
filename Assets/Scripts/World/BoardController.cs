@@ -274,53 +274,62 @@ public class BoardController : MonoBehaviour
         List<GameObject> fluffs = new List<GameObject>();
         List<GameObject> plastics = new List<GameObject>();
 
-        int fluffCounter = 0;
-        int plasticCounter = 0;
-        int spreadCounter = 0;
-        int placeChance = 0;
+        //int gridLoopCount = 0;
 
-        foreach (TileObject t in grid)
+        while (fluffs.Count < maxFluff || plastics.Count < maxPlastic)
         {
-            placeChance = Random.Range(0, 100);
-
-            // spreadCounter++;
-
-            if (t.type == TileObject.TileType.TRAVERSABLE && placeChance < 2 /* && spreadCounter >= 25 */)
+            foreach (TileObject t in grid)
             {
-                // spreadCounter = 0;
-                int chance = Random.Range(0, 10);
+                int placeChance = Random.Range(0, 100);
 
-                GameObject resource;
-
-                if (/* chance % 2 == 0 && */ fluffs.Capacity < maxFluff)
+                if (t.type == TileObject.TileType.TRAVERSABLE && placeChance < 2)
                 {
-                    resource = Instantiate(
-                        fluff[Random.Range(0, 4)],
-                        new Vector3(t.location.x, 0, t.location.y),
-                        Quaternion.identity);
-                    //fluffCounter++;
-                    fluffs.Add(resource);
+                    int coinFlip = Random.Range(0, 2);
 
-                    // Set as child of resourceFondler
-                    resource.transform.parent = resourceFondler.transform;
+                    GameObject resource;
+
+                    if (coinFlip % 2 == 0 && fluffs.Count < maxFluff)
+                    {
+                        resource = Instantiate(
+                            fluff[Random.Range(0, 4)],
+                            new Vector3(t.location.x, 0, t.location.y),
+                            Quaternion.identity);
+
+                        fluffs.Add(resource);
+
+                        // Set as child of resourceFondler
+                        resource.transform.parent = resourceFondler.transform;
+
+                        t.type = TileObject.TileType.RESOURCE;
+                    }
+                    else if (coinFlip % 2 == 1 && plastics.Count < maxPlastic)
+                    {
+                        resource = Instantiate(
+                            plastic[Random.Range(0, 4)],
+                            new Vector3(t.location.x, 0, t.location.y),
+                            Quaternion.identity);
+
+                        plastics.Add(resource);
+
+                        // Set as child of resourceFondler
+                        resource.transform.parent = resourceFondler.transform;
+
+                        t.type = TileObject.TileType.RESOURCE;
+                    }
+
                 }
-                else if (/* chance % 2 == 1 && */ plastics.Capacity < maxPlastic)
+
+                if (fluffs.Count == maxFluff && plastics.Count == maxPlastic)
                 {
-                    resource = Instantiate(
-                        plastic[Random.Range(0, 4)],
-                        new Vector3(t.location.x, 0, t.location.y),
-                        Quaternion.identity);
-                    //plasticCounter++;
-                    plastics.Add(resource);
-
-                    // Set as child of resourceFondler
-                    resource.transform.parent = resourceFondler.transform;
+                    //Debug.Log("Returning early: fluff count: " + fluffs.Count + " plastic count: " + plastics.Count);
+                    return;
                 }
-
             }
 
-            // if (fluffCounter == maxFluff && plasticCounter == maxPlastic) return;
-            if (fluffs.Capacity == maxFluff && plastics.Capacity == maxPlastic) return;
+            //gridLoopCount++;
         }
+
+        //Debug.Log("Returning at very end: fluff count: " + fluffs.Count + " plastic count: " + plastics.Count);
+        //Debug.Log("Grid Loop Count: " + gridLoopCount);
     }
 }
