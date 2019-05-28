@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ShootController : MonoBehaviour
 {
+
+    private static TagManager taggyboi = new TagManager();
+
     /// <summary>
     /// A bullet struct that holds the GameObject and if it was already fired.
     /// </summary>
@@ -116,7 +119,7 @@ public class ShootController : MonoBehaviour
     {
         // Pass the current state of the button into the shooting state machine.
         // Only if the player is currently alive.
-        if (this.gameObject.tag != "P1_Minion" && this.gameObject.tag != "P2_Minion")
+        if (taggyboi.isMinion(tag))
         {
             if (tc.State == TankStates.Alive)
             {
@@ -124,7 +127,7 @@ public class ShootController : MonoBehaviour
             }
         }
 
-        if (this.gameObject.tag == "P1_Minion" || this.gameObject.tag == "P2_Minion")
+        if (taggyboi.isMinion(tag))
         {
             FireRateStateMachine(true);
         }
@@ -256,7 +259,7 @@ public class ShootController : MonoBehaviour
             case SHOOT_States.FIRE:
                 reloadTimer = 0f;
                 Fire(true);
-                if (this.gameObject.tag != "P1_Minion" && this.gameObject.tag != "P2_Minion")
+                if (taggyboi.isMinion(tag))
                     shootSound.Play();
                 break;
             case SHOOT_States.COUNT_ON:

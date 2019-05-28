@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.2
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37145963, g: 0.3919365, b: 0.40339306, a: 0.2}
+  m_IndirectSpecularColor: {r: 0.37148863, g: 0.39190024, b: 0.403405, a: 0.2}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -202,7 +202,6 @@ GameObject:
   - component: {fileID: 231990145}
   - component: {fileID: 231990146}
   - component: {fileID: 231990147}
-  - component: {fileID: 231990148}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -257,18 +256,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   submitButton: submit-win
   sim: {fileID: 694282928}
---- !u!114 &231990148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231990144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a66e93f136bb6844993f85a3c180928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &260395128
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,11 +922,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1445095099381107511, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7036091258238559013, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: bulletFondler
@@ -978,6 +960,11 @@ PrefabInstance:
     - target: {fileID: 1545145930801321869, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: BypassEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445095099381107511, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1313,16 +1300,6 @@ PrefabInstance:
       propertyPath: shootScript
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6355854459110127413, guid: b416b72df150e488a918a43d9d34a1a1,
-        type: 3}
-      propertyPath: m_Mass
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6355854459110127413, guid: b416b72df150e488a918a43d9d34a1a1,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 603424915155331423, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: driveMode
@@ -1368,6 +1345,16 @@ PrefabInstance:
       propertyPath: bulletFondler
       value: 
       objectReference: {fileID: 842396105}
+    - target: {fileID: 6355854459110127413, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6355854459110127413, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 760103282773724117, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: m_audioClip
@@ -1579,15 +1566,15 @@ PrefabInstance:
       propertyPath: chanceOfResourceSpawn
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 6142511023060367099, guid: b4c67ed272150b04bba22abe8c018386,
-        type: 3}
-      propertyPath: m_TagString
-      value: Floor
-      objectReference: {fileID: 0}
     - target: {fileID: 2614859904533919858, guid: b4c67ed272150b04bba22abe8c018386,
         type: 3}
       propertyPath: m_CollectObjects
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142511023060367099, guid: b4c67ed272150b04bba22abe8c018386,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4c67ed272150b04bba22abe8c018386, type: 3}
