@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6705101474341351282}
   m_Layer: 0
   m_Name: First Floor
-  m_TagString: P1_Base
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5a073aa2dad96b24eb9509485be26a63, type: 2}
+  - {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 6705101475101975162}
   m_Layer: 0
   m_Name: Crystal Ball
-  m_TagString: P1_Base
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,7 +149,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c039624490d3e7d498123ffb284a2c74, type: 2}
+  - {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -191,9 +191,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6705101475199266980}
+  - component: {fileID: 1191870792101059119}
+  - component: {fileID: 578234894329849156}
+  - component: {fileID: 803303517879338506}
   m_Layer: 0
   m_Name: Base
-  m_TagString: P1_Base
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,8 +209,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6705101475199266983}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.93, y: 1, z: 14.3}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6705101475101975157}
   - {fileID: 6705101475711779550}
@@ -215,6 +218,64 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1191870792101059119
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6705101475199266983}
+  serializedVersion: 2
+  m_Mass: 50
+  m_Drag: 6
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &578234894329849156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6705101475199266983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad7d67438fb5c84db56e38236a66c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  explodeScript: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 200
+  doPoisonDemo: 0
+  health_icon: {fileID: 0}
+  respawn_background: {fileID: 0}
+  respawnText: {fileID: 0}
+  health_val: {fileID: 0}
+  respawnTime: 5
+  doesRespawn: 1
+--- !u!114 &803303517879338506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6705101475199266983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a794384a98e241e46a3c093186ae91ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doExplosionDemo: 0
+  forceOfExplosion: 10
+  radiusOfExplosion: 10
+  pieces:
+  - {fileID: 6705101475101975156}
+  - {fileID: 6705101475711779545}
+  - {fileID: 6705101474341351276}
 --- !u!1 &6705101475711779545
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +290,7 @@ GameObject:
   - component: {fileID: 6705101475711779551}
   m_Layer: 0
   m_Name: Ground Floor
-  m_TagString: P1_Base
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,7 +334,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5a073aa2dad96b24eb9509485be26a63, type: 2}
+  - {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
