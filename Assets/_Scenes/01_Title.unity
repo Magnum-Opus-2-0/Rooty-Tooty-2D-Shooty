@@ -4117,21 +4117,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3573426434757915892, guid: b4c67ed272150b04bba22abe8c018386,
-        type: 3}
-      propertyPath: pathLandmarks
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3573426434757915892, guid: b4c67ed272150b04bba22abe8c018386,
-        type: 3}
-      propertyPath: pathWidth
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6142511023060367099, guid: b4c67ed272150b04bba22abe8c018386,
-        type: 3}
-      propertyPath: m_TagString
-      value: Floor
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4c67ed272150b04bba22abe8c018386, type: 3}
 --- !u!1001 &1831370477

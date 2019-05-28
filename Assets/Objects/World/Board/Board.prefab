@@ -187,6 +187,9 @@ MonoBehaviour:
   - {fileID: 8759658087128272469, guid: 52814aa6d4102444b82f8d16777a79a0, type: 3}
   - {fileID: 2365052988772019901, guid: 395422e6a62084b8c9cf3e4bfb4f5576, type: 3}
   - {fileID: 7876720370246562494, guid: f1d0243c367724fc586be016ad8e2dd2, type: 3}
+  maxFluff: 10
+  maxPlastic: 10
+  chanceOfResourceSpawn: 2
   tileFondler: {fileID: 776686519890861135}
   wallFondler: {fileID: 3239902528913679604}
   obstacleFondler: {fileID: 3479319856060367092}
@@ -237,7 +240,7 @@ GameObject:
   - component: {fileID: 2734825141508976210}
   m_Layer: 0
   m_Name: Ground Collider
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
