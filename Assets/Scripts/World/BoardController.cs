@@ -215,15 +215,53 @@ public class BoardController : MonoBehaviour
             // Skip empty or traversable tiles
             if (t.type != TileObject.TileType.NON_TRAVERSABLE) continue;
 
-            // Create new obstacle
-            GameObject tempObstacle = Instantiate(
-                obstacleTemplate[Random.Range(0, obstacleTemplate.Length)],  // use random template
-                new Vector3(t.location.x, 0.5f, t.location.y),
-                Quaternion.identity);
+            GameObject tempObstacle;
 
-            // Set as child of obstacleFondler
-            tempObstacle.transform.parent = obstacleFondler.transform;
+            int rotationChance = Random.Range(0, 3);
 
+            // Create new obstacle and rotate randomly by either 0/90/180/270 degree angles on the y-axis
+            switch (rotationChance)
+            {
+                case 0:
+                    tempObstacle = Instantiate(
+                        obstacleTemplate[Random.Range(0, obstacleTemplate.Length)],  // use random template
+                        new Vector3(t.location.x, 0.5f, t.location.y),
+                        Quaternion.Euler(0, 0, 0));
+
+                    // Set as child of obstacleFondler
+                    tempObstacle.transform.parent = obstacleFondler.transform;
+                    break;
+                case 1:
+                    tempObstacle = Instantiate(
+                        obstacleTemplate[Random.Range(0, obstacleTemplate.Length)],  // use random template
+                        new Vector3(t.location.x, 0.5f, t.location.y),
+                        Quaternion.Euler(0, 90, 0));
+
+                    // Set as child of obstacleFondler
+                    tempObstacle.transform.parent = obstacleFondler.transform;
+                    break;
+                case 2:
+                    tempObstacle = Instantiate(
+                        obstacleTemplate[Random.Range(0, obstacleTemplate.Length)],  // use random template
+                        new Vector3(t.location.x, 0.5f, t.location.y),
+                        Quaternion.Euler(0, 180, 0));
+
+                    // Set as child of obstacleFondler
+                    tempObstacle.transform.parent = obstacleFondler.transform;
+                    break;
+                case 3:
+                    tempObstacle = Instantiate(
+                        obstacleTemplate[Random.Range(0, obstacleTemplate.Length)],  // use random template
+                        new Vector3(t.location.x, 0.5f, t.location.y),
+                        Quaternion.Euler(0, 270, 0));
+
+                    // Set as child of obstacleFondler
+                    tempObstacle.transform.parent = obstacleFondler.transform;
+                    break;
+                default:
+                    Debug.LogError("rotationChance: " + rotationChance);
+                    break;
+            }
         }
 
         return tempGrid;
@@ -235,6 +273,7 @@ public class BoardController : MonoBehaviour
 
         List<GameObject> fluffs = new List<GameObject>();
         List<GameObject> plastics = new List<GameObject>();
+
         int fluffCounter = 0;
         int plasticCounter = 0;
         int spreadCounter = 0;
@@ -244,16 +283,16 @@ public class BoardController : MonoBehaviour
         {
             placeChance = Random.Range(0, 100);
 
-            spreadCounter++;
+            // spreadCounter++;
 
-            if (t.type == TileObject.TileType.TRAVERSABLE && placeChance < 2 && spreadCounter >= 25)
+            if (t.type == TileObject.TileType.TRAVERSABLE && placeChance < 2 /* && spreadCounter >= 25 */)
             {
-                spreadCounter = 0;
+                // spreadCounter = 0;
                 int chance = Random.Range(0, 10);
 
                 GameObject resource;
 
-                if (chance % 2 == 0 && fluffs.Capacity < maxFluff)
+                if (/* chance % 2 == 0 && */ fluffs.Capacity < maxFluff)
                 {
                     resource = Instantiate(
                         fluff[Random.Range(0, 4)],
@@ -265,7 +304,7 @@ public class BoardController : MonoBehaviour
                     // Set as child of resourceFondler
                     resource.transform.parent = resourceFondler.transform;
                 }
-                else if (chance % 2 == 1 && plastics.Capacity < maxPlastic)
+                else if (/* chance % 2 == 1 && */ plastics.Capacity < maxPlastic)
                 {
                     resource = Instantiate(
                         plastic[Random.Range(0, 4)],
