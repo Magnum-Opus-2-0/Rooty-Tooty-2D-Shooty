@@ -51,6 +51,7 @@ public class CameraSetup : MonoBehaviour
         InitializeHealthBehavior(p2, canvas2);
         InitializeBuildMenuBehavior(p1, canvas1);
         InitializeBuildMenuBehavior(p2, canvas2);
+    
     }
 
 
@@ -82,4 +83,6 @@ public class CameraSetup : MonoBehaviour
         tc.bmc.turret = player.transform.Find("Turret").gameObject;
         tc.bmc.tankController = tc;
     }
+
+    
 }
