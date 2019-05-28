@@ -21,7 +21,7 @@ public class TurretShootController : NPCShootController
         base.Start();
     }
 
-    void Update(){
+    protected override void Update(){
         if(t >= this.rateOfFire && targetAcquired){
             Shoot();
             t -= this.rateOfFire;
@@ -49,7 +49,7 @@ public class TurretShootController : NPCShootController
         rb_l.AddForce(bulletSpeed * barrel_left.forward, ForceMode.VelocityChange);
     }
 
-    public override GameObject AcquireTarget(List<GameObject> targets)
+    public override GameObject AcquireTarget()
     {
         throw new System.NotImplementedException();
     }

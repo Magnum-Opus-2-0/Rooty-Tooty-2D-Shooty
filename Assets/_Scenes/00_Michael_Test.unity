@@ -257,7 +257,7 @@ PrefabInstance:
     - target: {fileID: 6449226687454625668, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cf045c0ebafa2e468fe89884017d837, type: 3}
@@ -534,15 +534,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 6705101475711779545, guid: 7983ca1031c0c50429d7c47753b54d7b,
+        type: 3}
+      propertyPath: m_TagString
+      value: P2_Base
+      objectReference: {fileID: 0}
     - target: {fileID: 6705101475101975156, guid: 7983ca1031c0c50429d7c47753b54d7b,
         type: 3}
       propertyPath: m_Name
       value: Crystal Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 6705101475101975156, guid: 7983ca1031c0c50429d7c47753b54d7b,
+        type: 3}
+      propertyPath: m_TagString
+      value: P2_Base
+      objectReference: {fileID: 0}
     - target: {fileID: 6705101474341351276, guid: 7983ca1031c0c50429d7c47753b54d7b,
         type: 3}
       propertyPath: m_Name
       value: First Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705101474341351276, guid: 7983ca1031c0c50429d7c47753b54d7b,
+        type: 3}
+      propertyPath: m_TagString
+      value: P2_Base
       objectReference: {fileID: 0}
     - target: {fileID: 6705101475101975163, guid: 7983ca1031c0c50429d7c47753b54d7b,
         type: 3}
@@ -2109,7 +2124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1045672046
 Transform:
   m_ObjectHideFlags: 0
@@ -2400,7 +2415,7 @@ PrefabInstance:
     - target: {fileID: 5079315330563056604, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b416b72df150e488a918a43d9d34a1a1, type: 3}
@@ -3514,7 +3529,7 @@ PrefabInstance:
     - target: {fileID: 3709061257022121328, guid: b4c67ed272150b04bba22abe8c018386,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6565609250977220812, guid: b4c67ed272150b04bba22abe8c018386,
         type: 3}

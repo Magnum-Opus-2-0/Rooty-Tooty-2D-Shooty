@@ -85,6 +85,14 @@ public abstract class NPCShootController : MonoBehaviour
 
     protected QueueObjectPooler<RecyclableBullet> bulletPool;
 
+    /// <summary>
+    /// The possible targets in range of the shooter.
+    /// This is mainly manipulated by the Acquire Targets methods and will
+    /// rarely need to be accessed directly.
+    /// </summary>
+    protected List<GameObject> targets;
+
+
     protected virtual void Start()
     {
         bulletPool = new QueueObjectPooler<RecyclableBullet>(bullet, bulletFondler, maxBullets);
@@ -110,32 +118,33 @@ public abstract class NPCShootController : MonoBehaviour
     /// <param name="layer">The layer of the targets to be acquired.</param>
     protected List<GameObject> AcquireTargets(int layer)
     {
-        List<GameObject> inRange;
+        // Make room for new targets
+        targets.Clear();
+
+        // Get all of the colliders in range
         Collider[] colliders = Physics.OverlapSphere(transform.position, range, layer);
 
-        inRange = new List<GameObject>();
-
+        // Add the GameObjects of the colliders to the targets list
         foreach (Collider c in colliders)
         {
             GameObject target = c.transform.root.gameObject;
             // Make sure we don't add duplicate references to the same GameObject
-            if (!inRange.Contains(target))
+            if (!targets.Contains(target))
             {
-                inRange.Add(target);
+                targets.Add(target);
             }
         }
 
-        return inRange;
+        return targets;
     }
 
     /// <summary>
-    /// Acquires the highest priority target from a list of GameObjects.
-    /// Priority is determined by the implementing class.
+    /// Acquires the closest, highest priority target from the targets list of
+    /// GameObjects. Priority is determined by the implementing class.
     /// </summary>
     /// <returns>The highest priority target.</returns>
-    /// <param name="targets">A list of GameObjects from which to acquire the
-    /// target.</param>
-    public abstract GameObject AcquireTarget(List<GameObject> targets);
+    public abstract GameObject AcquireTarget();
+
 
     /// <summary>
     /// Determines the target layer. By comparing its own layer and returning
@@ -146,14 +155,14 @@ public abstract class NPCShootController : MonoBehaviour
     /// <returns>The targets' layer, or -1 if this GameObject's layer is invalid.</returns>
     public int DetermineTargetLayer()
     {
-        if (gameObject.layer == LayerMask.NameToLayer("Player_1_Target"))
+        if (gameObject.layer == LayerMask.NameToLayer("P1 Target"))
         {
-            return LayerMask.NameToLayer("Player_2_Target");
+            return LayerMask.NameToLayer("P2 Target");
         } 
 
-        if (gameObject.layer == LayerMask.NameToLayer("Player_2_Target"))
+        if (gameObject.layer == LayerMask.NameToLayer("P2 Target"))
         {
-            return LayerMask.NameToLayer("Player_1_Target");
+            return LayerMask.NameToLayer("P1 Target");
         }
 
         return -1;

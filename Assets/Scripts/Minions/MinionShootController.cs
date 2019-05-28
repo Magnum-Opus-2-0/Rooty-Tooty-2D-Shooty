@@ -51,9 +51,9 @@ public class MinionShootController : NPCShootController
     /// <para>Priority (in descending order): Player, Other Minions, Buildings</para>
     /// </summary>
     /// <returns>The target.</returns>
-    /// <param name="targets">Targets.</param>
-    public override GameObject AcquireTarget(List<GameObject> targets)
+    public override GameObject AcquireTarget()
     {
+        // Determine object priority with this if/else statement
 
         return null;
     }

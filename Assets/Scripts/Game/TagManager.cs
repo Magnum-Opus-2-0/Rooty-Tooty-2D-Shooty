@@ -65,6 +65,7 @@ public class TagManager : MonoBehaviour
         p1Tags.Add("P1_Spawner");
         p1Tags.Add("P1_Turret");
         p1Tags.Add("P1_Healer");
+        p1Tags.Add("P1_Teddy");
         #endregion
 
         #region Player 2 tags
@@ -93,6 +94,8 @@ public class TagManager : MonoBehaviour
         shootables.Add("P2_Turret");
         shootables.Add("P1_Healer");
         shootables.Add("P2_Healer");
+        shootables.Add("P1_Teddy");
+        shootables.Add("P2_Teddy");
         #endregion
 
         #region All tags
