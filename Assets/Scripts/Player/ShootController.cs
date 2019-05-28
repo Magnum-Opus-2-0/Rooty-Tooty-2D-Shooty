@@ -119,7 +119,7 @@ public class ShootController : MonoBehaviour
     {
         // Pass the current state of the button into the shooting state machine.
         // Only if the player is currently alive.
-        if (taggyboi.isMinion(tag))
+        if (!taggyboi.isMinion(tag))
         {
             if (tc.State == TankStates.Alive)
             {
@@ -259,7 +259,7 @@ public class ShootController : MonoBehaviour
             case SHOOT_States.FIRE:
                 reloadTimer = 0f;
                 Fire(true);
-                if (taggyboi.isMinion(tag))
+                if (!taggyboi.isMinion(tag))
                     shootSound.Play();
                 break;
             case SHOOT_States.COUNT_ON:

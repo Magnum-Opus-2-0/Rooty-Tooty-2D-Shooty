@@ -104,6 +104,8 @@ public class TagManager
         shootables.Add("P2_Healer");
         shootables.Add("P1_Teddy");
         shootables.Add("P2_Teddy");
+        shootables.Add("P1_Base");
+        shootables.Add("P2_Base");
         #endregion
 
         #region All tags

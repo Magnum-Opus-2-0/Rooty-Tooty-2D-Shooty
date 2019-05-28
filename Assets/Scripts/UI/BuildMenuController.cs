@@ -28,18 +28,18 @@ public class BuildMenuController : MonoBehaviour
     private static BoardController boardController;
 
     [SerializeField]
-    private Text build_name;
+    private Text build_name = null;
     [SerializeField]
-    private Text plastic_cost;
+    private Text plastic_cost = null;
     [SerializeField]
-    private Text fluff_cost;
+    private Text fluff_cost = null;
     [SerializeField]
-    private Image tool_tip;
+    private Image tool_tip = null;
     [SerializeField]
-    private Text fluff_count;
+    private Text fluff_count = null;
     [SerializeField]
-    private Text plastic_count;
-    
+    private Text plastic_count = null;
+
     void Start(){
         isActive = false;
         setCanUse(false);

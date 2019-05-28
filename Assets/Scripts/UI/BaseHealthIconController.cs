@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BaseHealthIconController : MonoBehaviour
 {
     [SerializeField]
-    private bool isP1;
+    private bool isP1 = false;
 
     private HealthBehavior hb;
     private Image star;
