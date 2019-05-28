@@ -10,12 +10,14 @@ using UnityEngine.Assertions;
 /// Note that if your new tag is shootable,
 /// you will likely need to add your tag to more than 1 area of code.
 /// </summary>
-public class TagManager : MonoBehaviour
+public class TagManager
 {
 
-    void Awake() {
-
-        init();
+    public TagManager() {
+        if (p1Tags == null)
+        { 
+            init();
+        }
     }
 
     public bool tagExists(string s) {
@@ -36,6 +38,12 @@ public class TagManager : MonoBehaviour
     public bool isShootable(string s) {
 
         return shootables.Contains(s);
+    }
+
+    public bool isMinion(string s)
+    {
+        return s == "P1_Teddy" || s == "P2_Teddy" || s == "P1_Soldier"
+            || s == "P2_Soldier";
     }
 
     private void init() {
@@ -61,7 +69,7 @@ public class TagManager : MonoBehaviour
         p1Tags.Add("P1_Base");
         p1Tags.Add("Player1_obj");
         p1Tags.Add("P1_Bullet");
-        p1Tags.Add("P1_Minion");
+        p1Tags.Add("P1_Soldier");
         p1Tags.Add("P1_Spawner");
         p1Tags.Add("P1_Turret");
         p1Tags.Add("P1_Healer");
@@ -86,8 +94,8 @@ public class TagManager : MonoBehaviour
         // Do shootables manually
         shootables.Add("P1_Bullet");
         shootables.Add("P2_Bullet");
-        shootables.Add("P1_Minion");
-        shootables.Add("P2_Minion");
+        shootables.Add("P1_Soldier");
+        shootables.Add("P2_Soldier");
         shootables.Add("P1_Spawner");
         shootables.Add("P2_Spawner");
         shootables.Add("P1_Turret");
@@ -109,6 +117,7 @@ public class TagManager : MonoBehaviour
         allTags.Add("Resource");
         allTags.Add("Spawnpoint");
         allTags.Add("Master Minion Fondler");
+        allTags.Add("Board");
         #endregion
     }
 

@@ -45,7 +45,8 @@ public class BulletController : MonoBehaviour
             case "P1_Spawner":
             case "P1_Turret":
             case "P1_Healer":
-            case "P1_Minion":
+            case "P1_Soldier":
+            case "P1_Teddy":
                 if (this.gameObject.tag != "P1_Bullet")
                 {
                     collision.gameObject.GetComponent<HealthBehavior>().adjustHealth(-bulletDamage);
@@ -56,7 +57,8 @@ public class BulletController : MonoBehaviour
             case "P2_Spawner":
             case "P2_Turret":
             case "P2_Healer":
-            case "P2_Minion":
+            case "P2_Soldier":
+            case "P2_Teddy":
                 if (this.gameObject.tag != "P2_Bullet")
                 {
                     collision.gameObject.GetComponent<HealthBehavior>().adjustHealth(-bulletDamage);

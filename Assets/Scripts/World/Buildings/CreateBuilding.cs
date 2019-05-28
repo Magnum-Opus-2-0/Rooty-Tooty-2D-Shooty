@@ -26,6 +26,7 @@ public class CreateBuilding : MonoBehaviour
 
 
 
+
     public GameObject[] parts;
     public bool isP1Obj;
     public TankController tc;
@@ -61,6 +62,8 @@ public class CreateBuilding : MonoBehaviour
             master_minion_fondler = FindMasterMinionFondler();
             findFondlerOnce = false;
         }
+
+
     }
     // Update is called once per frame
     void Update()
@@ -159,4 +162,5 @@ public class CreateBuilding : MonoBehaviour
         Assert.IsTrue(ret != null, "ok somehow, Master Minion Fondler doesn't have a Transform");
         return ret;
     }
+
 }

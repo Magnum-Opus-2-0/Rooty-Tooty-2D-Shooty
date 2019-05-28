@@ -123,7 +123,8 @@ public class BoardController : MonoBehaviour
 
         PlaceResources(grid, fluff, plastic);
 
-        minionNavMeshSurface.BuildNavMesh();  // only bake after obstacles have been placed
+        //minionNavMeshSurface.BuildNavMesh();  // only bake after obstacles have been placed
+        bakeNavMesh();
     }
 
     /// <summary>
@@ -343,5 +344,17 @@ public class BoardController : MonoBehaviour
 
         //Debug.Log("Returning at very end: fluff count: " + fluffs.Count + " plastic count: " + plastics.Count);
         //Debug.Log("Grid Loop Count: " + gridLoopCount);
+    }
+
+    /// <summary>
+    /// Bakes the nav mesh.
+    /// Please use this sparingly, like not every frame!!
+    /// Recommended usage is only when the board changes,
+    /// i.e. when a building is placed.
+    /// </summary>
+    public void bakeNavMesh()
+    {
+
+        minionNavMeshSurface.BuildNavMesh();
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Assertions;
 
 public class BuildMenuController : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class BuildMenuController : MonoBehaviour
     public GameObject turret; // used to get the direction the turret is facing.
     public TankController tankController; //Used to pass reference to appropriate TankController.cs to CreateBuilding.cs and to get the player's resource count
     public float buildDistance = 2.65f; // Used to set the distance of the hologram away from the turret
+
+    private static bool findBoardControllerOnce = true;
+    private static BoardController boardController;
+
     [SerializeField]
     private Text build_name;
     [SerializeField]
@@ -40,7 +45,14 @@ public class BuildMenuController : MonoBehaviour
         setCanUse(false);
         setIsDone(true);
         SetBuildHolo();
-    
+
+        if (findBoardControllerOnce)
+        {
+
+            boardController = FindBoardController();
+            findBoardControllerOnce = false;
+        }
+
     }
 
     void Update(){
@@ -180,6 +192,7 @@ public class BuildMenuController : MonoBehaviour
     public void PlaceBuilding(){
         CreateBuilding cb = buildHolo.gameObject.GetComponent<CreateBuilding>();
         cb.BuildBuilding();
+        boardController.bakeNavMesh();
     }
 
     ///<summary>
@@ -209,4 +222,13 @@ public class BuildMenuController : MonoBehaviour
         fluff_cost.text = cb.fluffCost.ToString() + " Fluff";
 
     }
+
+    private static BoardController FindBoardController()
+    {
+        BoardController bc = GameObject.FindWithTag("Board").GetComponent<BoardController>();
+        Assert.IsTrue(bc != null, "Board controller not found");
+
+        return bc;
+    }
+
 }

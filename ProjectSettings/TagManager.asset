@@ -33,6 +33,9 @@ TagManager:
   - P2_Healer
   - P1_Teddy
   - P2_Teddy
+  - P1_Soldier
+  - P2_Soldier
+  - Board
   layers:
   - Default
   - TransparentFX

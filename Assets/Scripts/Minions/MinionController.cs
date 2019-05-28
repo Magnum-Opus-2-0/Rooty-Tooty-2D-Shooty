@@ -6,6 +6,8 @@ using UnityEngine.Assertions;
 
 public class MinionController : MonoBehaviour, IRecyclable
 {
+    private TagManager taggyboi;
+
     public int maxHealth;
     private HealthBehavior health;
 
@@ -28,6 +30,8 @@ public class MinionController : MonoBehaviour, IRecyclable
     // Start is called before the first frame update
     void Start()
     {
+        taggyboi = new TagManager();
+
         health = GetComponent<HealthBehavior>();
         health.setHealth(maxHealth);
 
@@ -43,11 +47,12 @@ public class MinionController : MonoBehaviour, IRecyclable
         if (P2_Base == null)
             P2_Base = GameObject.Find("P2_Base");
 
-        Assert.IsTrue(tag.Equals("P1_Minion") || tag.Equals("P2_Minion"),
-            "Minion tag " + tag.ToString() + " improperly set");
+        //Assert.IsTrue(tag.Equals("P1_Minion") || tag.Equals("P2_Minion"),
+        Assert.IsTrue( taggyboi.isMinion(tag),
+            "Minion tag " + tag + " improperly set");
 
-        homeBase  = (tag.Equals("P1_Minion") ? P1_Base.transform : P2_Base.transform);
-        enemyBase = (tag.Equals("P1_Minion") ? P2_Base.transform : P1_Base.transform);
+        homeBase  = (taggyboi.isP1Tag(tag) ? P1_Base.transform : P2_Base.transform);
+        enemyBase = (taggyboi.isP1Tag(tag) ? P2_Base.transform : P1_Base.transform);
 
 
         if (shooter)
@@ -189,17 +194,17 @@ public class MinionController : MonoBehaviour, IRecyclable
             case RuntimePlatform.OSXPlayer:
 
                 if (leftRight)
-                    return (tag == "P1_Minion" ? "dpad-1-leftright-mac" : "dpad-2-leftright-mac");
+                    return (taggyboi.isP1Tag(tag) ? "dpad-1-leftright-mac" : "dpad-2-leftright-mac");
                 else
-                    return (tag == "P1_Minion" ? "dpad-1-updown-mac" : "dpad-2-updown-mac");
+                    return (taggyboi.isP1Tag(tag) ? "dpad-1-updown-mac" : "dpad-2-updown-mac");
 
             case RuntimePlatform.WindowsEditor:
             case RuntimePlatform.WindowsPlayer:
 
                 if (leftRight)
-                    return (tag == "P1_Minion" ? "dpad-1-leftright-win" : "dpad-2-leftright-win");
+                    return (taggyboi.isP1Tag(tag) ? "dpad-1-leftright-win" : "dpad-2-leftright-win");
                 else
-                    return (tag == "P1_Minion" ? "dpad-1-updown-win" : "dpad-2-updown-win");
+                    return (taggyboi.isP1Tag(tag) ? "dpad-1-updown-win" : "dpad-2-updown-win");
 
             default:
                 Debug.LogError("Mappings not setup for operating systems other than Windows or Mac OS");

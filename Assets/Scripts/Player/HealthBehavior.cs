@@ -158,12 +158,6 @@ public class HealthBehavior : MonoBehaviour
             health_icon.fillAmount = currentHealth / 100.0f;
         }
 
-        /*        if (this.gameObject.tag == "P1_Base" || this.gameObject.tag == "P2_Base" ||
-                    this.gameObject.tag == "P1_Spawner" || this.gameObject.tag == "P2_Spawner" || 
-                    this.gameObject.tag == "P1_Turret" || this.gameObject.tag == "P2_Turret" ||
-                    this.gameObject.tag == "P1_Healer" || this.gameObject.tag == "P2_Healer" ||
-                    this.gameObject.tag == "P1_Minion" || this.gameObject.tag == "P2_Minion")
-        */
         if (taggyboi.isShootable(gameObject.tag))
         {
             // Update the health bar amount

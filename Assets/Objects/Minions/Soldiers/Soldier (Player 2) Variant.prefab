@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 585992476307956116, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b,
         type: 3}
       propertyPath: m_TagString
-      value: P2_Minion
+      value: P2_Soldier
       objectReference: {fileID: 0}
     - target: {fileID: 585992476307956116, guid: 8fc0c2805f5e0c94ebfa29bf547eb66b,
         type: 3}

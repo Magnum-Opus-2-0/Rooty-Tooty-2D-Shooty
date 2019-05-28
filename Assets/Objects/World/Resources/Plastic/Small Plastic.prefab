@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4047948816228040777}
   - component: {fileID: 4047948816228040778}
   - component: {fileID: 4047948816228040779}
+  - component: {fileID: 279659881794227896}
   m_Layer: 0
   m_Name: Small Plastic
   m_TagString: Resource
@@ -61,6 +62,22 @@ MonoBehaviour:
   resourceType: 2
   minAmount: 1
   maxAmount: 3
+--- !u!114 &279659881794227896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4047948816228040780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &6615415093330750925
 GameObject:
   m_ObjectHideFlags: 0
