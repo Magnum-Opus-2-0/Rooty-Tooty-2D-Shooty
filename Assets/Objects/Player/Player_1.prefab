@@ -87,6 +87,51 @@ PrefabInstance:
       propertyPath: backwardDrive
       value: backward-drive-1-win
       objectReference: {fileID: 0}
+    - target: {fileID: 5450891750570937360, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450891750570937360, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: shootScript
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704396560043710975, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: pieces.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704396560043710975, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: pieces.Array.data[0]
+      value: 
+      objectReference: {fileID: 3469302125849986805}
+    - target: {fileID: 6704396560043710975, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: pieces.Array.data[1]
+      value: 
+      objectReference: {fileID: 2270932716914350259}
+    - target: {fileID: 7135073087979164315, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: barrel
+      value: 
+      objectReference: {fileID: 7462122801965920708}
+    - target: {fileID: 7135073087979164315, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: templateBullet
+      value: 
+      objectReference: {fileID: 2798000480372870421}
+    - target: {fileID: 2514482929071404036, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: m_TagString
+      value: P1_Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 2514482929071404036, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5237407321138980475, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
       propertyPath: m_TagString
@@ -127,6 +172,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 2938408489200667651, guid: f81d2b628259641319bf90c9947d6ccd,
+        type: 3}
+      propertyPath: shootControlReference
+      value: 
+      objectReference: {fileID: 7036091258238559013}
     - target: {fileID: 1264002227, guid: f81d2b628259641319bf90c9947d6ccd, type: 3}
       propertyPath: xAim
       value: x-aim-1-win
@@ -145,31 +195,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 5450891750570937360, guid: f81d2b628259641319bf90c9947d6ccd,
+    - target: {fileID: 6948440451526280207, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
-      propertyPath: healthBar
+      propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5450891750570937360, guid: f81d2b628259641319bf90c9947d6ccd,
+      objectReference: {fileID: 2100000, guid: 38044d006f11c4402ad83d5a6f027117, type: 2}
+    - target: {fileID: 3585504705155371781, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
-      propertyPath: shootScript
+      propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2514482929071404036, guid: f81d2b628259641319bf90c9947d6ccd,
+      objectReference: {fileID: 2100000, guid: 6919a941c5fa34264b552eab67e2f184, type: 2}
+    - target: {fileID: 4085552516144889975, guid: f81d2b628259641319bf90c9947d6ccd,
         type: 3}
-      propertyPath: m_TagString
-      value: P1_Bullet
-      objectReference: {fileID: 0}
-    - target: {fileID: 2514482929071404036, guid: f81d2b628259641319bf90c9947d6ccd,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938408489200667651, guid: f81d2b628259641319bf90c9947d6ccd,
-        type: 3}
-      propertyPath: shootControlReference
+      propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 7036091258238559013}
+      objectReference: {fileID: 2100000, guid: 6919a941c5fa34264b552eab67e2f184, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f81d2b628259641319bf90c9947d6ccd, type: 3}
 --- !u!114 &7036091258238559013 stripped
@@ -184,3 +224,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64e6b96766e6ff648b1705060342cbea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3469302125849986805 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3640183335876245323, guid: f81d2b628259641319bf90c9947d6ccd,
+    type: 3}
+  m_PrefabInstance: {fileID: 189688381175296446}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2270932716914350259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2099259986281949453, guid: f81d2b628259641319bf90c9947d6ccd,
+    type: 3}
+  m_PrefabInstance: {fileID: 189688381175296446}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7462122801965920708 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7291083382480273530, guid: f81d2b628259641319bf90c9947d6ccd,
+    type: 3}
+  m_PrefabInstance: {fileID: 189688381175296446}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2798000480372870421 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2627170949480823979, guid: f81d2b628259641319bf90c9947d6ccd,
+    type: 3}
+  m_PrefabInstance: {fileID: 189688381175296446}
+  m_PrefabAsset: {fileID: 0}
