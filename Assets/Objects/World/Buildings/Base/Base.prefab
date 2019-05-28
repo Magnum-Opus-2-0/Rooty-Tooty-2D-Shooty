@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6705101474341351282}
   m_Layer: 0
   m_Name: First Floor
-  m_TagString: Untagged
+  m_TagString: P1_Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 6705101475101975162}
   m_Layer: 0
   m_Name: Crystal Ball
-  m_TagString: Untagged
+  m_TagString: P1_Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 6705101475711779551}
   m_Layer: 0
   m_Name: Ground Floor
-  m_TagString: Untagged
+  m_TagString: P1_Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -14,8 +14,9 @@ public class BoardController : MonoBehaviour
 
     public GameObject[] fluff = new GameObject[4];
     public GameObject[] plastic = new GameObject[4];
-    public int maxFluff = 10;
-    public int maxPlastic = 10;
+    public int maxFluff;
+    public int maxPlastic;
+    public int chanceOfResourceSpawn;
 
     /// <summary>
     /// Empty GameObject to store all generated tiles in hierarchy
@@ -267,8 +268,15 @@ public class BoardController : MonoBehaviour
         return tempGrid;
     }
 
+    /// <summary>
+    /// Places resources around the grid, making sure not to collide with existing objects.
+    /// </summary>
+    /// <param name="grid">reference to grid object for tile access</param>
+    /// <param name="fluff">an array for holding fluff game objects</param>
+    /// <param name="plastic">an array for holding plastic game objects</param>
     private void PlaceResources(GameGrid2DObject grid, GameObject[] fluff, GameObject[] plastic)
     {
+        // Tear down any leftover resources hanging out in resourceFondler from previous runs
         resourceFondler.transform.DetachChildren();
 
         List<GameObject> fluffs = new List<GameObject>();
@@ -276,18 +284,21 @@ public class BoardController : MonoBehaviour
 
         //int gridLoopCount = 0;
 
+        // Keep looping around the grid until the max for each type of resource has been fulfilled
         while (fluffs.Count < maxFluff || plastics.Count < maxPlastic)
         {
             foreach (TileObject t in grid)
             {
                 int placeChance = Random.Range(0, 100);
 
-                if (t.type == TileObject.TileType.TRAVERSABLE && placeChance < 2)
+                // if current tile is "empty" and if percent chance of placement is fulfilled
+                if (t.type == TileObject.TileType.TRAVERSABLE && placeChance < chanceOfResourceSpawn)
                 {
                     int coinFlip = Random.Range(0, 2);
 
                     GameObject resource;
 
+                    // Flip a coin; either spawn a fluff or plastic resource
                     if (coinFlip % 2 == 0 && fluffs.Count < maxFluff)
                     {
                         resource = Instantiate(
@@ -319,6 +330,7 @@ public class BoardController : MonoBehaviour
 
                 }
 
+                // No need to keep looping if max count is reached, just return
                 if (fluffs.Count == maxFluff && plastics.Count == maxPlastic)
                 {
                     //Debug.Log("Returning early: fluff count: " + fluffs.Count + " plastic count: " + plastics.Count);

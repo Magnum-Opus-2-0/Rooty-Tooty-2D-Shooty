@@ -54,16 +54,18 @@ public class ResourceController : PickupController
                 cb.OnTriggerExit(other);
             }
         }
-    }
 
-    void OnCollisionEnter(Collision other)
-    {
         if (IsWall(other) || IsBase(other) || IsResource(other))
         {
-            Debug.Log("Destroyed");
-            Destroy(this);
+            //Debug.Log("colliding with " + other + " with tag " + other.tag + "... destroying now");
+            base.OnTriggerEnter(other);
         }
     }
+
+    //void OnCollisionEnter(Collision other)
+    //{
+
+    //}
 
     /// <summary>
     /// Determines whether the given collider is attached to a GameObject with
@@ -82,9 +84,9 @@ public class ResourceController : PickupController
     /// </summary>
     /// <returns><c>true</c>, if GameObject was a base, <c>false</c> otherwise.</returns>
     /// <param name="c">C.</param>
-    public static bool IsBase(Collision c)
+    public static bool IsBase(Collider c)
     {
-        return c.gameObject.tag == "P1_Base" || c.gameObject.tag == "P2_Base";
+        return c.tag == "P1_Base" || c.tag == "P2_Base";
     }
 
     /// <summary>
@@ -93,9 +95,9 @@ public class ResourceController : PickupController
     /// </summary>
     /// <returns><c>true</c>, if GameObject was a wall, <c>false</c> otherwise.</returns>
     /// <param name="c">C.</param>
-    public static bool IsWall(Collision c)
+    public static bool IsWall(Collider c)
     {
-        return c.gameObject.tag == "Wall";
+        return c.tag == "Wall";
     }
 
     /// <summary>
@@ -104,7 +106,7 @@ public class ResourceController : PickupController
     /// </summary>
     /// <returns><c>true</c>, if GameObject was a resource, <c>false</c> otherwise.</returns>
     /// <param name="c">C.</param>
-    public static bool IsResource(Collision c)
+    public static bool IsResource(Collider c)
     {
         return c.gameObject.tag == "Resource";
     }
