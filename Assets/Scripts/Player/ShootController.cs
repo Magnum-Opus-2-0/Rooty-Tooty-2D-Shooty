@@ -144,7 +144,7 @@ public class ShootController : MonoBehaviour
 
             // Since bullets are stored at the tip of the barrel, there is a chance they might collide with the barrel itself,
             // which will cause incorrect trajectories. This should fix it.
-            Physics.IgnoreCollision(bullets[i].bullet_GameObject.GetComponent<SphereCollider>(), barrel.GetComponent<CapsuleCollider>());
+            // Physics.IgnoreCollision(bullets[i].bullet_GameObject.GetComponent<SphereCollider>(), barrel.GetComponent<CapsuleCollider>());
         }
     }
 

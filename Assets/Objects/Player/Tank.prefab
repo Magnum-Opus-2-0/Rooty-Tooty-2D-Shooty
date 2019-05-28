@@ -216,11 +216,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2627170949480823979}
   m_LocalRotation: {x: -0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.6034985, y: -0.08964121, z: 1.6682025}
+  m_LocalPosition: {x: 0, y: 0.387, z: 1.212}
   m_LocalScale: {x: 0.17999999, y: 0.17999999, z: 0.17999999}
   m_Children: []
   m_Father: {fileID: 6821606645221442343}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3168707542806073736
 MeshFilter:
@@ -778,6 +778,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6821606645221442343}
+  - component: {fileID: 4216226268786563196}
   m_Layer: 0
   m_Name: TankTurret
   m_TagString: Untagged
@@ -797,12 +798,27 @@ Transform:
   m_LocalScale: {x: 0.6, y: 0.5, z: 0.66}
   m_Children:
   - {fileID: 5337359686860712261}
-  - {fileID: 7967041816787366451}
   - {fileID: 4760258588586585391}
+  - {fileID: 7967041816787366451}
   - {fileID: 3221232534872836409}
   m_Father: {fileID: 400381040898309034}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4216226268786563196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5662379405239588851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cde71d4a5cff4a8cbc2f89c9467e30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xAim: x-aim-1-mac
+  zAim: z-aim-1-mac
+  turnSpeed: 3
 --- !u!1 &7291083382480273530
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,7 +847,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6821606645221442343}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7749800947063301029
 GameObject:
@@ -952,7 +968,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8320842998478339257}
   m_LocalRotation: {x: -0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.6034985, y: -0.08964121, z: 0.818202}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 6821606645221442343}
