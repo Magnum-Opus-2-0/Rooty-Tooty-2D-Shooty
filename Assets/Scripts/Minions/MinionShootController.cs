@@ -47,15 +47,50 @@ public class MinionShootController : NPCShootController
     }
 
     /// <summary>
-    /// Acquires the highest priority target.
-    /// <para>Priority (in descending order): Player, Other Minions, Buildings</para>
+    /// Defines the target priorities of minions
+    /// <para>
+    /// <list type="number">
+    ///     <listheader>
+    ///         <term>Target Priorities</term>
+    ///         <description>*Highest to lowest*</description>
+    ///     </listheader>
+    ///     <item>
+    ///         <term>Teddy</term>
+    ///     </item>
+    ///     <item>
+    ///         <term>Soldiers</term>
+    ///     </item>
+    ///     <item>
+    ///         <term>Building</term>
+    ///     </item>
+    ///     <item>
+    ///         <term>Player</term>
+    ///     </item>
+    /// </list>
+    /// </para>
     /// </summary>
-    /// <returns>The target.</returns>
-    public override GameObject AcquireTarget()
+    public override void DefinePriorities()
     {
-        // Determine object priority with this if/else statement
+        priorities.Add("P1_Teddy", 1);
+        priorities.Add("P2_Teddy", 1);
 
-        return null;
+        priorities.Add("P1_Soldier", 2);
+        priorities.Add("P2_Soldier", 2);
+
+        priorities.Add("P1_Base", 3);
+        priorities.Add("P2_Base", 3);
+        priorities.Add("P1_Spawner", 3);
+        priorities.Add("P2_Spawner", 3);
+        priorities.Add("P1_Turret", 3);
+        priorities.Add("P2_Turret", 3);
+        priorities.Add("P1_Healer", 3);
+        priorities.Add("P2_Healer", 3);
+
+        priorities.Add("Player1_obj", 4);
+        priorities.Add("Player2_obj", 4);
+        // Not sure if these last two are necessary, but it can't hurt to add them
+        priorities.Add("Player1", 4);
+        priorities.Add("Player2", 4);
     }
 
 }

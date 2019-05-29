@@ -49,7 +49,7 @@ public class TurretShootController : NPCShootController
         rb_l.AddForce(bulletSpeed * barrel_left.forward, ForceMode.VelocityChange);
     }
 
-    public override GameObject AcquireTarget()
+    public override void DefinePriorities()
     {
         throw new System.NotImplementedException();
     }

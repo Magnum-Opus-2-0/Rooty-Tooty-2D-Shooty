@@ -712,7 +712,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4243053607138212759}
   - component: {fileID: 4243053607144324669}
-  - component: {fileID: 6496735655438304673}
+  - component: {fileID: 6725919615182611373}
+  - component: {fileID: 1082343245721137719}
   - component: {fileID: 3268949098096064958}
   - component: {fileID: 7022291663464708426}
   - component: {fileID: 3704167251935785363}
@@ -759,7 +760,7 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &6496735655438304673
+--- !u!114 &6725919615182611373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -768,16 +769,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 4243053607138502583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1abb06745efe48fba0aa3ea74cdf840, type: 3}
+  m_Script: {fileID: 11500000, guid: b50f2514720bd46a8a15517e0fb6aed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
-  reloadTime: 0
+  maxHealth: 50
   upDown: 
   leftRight: 
   nv_agent: {fileID: 8008131314690178117}
   doNavMeshDemo: 1
   useMouseControls: 0
+  timeBetweenAttacks: 5
+  attackDamage: 10
+  attackAnim: {fileID: 0}
+--- !u!114 &1082343245721137719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4243053607138502583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ae99b91c4aa4a97afeac7fd1a3dc63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrel: {fileID: 0}
+  bullet: {fileID: 0}
+  bulletFondler: {fileID: 0}
+  rateOfFire: 0
+  range: 0
+  bulletSpeed: 0
+  maxBullets: 0
+  burstSize: 0
+  rifle: {fileID: 0}
 --- !u!114 &3268949098096064958
 MonoBehaviour:
   m_ObjectHideFlags: 0

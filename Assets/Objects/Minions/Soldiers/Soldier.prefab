@@ -54,7 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 585992476308061620}
-  - component: {fileID: 2230038257238726131}
+  - component: {fileID: 2391882489004853576}
   - component: {fileID: 5254058538041624450}
   - component: {fileID: 8173937852234914443}
   - component: {fileID: 2070589742068855113}
@@ -84,7 +84,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2230038257238726131
+--- !u!114 &2391882489004853576
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,16 +93,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 585992476307956116}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1abb06745efe48fba0aa3ea74cdf840, type: 3}
+  m_Script: {fileID: 11500000, guid: 3aaa3e2f73a1f4e7c9de6a63722ecff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  reloadTime: 5
+  maxHealth: 15
   upDown: 
   leftRight: 
   nv_agent: {fileID: 6846966565124141114}
   doNavMeshDemo: 1
   useMouseControls: 0
+  timeBetweenAttacks: 3
 --- !u!114 &5254058538041624450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +119,7 @@ MonoBehaviour:
   bullet: {fileID: 0}
   bulletFondler: {fileID: 8087609134817526711}
   rateOfFire: 0.3
+  range: 0
   bulletSpeed: 10
   maxBullets: 6
   burstSize: 3

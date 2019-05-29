@@ -4,17 +4,18 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Assertions;
 
-public class MinionController : MonoBehaviour, IRecyclable
+public abstract class MinionController : MonoBehaviour, IRecyclable
 {
-    private TagManager taggyboi;
+    private static TagManager taggyboi = new TagManager();
 
+    [SerializeField]
     public int maxHealth;
-    private HealthBehavior health;
+    protected HealthBehavior health;
 
-    public float reloadTime;
+    [SerializeField]
     public string upDown;
+    [SerializeField]
     public string leftRight;
-    private MinionShootController shooter;
 
     public NavMeshAgent nv_agent;
     private static GameObject P1_Base;
@@ -25,12 +26,50 @@ public class MinionController : MonoBehaviour, IRecyclable
     public bool doNavMeshDemo;
     public bool useMouseControls;
 
+    protected MinionShootController shooter;
+    [SerializeField]
+    public float timeBetweenAttacks = 3f;
+
+    /// <summary>
+    /// The time we wait between target searches. It's probably a bad idea to be
+    /// calling <see cref="Physics.OverlapSphere"/> every frame.
+    /// </summary>
+    protected const float TIME_BETWEEN_SEARCHES = .5f;
+
+    #region STATE_MEMBERS
+    protected MinionStates state;
+    public MinionStates State
+    {
+        get
+        {
+            return state;
+        }
+    }
+    #endregion
+
+    #region MOVE_STATE_MEMBERS
+    private static bool setMoveTypeOnce = true;
+    protected static MinionMoveTypes moveType;
+    public static MinionMoveTypes MoveType
+    {
+        get
+        {
+            return moveType;
+        }
+    }
+
+    protected MinionMoveTypes lastType;
+    #endregion
+
 
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-        taggyboi = new TagManager();
+        if (setMoveTypeOnce)
+        {
+            moveType = lastType = MinionMoveTypes.Halt;
+        }
 
         health = GetComponent<HealthBehavior>();
         health.setHealth(maxHealth);
@@ -43,32 +82,43 @@ public class MinionController : MonoBehaviour, IRecyclable
 
         // Set base information
         if (P1_Base == null)
-            P1_Base = GameObject.Find("P1_Base");
+        {
+            P1_Base = GameObject.FindWithTag("P1_Base");
+        }
+            
         if (P2_Base == null)
-            P2_Base = GameObject.Find("P2_Base");
+        {
+            P2_Base = GameObject.FindWithTag("P2_Base");
+        }
 
-        //Assert.IsTrue(tag.Equals("P1_Minion") || tag.Equals("P2_Minion"),
-        Assert.IsTrue( taggyboi.isMinion(tag),
+        Assert.IsTrue(taggyboi.isMinion(tag),
             "Minion tag " + tag + " improperly set");
 
         homeBase  = (taggyboi.isP1Tag(tag) ? P1_Base.transform : P2_Base.transform);
         enemyBase = (taggyboi.isP1Tag(tag) ? P2_Base.transform : P1_Base.transform);
 
+        // Both Soldiers and Teddies will start moving immediately
+        state = MinionStates.Move;
+        // Make sure they actually move!
+        DetermineDestination();
 
-        if (shooter)
-        {
-            StartCoroutine(DebugShoot());
-        }
+        StartCoroutine(TargetSearch());
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
 
 
         if (!health.isNotDead())
         {
             Die();
+        }
+
+        if (CanAttack())
+        {
+            state = MinionStates.Attack;
+            Attack();
         }
 
         if (doNavMeshDemo) {
@@ -79,20 +129,17 @@ public class MinionController : MonoBehaviour, IRecyclable
                 #region Mouse Controls
                 // Both mouse buttons = stay
                 if (Input.GetKey(KeyCode.Mouse0) && Input.GetKey(KeyCode.Mouse1)) {
-
-                    SetHalt();
+                    moveType = MinionMoveTypes.Halt;
                 }
 
             // Right mouse button = attack
             else if (Input.GetKeyDown(KeyCode.Mouse1)) {
-
-                    SetAttack();
+                    moveType = MinionMoveTypes.Attack;
                 }
 
             // Left mouse button = defend
             else if (Input.GetKeyDown(KeyCode.Mouse0)) {
-
-                    SetDefend();
+                    moveType = MinionMoveTypes.Defend;
                 }
                 #endregion
             }
@@ -105,20 +152,17 @@ public class MinionController : MonoBehaviour, IRecyclable
                 #region Pad Controls
                 // If left, defend
                 if (Input.GetAxisRaw(leftRight) < 0) {
-
-                    SetDefend();
+                    moveType = MinionMoveTypes.Defend;
                 }
 
                 // Else if right, attack
                 else if (Input.GetAxisRaw(leftRight) > 0) {
-
-                    SetAttack();
+                    moveType = MinionMoveTypes.Attack;
                 }
 
                 // Else if down, halt
                 else if (Input.GetAxisRaw(upDown) < 0) {
-
-                    SetHalt();
+                    moveType = MinionMoveTypes.Halt;
                 }
                 #endregion
             }
@@ -126,12 +170,15 @@ public class MinionController : MonoBehaviour, IRecyclable
         } else {
             DebugMovement();
         }
+
+        UpdateDestination();
+
     }
 
     /// <summary>
     /// Performs any necessary routines before murdering this minion.
     /// </summary>
-    public void Die()
+    public virtual void Die()
     {
         // Maybe a happy little death animation would be fun here
 
@@ -152,6 +199,7 @@ public class MinionController : MonoBehaviour, IRecyclable
     public void Recycle()
     {
         health.setHealth(maxHealth);
+        state = MinionStates.Move;
     }
 
     public void SetAttack() {
@@ -183,7 +231,6 @@ public class MinionController : MonoBehaviour, IRecyclable
     }
 
     public void SetHalt() {
-
         nv_agent.isStopped = true;
     }
 
@@ -213,6 +260,86 @@ public class MinionController : MonoBehaviour, IRecyclable
 
     }
 
+    private void UpdateDestination()
+    {
+        if (lastType != moveType)
+        {
+            DetermineDestination();
+        }
+        lastType = moveType;
+    }
+
+    private void DetermineDestination()
+    {
+        switch (moveType)
+        {
+            case MinionMoveTypes.Attack:
+                SetAttack();
+                break;
+
+            case MinionMoveTypes.Defend:
+                SetDefend();
+                break;
+
+            case MinionMoveTypes.Halt:
+                SetHalt();
+                break;
+
+            default:
+                Debug.LogError("Oof something went horribly, horribly " +
+                    "wrong. The MinionMoveType is set to an enum that has " +
+                    "not been defined.");
+                break;
+        }
+    }
+
+    #region ATTACK_METHODS
+    /// <summary>
+    /// Determines whether a Minion can attack. Minions can attack if they are
+    /// moving, and have encountered a target.
+    /// </summary>
+    /// <returns><c>true</c>, if the Minion can attack, <c>false</c> otherwise.</returns>
+    public bool CanAttack()
+    {
+        if (state != MinionStates.Move)
+        {
+            return false;
+        }
+
+        if (shooter.Targets.Count == 0)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    /// <summary>
+    /// This method shall perform the actual attack. It is the implementing class'
+    /// responsibility to set the state back to <see cref="MinionStates.Move"/>
+    /// after the attack has finished.
+    /// </summary>
+    public abstract void Attack();
+
+    public IEnumerator TargetSearch()
+    {
+        while (state != MinionStates.Dead)
+        {
+            yield return new WaitForSeconds(TIME_BETWEEN_SEARCHES);
+            // If we're already in the process of attacking then don't look for
+            // new targets
+            if (state == MinionStates.Attack)
+            {
+                yield return null;
+            }
+
+            //Otherwise yeah go ahead bro
+            shooter.DetectTargets();
+        }
+    }
+    #endregion
+
+
     #region DEBUG_METHODS
     private void DebugMovement()
     {
@@ -224,13 +351,5 @@ public class MinionController : MonoBehaviour, IRecyclable
 
     }
 
-    private IEnumerator DebugShoot()
-    {
-        while (health.isNotDead())
-        {
-            yield return new WaitForSeconds(reloadTime);
-            shooter.Shoot();
-        }
-    }
     #endregion
 }

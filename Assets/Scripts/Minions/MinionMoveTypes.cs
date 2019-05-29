@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TargetPriorities
+public enum MinionMoveTypes
 {
-    Player,
-    Building,
-    Soldier,
-    Teddy
+    Attack,
+    Defend,
+    Halt
 }

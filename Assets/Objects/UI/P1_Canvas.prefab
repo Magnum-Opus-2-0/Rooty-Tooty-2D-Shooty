@@ -1910,7 +1910,7 @@ MonoBehaviour:
   buildHolo: {fileID: 0}
   turret: {fileID: 0}
   tankController: {fileID: 0}
-  buildDistance: 2.65
+  buildDistance: 4
   build_name: {fileID: 7037692452176950543}
   plastic_cost: {fileID: 8804094736332685346}
   fluff_cost: {fileID: 8065763665642176583}

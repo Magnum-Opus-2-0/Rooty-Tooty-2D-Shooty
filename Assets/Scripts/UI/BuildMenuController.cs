@@ -192,7 +192,7 @@ public class BuildMenuController : MonoBehaviour
     public void PlaceBuilding(){
         CreateBuilding cb = buildHolo.gameObject.GetComponent<CreateBuilding>();
         cb.BuildBuilding();
-        boardController.bakeNavMesh();
+        //boardController.bakeNavMesh();
     }
 
     ///<summary>
