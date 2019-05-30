@@ -48,9 +48,9 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
     #endregion
 
     #region MOVE_STATE_MEMBERS
-    private static bool setMoveTypeOnce = true;
-    protected static MinionMoveTypes moveType;
-    public static MinionMoveTypes MoveType
+    private bool setMoveTypeOnce = true;
+    protected MinionMoveTypes moveType;
+    public MinionMoveTypes MoveType
     {
         get
         {
@@ -168,7 +168,7 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
             }
 
         } else {
-            DebugMovement();
+            //DebugMovement();
         }
 
         UpdateDestination();
@@ -334,7 +334,9 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
             }
 
             //Otherwise yeah go ahead bro
+            Debug.Log(name + ": Searching for targets...");
             shooter.DetectTargets();
+            Debug.Log(name + ": Targets found: " + shooter.Targets.Count);
         }
     }
     #endregion

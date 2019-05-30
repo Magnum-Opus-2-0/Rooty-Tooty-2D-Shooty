@@ -110,7 +110,8 @@ public abstract class NPCShootController : MonoBehaviour
     /// <summary>
     /// The layer of this shooter's targets.
     /// </summary>
-    protected int targetLayer;
+    protected int targetLayerMask;
+    protected int targetLayerIndex;
     #endregion
 
 
@@ -121,7 +122,7 @@ public abstract class NPCShootController : MonoBehaviour
         targets = new List<GameObject>();
         priorities = new Dictionary<string, int>();
         DefinePriorities();
-        targetLayer = DetermineTargetLayer();
+        targetLayerMask = DetermineTargetLayer();
     }
 
     protected virtual void Update()
@@ -146,12 +147,13 @@ public abstract class NPCShootController : MonoBehaviour
         targets.Clear();
 
         // Get all of the colliders in range
-        Collider[] colliders = Physics.OverlapSphere(transform.position, range, targetLayer);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, range, targetLayerMask);
 
         // Add the GameObjects of the colliders to the targets list
         foreach (Collider c in colliders)
         {
             GameObject target = c.transform.root.gameObject;
+            Debug.Log("Target found: " + target);
             // Make sure we don't add duplicate references to the same GameObject
             if (!targets.Contains(target))
             {
@@ -255,12 +257,12 @@ public abstract class NPCShootController : MonoBehaviour
     {
         if (gameObject.layer == LayerMask.NameToLayer("P1 Target"))
         {
-            return LayerMask.NameToLayer("P2 Target");
+            return LayerMask.GetMask("P2 Target");
         } 
 
         if (gameObject.layer == LayerMask.NameToLayer("P2 Target"))
         {
-            return LayerMask.NameToLayer("P1 Target");
+            return LayerMask.GetMask("P1 Target");
         }
 
         return -1;

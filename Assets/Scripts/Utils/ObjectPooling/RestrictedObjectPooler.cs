@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RestrictedObjectPooler<T> : ObjectPooler<T> where T : MonoBehaviour, IRecyclable
 {
+    private static int id = 0;
 
     public RestrictedObjectPooler(GameObject prefab, Transform parent, int max) 
         : base(prefab, parent, max)
@@ -22,6 +23,7 @@ public class RestrictedObjectPooler<T> : ObjectPooler<T> where T : MonoBehaviour
         if (GetNumInstantiated() < maxAllowed)
         {
             GameObject temp = Object.Instantiate(requestPrefab, at, dir, fondler) as GameObject;
+            temp.name += " [" + (id++) + "]";
             temp.SetActive(true);
             ret = temp.GetComponent<T>();
             objects.Add(ret);

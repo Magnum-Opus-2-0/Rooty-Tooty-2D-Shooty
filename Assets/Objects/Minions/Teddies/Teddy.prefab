@@ -776,11 +776,10 @@ MonoBehaviour:
   upDown: 
   leftRight: 
   nv_agent: {fileID: 8008131314690178117}
-  doNavMeshDemo: 1
+  doNavMeshDemo: 0
   useMouseControls: 0
   timeBetweenAttacks: 5
   attackDamage: 10
-  attackAnim: {fileID: 0}
 --- !u!114 &1082343245721137719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -797,7 +796,7 @@ MonoBehaviour:
   bullet: {fileID: 0}
   bulletFondler: {fileID: 0}
   rateOfFire: 0
-  range: 0
+  range: 1.5
   bulletSpeed: 0
   maxBullets: 0
   burstSize: 0
