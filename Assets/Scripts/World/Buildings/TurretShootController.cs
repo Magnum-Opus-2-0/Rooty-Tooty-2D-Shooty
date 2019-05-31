@@ -43,15 +43,12 @@ public class TurretShootController : NPCShootController
         }
         else{
             StartCoroutine("Point");
+            if(IsInRange(target) && timeBetweenShots >= rateOfFire){
+                Shoot();
+                timeBetweenShots = 0.0f;
+            }
         }
-
-        if(IsInRange(target) && timeBetweenShots >= rateOfFire){
-            Shoot();
-            timeBetweenShots = 0.0f;
-        }
-
         timeBetweenShots += Time.deltaTime;
-
     }
 
   
@@ -81,7 +78,7 @@ public class TurretShootController : NPCShootController
     }
     
     private bool IsInRange(GameObject t){
-        float distance = (t.transform.position - this.transform.position).magnitude;
+        float distance = (t.transform.position - orb.position).magnitude;
         return distance <= range && distance >= 2.0f;
     }
     public override void Shoot(){
