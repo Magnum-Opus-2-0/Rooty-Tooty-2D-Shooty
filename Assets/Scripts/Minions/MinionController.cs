@@ -12,10 +12,16 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
     public int maxHealth;
     protected HealthBehavior health;
 
+    #region INPUT_MEMBERS
     [SerializeField]
     public string upDown;
     [SerializeField]
     public string leftRight;
+    [SerializeField]
+    public string altHalt;
+    [SerializeField]
+    public bool useAltHalt = true;
+    #endregion
 
     public NavMeshAgent nv_agent;
     private static GameObject P1_Base;
@@ -48,7 +54,6 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
     #endregion
 
     #region MOVE_STATE_MEMBERS
-    private bool setMoveTypeOnce = true;
     protected MinionMoveTypes moveType;
     public MinionMoveTypes MoveType
     {
@@ -66,11 +71,6 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        if (setMoveTypeOnce)
-        {
-            moveType = lastType = MinionMoveTypes.Halt;
-        }
-
         health = GetComponent<HealthBehavior>();
         health.setHealth(maxHealth);
 
@@ -78,6 +78,7 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
 
         leftRight = getAxisString(true);
         upDown = getAxisString(false);
+        altHalt = getAltHalt();
 
 
         // Set base information
@@ -97,12 +98,21 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
         homeBase  = (taggyboi.isP1Tag(tag) ? P1_Base.transform : P2_Base.transform);
         enemyBase = (taggyboi.isP1Tag(tag) ? P2_Base.transform : P1_Base.transform);
 
-        // Both Soldiers and Teddies will start moving immediately
+        // Both Soldiers and Teddies are allowed to start moving immediately
         state = MinionStates.Move;
-        // Make sure they actually move!
+        // Start them off by standing still until they get an order.
+        moveType = lastType = MinionMoveTypes.Halt;
+        // Make sure they do what they're told
         DetermineDestination();
 
         StartCoroutine(TargetSearch());
+
+        if (debugOnce)
+        {
+            //StartCoroutine(PrintStates());
+            //StartCoroutine(PrintDpad());
+            debugOnce = false;
+        }
     }
 
     // Update is called once per frame
@@ -146,24 +156,27 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
 
             // NavMeshDemo with pad controls
             else {
-
-                //Debug.Log(Input.GetAxis(leftRight));
-
                 #region Pad Controls
-                // If left, defend
-                if (Input.GetAxisRaw(leftRight) < 0) {
+                // If down, defend
+                if (Input.GetAxisRaw(upDown) < 0) {
+                    Debug.Log("Attempting to change move type to DEFEND");
                     moveType = MinionMoveTypes.Defend;
                 }
 
-                // Else if right, attack
-                else if (Input.GetAxisRaw(leftRight) > 0) {
+                // Else if up, attack
+                else if (Input.GetAxisRaw(upDown) > 0) {
+                    Debug.Log("Attempting to change move type to ATTACK");
                     moveType = MinionMoveTypes.Attack;
                 }
 
-                // Else if down, halt
-                else if (Input.GetAxisRaw(upDown) < 0) {
+                // Else if right or altHalt button, halt
+                else if ((useAltHalt && Input.GetButtonDown(altHalt)) || (!useAltHalt && Input.GetAxisRaw(leftRight) < 0)) {
+                    Debug.Log("Attempting to change move type to HALT");
                     moveType = MinionMoveTypes.Halt;
                 }
+
+
+
                 #endregion
             }
 
@@ -260,15 +273,39 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
 
     }
 
+    private string getAltHalt()
+    {
+        switch (Application.platform)
+        {
+            case RuntimePlatform.OSXEditor:
+            case RuntimePlatform.OSXPlayer:
+                return (taggyboi.isP1Tag(tag) ? "minion-halt-1-mac" : "minion-halt-2-mac");
+
+            case RuntimePlatform.WindowsEditor:
+            case RuntimePlatform.WindowsPlayer:
+                return (taggyboi.isP1Tag(tag) ? "minion-halt-1-win" : "minion-halt-2-win");
+
+            default:
+                Debug.LogError("Mappings not setup for operating systems other than Windows or Mac OS");
+                return "";
+        }
+    }
+
+    /// <summary>
+    /// Updates the destination if it has changed since the last time.
+    /// </summary>
     private void UpdateDestination()
     {
-        if (lastType != moveType)
+        if (state == MinionStates.Move && lastType != moveType)
         {
             DetermineDestination();
         }
         lastType = moveType;
     }
 
+    /// <summary>
+    /// Calls the Nav Mesh method depending on the Minion's move type.
+    /// </summary>
     private void DetermineDestination()
     {
         switch (moveType)
@@ -328,7 +365,7 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
             yield return new WaitForSeconds(TIME_BETWEEN_SEARCHES);
             // If we're already in the process of attacking then don't look for
             // new targets
-            if (state == MinionStates.Attack)
+            while (state == MinionStates.Attack)
             {
                 yield return null;
             }
@@ -343,6 +380,8 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
 
 
     #region DEBUG_METHODS
+    private bool debugOnce = true;
+
     private void DebugMovement()
     {
         transform.Translate(0, 0, 5.0f * Time.deltaTime);
@@ -351,6 +390,24 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
     private void DebugAutoMovement(Vector3 dest) {
 
 
+    }
+
+    private IEnumerator PrintStates()
+    {
+        while (true)
+        {
+            Debug.Log(name + ": Current (State, Dest): (" + state + ", " + moveType + ")");
+            yield return new WaitForSeconds(.25f);
+        }
+    }
+
+    private IEnumerator PrintDpad()
+    {
+        while (true)
+        {
+            Debug.Log("Dpad (LR, UD): (" + Input.GetAxisRaw(leftRight) + ", " + Input.GetAxisRaw(upDown) + ")");
+            yield return new WaitForSeconds(.1f);
+        }
     }
 
     #endregion

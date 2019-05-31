@@ -408,12 +408,41 @@ public class TankController : MonoBehaviour
     }
 
     /// <summary>
+    /// Turns the tank to point in the direction given by the input vector
+    /// relative to world space.
+    /// </summary>
+    private void PointTankTorque()
+    {
+        float y = Vector3.Cross(transform.forward, stickInput.normalized).y;
+        if (Mathf.Abs(y) > .01)
+        {
+            if (y > 0)
+            {
+                rb.AddTorque(0, turnSpeed, 0, ForceMode.VelocityChange);
+            }
+            else
+            {
+                rb.AddTorque(0, -turnSpeed, 0, ForceMode.VelocityChange);
+            }
+        }
+    }
+
+    /// <summary>
     /// Turns the tank left or right depending on the input from the left analog
     /// stick.
     /// </summary>
     private void TurnTank()
     {
         transform.Rotate(0f, stickInput.x * turnSpeed, 0f);
+    }
+
+    /// <summary>
+    /// Turns the tank left or right depending on the input from the left analog
+    /// stick.
+    /// </summary>
+    private void TurnTankTorque()
+    {
+        rb.AddTorque(0f, turnSpeed * stickInput.x, 0f);
     }
 
     /// <summary>
@@ -425,11 +454,13 @@ public class TankController : MonoBehaviour
         switch (steerMode)
         {
             case SteerMode.Point:
-                PointTank();
+                //PointTank();
+                PointTankTorque();
                 break;
 
             case SteerMode.Turn:
-                TurnTank();
+                //TurnTank();
+                TurnTankTorque();
                 break;
         }
 

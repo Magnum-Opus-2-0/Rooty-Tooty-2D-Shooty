@@ -148,7 +148,7 @@ public abstract class NPCShootController : MonoBehaviour
 
         // Get all of the colliders in range
         Collider[] colliders = Physics.OverlapSphere(transform.position, range, targetLayerMask);
-
+        Debug.Log(name + ": Found " + colliders.Length + " colliders");
         // Add the GameObjects of the colliders to the targets list
         foreach (Collider c in colliders)
         {
