@@ -62,11 +62,6 @@ public class ResourceController : PickupController
         }
     }
 
-    //void OnCollisionEnter(Collision other)
-    //{
-
-    //}
-
     /// <summary>
     /// Determines whether the given collider is attached to a GameObject with
     /// a player tag. That is "Player_1" or "Player_2".

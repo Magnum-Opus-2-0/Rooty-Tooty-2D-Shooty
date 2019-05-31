@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 2070589742068855113}
   - component: {fileID: 440504366989260581}
   - component: {fileID: 6846966565124141114}
+  - component: {fileID: 6348984378220946351}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Untagged
@@ -99,6 +100,8 @@ MonoBehaviour:
   maxHealth: 15
   upDown: 
   leftRight: 
+  altHalt: 
+  useAltHalt: 1
   nv_agent: {fileID: 6846966565124141114}
   doNavMeshDemo: 1
   useMouseControls: 0
@@ -203,6 +206,23 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6348984378220946351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585992476307956116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c647290bead14f0d8b9187156d995ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hb: {fileID: 8173937852234914443}
+  fluffs: []
+  plastics:
+  - {fileID: 2365052988772019901, guid: 395422e6a62084b8c9cf3e4bfb4f5576, type: 3}
+  - {fileID: 7876720370246562494, guid: f1d0243c367724fc586be016ad8e2dd2, type: 3}
 --- !u!1 &1805403514783361488
 GameObject:
   m_ObjectHideFlags: 0

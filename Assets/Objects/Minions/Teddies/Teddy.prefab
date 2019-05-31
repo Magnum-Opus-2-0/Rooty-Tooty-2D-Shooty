@@ -718,6 +718,7 @@ GameObject:
   - component: {fileID: 7022291663464708426}
   - component: {fileID: 3704167251935785363}
   - component: {fileID: 8008131314690178117}
+  - component: {fileID: 3384098288412936773}
   m_Layer: 0
   m_Name: Teddy
   m_TagString: Untagged
@@ -775,6 +776,8 @@ MonoBehaviour:
   maxHealth: 50
   upDown: 
   leftRight: 
+  altHalt: 
+  useAltHalt: 1
   nv_agent: {fileID: 8008131314690178117}
   doNavMeshDemo: 0
   useMouseControls: 0
@@ -878,6 +881,23 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3384098288412936773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4243053607138502583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c647290bead14f0d8b9187156d995ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hb: {fileID: 3268949098096064958}
+  fluffs:
+  - {fileID: 1027915150948817678, guid: 9c14c0ad6720149e0ba541522b323cfc, type: 3}
+  - {fileID: 8090947328815732461, guid: a0f7250490db74c64b31474aedab8c2f, type: 3}
+  plastics: []
 --- !u!1 &4243053607138502585
 GameObject:
   m_ObjectHideFlags: 0

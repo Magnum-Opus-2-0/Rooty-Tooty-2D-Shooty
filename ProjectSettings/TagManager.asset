@@ -36,6 +36,7 @@ TagManager:
   - P1_Soldier
   - P2_Soldier
   - Board
+  - Resource_Fondler
   layers:
   - Default
   - TransparentFX
