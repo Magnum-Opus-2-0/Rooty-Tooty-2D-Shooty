@@ -332,6 +332,16 @@ PrefabInstance:
       propertyPath: bulletFondler
       value: 
       objectReference: {fileID: 963543363}
+    - target: {fileID: 603424915155331423, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: steerMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603424915155331423, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: driveMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b416b72df150e488a918a43d9d34a1a1, type: 3}
 --- !u!1001 &787316645
