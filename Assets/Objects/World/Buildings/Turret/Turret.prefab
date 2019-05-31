@@ -203,8 +203,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 619837385057092124}
   - {fileID: 1888068410728388463}
+  - {fileID: 619837385057092124}
   m_Father: {fileID: 7812775824364257654}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -456,7 +456,7 @@ Transform:
   m_Children:
   - {fileID: 7699907235814888371}
   m_Father: {fileID: 5252336250780112430}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1341133593118492412
 GameObject:
@@ -815,10 +815,16 @@ MonoBehaviour:
   bullet: {fileID: 2861256768168284709}
   bulletFondler: {fileID: 2371297455142151039}
   rateOfFire: 0.6666667
+  range: 20
   bulletSpeed: 20
   maxBullets: 12
   barrel_right: {fileID: 2951986887510395517}
   barrel_left: {fileID: 1383820346603905986}
+  orb: {fileID: 619837385057092124}
+  waitTime: 3
+  aimTime: 1
+  timeStep: 0.1
+  coolDown: 0.66667
 --- !u!1 &2849057513105135913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1468,7 +1474,7 @@ Transform:
   - {fileID: 8140447228184626600}
   - {fileID: 8236140246460701214}
   m_Father: {fileID: 5252336250780112430}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &74935419937511500
 PrefabInstance:

@@ -8,32 +8,82 @@ public class TurretShootController : NPCShootController
     protected Transform barrel_right;
     [SerializeField]
     protected Transform barrel_left;
-    
+    [SerializeField]
+    private Transform orb;
+    [SerializeField]
+    private float waitTime; 
+    [SerializeField]
+    private float aimTime;
+    [SerializeField]
+    private float timeStep;
+
+    [SerializeField]
+    private float coolDown;
+
+    private float timeBetweenShots;
 
 
     private bool targetAcquired;
+    GameObject target;
 
-    private float t;
     // Start is called before the first frame update
     protected override void Start()
     {
-        targetAcquired = true;
         base.Start();
+        targetAcquired = false;
+        timeBetweenShots = 0.0f;
     }
+
 
     protected override void Update(){
-        if(t >= this.rateOfFire && targetAcquired){
-            Shoot();
-            t -= this.rateOfFire;
+        
+        if(target == null || !IsInRange(target)){
+            StartCoroutine("FindTarget");
+           
         }
         else{
-            t += Time.deltaTime;
+            StartCoroutine("Point");
         }
+
+        if(IsInRange(target) && timeBetweenShots >= rateOfFire){
+            Shoot();
+            timeBetweenShots = 0.0f;
+        }
+
+        timeBetweenShots += Time.deltaTime;
 
     }
 
-    
+  
+    IEnumerator FindTarget(){
+        
+        yield return new WaitForSeconds(waitTime);
+        DetectTargets();
+        target = AcquireTarget();
+        
+    }
 
+    IEnumerator Point(){
+        
+        Rigidbody targetRb = target.GetComponent<Rigidbody>();
+        Vector3 shootDir = ((target.transform.position) - orb.position).normalized;
+        float turnSpeed = 0.0f;
+        while (Vector3.Dot(orb.forward, shootDir) < 0.99f) // threshold because chances are this won't be exact
+        {
+            turnSpeed = Vector3.AngleBetween(orb.forward, shootDir);
+            orb.rotation = Quaternion.LookRotation(
+                
+                Vector3.RotateTowards(orb.forward, shootDir, turnSpeed*Time.deltaTime, 0.0f)
+                );
+            yield return null;
+        }
+        
+    }
+    
+    private bool IsInRange(GameObject t){
+        float distance = (t.transform.position - this.transform.position).magnitude;
+        return distance <= range && distance >= 2.0f;
+    }
     public override void Shoot(){
         RecyclableBullet b_f = bulletPool.Request(barrel);
         RecyclableBullet b_r = bulletPool.Request(barrel_right);
@@ -51,6 +101,25 @@ public class TurretShootController : NPCShootController
 
     public override void DefinePriorities()
     {
-        throw new System.NotImplementedException();
+        priorities.Add("P1_Teddy", 1);
+        priorities.Add("P2_Teddy", 1);
+
+        priorities.Add("P1_Soldier", 2);
+        priorities.Add("P2_Soldier", 2);
+
+        priorities.Add("P1_Base", 3);
+        priorities.Add("P2_Base", 3);
+        priorities.Add("P1_Spawner", 3);
+        priorities.Add("P2_Spawner", 3);
+        priorities.Add("P1_Turret", 3);
+        priorities.Add("P2_Turret", 3);
+        priorities.Add("P1_Healer", 3);
+        priorities.Add("P2_Healer", 3);
+
+        priorities.Add("Player1_obj", 4);
+        priorities.Add("Player2_obj", 4);
+        // Not sure if these last two are necessary, but it can't hurt to add them
+        priorities.Add("Player1", 4);
+        priorities.Add("Player2", 4);
     }
 }
