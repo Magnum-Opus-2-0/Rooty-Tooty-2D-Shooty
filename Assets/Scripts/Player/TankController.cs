@@ -201,6 +201,19 @@ public class TankController : MonoBehaviour
     /// The current speed of the Tank.
     /// </summary>
     private float curSpeed;
+
+    /// <summary>
+    /// The weights for the PID function. Used for correcting the torgue for turning.
+    /// </summary>
+
+
+    
+    
+
+    /// <summary>
+    /// The target angle to reach when turning
+    /// </summary>
+    private float targetAngle;
     #endregion
     
     #region MEMBERS_BUTTON_INPUT
@@ -262,6 +275,8 @@ public class TankController : MonoBehaviour
         hb = GetComponent<HealthBehavior>();
         state = TankStates.Alive;
         wasNotDead = hb.isNotDead();
+        GetComponent<Rigidbody>().SetMaxAngularVelocity(turnSpeed);
+  
        
     }
 
@@ -413,6 +428,7 @@ public class TankController : MonoBehaviour
     /// </summary>
     private void PointTankTorque()
     {
+     
         float y = Vector3.Cross(transform.forward, stickInput.normalized).y;
         if (Mathf.Abs(y) > .06)
         {
@@ -432,6 +448,8 @@ public class TankController : MonoBehaviour
                 rb.AddTorque(0, turnSpeed, 0, ForceMode.VelocityChange);
             }
         }
+
+         
     }
 
     /// <summary>
@@ -626,4 +644,7 @@ public class TankController : MonoBehaviour
         Plastic /= 2;
         Fluff /= 2;
     }
+
+
+
 }

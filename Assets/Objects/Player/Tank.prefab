@@ -594,6 +594,9 @@ MonoBehaviour:
   turnSpeed: 3
   maxSpeed: 3
   accelerate: 2.5
+  weightP: 9.244681
+  weightI: 0
+  weightD: 0.06382979
   buildButton: build-1-mac
   selectBuildButton: select-1-mac
   submitButton: submit-1-mac
