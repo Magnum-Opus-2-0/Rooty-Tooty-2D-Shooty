@@ -414,7 +414,7 @@ public class TankController : MonoBehaviour
     private void PointTankTorque()
     {
         float y = Vector3.Cross(transform.forward, stickInput.normalized).y;
-        if (Mathf.Abs(y) > .01)
+        if (Mathf.Abs(y) > .06)
         {
             if (y > 0)
             {
@@ -423,6 +423,13 @@ public class TankController : MonoBehaviour
             else
             {
                 rb.AddTorque(0, -turnSpeed, 0, ForceMode.VelocityChange);
+            }
+        } 
+        else
+        {
+            if (Vector3.Dot(transform.forward, stickInput.normalized) < 0)
+            {
+                rb.AddTorque(0, turnSpeed, 0, ForceMode.VelocityChange);
             }
         }
     }

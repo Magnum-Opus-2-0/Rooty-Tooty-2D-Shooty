@@ -1476,6 +1476,21 @@ PrefabInstance:
       propertyPath: accelerate
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036091258238559013, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: bulletFondler
+      value: 
+      objectReference: {fileID: 963857037}
+    - target: {fileID: 4045045966851107266, guid: 3cf045c0ebafa2e468fe89884017d837,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cf045c0ebafa2e468fe89884017d837, type: 3}
 --- !u!1 &692386403 stripped
