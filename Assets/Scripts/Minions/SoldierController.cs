@@ -23,7 +23,7 @@ public class SoldierController : MinionController
 
     public IEnumerator PointAtThenShoot(GameObject target)
     {
-        Vector3 targetDir = (transform.position - target.transform.position).normalized;
+        Vector3 targetDir = (target.transform.position - transform.position).normalized;
 
         #pragma warning disable CS0618
         // Vector3.AngleBetween is obsolete because it 
@@ -33,19 +33,24 @@ public class SoldierController : MinionController
         #pragma warning restore CS0618
 
         // First point the minion at the target
-        while ((transform.forward - targetDir).magnitude > 0.01f) // threshold because chances are this won't be exact
+        while (Vector3.Dot(transform.forward, targetDir) < 0.99f) // threshold because chances are this won't be exact
         {
-            Vector3.RotateTowards(transform.forward, targetDir, turnSpeed * Time.deltaTime, 0.0f);
+            transform.rotation = Quaternion.LookRotation(
+                Vector3.RotateTowards(transform.forward, targetDir, turnSpeed * Time.deltaTime, 0.0f)
+                );
+            Debug.Log(name + "Turning towards");
             yield return null;
         }
 
         // Then shoot the target
         shooter.Shoot();
+        Debug.Log("Hold on now it's attacking time.");
         // Now let's wait in this coroutine until for the Minion to "reload"
         // so that we don't just shoot bullets forever.
         yield return new WaitForSeconds(timeBetweenAttacks);
         // Finally let's let the minion move again.
-        state = MinionStates.Move;
+        Debug.Log("Yeah boy time to move.");
+        State = MinionStates.Move;
     }
     
     /// <summary>
@@ -53,9 +58,11 @@ public class SoldierController : MinionController
     /// </summary>
     public override void Attack()
     {
+        GameObject target = shooter.AcquireTarget();
+        Debug.Log(name + ": Attacking " + target);
         // We know this function is called only after CanAttack() has been
         // called, so we can assume that our target list is full and just
         // acquire a target.
-        StartCoroutine(PointAtThenShoot(shooter.AcquireTarget()));
+        StartCoroutine(PointAtThenShoot(target));
     }
 }

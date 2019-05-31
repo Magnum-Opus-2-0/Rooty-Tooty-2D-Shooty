@@ -479,8 +479,8 @@ public class TankController : MonoBehaviour
         switch (steerMode)
         {
             case SteerMode.Point:
-                //PointTank();
-                PointTankTorque();
+                PointTank();
+                //PointTankTorque();
                 break;
 
             case SteerMode.Turn:

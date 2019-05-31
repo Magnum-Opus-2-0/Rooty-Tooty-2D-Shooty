@@ -101,6 +101,11 @@ public abstract class NPCShootController : MonoBehaviour
     }
 
     /// <summary>
+    /// A temporary list to hold the highest priority targets we find.
+    /// </summary>
+    protected List<GameObject> tempTargets;
+
+    /// <summary>
     /// A dictionary representing the priority of each <see cref="TagManager">shootable</see>
     /// tag. <see cref="DefinePriorities"/> will fill the dictionary with
     /// key, value pairs.
@@ -120,6 +125,7 @@ public abstract class NPCShootController : MonoBehaviour
         bulletPool = new QueueObjectPooler<RecyclableBullet>(bullet, bulletFondler, maxBullets);
         health = GetComponent<HealthBehavior>();
         targets = new List<GameObject>();
+        tempTargets = new List<GameObject>();
         priorities = new Dictionary<string, int>();
         DefinePriorities();
         targetLayerMask = DetermineTargetLayer();
@@ -166,26 +172,38 @@ public abstract class NPCShootController : MonoBehaviour
     }
 
     /// <summary>
-    /// Acquires the closest, highest priority target from the targets list of
-    /// GameObjects. Priority is determined by the implementing class. This method
-    /// assumes a full list of targets (filled by DetectTargets).
+    /// Acquires the closest, highest priority target from the <see cref="targets"/>
+    /// list of GameObjects. Priority is determined by the implementing class. 
+    /// This method assumes a full list of targets (filled by DetectTargets).
     /// </summary>
     /// <returns>The highest priority target or <c>null</c> if no GameObjects
     /// are in range.</returns>
     public GameObject AcquireTarget()
     {
-        // First lets find out what our highest priority target is and rid ourselves
-        // of all lower priority targets
+        tempTargets.Clear();
+
+        // First lets find out what our highest priority target is and create a
+        // list of only those targets
+        // We can't just remove GameObjects from the targets list because we're
+        // enumerating over it
         string highestPriority = DetermineHighestPriority();
         foreach (GameObject g in targets)
         {
-            if (g.tag != highestPriority)
+            if (g.tag == highestPriority)
             {
-                targets.Remove(g);
+                tempTargets.Add(g);
             }
         }
 
-        // Next return the closest GameObject in target
+        // Next lets copy that temp list back in to our targets list so that
+        // other methods can still make use of the targets list
+        targets.Clear();
+        foreach (GameObject g in tempTargets)
+        {
+            targets.Add(g);
+        }
+
+        // Finally return the closest GameObject in target
         return DetermineClosestTarget();
     }
 
@@ -217,6 +235,7 @@ public abstract class NPCShootController : MonoBehaviour
             if (priorities.TryGetValue(g.tag, out tempPriority) && tempPriority < highest)
             {
                 highest = tempPriority;
+                ret = g.tag;
             }
         }
 
@@ -224,7 +243,9 @@ public abstract class NPCShootController : MonoBehaviour
     }
 
     /// <summary>
-    /// Determines the closest target.
+    /// Determines the closest target from the <see cref="targets"/>
+    /// list of GameObjects. Priority is determined by the implementing class. 
+    /// This method assumes a full list of targets (filled by DetectTargets).
     /// </summary>
     /// <returns>The GameObject of the closest target, or <c>null</c> if there
     /// are no targets in the list.</returns>
@@ -233,6 +254,8 @@ public abstract class NPCShootController : MonoBehaviour
         GameObject closest = null;
         float minDist = float.MaxValue;
         float tempDist;
+
+        Debug.Log(name + ": DetermineClosestTarget count: " + targets.Count);
 
         foreach (GameObject g in targets)
         {
@@ -243,6 +266,8 @@ public abstract class NPCShootController : MonoBehaviour
                 closest = g;
             }
         }
+
+        Debug.Log(name + ": Closest Target: " + closest.name);
 
         return closest;
     }

@@ -33,6 +33,6 @@ public class TeddyController : MinionController
             g.GetComponent<HealthBehavior>().adjustHealth(-attackDamage);
         }
         yield return new WaitForSeconds(timeBetweenAttacks);
-        state = MinionStates.Move;
+        State = MinionStates.Move;
     }
 }

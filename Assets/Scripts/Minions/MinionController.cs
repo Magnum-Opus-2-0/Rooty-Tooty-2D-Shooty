@@ -43,12 +43,31 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
     protected const float TIME_BETWEEN_SEARCHES = .5f;
 
     #region STATE_MEMBERS
-    protected MinionStates state;
+    private MinionStates state;
     public MinionStates State
     {
         get
         {
             return state;
+        }
+
+        set
+        {
+            state = value;
+            switch (value)
+            {
+                case MinionStates.Attack:
+                    SetHalt();
+                    break;
+
+                case MinionStates.Move:
+                    DetermineDestination();
+                    break;
+
+                case MinionStates.Dead:
+                    SetHalt();
+                    break;
+            }
         }
     }
     #endregion
@@ -98,12 +117,11 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
         homeBase  = (taggyboi.isP1Tag(tag) ? P1_Base.transform : P2_Base.transform);
         enemyBase = (taggyboi.isP1Tag(tag) ? P2_Base.transform : P1_Base.transform);
 
-        // Both Soldiers and Teddies are allowed to start moving immediately
-        state = MinionStates.Move;
+
         // Start them off by standing still until they get an order.
         moveType = lastType = MinionMoveTypes.Halt;
-        // Make sure they do what they're told
-        DetermineDestination();
+        // Both Soldiers and Teddies are allowed to start moving immediately
+        State = MinionStates.Move;
 
         StartCoroutine(TargetSearch());
 
@@ -127,7 +145,7 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
 
         if (CanAttack())
         {
-            state = MinionStates.Attack;
+            State = MinionStates.Attack;
             Attack();
         }
 
@@ -212,7 +230,7 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
     public void Recycle()
     {
         health.setHealth(maxHealth);
-        state = MinionStates.Move;
+        State = MinionStates.Move;
     }
 
     public void SetAttack() {
@@ -296,7 +314,7 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
     /// </summary>
     private void UpdateDestination()
     {
-        if (state == MinionStates.Move && lastType != moveType)
+        if (lastType != moveType)
         {
             DetermineDestination();
         }
@@ -350,6 +368,7 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
 
         return true;
     }
+
 
     /// <summary>
     /// This method shall perform the actual attack. It is the implementing class'
