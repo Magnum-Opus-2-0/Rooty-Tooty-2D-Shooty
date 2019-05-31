@@ -177,19 +177,19 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
                 #region Pad Controls
                 // If down, defend
                 if (Input.GetAxisRaw(upDown) < 0) {
-                    Debug.Log("Attempting to change move type to DEFEND");
+                    //Debug.Log("Attempting to change move type to DEFEND");
                     moveType = MinionMoveTypes.Defend;
                 }
 
                 // Else if up, attack
                 else if (Input.GetAxisRaw(upDown) > 0) {
-                    Debug.Log("Attempting to change move type to ATTACK");
+                    //Debug.Log("Attempting to change move type to ATTACK");
                     moveType = MinionMoveTypes.Attack;
                 }
 
                 // Else if right or altHalt button, halt
                 else if ((useAltHalt && Input.GetButtonDown(altHalt)) || (!useAltHalt && Input.GetAxisRaw(leftRight) < 0)) {
-                    Debug.Log("Attempting to change move type to HALT");
+                    //Debug.Log("Attempting to change move type to HALT");
                     moveType = MinionMoveTypes.Halt;
                 }
 
@@ -390,9 +390,9 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
             }
 
             //Otherwise yeah go ahead bro
-            Debug.Log(name + ": Searching for targets...");
+            //Debug.Log(name + ": Searching for targets...");
             shooter.DetectTargets();
-            Debug.Log(name + ": Targets found: " + shooter.Targets.Count);
+            //Debug.Log(name + ": Targets found: " + shooter.Targets.Count);
         }
     }
     #endregion

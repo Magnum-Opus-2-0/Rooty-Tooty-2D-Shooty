@@ -38,18 +38,18 @@ public class SoldierController : MinionController
             transform.rotation = Quaternion.LookRotation(
                 Vector3.RotateTowards(transform.forward, targetDir, turnSpeed * Time.deltaTime, 0.0f)
                 );
-            Debug.Log(name + "Turning towards");
+            //Debug.Log(name + "Turning towards");
             yield return null;
         }
 
         // Then shoot the target
         shooter.Shoot();
-        Debug.Log("Hold on now it's attacking time.");
+        //Debug.Log("Hold on now it's attacking time.");
         // Now let's wait in this coroutine until for the Minion to "reload"
         // so that we don't just shoot bullets forever.
         yield return new WaitForSeconds(timeBetweenAttacks);
         // Finally let's let the minion move again.
-        Debug.Log("Yeah boy time to move.");
+        //Debug.Log("Yeah boy time to move.");
         State = MinionStates.Move;
     }
     
@@ -59,7 +59,7 @@ public class SoldierController : MinionController
     public override void Attack()
     {
         GameObject target = shooter.AcquireTarget();
-        Debug.Log(name + ": Attacking " + target);
+        //Debug.Log(name + ": Attacking " + target);
         // We know this function is called only after CanAttack() has been
         // called, so we can assume that our target list is full and just
         // acquire a target.

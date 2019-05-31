@@ -255,7 +255,7 @@ public abstract class NPCShootController : MonoBehaviour
         float minDist = float.MaxValue;
         float tempDist;
 
-        Debug.Log(name + ": DetermineClosestTarget count: " + targets.Count);
+        //Debug.Log(name + ": DetermineClosestTarget count: " + targets.Count);
 
         foreach (GameObject g in targets)
         {
@@ -267,7 +267,7 @@ public abstract class NPCShootController : MonoBehaviour
             }
         }
 
-        Debug.Log(name + ": Closest Target: " + closest.name);
+        //Debug.Log(name + ": Closest Target: " + closest.name);
 
         return closest;
     }
