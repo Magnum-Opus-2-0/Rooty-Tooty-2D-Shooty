@@ -19,7 +19,6 @@ public class SpawnpointBehavior : MonoBehaviour
     void Start()
     {
         open = true;
-        StartCoroutine(PrintIsOpen());
     }
 
     void Update()

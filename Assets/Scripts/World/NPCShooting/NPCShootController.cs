@@ -152,7 +152,7 @@ public abstract class NPCShootController : MonoBehaviour
     {
         // Make room for new targets
         targets.Clear();
-        Debug.Log(name + ": clearing targets");
+        //Debug.Log(name + ": clearing targets");
 
         // Get all of the colliders in range
         Collider[] colliders = Physics.OverlapSphere(transform.position, range, targetLayerMask);
@@ -161,17 +161,17 @@ public abstract class NPCShootController : MonoBehaviour
         foreach (Collider c in colliders)
         {
             GameObject target = FindParentObject(c.transform);
-            Debug.Log(name + ": Target found: " + target);
+            //Debug.Log(name + ": Target found: " + target);
             // Make sure we don't add duplicate references to the same GameObject
             // Make sure we don't add dead GameObjects to the targets.
             if (!targets.Contains(target) && target.GetComponent<HealthBehavior>().isNotDead())
             {
-                Debug.Log(name + ": Target added: " + target);
+                //Debug.Log(name + ": Target added: " + target);
                 targets.Add(target);
             }
         }
 
-        Debug.Log(name + ": Total targets: " + targets.Count);
+        //Debug.Log(name + ": Total targets: " + targets.Count);
         return targets;
     }
 
@@ -248,7 +248,7 @@ public abstract class NPCShootController : MonoBehaviour
             }
         }
 
-        Debug.Log(name + ": Highest priority is " + ret);
+        //Debug.Log(name + ": Highest priority is " + ret);
         return ret;
     }
 
@@ -265,7 +265,7 @@ public abstract class NPCShootController : MonoBehaviour
         float minDist = float.MaxValue;
         float tempDist;
 
-        Debug.Log(name + ": DetermineClosestTarget count: " + targets.Count);
+        //Debug.Log(name + ": DetermineClosestTarget count: " + targets.Count);
 
         foreach (GameObject g in targets)
         {
@@ -279,7 +279,7 @@ public abstract class NPCShootController : MonoBehaviour
 
         if (closest)
         {
-            Debug.Log(name + ": Closest Target: " + closest.name);
+            //Debug.Log(name + ": Closest Target: " + closest.name);
         }
 
         return closest;

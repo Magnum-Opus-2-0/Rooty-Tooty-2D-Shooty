@@ -399,9 +399,9 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
             }
 
             //Otherwise yeah go ahead bro
-            Debug.Log(name + ": Searching for targets...");
+            //Debug.Log(name + ": Searching for targets...");
             shooter.DetectTargets();
-            Debug.Log(name + ": Targets found: " + shooter.Targets.Count);
+            //Debug.Log(name + ": Targets found: " + shooter.Targets.Count);
         }
     }
     #endregion

@@ -50,22 +50,22 @@ public class SoldierController : MinionController
             {
                 break;
             }
-            Debug.Log(name + ": Turning towards: " + target.name + " (iterations turning = " + turnIters + ")");
+            //Debug.Log(name + ": Turning towards: " + target.name + " (iterations turning = " + turnIters + ")");
             yield return null;
         }
 
-        Debug.Log(name + ": Begin shooting");
+        //Debug.Log(name + ": Begin shooting");
         // Then shoot the target
         shooter.Shoot();
         // Now let's wait in this coroutine until for the Minion to "reload"
         // so that we don't just shoot bullets forever.
         yield return new WaitForSeconds(timeBetweenAttacks);
         // Finally let's let the minion move again.
-        Debug.Log(name + ": Finished Attack");
+        //Debug.Log(name + ": Finished Attack");
         State = MinionStates.Move;
         // Make sure we clear the target list so that we actually have to search
         // again. If we don't do this, then the soldier immediately starts attacking again
-        // because we don't have enough time to detect targets (which calls clear)
+        //because we don't have enough time to detect targets (which calls clear)
         shooter.Targets.Clear();
         turnIters = 0;
     }
@@ -78,7 +78,7 @@ public class SoldierController : MinionController
         GameObject target = shooter.AcquireTarget();
         if (target)
         {
-            Debug.Log(name + ": Attacking " + target);
+            //Debug.Log(name + ": Attacking " + target);
             // We know this function is called only after CanAttack() has been
             // called, so we can assume that our target list is full and just
             // acquire a target.
