@@ -49,7 +49,8 @@ public class ExplodeBehavior : MonoBehaviour {
     /// so they must be added and deleted when the tank explodes and is restored.
     /// Before an explosion, all elements in this array are null.
     /// </summary>
-    private Rigidbody[] rigidbodies;
+    private Rigidbody[] tempRigidbodies;
+
 
 
     /// <summary>
@@ -59,7 +60,7 @@ public class ExplodeBehavior : MonoBehaviour {
     {
         originalPositions = new Vector3[pieces.Length];
         originalRotations = new Quaternion[pieces.Length];
-        rigidbodies = new Rigidbody[pieces.Length];
+        tempRigidbodies = new Rigidbody[pieces.Length];
     }
 
 
@@ -88,18 +89,28 @@ public class ExplodeBehavior : MonoBehaviour {
 
         for (int i = 0; i < pieces.Length; i++) {
 
-            // First, add the temporary Rigidbody
-            rigidbodies[i] = pieces[i].AddComponent<Rigidbody>();
+            // First, add the temporary Rigidbody,
+            // if it does not have one already
+            if (pieces[i].GetComponent<Rigidbody>() == null) {
+                tempRigidbodies[i] = pieces[i].AddComponent<Rigidbody>();
+            }
 
-            //rigidbodies[i].drag = Mathf.Infinity;
+            // else, if they already have Rigidbodies,
+            // just use theirs,
+            // but make sure it will work properly with physics
+            else {
+                tempRigidbodies[i] = pieces[i].GetComponent<Rigidbody>();
+                tempRigidbodies[i].useGravity = true;
+                tempRigidbodies[i].isKinematic = true;
+            }
 
             // Then, apply explosion forces
             if (i % 2 == 0) {
-                rigidbodies[i].AddExplosionForce(forceOfExplosion,
+                tempRigidbodies[i].AddExplosionForce(forceOfExplosion,
                     pieces[i].transform.position + evenExplosionOffset, // Offset each explosion slightly for effect
                     radiusOfExplosion, 0.0f, ForceMode.Impulse);
             } else {
-                rigidbodies[i].AddExplosionForce(forceOfExplosion,
+                tempRigidbodies[i].AddExplosionForce(forceOfExplosion,
                     pieces[i].transform.position + vertExplosionOffset, // Make some pieces spring up higher
                     radiusOfExplosion, 0.0f, ForceMode.Impulse);
             }
@@ -117,18 +128,18 @@ public class ExplodeBehavior : MonoBehaviour {
 
         if (!exploded) return;
 
-        // First, remove rigidbodies,
+        // First, remove tempRigidbodies,
         // which removes the effects of physics as well
         for (int i = 0; i < pieces.Length; i++) {
 
-            //rigidbodies[i].transform.rotation = originalRotations[i];
-            //rigidbodies[i].transform.position = originalPositions[i];
+            //tempRigidbodies[i].transform.rotation = originalRotations[i];
+            //tempRigidbodies[i].transform.position = originalPositions[i];
 
-            rigidbodies[i].velocity = new Vector3(0f, 0f, 0f);
+            tempRigidbodies[i].velocity = new Vector3(0f, 0f, 0f);
 
-            // Remove rigidbodies,
+            // Remove tempRigidbodies,
             // which removes the effects of physics as well
-            Destroy(rigidbodies[i]);
+            Destroy(tempRigidbodies[i]);
 
             // Then, restore original transforms
             pieces[i].transform.localRotation = originalRotations[i];
