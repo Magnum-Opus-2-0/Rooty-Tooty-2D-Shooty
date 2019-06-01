@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class ExplodeBehavior : MonoBehaviour {
 
-    public ParticleSystem explodeParticles;
+    public ExplodeEffectController efc;
+
     public bool doExplosionDemo;
 
     /// <summary>
@@ -117,7 +118,12 @@ public class ExplodeBehavior : MonoBehaviour {
             }
         }
 
-        explodeParticles.Play();
+        // Only play the explosion system if one was added. Not everything will
+        // necessarily have one.
+        if (efc)
+        {
+            efc.Play();
+        }
 
         exploded = true;
     }
