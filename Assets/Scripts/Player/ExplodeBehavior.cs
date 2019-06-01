@@ -122,9 +122,9 @@ public class ExplodeBehavior : MonoBehaviour {
         // necessarily have one.
         if (efc)
         {
-            efc.Play();
+            efc.Play(); 
         }
-
+        
         exploded = true;
     }
 

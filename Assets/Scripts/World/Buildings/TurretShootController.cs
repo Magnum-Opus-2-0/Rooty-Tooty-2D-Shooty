@@ -13,7 +13,7 @@ public class TurretShootController : NPCShootController
     [SerializeField]
     private float waitTime; 
     [SerializeField]
-    private float aimTime;
+    private float aimSpeed;
     [SerializeField]
     private float timeStep;
 
@@ -21,7 +21,6 @@ public class TurretShootController : NPCShootController
     private float coolDown;
 
     private float timeBetweenShots;
-
 
     private bool targetAcquired;
     GameObject target;
@@ -36,19 +35,22 @@ public class TurretShootController : NPCShootController
 
 
     protected override void Update(){
-        
-        if(target == null || !IsInRange(target)){
-            StartCoroutine("FindTarget");
+        if(health.isNotDead()){
+            if(target == null || !IsInRange(target)){
+                StartCoroutine("FindTarget");
            
-        }
-        else{
-            StartCoroutine("Point");
-            if(IsInRange(target) && timeBetweenShots >= rateOfFire){
-                Shoot();
-                timeBetweenShots = 0.0f;
             }
+            else{
+                if(IsValidTarget(target) && targetHealth.isNotDead()){
+                    Point();
+                    if(IsInRange(target) && timeBetweenShots >= rateOfFire){
+                        Shoot();
+                        timeBetweenShots = 0.0f;
+                    }
+                }
+            }
+            timeBetweenShots += Time.deltaTime;
         }
-        timeBetweenShots += Time.deltaTime;
     }
 
   
@@ -60,12 +62,12 @@ public class TurretShootController : NPCShootController
         
     }
 
-    IEnumerator Point(){
+    void Point(){
         
-        Rigidbody targetRb = target.GetComponent<Rigidbody>();
-        Vector3 shootDir = ((target.transform.position) - orb.position).normalized;
-        float turnSpeed = 0.0f;
-        while (Vector3.Dot(orb.forward, shootDir) < .9995f) // threshold because chances are this won't be exact
+        Quaternion shootDir = Quaternion.LookRotation((target.transform.position - orb.position).normalized);
+
+        orb.rotation = Quaternion.Slerp(orb.rotation, shootDir, Time.deltaTime*aimSpeed);
+       /*  while (Vector3.Dot(orb.forward, shootDir) < .9995f) // threshold because chances are this won't be exact
         {
             turnSpeed = Vector3.AngleBetween(orb.forward, shootDir);
             orb.rotation = Quaternion.LookRotation(
@@ -73,13 +75,19 @@ public class TurretShootController : NPCShootController
                 Vector3.RotateTowards(orb.forward, shootDir, turnSpeed*Time.deltaTime, 0.0f)
                 );
             yield return null;
-        }
+        } 
+        */
         
     }
     
     private bool IsInRange(GameObject t){
-        float distance = (t.transform.position - orb.position).magnitude;
-        return distance <= range && distance >= 2.0f;
+        if(t != null){
+            float distance = (t.transform.position - orb.position).magnitude;
+            return distance <= range;
+        }
+        else{
+            return false;
+        }
     }
     public override void Shoot(){
         RecyclableBullet b_f = bulletPool.Request(barrel);
@@ -116,7 +124,6 @@ public class TurretShootController : NPCShootController
         priorities.Add("Player1_obj", 3);
         priorities.Add("Player2_obj", 3);
         // Not sure if these last two are necessary, but it can't hurt to add them
-        priorities.Add("Player1", 3);
-        priorities.Add("Player2", 3);
+        
     }
 }

@@ -82,7 +82,8 @@ public abstract class NPCShootController : MonoBehaviour
         }
     }
 
-    private HealthBehavior health;
+    protected HealthBehavior health;
+    protected HealthBehavior targetHealth;
 
     protected QueueObjectPooler<RecyclableBullet> bulletPool;
 
@@ -281,7 +282,10 @@ public abstract class NPCShootController : MonoBehaviour
         {
             //Debug.Log(name + ": Closest Target: " + closest.name);
         }
-
+        if(closest != null){
+            targetHealth = closest.GetComponent<HealthBehavior>();
+        }
+        
         return closest;
     }
 

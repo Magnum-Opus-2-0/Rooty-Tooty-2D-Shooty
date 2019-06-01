@@ -127,9 +127,10 @@ Transform:
   m_LocalRotation: {x: -0.70441604, y: 0.06162845, z: 0.06162845, w: 0.70441604}
   m_LocalPosition: {x: 0.22266667, y: 0, z: 0.68}
   m_LocalScale: {x: 0.13333334, y: 0.46666706, z: 0.13333334}
-  m_Children: []
+  m_Children:
+  - {fileID: 2951986887510395517}
   m_Father: {fileID: 7699907235814888371}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 10}
 --- !u!33 &6690487019511001761
 MeshFilter:
@@ -231,12 +232,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665293821481759415}
-  m_LocalRotation: {x: -0, y: 0.08280818, z: -0, w: 0.9965656}
-  m_LocalPosition: {x: 0.29999998, y: 0.04, z: 1.1500001}
-  m_LocalScale: {x: 1.050171, y: 1, z: 1.0499506}
+  m_LocalRotation: {x: 0.7071001, y: -0.003085378, z: -0.003085378, w: 0.7071001}
+  m_LocalPosition: {x: -0.0409219, y: -1.0206175, z: 0.29999968}
+  m_LocalScale: {x: 7.875855, y: 7.5000005, z: 2.2503214}
   m_Children: []
-  m_Father: {fileID: 7699907235814888371}
-  m_RootOrder: 3
+  m_Father: {fileID: 2961969320243291403}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 9.5, z: 0}
 --- !u!1 &706891892026267050
 GameObject:
@@ -360,11 +361,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1821389419734639688}
-  - {fileID: 4557610763752179651}
   - {fileID: 2961969320243291403}
-  - {fileID: 2951986887510395517}
   - {fileID: 8249397286196522457}
-  - {fileID: 1383820346603905986}
   m_Father: {fileID: 619837385057092124}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -573,12 +571,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523273042269657272}
-  m_LocalRotation: {x: -0, y: -0.0828082, z: 2.910383e-10, w: 0.9965656}
-  m_LocalPosition: {x: -0.3, y: 0.04, z: 1.15}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.7071064, y: 0.0007692276, z: -0.00076921645, w: 0.70710635}
+  m_LocalPosition: {x: 0.017519293, y: 1.0206722, z: -0.3000009}
+  m_LocalScale: {x: 7.4999757, y: 7.5000196, z: 2.1428819}
   m_Children: []
-  m_Father: {fileID: 7699907235814888371}
-  m_RootOrder: 5
+  m_Father: {fileID: 8249397286196522457}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -9.5, z: 0}
 --- !u!1 &1785845018505106211
 GameObject:
@@ -822,7 +820,7 @@ MonoBehaviour:
   barrel_left: {fileID: 1383820346603905986}
   orb: {fileID: 619837385057092124}
   waitTime: 3
-  aimTime: 1
+  aimSpeed: 6
   timeStep: 0.1
   coolDown: 0.66667
 --- !u!1 &2849057513105135913
@@ -848,12 +846,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2849057513105135913}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0011999997, y: 0.04, z: 1.2675341}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.008999998, y: 1.1090007, z: -0.30000013}
+  m_LocalScale: {x: 7.5, y: 7.5000014, z: 2.1428554}
   m_Children: []
-  m_Father: {fileID: 7699907235814888371}
-  m_RootOrder: 1
+  m_Father: {fileID: 1821389419734639688}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2861256768168284709
 GameObject:
@@ -1131,7 +1129,8 @@ Transform:
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0.75}
   m_LocalScale: {x: 0.13333333, y: 0.46666718, z: 0.13333334}
-  m_Children: []
+  m_Children:
+  - {fileID: 4557610763752179651}
   m_Father: {fileID: 7699907235814888371}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -1300,9 +1299,10 @@ Transform:
   m_LocalRotation: {x: 0.70461416, y: -0.059320785, z: 0.059320778, w: 0.7046141}
   m_LocalPosition: {x: -0.22266667, y: 0, z: 0.68}
   m_LocalScale: {x: 0.13333334, y: 0.46666688, z: 0.133333}
-  m_Children: []
+  m_Children:
+  - {fileID: 1383820346603905986}
   m_Father: {fileID: 7699907235814888371}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 9.625}
 --- !u!33 &3081674685194489032
 MeshFilter:
