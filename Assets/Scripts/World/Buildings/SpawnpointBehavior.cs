@@ -19,11 +19,12 @@ public class SpawnpointBehavior : MonoBehaviour
     void Start()
     {
         open = true;
+        StartCoroutine(PrintIsOpen());
     }
 
     void Update()
     {
-        if (!open && col == null)
+        if (!open && (col == null || !col.gameObject.activeInHierarchy))
         {
             open = true;
         }
@@ -47,4 +48,15 @@ public class SpawnpointBehavior : MonoBehaviour
         open = true;
         //Debug.Log("Exit spawnpoint: " + other.name);
     }
+
+    #region DEBUG_METHODS
+    public IEnumerator PrintIsOpen()
+    {
+        while (true)
+        {
+            Debug.Log("Spawnpoint Is Open: " + open);
+            yield return new WaitForSeconds(.1f);
+        }
+    }
+    #endregion
 }
