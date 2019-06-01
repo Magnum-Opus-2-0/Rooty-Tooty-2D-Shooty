@@ -5,6 +5,7 @@ using UnityEngine;
 public class TeddyController : MinionController
 {
     public int attackDamage;
+    public ParticleSystem smashEffect;
 
     private bool dieOnce;
 
@@ -31,6 +32,7 @@ public class TeddyController : MinionController
     private IEnumerator TeddySmash()
     {
         // Play an attack animation here
+        smashEffect.Play();
         // yield return new WaitForSeconds(# of seconds until the animation hits the ground)
         foreach (GameObject g in shooter.Targets)
         {
