@@ -123,7 +123,7 @@ public class ExplodeBehavior : MonoBehaviour {
         if (efc)
         {
             efc.Play(); 
-        }
+       }
         
         exploded = true;
     }

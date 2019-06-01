@@ -475,6 +475,7 @@ public class TankController : MonoBehaviour
     /// </summary>
     private void MoveTank()
     {
+
         // Determine which mode the user is steering with then angle the tank.
         switch (steerMode)
         {
@@ -508,6 +509,11 @@ public class TankController : MonoBehaviour
             // some kind of error.
             MoveTankFree();
         }
+
+        /* Added this in an attempt to prevent wall climbing  */
+        var pos = transform.position;
+        pos.y =  Mathf.Clamp(transform.position.y, 0.0f, 0.2f);
+        transform.position = pos;
     }
 
     /// <summary>
