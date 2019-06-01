@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ExplodeBehavior : MonoBehaviour {
 
+    public ParticleSystem explodeParticles;
     public bool doExplosionDemo;
 
     /// <summary>
@@ -115,6 +116,8 @@ public class ExplodeBehavior : MonoBehaviour {
                     radiusOfExplosion, 0.0f, ForceMode.Impulse);
             }
         }
+
+        explodeParticles.Play();
 
         exploded = true;
     }
