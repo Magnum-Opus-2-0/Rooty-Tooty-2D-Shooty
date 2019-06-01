@@ -3816,7 +3816,7 @@ PrefabInstance:
         type: 3}
       propertyPath: minionToSpawn
       value: 
-      objectReference: {fileID: 6437489148964920028, guid: bbb13a33159b5402cbcd26ce33859fa8,
+      objectReference: {fileID: 7091689073621432022, guid: b16b66694cb484403854f3ba507bef5b,
         type: 3}
     - target: {fileID: 8992694247891310930, guid: 15d76df85826a4313820404bea8bb3b0,
         type: 3}

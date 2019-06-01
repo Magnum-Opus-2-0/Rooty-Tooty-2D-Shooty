@@ -85,6 +85,12 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
     protected MinionMoveTypes lastType;
     #endregion
 
+    #region ANIMATION_MEMBERS
+
+    Animator anim;
+
+    #endregion
+
 
 
     // Start is called before the first frame update
@@ -94,6 +100,8 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
         health.setHealth(maxHealth);
 
         shooter = GetComponent<MinionShootController>();
+
+        anim = GetComponent<Animator>();
 
         leftRight = getAxisString(true);
         upDown = getAxisString(false);
@@ -203,7 +211,10 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
         }
 
         UpdateDestination();
-
+        if (anim)
+        {
+            UpdateAnimator();
+        }
     }
 
     /// <summary>
@@ -212,6 +223,11 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
     public virtual void Die()
     {
         // Maybe a happy little death animation would be fun here
+        // Wish granted.
+        if (anim)
+        {
+            anim.SetTrigger("Die");
+        }
 
         // If the Minion is not a child of its fondler then it is an orphan.
         // Orphaned Minions must be destroyed.
@@ -223,7 +239,7 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
         } 
         else
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 1.5f);
         }
     }
 
@@ -429,5 +445,16 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
         }
     }
 
+    #endregion
+
+    #region ANIMATION_METHODS
+    /// <summary>
+    /// Updates the animator depending on which state the Minion is in. Only call
+    /// this method if the <see cref="anim"/> is not <c>null</c>.
+    /// </summary>
+    protected void UpdateAnimator()
+    {
+        anim.SetBool("IsMoving", moveType != MinionMoveTypes.Halt);
+    }
     #endregion
 }
