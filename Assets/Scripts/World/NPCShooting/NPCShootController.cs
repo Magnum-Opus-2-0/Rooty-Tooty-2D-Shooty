@@ -346,6 +346,14 @@ public abstract class NPCShootController : MonoBehaviour
         return null;
     }
 
+    /// <summary>
+    /// Determines whether the specified GameObject is valid. That is, whether
+    /// it is not null and it is active.
+    /// <para>This is important because it is possible for the shooter to be in
+    /// the process of targeting/attacking and its target is killed.</para>
+    /// </summary>
+    /// <returns><c>true</c>, if valid target was ised, <c>false</c> otherwise.</returns>
+    /// <param name="g">The green component.</param>
     public static bool IsValidTarget(GameObject g)
     {
         return g != null && g.activeInHierarchy;
