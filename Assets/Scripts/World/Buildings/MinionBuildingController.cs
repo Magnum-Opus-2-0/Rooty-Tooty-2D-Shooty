@@ -142,8 +142,7 @@ public class MinionBuildingController : BuildingController
             MinionController minion = minionPool.Request(spawnpoint);
             if (minion)
             {
-                MinionShootController msc = minion.gameObject.GetComponent<MinionShootController>();
-                msc.BulletFondler = InstantiateBulletFondler()
+
             }
             else
             {
@@ -156,10 +155,4 @@ public class MinionBuildingController : BuildingController
         }
     }
 
-    private void InstantiateBulletFondler(GameObject minion, string player)
-    {
-        GameObject temp = Instantiate(bulletFondler, master_minion_fondler) as GameObject;
-        minion.GetComponent<MinionShootController>().BulletFondler = temp.transform;
-        temp.name += " [" + player + "]";
-    }
 }
