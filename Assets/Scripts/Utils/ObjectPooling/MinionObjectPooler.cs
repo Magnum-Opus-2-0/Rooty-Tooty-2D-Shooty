@@ -6,8 +6,8 @@ public class MinionObjectPooler<T> : RestrictedObjectPooler<T> where T : MinionC
 {
     private static Transform master_minion_fondler;
 
-    private Transform bulletFondler;
-    public Transform BulletFondler
+    private GameObject bulletFondler;
+    public GameObject BulletFondler
     {
         get
         {
@@ -20,13 +20,15 @@ public class MinionObjectPooler<T> : RestrictedObjectPooler<T> where T : MinionC
         }
     }
 
-    public MinionObjectPooler(GameObject prefab, Transform parent, int max) 
+    public MinionObjectPooler(GameObject prefab, Transform parent, int max, GameObject bulletFondler) 
         : base(prefab, parent, max)
     {
         if (!master_minion_fondler)
         {
-            CreateBuilding.FindMasterMinionFondler();
+            master_minion_fondler = CreateBuilding.FindMasterMinionFondler();
         }
+
+        BulletFondler = bulletFondler;
     }
 
     public override T Request(Vector3 at, Quaternion dir)
@@ -35,18 +37,17 @@ public class MinionObjectPooler<T> : RestrictedObjectPooler<T> where T : MinionC
         // We want to see just instantiated a new object with the base.Request
         if ((GetNumInstantiated() - 1) < maxAllowed)
         {
-            InstantiateBulletFondler(obj.gameObject, "[" + PrevID + "]");
-            obj.GetComponent<MinionShootController>().BulletFondler = bulletFondler;
+            InstantiateBulletFondler(obj.gameObject, " [" + PrevID + "]");
         }
 
         return obj;
     }
 
 
-    private void InstantiateBulletFondler(GameObject minion, string minionID)
+    private void InstantiateBulletFondler(GameObject minion, string suffix)
     {
-        GameObject temp = Object.Instantiate(bulletFondler.gameObject, master_minion_fondler) as GameObject;
+        GameObject temp = Object.Instantiate(bulletFondler, master_minion_fondler) as GameObject;
         minion.GetComponent<MinionShootController>().BulletFondler = temp.transform;
-        temp.name += " [" + minionID + "]";
+        temp.name += suffix;
     }
 }

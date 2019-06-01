@@ -65,10 +65,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDeath: 3.5
+  bulletFondler: {fileID: 7955709013821429787, guid: a487210c189404e3db1b5933812739cb,
+    type: 3}
   minionToSpawn: {fileID: 0}
   minionFondler: {fileID: 0}
-  minionBulletFondler: {fileID: 2778271281630058824, guid: a487210c189404e3db1b5933812739cb,
-    type: 3}
   spawns:
   - {fileID: 801371435654863856}
   - {fileID: 6725050551803951171}
@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 640553337629075808}
   explodeScript: {fileID: 6047870381348599506}
+  maxHealth: 100
   currentHealth: 50
   doPoisonDemo: 0
   health_icon: {fileID: 640553337629062206}

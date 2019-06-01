@@ -27,9 +27,9 @@ public class TurretShootController : NPCShootController
     GameObject target;
 
     // Start is called before the first frame update
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         targetAcquired = false;
         timeBetweenShots = 0.0f;
     }

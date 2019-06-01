@@ -64,6 +64,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDeath: 3.5
+  bulletFondler: {fileID: 7955709013821429787, guid: a487210c189404e3db1b5933812739cb,
+    type: 3}
   minionToSpawn: {fileID: 0}
   minionFondler: {fileID: 0}
   spawns:

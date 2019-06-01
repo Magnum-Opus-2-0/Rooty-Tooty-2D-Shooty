@@ -79,7 +79,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8087609134817526711}
   - {fileID: 2183577162118073327}
   - {fileID: 145950659554148296}
   m_Father: {fileID: 0}
@@ -120,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barrel: {fileID: 7605035420620294921}
   bullet: {fileID: 0}
-  bulletFondler: {fileID: 8087609134817526711}
+  bulletFondler: {fileID: 0}
   rateOfFire: 0.3
   range: 3
   bulletSpeed: 40
@@ -595,7 +594,7 @@ RectTransform:
   m_Children:
   - {fileID: 8414202997272445566}
   m_Father: {fileID: 585992476308061620}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -739,36 +738,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &7477043906619495923
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8087609134817526711}
-  m_Layer: 0
-  m_Name: Soldier Bullet Fondler
-  m_TagString: Player_1
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8087609134817526711
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7477043906619495923}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 585992476308061620}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7620655715362895467
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,7 +833,7 @@ Transform:
   - {fileID: 7566343111441395412}
   - {fileID: 1091678117098589116}
   m_Father: {fileID: 585992476308061620}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8414202997284166344
 PrefabInstance:

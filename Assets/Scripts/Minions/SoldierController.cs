@@ -24,6 +24,7 @@ public class SoldierController : MinionController
     public IEnumerator PointAtThenShoot(GameObject target)
     {
         Vector3 targetDir = (target.transform.position - transform.position).normalized;
+        targetDir.y = 0;
 
         #pragma warning disable CS0618
         // Vector3.AngleBetween is obsolete because it 
@@ -32,24 +33,27 @@ public class SoldierController : MinionController
         float turnSpeed = Vector3.AngleBetween(transform.forward, targetDir);
         #pragma warning restore CS0618
 
+        //float turnSpeed = 2.5f;
+
         // First point the minion at the target
-        while (Vector3.Dot(transform.forward, targetDir) < 0.9999f) // threshold because chances are this won't be exact
+        float tempDot = Vector3.Dot(transform.forward, targetDir);
+        while (tempDot < 0.9999f) // threshold because chances are this won't be exact
         {
             transform.rotation = Quaternion.LookRotation(
                 Vector3.RotateTowards(transform.forward, targetDir, turnSpeed * Time.deltaTime, 0.0f)
                 );
-            //Debug.Log(name + ": Turning towards " + target.name);
+            Debug.Log(name + ": Turning towards " + target.name + " (dot = " + tempDot + ")");
             yield return null;
         }
 
-        //Debug.Log(name + ": Begin shooting");
+        Debug.Log(name + ": Begin shooting");
         // Then shoot the target
         shooter.Shoot();
         // Now let's wait in this coroutine until for the Minion to "reload"
         // so that we don't just shoot bullets forever.
         yield return new WaitForSeconds(timeBetweenAttacks);
         // Finally let's let the minion move again.
-        //Debug.Log(name + ": Finished Attack");
+        Debug.Log(name + ": Finished Attack");
         State = MinionStates.Move;
     }
     
@@ -61,7 +65,7 @@ public class SoldierController : MinionController
         GameObject target = shooter.AcquireTarget();
         if (target)
         {
-            //Debug.Log(name + ": Attacking " + target);
+            Debug.Log(name + ": Attacking " + target);
             // We know this function is called only after CanAttack() has been
             // called, so we can assume that our target list is full and just
             // acquire a target.

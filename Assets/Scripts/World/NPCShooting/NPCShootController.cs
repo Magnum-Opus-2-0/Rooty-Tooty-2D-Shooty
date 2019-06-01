@@ -21,7 +21,7 @@ public abstract class NPCShootController : MonoBehaviour
         set
         {
             bulletFondler = value;
-            bulletPool.Fondler = bulletFondler;
+            bulletPool.Fondler = value;
         }
     }
 
@@ -121,7 +121,7 @@ public abstract class NPCShootController : MonoBehaviour
     #endregion
 
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         bulletPool = new QueueObjectPooler<RecyclableBullet>(bullet, bulletFondler, maxBullets);
         health = GetComponent<HealthBehavior>();

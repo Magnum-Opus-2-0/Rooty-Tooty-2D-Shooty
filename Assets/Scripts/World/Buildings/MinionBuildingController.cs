@@ -8,6 +8,9 @@ public class MinionBuildingController : BuildingController
     private static Transform master_minion_fondler;
     private static bool findFondlerOnce = true;
 
+    /// <summary>
+    /// The bullet fondler that will be instantiated for each minion.
+    /// </summary>
     public GameObject bulletFondler;
 
     /// <summary>
@@ -46,7 +49,7 @@ public class MinionBuildingController : BuildingController
     public int minionsPerBatch = 3;
     private int minionsThisBatch;
 
-    private RestrictedObjectPooler<MinionController> minionPool;
+    private MinionObjectPooler<MinionController> minionPool;
 
     protected override void Awake()
     {
@@ -60,7 +63,7 @@ public class MinionBuildingController : BuildingController
 
         minionsThisBatch = 0;
 
-        minionPool = new RestrictedObjectPooler<MinionController>(minionToSpawn, minionFondler, maxMinions);
+        minionPool = new MinionObjectPooler<MinionController>(minionToSpawn, minionFondler, maxMinions, bulletFondler);
         StartCoroutine(SpawnRoutine());
     }
 
