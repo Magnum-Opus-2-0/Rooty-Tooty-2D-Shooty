@@ -152,23 +152,25 @@ public abstract class NPCShootController : MonoBehaviour
     {
         // Make room for new targets
         targets.Clear();
+        Debug.Log(name + ": clearing targets");
 
         // Get all of the colliders in range
         Collider[] colliders = Physics.OverlapSphere(transform.position, range, targetLayerMask);
-        Debug.Log(name + ": Found " + colliders.Length + " colliders");
+        //Debug.Log(name + ": Found " + colliders.Length + " colliders");
         // Add the GameObjects of the colliders to the targets list
         foreach (Collider c in colliders)
         {
             GameObject target = FindParentObject(c.transform);
-            Debug.Log("Target found: " + target);
+            Debug.Log(name + ": Target found: " + target);
             // Make sure we don't add duplicate references to the same GameObject
             if (!targets.Contains(target))
             {
-                Debug.Log("Target added: " + target);
+                Debug.Log(name + ": Target added: " + target);
                 targets.Add(target);
             }
         }
 
+        Debug.Log(name + ": Total targets: " + targets.Count);
         return targets;
     }
 

@@ -8,11 +8,13 @@ public class SoldierController : MinionController
 
     #endregion
 
+    private int turnIters;
+
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
-
+        turnIters = 0;
     }
 
     // Update is called once per frame
@@ -24,7 +26,7 @@ public class SoldierController : MinionController
     public IEnumerator PointAtThenShoot(GameObject target)
     {
         Vector3 targetDir = (target.transform.position - transform.position).normalized;
-        targetDir.y = 0;
+        //Debug.Log(name + "Forward: " + transform.forward + ", Target Dir: " + targetDir);
 
         #pragma warning disable CS0618
         // Vector3.AngleBetween is obsolete because it 
@@ -33,16 +35,22 @@ public class SoldierController : MinionController
         float turnSpeed = Vector3.AngleBetween(transform.forward, targetDir);
         #pragma warning restore CS0618
 
-        //float turnSpeed = 2.5f;
 
         // First point the minion at the target
-        float tempDot = Vector3.Dot(transform.forward, targetDir);
-        while (tempDot < 0.9999f) // threshold because chances are this won't be exact
+        while (Vector3.Dot(transform.forward, targetDir) < .9999f) // threshold because chances are this won't be exact
         {
             transform.rotation = Quaternion.LookRotation(
-                Vector3.RotateTowards(transform.forward, targetDir, turnSpeed * Time.deltaTime, 0.0f)
+                Vector3.RotateTowards(transform.forward, targetDir, turnSpeed * Time.deltaTime, 0.0f),
+                transform.up
                 );
-            Debug.Log(name + ": Turning towards " + target.name + " (dot = " + tempDot + ")");
+
+            // Sometimes minions get stuck trying to turn this is my filthy attempt at fixing it
+            // I'm so ashamed it made me figuratively sick to my stomach.
+            if (turnIters++ > 200) 
+            {
+                break;
+            }
+            Debug.Log(name + ": Turning towards: " + target.name + " (iterations turning = " + turnIters + ")");
             yield return null;
         }
 
@@ -55,6 +63,11 @@ public class SoldierController : MinionController
         // Finally let's let the minion move again.
         Debug.Log(name + ": Finished Attack");
         State = MinionStates.Move;
+        // Make sure we clear the target list so that we actually have to search
+        // again. If we don't do this, then we immediately start attacking again
+        // because we don't have enough time to detect targets (which calls clear)
+        shooter.Targets.Clear();
+        turnIters = 0;
     }
     
     /// <summary>
