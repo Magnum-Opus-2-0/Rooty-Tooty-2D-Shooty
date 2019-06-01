@@ -779,7 +779,7 @@ MonoBehaviour:
   altHalt: 
   useAltHalt: 1
   nv_agent: {fileID: 8008131314690178117}
-  doNavMeshDemo: 0
+  doNavMeshDemo: 1
   useMouseControls: 0
   timeBetweenAttacks: 5
   attackDamage: 10

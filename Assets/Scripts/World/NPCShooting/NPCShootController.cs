@@ -163,7 +163,8 @@ public abstract class NPCShootController : MonoBehaviour
             GameObject target = FindParentObject(c.transform);
             Debug.Log(name + ": Target found: " + target);
             // Make sure we don't add duplicate references to the same GameObject
-            if (!targets.Contains(target))
+            // Make sure we don't add dead GameObjects to the targets.
+            if (!targets.Contains(target) && target.GetComponent<HealthBehavior>().isNotDead())
             {
                 Debug.Log(name + ": Target added: " + target);
                 targets.Add(target);

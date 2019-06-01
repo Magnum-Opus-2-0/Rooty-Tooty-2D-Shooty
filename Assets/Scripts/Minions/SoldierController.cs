@@ -64,7 +64,7 @@ public class SoldierController : MinionController
         Debug.Log(name + ": Finished Attack");
         State = MinionStates.Move;
         // Make sure we clear the target list so that we actually have to search
-        // again. If we don't do this, then we immediately start attacking again
+        // again. If we don't do this, then the soldier immediately starts attacking again
         // because we don't have enough time to detect targets (which calls clear)
         shooter.Targets.Clear();
         turnIters = 0;

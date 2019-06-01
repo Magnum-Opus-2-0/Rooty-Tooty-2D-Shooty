@@ -34,5 +34,7 @@ public class TeddyController : MinionController
         }
         yield return new WaitForSeconds(timeBetweenAttacks);
         State = MinionStates.Move;
+        // We clear here so that the teddy gets a chance to search for new ones.
+        shooter.Targets.Clear();
     }
 }
