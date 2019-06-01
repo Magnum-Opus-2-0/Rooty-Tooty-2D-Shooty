@@ -87,7 +87,7 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
 
     #region ANIMATION_MEMBERS
 
-    Animator anim;
+    protected Animator anim;
 
     #endregion
 
@@ -222,13 +222,6 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
     /// </summary>
     public virtual void Die()
     {
-        // Maybe a happy little death animation would be fun here
-        // Wish granted.
-        if (anim)
-        {
-            anim.SetTrigger("Die");
-        }
-
         // If the Minion is not a child of its fondler then it is an orphan.
         // Orphaned Minions must be destroyed.
         // What I'm saying is orphaned Minions have had their spawner destroyed
@@ -239,11 +232,11 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
         } 
         else
         {
-            Destroy(gameObject, 1.5f);
+            Destroy(gameObject);
         }
     }
 
-    public void Recycle()
+    public virtual void Recycle()
     {
         health.setHealth(maxHealth);
         State = MinionStates.Move;

@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 390823143606546631}
   - component: {fileID: 4506670321386976917}
   m_Layer: 0
-  m_Name: Teddy (Animate Update)
+  m_Name: Teddy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   bullet: {fileID: 0}
   bulletFondler: {fileID: 0}
   rateOfFire: 0
-  range: 1.5
+  range: 2
   bulletSpeed: 0
   maxBullets: 0
   burstSize: 0
