@@ -65,7 +65,7 @@ public class TurretShootController : NPCShootController
         Rigidbody targetRb = target.GetComponent<Rigidbody>();
         Vector3 shootDir = ((target.transform.position) - orb.position).normalized;
         float turnSpeed = 0.0f;
-        while (Vector3.Dot(orb.forward, shootDir) < .9999f) // threshold because chances are this won't be exact
+        while (Vector3.Dot(orb.forward, shootDir) < .9995f) // threshold because chances are this won't be exact
         {
             turnSpeed = Vector3.AngleBetween(orb.forward, shootDir);
             orb.rotation = Quaternion.LookRotation(
