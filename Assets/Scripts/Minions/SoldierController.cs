@@ -33,23 +33,23 @@ public class SoldierController : MinionController
         #pragma warning restore CS0618
 
         // First point the minion at the target
-        while (Vector3.Dot(transform.forward, targetDir) < 0.99f) // threshold because chances are this won't be exact
+        while (Vector3.Dot(transform.forward, targetDir) < 0.9999f) // threshold because chances are this won't be exact
         {
             transform.rotation = Quaternion.LookRotation(
                 Vector3.RotateTowards(transform.forward, targetDir, turnSpeed * Time.deltaTime, 0.0f)
                 );
-            //Debug.Log(name + "Turning towards");
+            Debug.Log(name + ": Turning towards " + target.name);
             yield return null;
         }
 
+        Debug.Log(name + ": Begin shooting");
         // Then shoot the target
         shooter.Shoot();
-        //Debug.Log("Hold on now it's attacking time.");
         // Now let's wait in this coroutine until for the Minion to "reload"
         // so that we don't just shoot bullets forever.
         yield return new WaitForSeconds(timeBetweenAttacks);
         // Finally let's let the minion move again.
-        //Debug.Log("Yeah boy time to move.");
+        Debug.Log(name + ": Finished Attack");
         State = MinionStates.Move;
     }
     
@@ -59,10 +59,17 @@ public class SoldierController : MinionController
     public override void Attack()
     {
         GameObject target = shooter.AcquireTarget();
-        //Debug.Log(name + ": Attacking " + target);
-        // We know this function is called only after CanAttack() has been
-        // called, so we can assume that our target list is full and just
-        // acquire a target.
-        StartCoroutine(PointAtThenShoot(target));
+        if (target)
+        {
+            Debug.Log(name + ": Attacking " + target);
+            // We know this function is called only after CanAttack() has been
+            // called, so we can assume that our target list is full and just
+            // acquire a target.
+            StartCoroutine(PointAtThenShoot(target));
+        }
+        else
+        {
+            State = MinionStates.Move;
+        }
     }
 }

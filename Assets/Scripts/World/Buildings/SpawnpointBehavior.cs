@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SpawnpointBehavior : MonoBehaviour
 {
+
+    private Collider col;
+
     private bool open;
     public bool IsOpen
     {
@@ -18,6 +21,14 @@ public class SpawnpointBehavior : MonoBehaviour
         open = true;
     }
 
+    void Update()
+    {
+        if (!open && col == null)
+        {
+            open = true;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         open = false;
@@ -28,6 +39,7 @@ public class SpawnpointBehavior : MonoBehaviour
     {   
         open = false;
         //Debug.Log("Stay spawnpoint: " + other.name);
+        col = other;
     }
 
     private void OnTriggerExit(Collider other)

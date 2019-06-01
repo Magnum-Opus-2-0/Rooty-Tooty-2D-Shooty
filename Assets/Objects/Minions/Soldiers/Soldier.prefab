@@ -123,7 +123,7 @@ MonoBehaviour:
   bulletFondler: {fileID: 8087609134817526711}
   rateOfFire: 0.3
   range: 3
-  bulletSpeed: 10
+  bulletSpeed: 40
   maxBullets: 6
   burstSize: 3
   rifle: {fileID: 4569244109384366654}
@@ -178,7 +178,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0.75
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.25
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0

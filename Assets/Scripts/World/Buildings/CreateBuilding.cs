@@ -68,7 +68,7 @@ public class CreateBuilding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isValid && col == null){
+        if(!isValid && !(col.gameObject.activeInHierarchy)){
             isValid = true;
         }
         hasEnough = checkResources();
@@ -142,6 +142,7 @@ public class CreateBuilding : MonoBehaviour
     {
         GameObject temp = Instantiate(minion_fondler_prefab, master_minion_fondler) as GameObject;
         spawner.GetComponent<MinionBuildingController>().MinionFondler = temp.transform;
+        temp.name += " [" + player + "]";
     }
 
     /// <summary>
@@ -150,7 +151,7 @@ public class CreateBuilding : MonoBehaviour
     /// to spawn minions into.
     /// </summary>
     /// <returns>The master minion fondler.</returns>
-    private static Transform FindMasterMinionFondler()
+    public static Transform FindMasterMinionFondler()
     {
         GameObject mmf = GameObject.FindWithTag("Master Minion Fondler");
         Assert.IsTrue(mmf != null, 

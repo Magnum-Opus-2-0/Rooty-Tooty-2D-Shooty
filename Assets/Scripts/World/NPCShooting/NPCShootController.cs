@@ -21,6 +21,7 @@ public abstract class NPCShootController : MonoBehaviour
         set
         {
             bulletFondler = value;
+            bulletPool.Fondler = bulletFondler;
         }
     }
 
@@ -154,16 +155,16 @@ public abstract class NPCShootController : MonoBehaviour
 
         // Get all of the colliders in range
         Collider[] colliders = Physics.OverlapSphere(transform.position, range, targetLayerMask);
-        //Debug.Log(name + ": Found " + colliders.Length + " colliders");
+        Debug.Log(name + ": Found " + colliders.Length + " colliders");
         // Add the GameObjects of the colliders to the targets list
         foreach (Collider c in colliders)
         {
             GameObject target = FindParentObject(c.transform);
-            //Debug.Log("Target found: " + target);
+            Debug.Log("Target found: " + target);
             // Make sure we don't add duplicate references to the same GameObject
             if (!targets.Contains(target))
             {
-                //Debug.Log("Target added: " + target);
+                Debug.Log("Target added: " + target);
                 targets.Add(target);
             }
         }
@@ -189,7 +190,7 @@ public abstract class NPCShootController : MonoBehaviour
         string highestPriority = DetermineHighestPriority();
         foreach (GameObject g in targets)
         {
-            if (g.tag == highestPriority)
+            if (IsValidTarget(g) && g.tag == highestPriority)
             {
                 tempTargets.Add(g);
             }
@@ -224,21 +225,27 @@ public abstract class NPCShootController : MonoBehaviour
     {
         string ret = null;
         int highest = int.MaxValue;
-        int tempPriority;
+        int tempPriority = highest;
 
         foreach (GameObject g in targets)
         {
+            // First make sure the GameObject we're looking at hasn't beem destroyed by something else
             // TryGetValue returns false if the string does not exist in the dictionary
             // so we only change highest if we actually found a matching key
+            if (IsValidTarget(g))
+            {
+                priorities.TryGetValue(g.tag, out tempPriority);
+            }
             // After we find a matching key we check to see if the priority was
             // higher than the previous
-            if (priorities.TryGetValue(g.tag, out tempPriority) && tempPriority < highest)
+            if (tempPriority < highest)
             {
                 highest = tempPriority;
                 ret = g.tag;
             }
         }
 
+        Debug.Log(name + ": Highest priority is " + ret);
         return ret;
     }
 
@@ -255,7 +262,7 @@ public abstract class NPCShootController : MonoBehaviour
         float minDist = float.MaxValue;
         float tempDist;
 
-        //Debug.Log(name + ": DetermineClosestTarget count: " + targets.Count);
+        Debug.Log(name + ": DetermineClosestTarget count: " + targets.Count);
 
         foreach (GameObject g in targets)
         {
@@ -267,7 +274,10 @@ public abstract class NPCShootController : MonoBehaviour
             }
         }
 
-        //Debug.Log(name + ": Closest Target: " + closest.name);
+        if (closest)
+        {
+            Debug.Log(name + ": Closest Target: " + closest.name);
+        }
 
         return closest;
     }
@@ -334,5 +344,10 @@ public abstract class NPCShootController : MonoBehaviour
         // that gets here is not a target at all. Let's throw a message just in case though
         Debug.LogWarning("Parent GameObject could not be found. Returning null");
         return null;
+    }
+
+    public static bool IsValidTarget(GameObject g)
+    {
+        return g != null && g.activeInHierarchy;
     }
 }

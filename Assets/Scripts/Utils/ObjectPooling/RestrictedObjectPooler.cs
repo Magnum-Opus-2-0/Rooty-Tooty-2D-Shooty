@@ -5,6 +5,21 @@ using UnityEngine;
 public class RestrictedObjectPooler<T> : ObjectPooler<T> where T : MonoBehaviour, IRecyclable
 {
     private static int id = 0;
+    public static int NextID
+    {
+        get
+        {
+            return id;
+        }
+    }
+
+    public static int PrevID
+    {
+        get
+        {
+            return id - 1;
+        }
+    }
 
     public RestrictedObjectPooler(GameObject prefab, Transform parent, int max) 
         : base(prefab, parent, max)
@@ -17,7 +32,7 @@ public class RestrictedObjectPooler<T> : ObjectPooler<T> where T : MonoBehaviour
     /// <returns>A reference to the object if one is available, <c>null</c> otherwise.</returns>
     /// <param name="at">The position at which to place the object.</param>
     /// <param name="dir">The direction at which to point the object.</param>
-    override public T Request(Vector3 at, Quaternion dir)
+    public override T Request(Vector3 at, Quaternion dir)
     {
         T ret = null;
         if (GetNumInstantiated() < maxAllowed)
