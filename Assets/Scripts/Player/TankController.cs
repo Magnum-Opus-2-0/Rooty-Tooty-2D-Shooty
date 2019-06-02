@@ -485,8 +485,8 @@ public class TankController : MonoBehaviour
                 break;
 
             case SteerMode.Turn:
-                //TurnTank();
-                TurnTankTorque();
+                TurnTank();
+                //TurnTankTorque();
                 break;
         }
 

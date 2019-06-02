@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class ShootController : MonoBehaviour
 {
@@ -125,7 +126,7 @@ public class ShootController : MonoBehaviour
             FireRateStateMachine(Input.GetButton(shoot));
         //}
 
-
+        Assert.IsTrue(bullets != null, "Mystery bug!");
         for (int i = 0; i < bullets.Count; i++)
         {
             // Only add force if bullet hasn't been fired yet.

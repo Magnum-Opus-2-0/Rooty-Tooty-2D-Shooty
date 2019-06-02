@@ -94,22 +94,6 @@ MonoBehaviour:
   - {r: 0.6627451, g: 0.9843138, b: 0.6156863, a: 1}
   - {r: 0.9294118, g: 0.5294118, b: 0.77647066, a: 1}
   - {r: 0.9333334, g: 0.627451, b: 0.25882354, a: 1}
---- !u!54 &6164764235632409632
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8759658087128272469}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &5101279944347448014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -204,7 +188,7 @@ PrefabInstance:
     - target: {fileID: 2203651884301793332, guid: e8d164f3a5743424d8e0c15d0b7008ad,
         type: 3}
       propertyPath: m_Size.x
-      value: 1.55
+      value: 1.95
       objectReference: {fileID: 0}
     - target: {fileID: 2203651884301793332, guid: e8d164f3a5743424d8e0c15d0b7008ad,
         type: 3}
@@ -214,7 +198,7 @@ PrefabInstance:
     - target: {fileID: 2203651884301793332, guid: e8d164f3a5743424d8e0c15d0b7008ad,
         type: 3}
       propertyPath: m_Size.z
-      value: 1.5
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 2203651884301793332, guid: e8d164f3a5743424d8e0c15d0b7008ad,
         type: 3}
@@ -316,15 +300,24 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 44fc0bc6c425a42b3a11a01519715554, type: 2}
+    - target: {fileID: 2777732739972271455, guid: e8d164f3a5743424d8e0c15d0b7008ad,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777732739972271455, guid: e8d164f3a5743424d8e0c15d0b7008ad,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777732739972271455, guid: e8d164f3a5743424d8e0c15d0b7008ad,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8792105348836013060, guid: e8d164f3a5743424d8e0c15d0b7008ad, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e8d164f3a5743424d8e0c15d0b7008ad, type: 3}
---- !u!1 &8759658087128272469 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2203651884301793334, guid: e8d164f3a5743424d8e0c15d0b7008ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 7423197895610152547}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2957746665274985760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5622878016788691779, guid: e8d164f3a5743424d8e0c15d0b7008ad,

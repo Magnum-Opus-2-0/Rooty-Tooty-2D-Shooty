@@ -148,7 +148,7 @@ MonoBehaviour:
   respawnText: {fileID: 8247404113704271064}
   health_val: {fileID: 8247404113704271064}
   respawnTime: 0
-  doesRespawn: 1
+  doesRespawn: 0
 --- !u!114 &2070589742068855113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c647290bead14f0d8b9187156d995ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hb: {fileID: 8173937852234914443}
+  healthBehave: {fileID: 8173937852234914443}
   fluffs: []
   plastics:
   - {fileID: 2365052988772019901, guid: 395422e6a62084b8c9cf3e4bfb4f5576, type: 3}
