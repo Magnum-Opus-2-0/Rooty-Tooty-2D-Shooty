@@ -43,10 +43,6 @@ public class TurretShootController : NPCShootController
             else{
                 if(IsValidTarget(target) && targetHealth.isNotDead()){
                     Point();
-                    if(IsInRange(target) && timeBetweenShots >= rateOfFire){
-                        Shoot();
-                        timeBetweenShots = 0.0f;
-                    }
                 }
             }
             timeBetweenShots += Time.deltaTime;
@@ -77,6 +73,11 @@ public class TurretShootController : NPCShootController
             yield return null;
         } 
         */
+        bool linedUp = (Vector3.Dot(orb.forward, (target.transform.position - orb.position).normalized) > .99f);
+        if(IsInRange(target) && timeBetweenShots >= rateOfFire && linedUp){
+            Shoot();
+            timeBetweenShots = 0.0f;
+        }
         
     }
     
