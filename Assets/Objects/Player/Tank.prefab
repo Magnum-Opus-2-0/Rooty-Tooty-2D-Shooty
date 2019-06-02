@@ -605,7 +605,7 @@ MonoBehaviour:
   forwardDrive: forward-drive-1-mac
   backwardDrive: backward-drive-1-mac
   turnSpeed: 3
-  maxSpeed: 3
+  maxSpeed: 1
   accelerate: 2.5
   buildButton: build-1-mac
   selectBuildButton: select-1-mac
