@@ -59,7 +59,7 @@ public class BulletController : MonoBehaviour
             case "P1_Teddy":
                 if (this.gameObject.tag != "P1_Bullet")
                 {
-                    collisionHB = collision.gameObject.transform.root.GetComponent<HealthBehavior>();
+                    collisionHB = collision.gameObject.transform.GetComponent<HealthBehavior>();
                     if (collisionHB)
                     {
                         collisionHB.adjustHealth(-bulletDamage);
@@ -75,7 +75,7 @@ public class BulletController : MonoBehaviour
             case "P2_Teddy":
                 if (this.gameObject.tag != "P2_Bullet")
                 {
-                    collisionHB = collision.gameObject.transform.root.GetComponent<HealthBehavior>();
+                    collisionHB = collision.gameObject.transform.GetComponent<HealthBehavior>();
                     if (collisionHB)
                     {
                         collisionHB.adjustHealth(-bulletDamage);

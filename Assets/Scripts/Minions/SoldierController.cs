@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SoldierController : MinionController
 {
+    public int dieTime;
     #region SHOOT_MEMBERS
 
     #endregion
@@ -92,7 +93,7 @@ public class SoldierController : MinionController
 
     public override void Die()
     {
-        StartCoroutine(WaitUp(3));
+        StartCoroutine(WaitUp(dieTime));
     }
 
     IEnumerator WaitUp(int seconds)

@@ -105,6 +105,7 @@ MonoBehaviour:
   doNavMeshDemo: 1
   useMouseControls: 0
   timeBetweenAttacks: 3
+  dieTime: 1
 --- !u!114 &5254058538041624450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,12 +162,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a794384a98e241e46a3c093186ae91ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  efc: {fileID: 0}
   doExplosionDemo: 0
   forceOfExplosion: 10
   radiusOfExplosion: 10
   pieces:
-  - {fileID: 1805403514783361488}
-  - {fileID: 4021463525086155128}
+  - {fileID: 585992476307956116}
 --- !u!54 &440504366989260581
 Rigidbody:
   m_ObjectHideFlags: 0

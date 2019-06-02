@@ -72,7 +72,7 @@ public class ExplodeBehavior : MonoBehaviour {
     /// </summary>
     public void Explode() {
 
-        Debug.Log("Entering explode on target " + name);
+        //Debug.Log("Entering explode on target " + name);
 
         if (exploded) return;
 
@@ -108,7 +108,10 @@ public class ExplodeBehavior : MonoBehaviour {
 
                 tempRigidbodies.Add(pieces[i].GetComponent<Rigidbody>());
                 tempRigidbodies[i].useGravity = true;
-                tempRigidbodies[i].isKinematic = true;
+                //Debug.Log(tempRigidbodies[i].gameObject.name)
+                if(pieces[i].gameObject.tag != "Resource")
+                    tempRigidbodies[i].constraints = RigidbodyConstraints.None;
+                //tempRigidbodies[i].isKinematic = true;    // otherwise, NO COLLISION
             }
 
             Assert.IsTrue(i == tempRigidbodies.Count - 1,
@@ -135,7 +138,7 @@ public class ExplodeBehavior : MonoBehaviour {
         
         exploded = true;
 
-        Debug.Log("Exiting explode on target " + name);
+        //Debug.Log("Exiting explode on target " + name);
     }
 
     /// <summary>

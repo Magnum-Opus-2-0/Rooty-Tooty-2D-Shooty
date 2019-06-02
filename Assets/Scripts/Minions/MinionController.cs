@@ -240,6 +240,8 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
     {
         health.setHealth(maxHealth);
         State = MinionStates.Move;
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX
+            | RigidbodyConstraints.FreezeRotationZ;
     }
 
     public void SetAttack() {

@@ -275,9 +275,9 @@ public class TankController : MonoBehaviour
         hb = GetComponent<HealthBehavior>();
         state = TankStates.Alive;
         wasNotDead = hb.isNotDead();
-        GetComponent<Rigidbody>().SetMaxAngularVelocity(turnSpeed);
-  
-       
+        GetComponent<Rigidbody>().maxAngularVelocity = turnSpeed;
+
+
     }
 
     // Update is called once per frame

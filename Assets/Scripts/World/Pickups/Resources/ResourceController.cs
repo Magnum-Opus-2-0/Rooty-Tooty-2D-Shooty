@@ -44,7 +44,7 @@ public class ResourceController : PickupController
                 tc = other.transform.parent.GetComponentInParent<TankController>();
             }
 
-            if (tc.State == TankStates.Alive && tc.CanGrabResource(resourceType))
+            if (tc.State == TankStates.Alive /* && tc.CanGrabResource(resourceType) */)
             {
                 AddResource(tc);
                 BuildMenuController bmc = tc.bmc;
