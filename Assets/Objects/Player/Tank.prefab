@@ -650,9 +650,8 @@ MonoBehaviour:
   forceOfExplosion: 10
   radiusOfExplosion: 10
   pieces:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3640183335876245323}
+  - {fileID: 5662379405239588851}
 --- !u!82 &1716045844344825395
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1101,11 +1100,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 400381040898309034}
     m_Modifications:
-    - target: {fileID: 6196723450610422760, guid: 46b0ca2c36f144fa38e875ce12d08785,
-        type: 3}
-      propertyPath: m_Name
-      value: Explosion Effect System
-      objectReference: {fileID: 0}
     - target: {fileID: 6999700951114139338, guid: 46b0ca2c36f144fa38e875ce12d08785,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1160,6 +1154,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196723450610422760, guid: 46b0ca2c36f144fa38e875ce12d08785,
+        type: 3}
+      propertyPath: m_Name
+      value: Explosion Effect System
       objectReference: {fileID: 0}
     - target: {fileID: 6153280042229005831, guid: 46b0ca2c36f144fa38e875ce12d08785,
         type: 3}

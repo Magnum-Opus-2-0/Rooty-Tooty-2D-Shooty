@@ -46,6 +46,13 @@ public class TagManager
             || s == "P2_Soldier";
     }
 
+    public bool isStructure(string s) {
+
+        return structures.Contains(s);
+    }
+
+
+
     private void init() {
 
         // Only populate the static maps once
@@ -57,6 +64,7 @@ public class TagManager
         p1Tags = new HashSet<string>();
         p2Tags = new HashSet<string>();
         shootables = new HashSet<string>();
+        structures = new HashSet<string>();
 
         #region Player 1 tags
         // Manually do Player1 tags
@@ -110,12 +118,27 @@ public class TagManager
 
         #endregion
 
+        #region Structures
+        // Do structures manually
+        structures.Add("P1_Spawner");
+        structures.Add("P2_Spawner");
+        structures.Add("P1_Turret");
+        structures.Add("P2_Turret");
+        structures.Add("P1_Healer");
+        structures.Add("P2_Healer");
+        structures.Add("P1_Base");
+        structures.Add("P2_Base");
+
+        #endregion
+
         #region All tags
         // Do allTags as a combo of the previous ones,
         // plus more
         allTags.UnionWith(p1Tags);
         allTags.UnionWith(p2Tags);
         allTags.UnionWith(shootables);
+        allTags.UnionWith(structures);
+
         allTags.Add("Floor");
         allTags.Add("Wall");
         allTags.Add("Resource");
@@ -129,4 +152,5 @@ public class TagManager
     private static HashSet<string> p1Tags;
     private static HashSet<string> p2Tags;
     private static HashSet<string> shootables;
+    private static HashSet<string> structures;
 }

@@ -315,42 +315,20 @@ public abstract class NPCShootController : MonoBehaviour
     /// Finds the parent object of the specified collider. That is, this method
     /// finds the GameObject that has the health behavior script.
     /// 
-    /// <para>Careful this method is poorly written and currently only searches
-    /// a maximum of 3 generations upwards.</para>
     /// </summary>
-    /// <returns>The parent object of the GameObject.</returns>
+    /// <returns>The parent object of the GameObject which has a HealthBehavior script,
+    /// or null if no such parent exists.</returns>
     /// <param name="child">The transform of a child whose parents we would like
     /// to search.</param>
-    private GameObject FindParentObject(Transform child)
+    public static GameObject FindParentObject(Transform child)
     {
-        // Is the transform we received actually the parent?
-        if (child.gameObject.GetComponent<HealthBehavior>())
-        {
-            return child.gameObject;
+        // If base case - that is, if we're the highest possible parent
+        if (child.parent == null) {
+
+            return (child.gameObject.GetComponent<HealthBehavior>() == null ? null : child.gameObject);
         }
 
-        // Is the parent of the transform the parent we want?
-        if (child.parent.gameObject.GetComponent<HealthBehavior>())
-        {
-            return child.parent.gameObject;
-        }
-
-        // Is the grandparent of the transform the parent we want?
-        if (child.parent.parent.gameObject.GetComponent<HealthBehavior>())
-        {
-            return child.parent.parent.gameObject;
-        }
-
-        // Is the great grandparent of the transform the parent we want?
-        if (child.parent.parent.parent.gameObject.GetComponent<HealthBehavior>())
-        {
-            return child.parent.parent.parent.gameObject;
-        }
-
-        // At this point in time, all targets should be accounted for, and anything
-        // that gets here is not a target at all. Let's throw a message just in case though
-        Debug.LogWarning("Parent GameObject could not be found. Returning null");
-        return null;
+        return FindParentObject(child.parent);
     }
 
     /// <summary>
