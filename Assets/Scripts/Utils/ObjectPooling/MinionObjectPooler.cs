@@ -37,7 +37,7 @@ public class MinionObjectPooler<T> : RestrictedObjectPooler<T> where T : MinionC
         // We want to see just instantiated a new object with the base.Request
         if ((GetNumInstantiated() - 1) < maxAllowed)
         {
-            InstantiateBulletFondler(obj.gameObject, " [" + PrevID + "]");
+            InstantiateBulletFondler(obj.gameObject, " (" + PrevID + ")");
         }
 
         return obj;

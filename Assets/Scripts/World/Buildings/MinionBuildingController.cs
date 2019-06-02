@@ -8,6 +8,9 @@ public class MinionBuildingController : BuildingController
     private static Transform master_minion_fondler;
     private static bool findFondlerOnce = true;
 
+    private static int id = 0;
+   
+
     /// <summary>
     /// The bullet fondler that will be instantiated for each minion.
     /// </summary>
@@ -54,6 +57,8 @@ public class MinionBuildingController : BuildingController
     protected override void Awake()
     {
         base.Awake();
+
+        name += " (" + (id++) + ")";
 
         if (findFondlerOnce)
         {

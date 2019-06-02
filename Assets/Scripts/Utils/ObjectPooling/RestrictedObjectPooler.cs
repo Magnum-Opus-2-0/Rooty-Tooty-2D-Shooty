@@ -38,7 +38,7 @@ public class RestrictedObjectPooler<T> : ObjectPooler<T> where T : MonoBehaviour
         if (GetNumInstantiated() < maxAllowed)
         {
             GameObject temp = Object.Instantiate(requestPrefab, at, dir, fondler) as GameObject;
-            temp.name += " [" + (id++) + "]";
+            temp.name += " (" + (id++) + ")";
             temp.SetActive(true);
             ret = temp.GetComponent<T>();
             objects.Add(ret);
