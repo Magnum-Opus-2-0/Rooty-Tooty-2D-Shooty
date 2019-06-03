@@ -61,9 +61,20 @@ public class ExplodeBehavior : MonoBehaviour {
     /// </summary>
     private void Awake()
     {
+        exploded = false;
 
+        if (pieces == null) pieces = new List<GameObject>();
+        originalPositions = new List<Vector3>(/*pieces.Count*/);
+        originalRotations = new List<Quaternion>(/*pieces.Count*/);
+        tempRigidbodies = new List<Rigidbody>(/*pieces.Count*/);
     }
 
+    // Start is called before the first frame update
+    void Start() {
+
+        if (originalPositions.Count == 0)
+            RecordOriginalTransforms();
+    }
 
     /// <summary>
     /// Explodes the pieces so they all fall apart.
@@ -78,18 +89,30 @@ public class ExplodeBehavior : MonoBehaviour {
 
         System.Random r = new System.Random();
 
-        Vector3 evenExplosionOffset = new Vector3(
+        /*
+        // "Average" explosion
+        Vector3 zeroExplosionOffset = new Vector3(
             MapToRange((float)r.NextDouble(), 0f, 1f, -2f, 2f),    // x
             -0.5f,                                                 // y
             MapToRange((float)r.NextDouble(), 0f, 1f, -2f, 2f)     // z
             );
 
-        Vector3 vertExplosionOffset = new Vector3(
+        // Vertical explosion
+        Vector3 oneExplosionOffset = new Vector3(
             MapToRange((float)r.NextDouble(), 0f, 1f, -0.7f, 0.7f),    // x
             -1f,                                                       // y
             MapToRange((float)r.NextDouble(), 0f, 1f, -0.7f, 0.7f)     // z
             );
 
+        // Erratic explosion
+        Vector3 twoExplosionOffset = new Vector3(
+            MapToRange((float)r.NextDouble(), 0f, 1f, -10.0f, 10.0f),   // x
+            -0.5f,                                                      // y
+            MapToRange((float)r.NextDouble(), 0f, 1f, -10.0f, 10.0f)    // z
+            );
+        */
+
+        tempRigidbodies.Clear();
 
         for (int i = 0; i < pieces.Count; i++) {
 
@@ -100,7 +123,6 @@ public class ExplodeBehavior : MonoBehaviour {
             }
 
             // else, if they already have Rigidbodies,
-            // but 
             // just use theirs,
             // but make sure it will work properly with physics
             else {
@@ -118,13 +140,22 @@ public class ExplodeBehavior : MonoBehaviour {
                 "tempRigidbodies.Count - 1 = " + (tempRigidbodies.Count - 1) + " but i is " + i);
 
             // Then, apply explosion forces
-            if (i % 2 == 0) {
+            if (i % 3 == 0) {
+
                 tempRigidbodies[i].AddExplosionForce(forceOfExplosion,
-                    pieces[i].transform.position + evenExplosionOffset, // Offset each explosion slightly for effect
+                    pieces[i].transform.position + getOffsetAverage(r),
                     radiusOfExplosion, 0.0f, ForceMode.Impulse);
-            } else {
+
+            } else if (i % 3 == 1) {
+
                 tempRigidbodies[i].AddExplosionForce(forceOfExplosion,
-                    pieces[i].transform.position + vertExplosionOffset, // Make some pieces spring up higher
+                    pieces[i].transform.position + getOffsetVertical(r),
+                    radiusOfExplosion, 0.0f, ForceMode.Impulse);
+
+            } else if (i % 3 == 2) {
+
+                tempRigidbodies[i].AddExplosionForce(forceOfExplosion,
+                    pieces[i].transform.position + getOffsetErratic(r),
                     radiusOfExplosion, 0.0f, ForceMode.Impulse);
             }
         }
@@ -139,6 +170,33 @@ public class ExplodeBehavior : MonoBehaviour {
         exploded = true;
 
         //Debug.Log("Exiting explode on target " + name);
+    }
+
+    private Vector3 getOffsetAverage(System.Random r) {
+
+        return new Vector3(
+            MapToRange((float)r.NextDouble(), 0f, 1f, -2f, 2f),    // x
+            -0.5f,                                                 // y
+            MapToRange((float)r.NextDouble(), 0f, 1f, -2f, 2f)     // z
+            );
+    }
+
+    private Vector3 getOffsetVertical(System.Random r) {
+
+        return new Vector3(
+            MapToRange((float)r.NextDouble(), 0f, 1f, -0.7f, 0.7f),    // x
+            -1f,                                                       // y
+            MapToRange((float)r.NextDouble(), 0f, 1f, -0.7f, 0.7f)     // z
+            );
+    }
+
+    private Vector3 getOffsetErratic(System.Random r) {
+
+        return new Vector3(
+            MapToRange((float)r.NextDouble(), 0f, 1f, -10.0f, 10.0f),   // x
+            -0.5f,                                                      // y
+            MapToRange((float)r.NextDouble(), 0f, 1f, -10.0f, 10.0f)    // z
+            );
     }
 
     /// <summary>
@@ -185,27 +243,20 @@ public class ExplodeBehavior : MonoBehaviour {
         originalParentPosition = transform.position;
         originalParentRotation = transform.rotation;
 
-        for (int i = 0; i < pieces.Count; i++) {
+        foreach (GameObject g in pieces) { 
 
-            originalPositions.Add(pieces[i].transform.localPosition);
-            originalRotations.Add(pieces[i].transform.localRotation);
+            originalPositions.Add(g.transform.localPosition);
+            originalRotations.Add(g.transform.localRotation);
 
         }
 
         Assert.IsTrue(originalPositions.Count == pieces.Count,
-            "originalPositions is not the same size as pieces");
+            "originalPositions is not the same size as pieces\n" +
+            "pieces.Count: " + pieces.Count + "\n" +
+            "originalPositions.Count: " + originalPositions.Count);
     }
 
-    // Start is called before the first frame update
-    void Start() {
-        exploded = false;
 
-        originalPositions = new List<Vector3>(pieces.Count);
-        originalRotations = new List<Quaternion>(pieces.Count);
-        tempRigidbodies = new List<Rigidbody>(pieces.Count);
-
-        RecordOriginalTransforms();
-    }
 
     // Update is called once per frame
     void Update() {
@@ -231,9 +282,11 @@ public class ExplodeBehavior : MonoBehaviour {
 
     /// <summary>
     /// Adds piece to pieces,
-    /// and to originalPositions, originalRotations, and tempRigidBodies.
+    /// and to originalPositions and originalRotations.
     /// Piece should be at the same index
     /// in all of the above lists.
+    /// Note that tempRigidbodies doesn't get added to
+    /// until Explode() is called.
     /// </summary>
     /// <param name="piece">Piece.</param>
     public void AddPiece(GameObject piece)

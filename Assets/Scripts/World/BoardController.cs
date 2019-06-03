@@ -29,6 +29,8 @@ public class BoardController : MonoBehaviour
     public Material firstTileColor;
     public Material secondTileColor;
 
+    public GameObject groundCollider;
+
     /// <summary>
     /// NavMeshSurface for this board, thin enough for minions to pass through.
     /// Cannot be pre-baked because of procedural generation,
@@ -70,6 +72,12 @@ public class BoardController : MonoBehaviour
     /// </summary>
     public int pathWidth;
 
+    private ExplodeBehavior explodeBoard;
+    public ExplodeBehavior p1Base;
+    public ExplodeBehavior p2Base;
+    public ExplodeBehavior p1Tank;
+    public ExplodeBehavior p2Tank;
+
     private static readonly int TILE_WIDTH = 1;
 
     /// <summary>
@@ -95,8 +103,11 @@ public class BoardController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GenerateGrid();
+        explodeBoard = gameObject.AddComponent<ExplodeBehavior>();
+        explodeBoard.forceOfExplosion = 75;
+        explodeBoard.radiusOfExplosion = 5;
 
+        GenerateGrid();
     }
 
     // Update is called once per frame
@@ -162,6 +173,8 @@ public class BoardController : MonoBehaviour
 
             // Store a reference to this wall piece into a "holder" object, wallFondler
             tempWall.transform.parent = wallFondler.transform;
+
+            explodeBoard.AddPiece(tempWall);
         }
     }
 
@@ -185,6 +198,9 @@ public class BoardController : MonoBehaviour
 
                 // Also store our own reference to this tile in our own 2D array
                 tileArray[x, z] = newTile;
+
+                // Make sure it'll explode if necessary
+                explodeBoard.AddPiece(newTile);
             }
         }
         emptyTileTemplate.SetActive(false);
@@ -232,6 +248,7 @@ public class BoardController : MonoBehaviour
 
                     // Set as child of obstacleFondler
                     tempObstacle.transform.parent = obstacleFondler.transform;
+                    explodeBoard.AddPiece(tempObstacle);
                     break;
                 case 1:
                     tempObstacle = Instantiate(
@@ -241,6 +258,7 @@ public class BoardController : MonoBehaviour
 
                     // Set as child of obstacleFondler
                     tempObstacle.transform.parent = obstacleFondler.transform;
+                    explodeBoard.AddPiece(tempObstacle);
                     break;
                 case 2:
                     tempObstacle = Instantiate(
@@ -250,6 +268,7 @@ public class BoardController : MonoBehaviour
 
                     // Set as child of obstacleFondler
                     tempObstacle.transform.parent = obstacleFondler.transform;
+                    explodeBoard.AddPiece(tempObstacle);
                     break;
                 case 3:
                     tempObstacle = Instantiate(
@@ -259,11 +278,15 @@ public class BoardController : MonoBehaviour
 
                     // Set as child of obstacleFondler
                     tempObstacle.transform.parent = obstacleFondler.transform;
+                    explodeBoard.AddPiece(tempObstacle);
                     break;
                 default:
                     Debug.LogError("rotationChance: " + rotationChance);
                     break;
+
             }
+
+
         }
 
         return tempGrid;
@@ -356,5 +379,57 @@ public class BoardController : MonoBehaviour
     {
 
         minionNavMeshSurface.BuildNavMesh();
+    }
+
+    /// <summary>
+    /// just make everything go boom dude
+    /// </summary>
+    public void absolutelyFuckingUncouple() {
+
+        // Set a random loser
+        //GameObject loser = (((new System.Random()).Next() % 2 == 0) ? p1Base.gameObject : p2Base.gameObject);
+        //loser.GetComponent<HealthBehavior>().setHealth(0);
+
+        groundCollider.SetActive(false);
+
+        giveRigidBodyToChildren(wallFondler.transform);
+        giveRigidBodyToChildren(tileFondler.transform);
+        giveRigidBodyToChildren(obstacleFondler.transform);
+
+        explodeBoard.Explode();
+
+        p1Base.Explode();
+        p2Base.Explode();
+        p1Tank.Explode();
+        p2Tank.Explode();
+    }
+
+    /// <summary>
+    /// officer you've got the wrong idea
+    /// </summary>
+    /// <param name="parent"></param>
+    private void giveRigidBodyToChildren(Transform parent) {
+
+        foreach (Transform tileTransform in parent) {
+
+            GameObject g = tileTransform.gameObject;
+
+            
+            Rigidbody rb = g.GetComponent<Rigidbody>();
+            if (rb == null) rb = g.AddComponent<Rigidbody>();
+
+            //rb.mass = Random.Range(0.0f, float.MaxValue);
+            rb.mass = 1.0f;
+            rb.useGravity = true;
+            rb.isKinematic = false;
+
+            MeshCollider mc = g.GetComponent<MeshCollider>();
+            if (mc != null) {
+                mc.convex = true;
+                mc.enabled = true;
+            }
+
+            
+        }
     }
 }

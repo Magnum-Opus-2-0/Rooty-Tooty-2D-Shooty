@@ -188,7 +188,7 @@ MonoBehaviour:
   - {fileID: 2365052988772019901, guid: 395422e6a62084b8c9cf3e4bfb4f5576, type: 3}
   - {fileID: 7876720370246562494, guid: f1d0243c367724fc586be016ad8e2dd2, type: 3}
   maxFluff: 10
-  maxPlastic: 10
+  maxPlastic: 15
   chanceOfResourceSpawn: 2
   tileFondler: {fileID: 776686519890861135}
   wallFondler: {fileID: 3239902528913679604}
@@ -196,9 +196,14 @@ MonoBehaviour:
   resourceFondler: {fileID: 2848778113762147748}
   firstTileColor: {fileID: 2100000, guid: 9505edc11152892489635ee29a46696a, type: 2}
   secondTileColor: {fileID: 2100000, guid: 9d1766a21ead48649a854545c798638c, type: 2}
+  groundCollider: {fileID: 6142511023060367099}
   minionNavMeshSurface: {fileID: 2614859904533919858}
-  pathLandmarks: 30
-  pathWidth: 1
+  pathLandmarks: 20
+  pathWidth: 2
+  p1Base: {fileID: 0}
+  p2Base: {fileID: 0}
+  p1Tank: {fileID: 0}
+  p2Tank: {fileID: 0}
 --- !u!114 &2614859904533919858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
-  m_CollectObjects: 0
+  m_CollectObjects: 2
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:

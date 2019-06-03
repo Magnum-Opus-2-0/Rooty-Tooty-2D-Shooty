@@ -32,6 +32,8 @@ public class GameOverCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Uncomment to set a random winner via click
+
         if ((playerOneBase.GetComponent<HealthBehavior>().currentHealth <= 0 || playerTwoBase.GetComponent<HealthBehavior>().currentHealth <= 0) && once)
         {
             SetWinner();
