@@ -6,7 +6,7 @@ using UnityEngine.Assertions;
 public class ShootController : MonoBehaviour
 {
 
-    //private static TagManager taggyboi = new TagManager();
+    private static TagManager taggyboi = new TagManager();
 
     /// <summary>
     /// A bullet struct that holds the GameObject and if it was already fired.
@@ -78,6 +78,8 @@ public class ShootController : MonoBehaviour
     private TankController tc;
     AudioSource shootSound;
 
+    public CheatManager cheater;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -106,6 +108,13 @@ public class ShootController : MonoBehaviour
 
         tc = GetComponent<TankController>();
         shootSound = GetComponent<AudioSource>();
+
+        GameObject manager = GameObject.Find("GameManager");
+        cheater = (manager == null ? null : manager.GetComponent<CheatManager>());
+        Assert.IsTrue(cheater != null,
+            "CheatManager couldn't be found from ShootController.\n" +
+            "Does your scene have an object called \"GameManager\"\n" +
+            "and does that object have a CheatManager component?");
     }
 
     // Update is called once per frame
@@ -252,6 +261,11 @@ public class ShootController : MonoBehaviour
                 reloadTimer = 0f;
                 break;
             case SHOOT_States.FIRE:
+
+                // Adjust shootSound.clip if cheats are enabled
+                bool amIP1 = taggyboi.isP1Tag(this.gameObject.tag);
+                shootSound.clip = cheater.notifyShot(amIP1); // does not modify if cheat is not active
+
                 reloadTimer = 0f;
                 Fire(true);
                 shootSound.Play();

@@ -23,10 +23,21 @@ public class CheatManager : MonoBehaviour
     public GameObject player1Tank;
     public GameObject player2Tank;
 
-    public List<AudioClip> pew;
+
     public List<AudioClip> no;
     private int no_i;
+    private bool no_enabled;
+
+    public List<AudioClip> pew;
     private int pew_i;
+    private bool pew_enabled;
+
+    private AudioClip backup1;
+    private AudioClip backup2;
+    
+
+
+
 
     /// <summary>
     /// When true, this class will print the buffer to Debug.Log
@@ -46,19 +57,18 @@ public class CheatManager : MonoBehaviour
     private void Start() {
 
         buffer = "";
-        no_i = -1;
-        pew_i = -1;
+
+        no_i = 0;
+        no_enabled = false;
+
+        pew_i = 0;
+        pew_enabled = false;
+
+        backup1 = player1Tank.GetComponent<AudioSource>().clip;
+        backup2 = player2Tank.GetComponent<AudioSource>().clip;
     }
 
     private void Update() {
-
-        //debugRotateUpdate();
-
-        //if (Input.GetKeyDown(KeyCode.Mouse0)) {
-
-        //    Debug.Log("no_i: " + no_i);
-        //    player1Tank.GetComponent<AudioSource>().Play();
-        //}
 
         if (Input.anyKeyDown) {
 
@@ -68,8 +78,6 @@ public class CheatManager : MonoBehaviour
 
             if (printBuffer) Debug.Log(buffer);
         }
-
-
     }
 
     /// <summary>
@@ -84,53 +92,21 @@ public class CheatManager : MonoBehaviour
 
         bool successfulCheat = false;
 
-        /*
-        if (containsAtEnd("no") || no_i != -1) {
+        // catches both "no" and "unno"
+        if (containsAtEnd("no")) {
 
-            // this is kinda needlessly expensive,
-            // but don't mark to reset
-            // if you're only in here because i is cycling
-            successfulCheat = containsAtEnd("no");
-
-            Debug.Log("no_i before modification: " + no_i);
-
-            no_i++;
-            no_i %= no.Count;
-
-            Debug.Log("no_i after modification: " + no_i);
-
-
-
-            // TODO
-            // Move this functionality to ShootController,
-            // or whoever can detect if a shot has been shot
-
-            AudioSource p1_as = player1Tank.GetComponent<AudioSource>();
-            AudioSource p2_as = player2Tank.GetComponent<AudioSource>();
-
-            p1_as.velocityUpdateMode = AudioVelocityUpdateMode.Dynamic;
-            p2_as.velocityUpdateMode = AudioVelocityUpdateMode.Dynamic;
-
-            if (p1_as.isPlaying) p1_as.Stop();
-            if (p2_as.isPlaying) p2_as.Stop();
-
-            p1_as.clip = no[no_i];
-            p2_as.clip = no[no_i];
+            successfulCheat = true;
+            no_enabled = !containsAtEnd("unno");
         }
 
-        else if (containsAtEnd("pew") || pew_i != -1) {
+        // catches both "pew" and "unpew"
+        else if (containsAtEnd("pew")) {
 
-            successfulCheat = containsAtEnd("no");
-
-            pew_i++;
-            pew_i %= pew.Count;
-
-            player1Tank.GetComponent<AudioSource>().clip = pew[pew_i];
-            player2Tank.GetComponent<AudioSource>().clip = pew[pew_i];
+            successfulCheat = true;
+            pew_enabled = !containsAtEnd("unpew");
         }
-        
 
-        else*/ if (containsAtEnd("boom")) {
+        else if (containsAtEnd("boom")) {
 
             successfulCheat = true;
             boardController.absolutelyFuckingUncouple();
@@ -172,13 +148,12 @@ public class CheatManager : MonoBehaviour
     /// If characters were entered this frame, they are appended.
     /// If the backspace key was pressed,
     /// a char is deleted from the right of buffer.
-    /// Does nothing if the user presses enter/return.
+    /// If the user presses enter/return,
+    /// the buffer prints can be toggled on/off.
     /// </summary>
     private void grabInput() {
 
-        string input = Input.inputString;
-
-        foreach (char c in input) {
+        foreach (char c in Input.inputString) {
 
             // Backspace
             if (c == '\b') {
@@ -187,9 +162,9 @@ public class CheatManager : MonoBehaviour
             }
 
             // Enter/return
-            else if (c == '\n') {
+            else if (c == '\n' || c == '\r') {
 
-
+                printBuffer = !printBuffer;
             }
 
             // any other ascii character
@@ -274,6 +249,49 @@ public class CheatManager : MonoBehaviour
         int substringStart = buffer.Length - compareMe.Length;
 
         return buffer.Substring(substringStart).Equals(compareMe);
+    }
+
+    /// <summary>
+    /// Call this function to notify CheatManager
+    /// that a bullet is shooting this frame,
+    /// just before you actually shoot it.
+    /// CheatManager will return an AudioClip,
+    /// which you should give to your AudioSource
+    /// if you're interested in cool sounds via cheat codes.
+    /// It will simply return your default clip if a cheat is not active,
+    /// so it is always safe to use the clip this function returns.
+    /// </summary>
+    /// <param name="isPlayer1">True if you (the caller of this function) are p1, false if you're p2</param>
+    /// <returns>AudioClip that you should use for the shot during this frame</returns>
+    public AudioClip notifyShot(bool isPlayer1) {
+
+        // If no_enabled, return a no
+        if (no_enabled) {
+
+            AudioClip returnMe = no[no_i];
+
+            no_i++;
+            no_i %= no.Count;
+
+            return returnMe;
+        }
+
+        // If pew_enabled, return a pew
+        else if (pew_enabled) {
+
+            AudioClip returnMe = pew[pew_i];
+
+            pew_i++;
+            pew_i %= pew.Count;
+
+            return returnMe;
+        }
+
+        // Else, just return backup
+        else {
+
+            return (isPlayer1 ? backup1 : backup2);
+        }
     }
 
     private string replaceLastChar(char c) {
