@@ -54,6 +54,8 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
         set
         {
             state = value;
+            if (!nv_agent.isActiveAndEnabled) return;
+
             switch (value)
             {
                 case MinionStates.Attack:
@@ -144,7 +146,7 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
     // Update is called once per frame
     protected virtual void Update()
     {
-
+        if (!nv_agent.isActiveAndEnabled) return;
 
         if (!health.isNotDead())
         {

@@ -35,9 +35,13 @@ public class ResourceDrop : MonoBehaviour
                 case "P2_Soldier":
                     DropResources(ResourceType.Plastic, 1);
                     break;
-                case "P1_Spawner":
-                case "P2_Spawner":
+                case "P1_Spawner_Soldier":
+                case "P2_Spawner_Soldier":
                     DropResources(ResourceType.Plastic, 2);
+                    break;
+                case "P1_Spawner_Teddy":
+                case "P2_Spawner_Teddy":
+                    DropResources(ResourceType.Fluff, 2);
                     break;
                 case "P1_Teddy":
                 case "P2_Teddy":
@@ -84,7 +88,6 @@ public class ResourceDrop : MonoBehaviour
                     resource = Instantiate(plastics[randomNum],
                         this.transform.position,
                         Quaternion.identity);
-                    Debug.Log("Instantiated " + resource.name);
                     break;
             }
 

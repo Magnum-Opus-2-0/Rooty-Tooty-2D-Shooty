@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Assertions;
 public abstract class NPCShootController : MonoBehaviour
 {
     [SerializeField]
@@ -162,10 +162,18 @@ public abstract class NPCShootController : MonoBehaviour
         foreach (Collider c in colliders)
         {
             GameObject target = FindParentObject(c.transform);
+
+            Assert.IsTrue(target != null, "target " + target.name + " is null");
+            Assert.IsTrue(targets != null, "targets is null");
+
+            HealthBehavior hb = target.GetComponent<HealthBehavior>();
+            Assert.IsTrue(hb != null, "Health behavior of target " + target.name + " is null,\n"
+                + "i.e. " + target.name + " does not have a HealthBehavior");
+
             //Debug.Log(name + ": Target found: " + target);
             // Make sure we don't add duplicate references to the same GameObject
             // Make sure we don't add dead GameObjects to the targets.
-            if (!targets.Contains(target) && target.GetComponent<HealthBehavior>().isNotDead())
+            if (!targets.Contains(target) && hb.isNotDead())
             {
                 //Debug.Log(name + ": Target added: " + target);
                 targets.Add(target);
@@ -313,7 +321,7 @@ public abstract class NPCShootController : MonoBehaviour
 
     /// <summary>
     /// Finds the parent object of the specified collider. That is, this method
-    /// finds the GameObject that has the health behavior script.
+    /// finds the lowest GameObject that has the health behavior script.
     /// 
     /// </summary>
     /// <returns>The parent object of the GameObject which has a HealthBehavior script,
@@ -322,7 +330,16 @@ public abstract class NPCShootController : MonoBehaviour
     /// to search.</param>
     public static GameObject FindParentObject(Transform child)
     {
-        // If base case - that is, if we're the highest possible parent
+        // If you, the child, have a HealthBehavior,
+        // then you're the guy and we should return you
+        if (child.gameObject.GetComponent<HealthBehavior>() != null)
+        {
+            return child.gameObject;
+        }
+
+        // Else if base case - that is, if we're the highest possible parent,
+        // then we should return whatever we have at this level
+        // and not recurse further
         if (child.parent == null) {
 
             return (child.gameObject.GetComponent<HealthBehavior>() == null ? null : child.gameObject);

@@ -347,7 +347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToDeath: 3.5
   healRate: 2
-  healRadius: 7
+  healRadius: 5
 --- !u!114 &1132171775346573832
 MonoBehaviour:
   m_ObjectHideFlags: 0
