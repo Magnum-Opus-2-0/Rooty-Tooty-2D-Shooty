@@ -43,6 +43,14 @@ public class ResourceDrop : MonoBehaviour
                 case "P2_Teddy":
                     DropResources(ResourceType.Fluff, 1);
                     break;
+                case "P1_Turret":
+                case "P2_Turret":
+                    DropResources(ResourceType.Plastic, 2);
+                    break;
+                case "P1_Healer":
+                case "P2_Healer":
+                    DropResources(ResourceType.Plastic, 2);
+                    break;
                 default:
                     Debug.LogError("Object " + this.name +
                         " is not supposed to drop resources");
