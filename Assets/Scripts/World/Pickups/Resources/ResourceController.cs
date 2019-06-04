@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ResourceController : PickupController
 {
+    private BoardController boardControl;
     public ResourceType resourceType = ResourceType.None;
     public int minAmount;
     public int maxAmount;
@@ -21,6 +22,7 @@ public class ResourceController : PickupController
     void Awake()
     {
         amount = Random.Range(minAmount, maxAmount + 1); //Max is exclusive
+        boardControl = GameObject.Find("Board").GetComponent<BoardController>();
     }
 
     /// <summary>
@@ -55,10 +57,12 @@ public class ResourceController : PickupController
             }
         }
 
-        if (IsWall(other) || IsBase(other) || IsResource(other))
+        if (IsWall(other) || IsBase(other) || (IsResource(other) /* && IsResource(this.GetComponent<Collider>()) */ ))
         {
             //Debug.Log("colliding with " + other + " with tag " + other.tag + "... destroying now");
-            base.OnTriggerEnter(other);
+            
+            if(!boardControl.IsDoneWithPG)
+                base.OnTriggerEnter(other);
         }
     }
 

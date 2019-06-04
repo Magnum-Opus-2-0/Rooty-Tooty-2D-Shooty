@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 798149820981973413}
   - component: {fileID: 6047870381348599506}
   - component: {fileID: 3191076397655106680}
+  - component: {fileID: 4351609698275047106}
   m_Layer: 0
   m_Name: Minion Spawner
   m_TagString: Untagged
@@ -113,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a794384a98e241e46a3c093186ae91ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  efc: {fileID: 0}
   doExplosionDemo: 0
   forceOfExplosion: 15
   radiusOfExplosion: 40
@@ -137,6 +139,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4351609698275047106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379120545345176046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c647290bead14f0d8b9187156d995ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBehave: {fileID: 798149820981973413}
+  fluffs: []
+  plastics:
+  - {fileID: 2365052988772019901, guid: 395422e6a62084b8c9cf3e4bfb4f5576, type: 3}
+  - {fileID: 7876720370246562494, guid: f1d0243c367724fc586be016ad8e2dd2, type: 3}
 --- !u!1 &612200795470087877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,6 +1121,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0454866bb03c44a8a80a0e0b471e522, type: 3}
+--- !u!4 &3094573922267375739 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3915570349684206029, guid: e0454866bb03c44a8a80a0e0b471e522,
+    type: 3}
+  m_PrefabInstance: {fileID: 2063991042538308022}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6725050551803951171 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4751554009893190133, guid: e0454866bb03c44a8a80a0e0b471e522,
@@ -1114,12 +1139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 016375ba742604a82a7adea56eea5ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &3094573922267375739 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3915570349684206029, guid: e0454866bb03c44a8a80a0e0b471e522,
-    type: 3}
-  m_PrefabInstance: {fileID: 2063991042538308022}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3913035197676505229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1194,6 +1213,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0454866bb03c44a8a80a0e0b471e522, type: 3}
+--- !u!4 &7602828682027328 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3915570349684206029, guid: e0454866bb03c44a8a80a0e0b471e522,
+    type: 3}
+  m_PrefabInstance: {fileID: 3913035197676505229}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8628067810483892600 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4751554009893190133, guid: e0454866bb03c44a8a80a0e0b471e522,
@@ -1206,12 +1231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 016375ba742604a82a7adea56eea5ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &7602828682027328 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3915570349684206029, guid: e0454866bb03c44a8a80a0e0b471e522,
-    type: 3}
-  m_PrefabInstance: {fileID: 3913035197676505229}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4080928198428923394
 PrefabInstance:
   m_ObjectHideFlags: 0

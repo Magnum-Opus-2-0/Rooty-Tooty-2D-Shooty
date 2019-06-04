@@ -100,15 +100,28 @@ public class BoardController : MonoBehaviour
     /// </summary>
     public GameObject[,] tileArray = new GameObject[X_MAX, Z_MAX];
 
+    private bool isDoneWithPG;
+    public bool IsDoneWithPG
+    {
+        get
+        {
+            return isDoneWithPG;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        isDoneWithPG = false;
         explodeBoard = gameObject.AddComponent<ExplodeBehavior>();
         explodeBoard.forceOfExplosion = 75;
         explodeBoard.radiusOfExplosion = 5;
 
         GenerateGrid();
+        isDoneWithPG = true;
     }
+
+    
 
     // Update is called once per frame
     void Update()

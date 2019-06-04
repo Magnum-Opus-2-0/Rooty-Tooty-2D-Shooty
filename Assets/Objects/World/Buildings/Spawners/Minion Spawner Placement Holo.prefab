@@ -31,21 +31,6 @@ MonoBehaviour:
   plasticCost: 5
   validColor: {r: 1.727749, g: 1.727749, b: 1.727749, a: 0.1}
   invalidColor: {r: 255, g: 0, b: 0, a: 0.1}
---- !u!166 &882006094133721183
-AudioChorusFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2809375556795843389}
-  m_Enabled: 1
-  m_DryMix: 0.5
-  m_WetMix1: 0.5
-  m_WetMix2: 0.5
-  m_WetMix3: 0.5
-  m_Delay: 40
-  m_Rate: 0.8
-  m_Depth: 0.03
 --- !u!1001 &2575496104533639891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57,6 +42,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Minion Spawner Placement Holo
+      objectReference: {fileID: 0}
+    - target: {fileID: 798149820981973413, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: explodeScript
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8882353269095666517, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
@@ -113,26 +103,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4069446647258226623, guid: d57a2be6f26094e869270958fd79719d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2297311701557987714, guid: d57a2be6f26094e869270958fd79719d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 798149820981973413, guid: d57a2be6f26094e869270958fd79719d,
-        type: 3}
-      propertyPath: explodeScript
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3538510982326883634, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
+    - target: {fileID: 4069446647258226623, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4591418527845138755, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -143,6 +123,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 01431a469dc6a32448ee53482eddbde1, type: 2}
+    - target: {fileID: 2297311701557987714, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 848360604338368913, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -195,6 +180,7 @@ PrefabInstance:
     - {fileID: 6163503292560256293, guid: d57a2be6f26094e869270958fd79719d, type: 3}
     - {fileID: 8758363994593774018, guid: d57a2be6f26094e869270958fd79719d, type: 3}
     - {fileID: 7875892742130323235, guid: d57a2be6f26094e869270958fd79719d, type: 3}
+    - {fileID: 4351609698275047106, guid: d57a2be6f26094e869270958fd79719d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d57a2be6f26094e869270958fd79719d, type: 3}
 --- !u!1 &2809375556795843389 stripped
 GameObject:

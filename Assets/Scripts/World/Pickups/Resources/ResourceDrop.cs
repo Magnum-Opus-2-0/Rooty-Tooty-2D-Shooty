@@ -24,6 +24,9 @@ public class ResourceDrop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (healthBehave == null)
+            Debug.LogError("healthBehave is null, object with ResourceDrop is " + this.gameObject.name);
+
         if (!healthBehave.isNotDead() && !died)
         {
             switch (this.gameObject.tag)
@@ -31,6 +34,10 @@ public class ResourceDrop : MonoBehaviour
                 case "P1_Soldier":
                 case "P2_Soldier":
                     DropResources(ResourceType.Plastic, 1);
+                    break;
+                case "P1_Spawner":
+                case "P2_Spawner":
+                    DropResources(ResourceType.Plastic, 2);
                     break;
                 case "P1_Teddy":
                 case "P2_Teddy":
@@ -69,16 +76,26 @@ public class ResourceDrop : MonoBehaviour
                     resource = Instantiate(plastics[randomNum],
                         this.transform.position,
                         Quaternion.identity);
+                    Debug.Log("Instantiated " + resource.name);
                     break;
             }
 
-            resource.transform.parent = resourceFondler.transform;
+            if (resourceFondler != null)
+            {
+                Debug.Log("putting" + resource.name + " into " + resourceFondler.name);
+                resource.transform.parent = resourceFondler.transform;
+            }
+            else
+                Debug.LogError("Resource Fondler not found in hierarchy");
 
-            if (GetComponent<ExplodeBehavior>() != null)
+            if (GetComponent<ExplodeBehavior>() != null && resource != null)
+            {
                 GetComponent<ExplodeBehavior>().AddPiece(resource);
+                Debug.Log("adding" + resource.name + " to explosion set");
+            }
             else
                 Debug.LogError(this.name + " doesn't have an " +
-                    "ExplodeBehavior script attachedbut should");
+                    "ExplodeBehavior script attached ut should");
         }
 
         this.GetComponent<ExplodeBehavior>().Explode();

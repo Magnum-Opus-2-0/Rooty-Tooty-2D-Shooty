@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEditor;
 
 public class ExplodeBehavior : MonoBehaviour {
 
@@ -158,6 +159,9 @@ public class ExplodeBehavior : MonoBehaviour {
                     pieces[i].transform.position + getOffsetErratic(r),
                     radiusOfExplosion, 0.0f, ForceMode.Impulse);
             }
+
+            //Debug.Log("looping through piece " + pieces[i].name);
+            //UnityEditor.EditorApplication.isPaused = true;
         }
 
         // Only play the explosion system if one was added. Not everything will
@@ -165,7 +169,7 @@ public class ExplodeBehavior : MonoBehaviour {
         if (efc)
         {
             efc.Play(); 
-       }
+        }
         
         exploded = true;
 
@@ -291,6 +295,8 @@ public class ExplodeBehavior : MonoBehaviour {
     /// <param name="piece">Piece.</param>
     public void AddPiece(GameObject piece)
     {
+        Assert.IsTrue(piece != null);
+
         pieces.Add(piece);
         originalPositions.Add(piece.transform.position);
         originalRotations.Add(piece.transform.rotation);

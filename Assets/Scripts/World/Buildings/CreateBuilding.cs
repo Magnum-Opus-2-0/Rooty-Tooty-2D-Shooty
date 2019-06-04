@@ -68,7 +68,7 @@ public class CreateBuilding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isValid && !(col.gameObject.activeInHierarchy)){
+        if(!isValid && col != null && !(col.gameObject.activeInHierarchy)){
             isValid = true;
         }
         hasEnough = checkResources();
