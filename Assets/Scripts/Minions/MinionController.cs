@@ -240,7 +240,7 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
 
     public virtual void Recycle()
     {
-        health.setHealth(maxHealth);
+        health.setHealth(health.maxHealth);
         State = MinionStates.Move;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX
             | RigidbodyConstraints.FreezeRotationZ;

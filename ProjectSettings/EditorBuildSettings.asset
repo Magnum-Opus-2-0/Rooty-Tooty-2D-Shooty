@@ -20,16 +20,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/03_GameOver.unity
     guid: 4b2d444b1a3cb234b83faafc7a66bf58
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/00_Michael_Test.unity
     guid: d381740d071af488e9f757d3f384f8d7
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/00_Andrew_Test.unity
     guid: 1ea7f94f904e5411abdabeb6cbe1354e
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/00_Ryan_Test.unity
     guid: b842a4c0e68e88741b7bc07ccab3f685
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/00_Ross_Test.unity
     guid: 71e1e1b63d1278142974ee372dd46500
   m_configObjects: {}

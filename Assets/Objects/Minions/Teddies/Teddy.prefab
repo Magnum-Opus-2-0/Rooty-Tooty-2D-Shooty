@@ -113,7 +113,7 @@ MonoBehaviour:
   doNavMeshDemo: 1
   useMouseControls: 0
   timeBetweenAttacks: 5
-  attackDamage: 10
+  attackDamage: 15
   smashEffect: {fileID: 8517039779814523700}
 --- !u!114 &6779986969198507459
 MonoBehaviour:
@@ -150,8 +150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 2920679139572243006}
   explodeScript: {fileID: 2659147433450395014}
-  maxHealth: 30
-  currentHealth: 30
+  maxHealth: 50
+  currentHealth: 50
   doPoisonDemo: 0
   health_icon: {fileID: 2920679139572221792}
   respawn_background: {fileID: 2920679139572269760}
@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a794384a98e241e46a3c093186ae91ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  efc: {fileID: 0}
   doExplosionDemo: 0
   forceOfExplosion: 0
   radiusOfExplosion: 0
@@ -225,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c647290bead14f0d8b9187156d995ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hb: {fileID: 7101325877658895785}
+  healthBehave: {fileID: 0}
   fluffs:
   - {fileID: 1027915150948817678, guid: 9c14c0ad6720149e0ba541522b323cfc, type: 3}
   - {fileID: 8090947328815732461, guid: a0f7250490db74c64b31474aedab8c2f, type: 3}

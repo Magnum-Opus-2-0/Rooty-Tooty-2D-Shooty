@@ -39,8 +39,8 @@ MonoBehaviour:
   - {fileID: 3459363683479174758}
   isP1Obj: 0
   tc: {fileID: 0}
-  fluffCost: 0
-  plasticCost: 0
+  fluffCost: 2
+  plasticCost: 4
   validColor: {r: 2, g: 2, b: 2, a: 0.1}
   invalidColor: {r: 255, g: 0, b: 0, a: 0.1}
 --- !u!1001 &8640342663391322681

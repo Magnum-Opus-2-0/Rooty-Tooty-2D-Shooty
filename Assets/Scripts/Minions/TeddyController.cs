@@ -72,6 +72,7 @@ public class TeddyController : MinionController
     {
         base.Recycle();
         dieOnce = true;
+        anim.SetTrigger("Recycle");
     }
 
     /// <summary>
@@ -83,5 +84,10 @@ public class TeddyController : MinionController
     {
         yield return new WaitForSeconds(DEATH_ANIM_LEN);
         gameObject.SetActive(false);
+    }
+
+    public void StartSinking()
+    {
+
     }
 }

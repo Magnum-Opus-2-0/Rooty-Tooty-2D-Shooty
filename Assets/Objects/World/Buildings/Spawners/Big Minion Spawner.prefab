@@ -74,7 +74,7 @@ MonoBehaviour:
   - {fileID: 4446498221988301719}
   - {fileID: 4493423308352978018}
   - {fileID: 9090791162502614233}
-  timeBetweenBatches: 30
+  timeBetweenBatches: 15
   timeBetweenMinions: 1
   maxMinions: 3
   minionsPerBatch: 1
