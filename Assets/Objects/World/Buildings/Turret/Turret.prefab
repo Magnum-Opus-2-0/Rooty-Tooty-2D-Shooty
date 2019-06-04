@@ -790,7 +790,7 @@ MonoBehaviour:
   barrel_right: {fileID: 2951986887510395517}
   barrel_left: {fileID: 1383820346603905986}
   orb: {fileID: 619837385057092124}
-  waitTime: 3
+  waitTime: 1
   aimSpeed: 6
   timeStep: 0.1
   coolDown: 0.66667
