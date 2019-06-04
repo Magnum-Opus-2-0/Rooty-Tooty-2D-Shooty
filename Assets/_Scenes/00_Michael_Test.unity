@@ -224,16 +224,6 @@ PrefabInstance:
       propertyPath: bulletFondler
       value: 
       objectReference: {fileID: 904337220}
-    - target: {fileID: 6355854459110127413, guid: b416b72df150e488a918a43d9d34a1a1,
-        type: 3}
-      propertyPath: m_Mass
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6355854459110127413, guid: b416b72df150e488a918a43d9d34a1a1,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 6267188069745566198, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
       propertyPath: shootScript
@@ -1073,21 +1063,6 @@ PrefabInstance:
       propertyPath: bulletFondler
       value: 
       objectReference: {fileID: 963857037}
-    - target: {fileID: 5172837263814224749, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: m_Mass
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5172837263814224749, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 5172837263814224749, guid: 3cf045c0ebafa2e468fe89884017d837,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1703152455387165959, guid: 3cf045c0ebafa2e468fe89884017d837,
         type: 3}
       propertyPath: driveMode

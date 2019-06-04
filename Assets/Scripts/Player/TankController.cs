@@ -434,18 +434,18 @@ public class TankController : MonoBehaviour
         {
             if (y > 0)
             {
-                rb.AddTorque(0, turnSpeed, 0, ForceMode.VelocityChange);
+                rb.AddTorque(0, dir * turnSpeed, 0, ForceMode.VelocityChange);
             }
             else
             {
-                rb.AddTorque(0, -turnSpeed, 0, ForceMode.VelocityChange);
+                rb.AddTorque(0, dir * -turnSpeed, 0, ForceMode.VelocityChange);
             }
         } 
         else
         {
             if (Vector3.Dot(transform.forward, stickInput.normalized) < 0)
             {
-                rb.AddTorque(0, turnSpeed, 0, ForceMode.VelocityChange);
+                rb.AddTorque(0, dir * turnSpeed, 0, ForceMode.VelocityChange);
             }
         }
 
@@ -512,7 +512,7 @@ public class TankController : MonoBehaviour
 
         /* Added this in an attempt to prevent wall climbing  */
         var pos = transform.position;
-        pos.y =  Mathf.Clamp(transform.position.y, 0.0f, 0.2f);
+        pos.y =  Mathf.Clamp(transform.position.y, 0.0f, 0.02f);
         transform.position = pos;
     }
 
