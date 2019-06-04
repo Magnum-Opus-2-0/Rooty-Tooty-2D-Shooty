@@ -6,6 +6,8 @@ public class MinionObjectPooler<T> : RestrictedObjectPooler<T> where T : MinionC
 {
     private static Transform master_minion_fondler;
 
+    private int fondlerCount;
+
     private GameObject bulletFondler;
     public GameObject BulletFondler
     {
@@ -29,15 +31,17 @@ public class MinionObjectPooler<T> : RestrictedObjectPooler<T> where T : MinionC
         }
 
         BulletFondler = bulletFondler;
+        fondlerCount = 0;
     }
 
     public override T Request(Vector3 at, Quaternion dir)
     {
         T obj = base.Request(at, dir);
         // We want to see just instantiated a new object with the base.Request
-        if ((GetNumInstantiated() - 1) < maxAllowed)
+        if (fondlerCount++ < maxAllowed)
         {
-            InstantiateBulletFondler(obj.gameObject, " (" + PrevID + ")");
+            GameObject t = obj.gameObject;
+            InstantiateBulletFondler(t, " (" + PrevID + ")");
         }
 
         return obj;

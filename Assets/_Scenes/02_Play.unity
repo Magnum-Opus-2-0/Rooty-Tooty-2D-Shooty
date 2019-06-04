@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.2
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37147075, g: 0.39187944, b: 0.40338978, a: 0.2}
+  m_IndirectSpecularColor: {r: 0.37145963, g: 0.3919365, b: 0.40339306, a: 0.2}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -929,6 +929,11 @@ PrefabInstance:
         type: 3}
       propertyPath: steerMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603424915155331423, guid: b416b72df150e488a918a43d9d34a1a1,
+        type: 3}
+      propertyPath: driveMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4635961399252808729, guid: b416b72df150e488a918a43d9d34a1a1,
         type: 3}
