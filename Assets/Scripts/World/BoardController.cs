@@ -340,7 +340,7 @@ public class BoardController : MonoBehaviour
                     {
                         resource = Instantiate(
                             fluff[Random.Range(0, 4)],
-                            new Vector3(t.location.x, 0.2f, t.location.y),
+                            new Vector3(t.location.x, 0.3f, t.location.y),
                             Quaternion.identity);
 
                         fluffs.Add(resource);
@@ -354,7 +354,7 @@ public class BoardController : MonoBehaviour
                     {
                         resource = Instantiate(
                             plastic[Random.Range(0, 4)],
-                            new Vector3(t.location.x, 0.2f, t.location.y),
+                            new Vector3(t.location.x, 0.3f, t.location.y),
                             Quaternion.identity);
 
                         plastics.Add(resource);

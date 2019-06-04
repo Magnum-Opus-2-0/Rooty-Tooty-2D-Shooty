@@ -8,6 +8,7 @@ public class ResourceController : PickupController
     public ResourceType resourceType = ResourceType.None;
     public int minAmount;
     public int maxAmount;
+    private Vector3 tempPos;
 
     private int amount;
     public int Amount
@@ -23,6 +24,13 @@ public class ResourceController : PickupController
     {
         amount = Random.Range(minAmount, maxAmount + 1); //Max is exclusive
         boardControl = GameObject.Find("Board").GetComponent<BoardController>();
+        tempPos = new Vector3();
+    }
+
+    void Update()
+    {
+        tempPos.Set(transform.position.x, Mathf.Clamp(transform.position.y, 0, int.MaxValue), transform.position.z);
+        this.transform.position = tempPos;
     }
 
     /// <summary>

@@ -34,7 +34,8 @@ public class CheatManager : MonoBehaviour
 
     private AudioClip backup1;
     private AudioClip backup2;
-    
+
+    private AudioSource soundFondler;
 
 
 
@@ -57,6 +58,8 @@ public class CheatManager : MonoBehaviour
     private void Start() {
 
         buffer = "";
+        GameObject soundFondlerGO = GameObject.Find("Sound Fondler");
+        soundFondler = (soundFondlerGO == null ? null : soundFondlerGO.GetComponent<AudioSource>());
 
         no_i = 0;
         no_enabled = false;
@@ -117,6 +120,9 @@ public class CheatManager : MonoBehaviour
             successfulCheat = true;
             player1Tank.transform.localScale *= 0.5f;
             player2Tank.transform.localScale *= 0.5f;
+
+            if (soundFondler != null)
+                soundFondler.pitch += 0.1f;
         }
 
         else if (containsAtEnd("jumbo")) {
@@ -124,6 +130,9 @@ public class CheatManager : MonoBehaviour
             successfulCheat = true;
             player1Tank.transform.localScale *= 1.5f;
             player2Tank.transform.localScale *= 1.5f;
+
+            if (soundFondler != null)
+                soundFondler.pitch -= 0.1f;
         }
 
         else if (containsAtEnd("win1") || containsAtEnd("lose2")) {
