@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HealthBehavior : MonoBehaviour
 {
-    private TagManager taggyboi = new TagManager();
+    private static TagManager taggyboi = new TagManager();
 
     public SimpleHealthBar healthBar;
     public ExplodeBehavior explodeScript;

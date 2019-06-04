@@ -10,7 +10,6 @@ public class CreateBuilding : MonoBehaviour
     public const string PREFIX_P2 = "P2_";
     public const string TAG_SPAWNER = "Spawner";
 
-
     // Start is called before the first frame update
     public GameObject p1_prefab;
     public GameObject p2_prefab;
@@ -23,8 +22,7 @@ public class CreateBuilding : MonoBehaviour
     public static Transform master_minion_fondler;
 
     private static bool findFondlerOnce = true;
-
-
+    private static TagManager taggyboi = new TagManager();
 
 
     public GameObject[] parts;
@@ -91,14 +89,14 @@ public class CreateBuilding : MonoBehaviour
         if(isValid && hasEnough){
             if(isP1Obj){
                 temp = Instantiate(p1_prefab, this.transform.position, Quaternion.identity);
-                if (temp.tag ==  PREFIX_P1 + TAG_SPAWNER)
+                if (taggyboi.isSpawner(temp.tag))
                 {
                     InstantiateMinionFondler(temp, "P1");
                 }
             }
             else{
                 temp = Instantiate(p2_prefab, this.transform.position, Quaternion.identity);
-                if (temp.tag == PREFIX_P2 + TAG_SPAWNER)
+                if (taggyboi.isSpawner(temp.tag))
                 {
                     InstantiateMinionFondler(temp, "P2");
                 }

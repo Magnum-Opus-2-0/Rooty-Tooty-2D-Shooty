@@ -13,7 +13,7 @@ public class HealsBuildingController : BuildingController
     public int healRate;
     public float healRadius;
 
-    private TagManager taggyBoi;
+    private static TagManager taggyBoi = new TagManager();
     private HashSet<GameObject> healables;
 
     private float t;
@@ -21,8 +21,6 @@ public class HealsBuildingController : BuildingController
     protected override void Awake()
     {
         base.Awake();
-
-        taggyBoi = new TagManager();
         healables = new HashSet<GameObject>();
 
         t = 0.0f;
