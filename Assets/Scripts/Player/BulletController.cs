@@ -53,6 +53,8 @@ public class BulletController : MonoBehaviour
                 break;
             case "P1_Base":
             case "P1_Spawner":
+            case "P1_Spawner_Soldier":
+            case "P1_Spawner_Teddy":
             case "P1_Turret":
             case "P1_Healer":
             case "P1_Soldier":
@@ -69,6 +71,8 @@ public class BulletController : MonoBehaviour
                 break;
             case "P2_Base":
             case "P2_Spawner":
+            case "P2_Spawner_Soldier":
+            case "P2_Spawner_Teddy":
             case "P2_Turret":
             case "P2_Healer":
             case "P2_Soldier":

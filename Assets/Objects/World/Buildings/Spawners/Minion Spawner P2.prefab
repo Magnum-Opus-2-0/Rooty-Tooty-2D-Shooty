@@ -111,7 +111,7 @@ PrefabInstance:
     - target: {fileID: 379120545345176046, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_TagString
-      value: P2_Spawner
+      value: P2_Spawner_Soldier
       objectReference: {fileID: 0}
     - target: {fileID: 379120545345176046, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
@@ -299,16 +299,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 2481775251360453818, guid: d57a2be6f26094e869270958fd79719d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a04a301b4cc5f4e8bbe142014be5bfee, type: 2}
-    - target: {fileID: 2126683883855537045, guid: d57a2be6f26094e869270958fd79719d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a04a301b4cc5f4e8bbe142014be5bfee, type: 2}
     - target: {fileID: 589774356390614101, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_TagString
@@ -319,6 +309,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 2481775251360453818, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a04a301b4cc5f4e8bbe142014be5bfee, type: 2}
+    - target: {fileID: 2126683883855537045, guid: d57a2be6f26094e869270958fd79719d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a04a301b4cc5f4e8bbe142014be5bfee, type: 2}
     - target: {fileID: 6496117687222769320, guid: d57a2be6f26094e869270958fd79719d,
         type: 3}
       propertyPath: m_TagString

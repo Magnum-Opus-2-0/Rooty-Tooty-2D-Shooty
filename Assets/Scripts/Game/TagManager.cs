@@ -46,6 +46,12 @@ public class TagManager
             || s == "P2_Soldier";
     }
 
+    public bool isSpawner(string s)
+    {
+        return s == "P1_Spawner_Soldier" || s == "P1_Spawner_Teddy"
+            || s == "P2_Spawner_Soldier" || s == "P2_Spawner_Teddy";
+    }
+
     public bool isStructure(string s) {
 
         return structures.Contains(s);
@@ -82,6 +88,8 @@ public class TagManager
         p1Tags.Add("P1_Turret");
         p1Tags.Add("P1_Healer");
         p1Tags.Add("P1_Teddy");
+        p1Tags.Add("P1_Spawner_Soldier");
+        p1Tags.Add("P1_Spawner_Teddy");
         #endregion
 
         #region Player 2 tags
@@ -114,6 +122,10 @@ public class TagManager
         shootables.Add("P2_Teddy");
         shootables.Add("P1_Base");
         shootables.Add("P2_Base");
+        shootables.Add("P1_Spawner_Soldier");
+        shootables.Add("P1_Spawner_Teddy");
+        shootables.Add("P2_Spawner_Soldier");
+        shootables.Add("P2_Spawner_Teddy");
 
 
         #endregion
@@ -128,6 +140,10 @@ public class TagManager
         structures.Add("P2_Healer");
         structures.Add("P1_Base");
         structures.Add("P2_Base");
+        shootables.Add("P1_Spawner_Soldier");
+        shootables.Add("P1_Spawner_Teddy");
+        shootables.Add("P2_Spawner_Soldier");
+        shootables.Add("P2_Spawner_Teddy");
 
         #endregion
 

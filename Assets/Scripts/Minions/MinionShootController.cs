@@ -81,6 +81,10 @@ public class MinionShootController : NPCShootController
         priorities.Add("P2_Base", 3);
         priorities.Add("P1_Spawner", 3);
         priorities.Add("P2_Spawner", 3);
+        priorities.Add("P1_Spawner_Soldier", 3);
+        priorities.Add("P2_Spawner_Soldier", 3);
+        priorities.Add("P1_Spawner_Teddy", 3);
+        priorities.Add("P2_Spawner_Teddy", 3);
         priorities.Add("P1_Turret", 3);
         priorities.Add("P2_Turret", 3);
         priorities.Add("P1_Healer", 3);

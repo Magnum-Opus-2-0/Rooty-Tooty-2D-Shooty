@@ -117,6 +117,10 @@ public class TurretShootController : NPCShootController
         priorities.Add("P2_Base", 5);
         priorities.Add("P1_Spawner", 5);
         priorities.Add("P2_Spawner", 5);
+        priorities.Add("P1_Spawner_Soldier", 5);
+        priorities.Add("P2_Spawner_Soldier", 5);
+        priorities.Add("P1_Spawner_Teddy", 5);
+        priorities.Add("P2_Spawner_Teddy", 5);
         priorities.Add("P1_Turret", 4);
         priorities.Add("P2_Turret", 4);
         priorities.Add("P1_Healer", 5);

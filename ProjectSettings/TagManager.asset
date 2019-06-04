@@ -37,6 +37,10 @@ TagManager:
   - P2_Soldier
   - Board
   - Resource_Fondler
+  - P1_Spawner_Soldier
+  - P2_Spawner_Soldier
+  - P1_Spawner_Teddy
+  - P2_Spawner_Teddy
   layers:
   - Default
   - TransparentFX
