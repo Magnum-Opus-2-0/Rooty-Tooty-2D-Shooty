@@ -242,6 +242,7 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
         State = MinionStates.Move;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX
             | RigidbodyConstraints.FreezeRotationZ;
+        GetComponent<NavMeshAgent>().enabled = true;
     }
 
     public void SetAttack() {

@@ -93,6 +93,8 @@ public class SoldierController : MinionController
 
     public override void Die()
     {
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
         StartCoroutine(WaitUp(dieTime));
     }
 

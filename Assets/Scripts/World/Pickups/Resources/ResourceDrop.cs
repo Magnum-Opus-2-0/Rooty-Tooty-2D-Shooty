@@ -82,7 +82,7 @@ public class ResourceDrop : MonoBehaviour
 
             if (resourceFondler != null)
             {
-                Debug.Log("putting" + resource.name + " into " + resourceFondler.name);
+                //Debug.Log("putting" + resource.name + " into " + resourceFondler.name);
                 resource.transform.parent = resourceFondler.transform;
             }
             else
@@ -91,11 +91,11 @@ public class ResourceDrop : MonoBehaviour
             if (GetComponent<ExplodeBehavior>() != null && resource != null)
             {
                 GetComponent<ExplodeBehavior>().AddPiece(resource);
-                Debug.Log("adding" + resource.name + " to explosion set");
+                //Debug.Log("adding" + resource.name + " to explosion set");
             }
             else
-                Debug.LogError(this.name + " doesn't have an " +
-                    "ExplodeBehavior script attached ut should");
+                Debug.LogError(this.name + " doesn't have an " + 
+                    "ExplodeBehavior script attached but should");
         }
 
         this.GetComponent<ExplodeBehavior>().Explode();
