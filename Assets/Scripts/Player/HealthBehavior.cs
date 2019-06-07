@@ -181,13 +181,12 @@ public class HealthBehavior : MonoBehaviour
     public bool setHealth(int value)
     {
 
-        if (value == currentHealth) return false;
-
-        if (value > maxHealth || value < 0) return false;
+        if (value == currentHealth || value < 0) return false;
 
 
 
-        currentHealth = value;
+
+        currentHealth = (value <= maxHealth ? value : maxHealth);
         updateHealthBar();
 
         return true;

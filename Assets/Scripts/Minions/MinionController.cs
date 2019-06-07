@@ -40,7 +40,7 @@ public abstract class MinionController : MonoBehaviour, IRecyclable
     /// The time we wait between target searches. It's probably a bad idea to be
     /// calling <see cref="Physics.OverlapSphere"/> every frame.
     /// </summary>
-    protected const float TIME_BETWEEN_SEARCHES = .25f;
+    protected const float TIME_BETWEEN_SEARCHES = .1f;
 
     #region STATE_MEMBERS
     private MinionStates state;
