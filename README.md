@@ -1,7 +1,7 @@
 # Rooty Tooty 2D Shooty
 This childhood throwback combines elements from RTS and top down shooters to create a fast pace 1v1 experience for the whole family. Grab your controller and jump right in to Rooty Tooty 2D Shooty!
 
-![image](https://github.com/Magnum-Opus-2-0/Rooty-Tooty-2D-Shooty/blob/RyanVillena/update-readme-images/README_images/starting_at_base.png?raw=true)
+![title_screen](https://github.com/Magnum-Opus-2-0/Rooty-Tooty-2D-Shooty/blob/RyanVillena/update-readme-images/images_README/title_screen.png?raw=true)
 
 ## Gameplay
 Players start off on opposite corners of a procedurally generated map. When the game begins, both players drive their tank to collect Fluff and Plastic resources. They use these resources to build offensive and defensive buildings anywhere on the map. Just because a player is blown up doesn't mean they're out of the game! A player wins by destroying the other's home base.
@@ -26,3 +26,16 @@ All team members contributed equally to the development of RT2S.
 * [Andrew Lvovsky](https://github.com/borninla)
 * [Ross McGuyer](https://github.com/RAMcGuyer)
 * [Ryan Villena](https://github.com/RyanVillenaUCR)
+
+## Screenshots
+
+![starting_at_base](https://github.com/Magnum-Opus-2-0/Rooty-Tooty-2D-Shooty/blob/RyanVillena/update-readme-images/images_README/starting_at_base.png?raw=true)
+
+![action_shot](https://github.com/Magnum-Opus-2-0/Rooty-Tooty-2D-Shooty/blob/RyanVillena/update-readme-images/images_README/action_shot.png?raw=true)
+
+![death_and_building](https://github.com/Magnum-Opus-2-0/Rooty-Tooty-2D-Shooty/blob/RyanVillena/update-readme-images/images_README/death_and_building.png?raw=true)
+
+![minions_approaching_base](https://github.com/Magnum-Opus-2-0/Rooty-Tooty-2D-Shooty/blob/RyanVillena/update-readme-images/images_README/minions_approaching_base.png?raw=true)
+
+![victory_screen](https://github.com/Magnum-Opus-2-0/Rooty-Tooty-2D-Shooty/blob/RyanVillena/update-readme-images/images_README/victory_screen.png?raw=true)
+
