@@ -1,5 +1,5 @@
 # Rooty Tooty 2D Shooty
-This childhood throwback combines elements from RTS and top down shooters to create a fast pace 1v1 experience for the whole family. Grab your controller and jump right in to Rooty Tooty 2D Shooty!
+This childhood throwback combines elements from RTS, roguelikes, and top down shooters to create a fast pace 1v1 experience for the whole family. Grab your controller and jump right in to Rooty Tooty 2D Shooty!
 
 ![title_screen](https://github.com/Magnum-Opus-2-0/Rooty-Tooty-2D-Shooty/blob/RyanVillena/update-readme-images/images_README/title_screen.png?raw=true)
 
