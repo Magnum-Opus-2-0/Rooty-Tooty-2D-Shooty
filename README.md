@@ -1,6 +1,7 @@
 # Rooty Tooty 2D Shooty
 This childhood throwback combines elements from RTS and top down shooters to create a fast pace 1v1 experience for the whole family. Grab your controller and jump right in to Rooty Tooty 2D Shooty!
 
+
 ## Gameplay
 Players start off on opposite corners of a procedurally generated map. When the game begins, both players drive their tank to collect Fluff and Plastic resources. They use these resources to build offensive and defensive buildings anywhere on the map. Just because a player is blown up doesn't mean they're out of the game! A player wins by destroying the other's home base.
 
