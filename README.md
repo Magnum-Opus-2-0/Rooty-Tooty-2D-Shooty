@@ -30,12 +30,18 @@ All team members contributed equally to the development of RT2S.
 ## Screenshots
 
 ![starting_at_base](https://github.com/Magnum-Opus-2-0/Rooty-Tooty-2D-Shooty/blob/RyanVillena/update-readme-images/images_README/starting_at_base.png?raw=true)
+*Players always start at opposite ends of the map.*
 
 ![action_shot](https://github.com/Magnum-Opus-2-0/Rooty-Tooty-2D-Shooty/blob/RyanVillena/update-readme-images/images_README/action_shot.png?raw=true)
+*Players have unlimited ammo, so FIRE!!!*
 
 ![death_and_building](https://github.com/Magnum-Opus-2-0/Rooty-Tooty-2D-Shooty/blob/RyanVillena/update-readme-images/images_README/death_and_building.png?raw=true)
+*Upon killing Player 2, Player 1 takes the opportunity to construct an ARMY GUYS structure.*
 
 ![minions_approaching_base](https://github.com/Magnum-Opus-2-0/Rooty-Tooty-2D-Shooty/blob/RyanVillena/update-readme-images/images_README/minions_approaching_base.png?raw=true)
+*Player 1 is on the march.*
 
 ![victory_screen](https://github.com/Magnum-Opus-2-0/Rooty-Tooty-2D-Shooty/blob/RyanVillena/update-readme-images/images_README/victory_screen.png?raw=true)
+*Victory!*
+
 
